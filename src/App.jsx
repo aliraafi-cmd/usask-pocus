@@ -208,7 +208,7 @@ const modules = [
           
           { 
             type: 'video', 
-            url: "/videos/lus-right-z4-plueraleffusion.mp4", // New video added here
+            url: "/videos/lus-right-z4-plueraleffusion.mp4", 
             caption: "Positive Scan: Pleural effusion with spine sign, solid lung floating, and lateral diaphragm visualized."
           },
 
@@ -228,7 +228,7 @@ const modules = [
           },
           { 
             type: 'video', 
-            url: "/videos/lus-right-z4-fan.mp4", // Moved here from Technique
+            url: "/videos/lus-right-z4-fan.mp4",
             caption: "Technique: Fanning through the medial diaphragm."
           },
           { type: 'list', items: [
@@ -386,7 +386,9 @@ export default function USaskPocusApp() {
     setCurrentView('module');
     setSidebarOpen(false);
     
-    // Update Browser URL without reloading
+    // Reset any phantom scroll positions
+    window.scrollTo(0, 0);
+    
     try {
       const newUrl = `?module=${id}`;
       window.history.pushState({ view: 'module', id }, '', newUrl);
@@ -400,9 +402,13 @@ export default function USaskPocusApp() {
     setActiveModuleId(null);
     setSidebarOpen(false);
     
-    // Reset Browser URL
+    // Scroll entire page to top
+    window.scrollTo(0, 0);
+    
     try {
-      window.history.pushState({ view: 'dashboard' }, '', window.location.pathname);
+      // Aggressive URL clearing
+      const cleanUrl = window.location.pathname;
+      window.history.pushState({ view: 'dashboard' }, '', cleanUrl);
     } catch (e) {
       console.log('History API unavailable in preview');
     }
@@ -459,16 +465,17 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-${mod.color}-400 transition-all text-left group flex flex-col h-full relative overflow-hidden`}
+                  // CRITICAL FIX: lg:group-hover only applies on Large screens. No mobile hover!
+                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md lg:hover:border-${mod.color}-400 transition-all text-left group flex flex-col h-full relative overflow-hidden`}
                 >
-                  <div className={`w-12 h-12 rounded-xl bg-${mod.color}-50 flex items-center justify-center text-${mod.color}-700 mb-4 group-hover:scale-110 transition-transform`}>
+                  <div className={`w-12 h-12 rounded-xl bg-${mod.color}-50 flex items-center justify-center text-${mod.color}-700 mb-4 lg:group-hover:scale-110 transition-transform`}>
                     <mod.icon size={24} />
                   </div>
                   <h3 className="text-lg font-bold text-slate-800 mb-2">{mod.title}</h3>
                   <p className="text-sm text-slate-500 mb-6 flex-grow">{mod.description}</p>
                   
                   <div className={`flex items-center text-${mod.color}-700 text-sm font-bold mt-auto`}>
-                    Start Module <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                    Start Module <ArrowRight size={16} className="ml-2 transition-transform lg:group-hover:translate-x-1" />
                   </div>
                 </button>
               ))}
@@ -477,7 +484,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.14</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.16</p>
         </footer>
       </div>
     );
