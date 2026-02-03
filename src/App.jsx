@@ -275,11 +275,8 @@ const ContentBlock = ({ item, color }) => {
   switch (item.type) {
     case 'header':
       return <h4 className={`font-bold text-${color}-800 mt-4 mb-2 text-lg`}>{item.text}</h4>;
-    
-    // SUBHEADER (Small, Black, Bold - Consistent Style)
     case 'subheader':
       return <h4 className="font-bold text-slate-900 mt-3 mb-1 text-sm uppercase tracking-wide">{item.text}</h4>;
-
     case 'bold':
       return <p className="font-bold text-slate-800 mt-2">{item.text}</p>;
     case 'info':
@@ -296,8 +293,6 @@ const ContentBlock = ({ item, color }) => {
       );
     case 'divider':
       return <hr className="my-6 border-slate-200" />;
-    
-    // VIDEO COMPONENT
     case 'video':
       return (
         <div className="my-4 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
@@ -319,7 +314,6 @@ const ContentBlock = ({ item, color }) => {
           )}
         </div>
       );
-
     default:
       return <p className="text-slate-600 leading-relaxed my-2 text-sm">{item.text}</p>;
   }
@@ -349,7 +343,6 @@ const SectionCard = ({ section }) => {
 // --- MAIN APP COMPONENT ---
 
 export default function USaskPocusApp() {
-  // INITIALIZATION: Check URL for module ID to enable Deep Linking
   const [currentView, setCurrentView] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -369,31 +362,29 @@ export default function USaskPocusApp() {
   });
 
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const scrollRef = useRef(null); // Ref for scroll container
+  const scrollRef = useRef(null);
 
   const activeModule = modules.find(m => m.id === activeModuleId);
 
-  // SCROLL TO TOP EFFECT: Whenever module changes, reset scroll
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo(0, 0);
     }
   }, [activeModuleId]);
 
-  // NAVIGATION HANDLERS WITH HISTORY
   const openModule = (id) => {
     setActiveModuleId(id);
     setCurrentView('module');
     setSidebarOpen(false);
     
-    // Reset any phantom scroll positions
+    // Hard reset scroll on navigation
     window.scrollTo(0, 0);
     
     try {
       const newUrl = `?module=${id}`;
       window.history.pushState({ view: 'module', id }, '', newUrl);
     } catch (e) {
-      console.log('History API unavailable in preview');
+      console.log('History API unavailable');
     }
   };
 
@@ -402,7 +393,7 @@ export default function USaskPocusApp() {
     setActiveModuleId(null);
     setSidebarOpen(false);
     
-    // Scroll entire page to top
+    // Hard reset scroll on navigation
     window.scrollTo(0, 0);
     
     try {
@@ -410,11 +401,10 @@ export default function USaskPocusApp() {
       const cleanUrl = window.location.pathname;
       window.history.pushState({ view: 'dashboard' }, '', cleanUrl);
     } catch (e) {
-      console.log('History API unavailable in preview');
+      console.log('History API unavailable');
     }
   };
 
-  // HISTORY LISTENER: Handle Back Button
   useEffect(() => {
     const handlePopState = (event) => {
       const state = event.state;
@@ -430,7 +420,6 @@ export default function USaskPocusApp() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
-
 
   // 1. DASHBOARD VIEW
   if (currentView === 'dashboard') {
@@ -465,8 +454,9 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  // CRITICAL FIX: lg:group-hover only applies on Large screens. No mobile hover!
-                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md lg:hover:border-${mod.color}-400 transition-all text-left group flex flex-col h-full relative overflow-hidden`}
+                  // STABILITY FIX: Added touch-manipulation and z-10
+                  // Only use hover scale on large screens (lg:)
+                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 lg:hover:shadow-md lg:hover:border-${mod.color}-400 active:scale-95 transition-all text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
                 >
                   <div className={`w-12 h-12 rounded-xl bg-${mod.color}-50 flex items-center justify-center text-${mod.color}-700 mb-4 lg:group-hover:scale-110 transition-transform`}>
                     <mod.icon size={24} />
@@ -484,13 +474,13 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.16</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.17</p>
         </footer>
       </div>
     );
   }
 
-  // 2. MODULE VIEW (Dynamic Content)
+  // 2. MODULE VIEW
   return (
     <div className="flex h-screen bg-slate-50 font-sans overflow-hidden w-full">
       <aside className={`
@@ -502,7 +492,7 @@ export default function USaskPocusApp() {
           <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-emerald-300"><X size={24} /></button>
         </div>
         <nav className="p-4 flex-1 overflow-y-auto">
-          <button onClick={goHome} className="flex items-center text-emerald-100 hover:text-white mb-8 w-full">
+          <button onClick={goHome} className="flex items-center text-emerald-100 hover:text-white mb-8 w-full touch-manipulation">
             <ArrowLeft size={18} className="mr-2" /> Back to Home
           </button>
           
@@ -513,7 +503,7 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${activeModuleId === mod.id ? `bg-${mod.color}-600 text-white shadow-md` : 'text-emerald-100 hover:bg-emerald-800/50'}`}
+                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation ${activeModuleId === mod.id ? `bg-${mod.color}-600 text-white shadow-md` : 'text-emerald-100 hover:bg-emerald-800/50'}`}
                 >
                   {mod.title}
                 </button>
@@ -533,7 +523,6 @@ export default function USaskPocusApp() {
           </div>
         </header>
 
-        {/* ATTACHED REF FOR SCROLL-TO-TOP */}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
           <div className="max-w-3xl mx-auto space-y-6 pb-20">
             {activeModule && activeModule.sections ? (
