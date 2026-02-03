@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   BookOpen, 
   Menu, 
@@ -24,7 +24,7 @@ import {
   Sliders,   
   Wrench,    
   Microscope,
-  Lightbulb // Replaced ClamIcon with Lightbulb
+  Lightbulb 
 } from 'lucide-react';
 
 // --- CUSTOM ICONS ---
@@ -42,6 +42,17 @@ function LungsIcon({ size = 24, className = "" }) {
       <path d="M8 21c-3.3 0-6-3-6-7c0-4.5 4-9 6-9c2 0 2 1.5 2 3c0 1.5 0 5-2 13Z" />
       <path d="M16 21c3.3 0 6-3 6-7c0-4.5-4-9-6-9c-2 0-2 1.5-2 3c0 1.5 0 5 2 13Z" />
       <path d="M12 5v10" strokeLinecap="round" strokeDasharray="3 3" opacity="0.4" />
+    </svg>
+  );
+}
+
+function ClamIcon({ size = 24, className = "" }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M2 12s.5-7 10-7 10 7 10 7" />
+      <path d="M2 12s.5 7 10 7 10-7 10-7" />
+      <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" opacity="0.6" />
+      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2" />
     </svg>
   );
 }
@@ -182,8 +193,8 @@ const modules = [
           ]},
           { 
             type: 'video', 
-            url: "/videos/lus-right-z4-fan.mp4", 
-            caption: "Technique: Fanning through the costophrenic angle."
+            url: "/videos/lus-right-z4-ple.mp4", 
+            caption: "Technique: Pleural Effusion view prior to fanning"
           }
         ]
       },
@@ -197,8 +208,8 @@ const modules = [
           
           { 
             type: 'video', 
-            url: "/videos/lus-right-z4-ple.mp4", 
-            caption: "Positive Scan: Note the anechoic fluid above the diaphragm (Pleural Effusion)."
+            url: "/videos/lus-right-z4-plueraleffusion.mp4", // New video added here
+            caption: "Positive Scan: Pleural effusion with spine sign, solid lung floating, and lateral diaphragm visualized."
           },
 
           { type: 'list', items: [
@@ -214,6 +225,11 @@ const modules = [
             type: 'video', 
             url: "/videos/lus-right-z4-curtain.mp4", 
             caption: "Negative Scan: The 'Curtain Sign' (Aerated lung obscuring abdominal contents)."
+          },
+          { 
+            type: 'video', 
+            url: "/videos/lus-right-z4-fan.mp4", // Moved here from Technique
+            caption: "Technique: Fanning through the medial diaphragm."
           },
           { type: 'list', items: [
             "No pleural effusion after fanning entire medial diaphragm anteriorly to posteriorly.",
@@ -238,7 +254,7 @@ const modules = [
       },
       {
         title: "Pearls & Pitfalls",
-        icon: Lightbulb, // Swapped to Lightbulb
+        icon: Lightbulb, 
         color: 'sky',
         content: [
           { type: 'list', items: [
@@ -333,29 +349,87 @@ const SectionCard = ({ section }) => {
 // --- MAIN APP COMPONENT ---
 
 export default function USaskPocusApp() {
-  const [currentView, setCurrentView] = useState('dashboard');
-  const [activeModuleId, setActiveModuleId] = useState(null);
+  // INITIALIZATION: Check URL for module ID to enable Deep Linking
+  const [currentView, setCurrentView] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('module') ? 'module' : 'dashboard';
+    } catch(e) {
+      return 'dashboard';
+    }
+  });
+  
+  const [activeModuleId, setActiveModuleId] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('module') || null;
+    } catch (e) {
+      return null;
+    }
+  });
+
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const scrollRef = useRef(null); // Ref for scroll container
 
   const activeModule = modules.find(m => m.id === activeModuleId);
 
+  // SCROLL TO TOP EFFECT: Whenever module changes, reset scroll
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo(0, 0);
+    }
+  }, [activeModuleId]);
+
+  // NAVIGATION HANDLERS WITH HISTORY
   const openModule = (id) => {
     setActiveModuleId(id);
     setCurrentView('module');
     setSidebarOpen(false);
+    
+    // Update Browser URL without reloading
+    try {
+      const newUrl = `?module=${id}`;
+      window.history.pushState({ view: 'module', id }, '', newUrl);
+    } catch (e) {
+      console.log('History API unavailable in preview');
+    }
   };
 
   const goHome = () => {
     setCurrentView('dashboard');
     setActiveModuleId(null);
     setSidebarOpen(false);
+    
+    // Reset Browser URL
+    try {
+      window.history.pushState({ view: 'dashboard' }, '', window.location.pathname);
+    } catch (e) {
+      console.log('History API unavailable in preview');
+    }
   };
+
+  // HISTORY LISTENER: Handle Back Button
+  useEffect(() => {
+    const handlePopState = (event) => {
+      const state = event.state;
+      if (state && state.view === 'module') {
+        setActiveModuleId(state.id);
+        setCurrentView('module');
+      } else {
+        setCurrentView('dashboard');
+        setActiveModuleId(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
 
   // 1. DASHBOARD VIEW
   if (currentView === 'dashboard') {
     return (
       <div className="min-h-screen bg-slate-50 font-sans text-slate-800 flex flex-col w-full">
-        {/* USask Header */}
         <header className="bg-emerald-900 text-white py-10 px-6 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
             <GraduationCap size={180} />
@@ -373,7 +447,6 @@ export default function USaskPocusApp() {
           </div>
         </header>
 
-        {/* Module Grid */}
         <main className="flex-1 px-6 py-10 w-full">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center">
@@ -404,7 +477,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.12</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.14</p>
         </footer>
       </div>
     );
@@ -413,7 +486,6 @@ export default function USaskPocusApp() {
   // 2. MODULE VIEW (Dynamic Content)
   return (
     <div className="flex h-screen bg-slate-50 font-sans overflow-hidden w-full">
-      {/* Sidebar - FIXED EMERALD 900 */}
       <aside className={`
         fixed inset-y-0 left-0 z-30 w-80 bg-emerald-900 text-white transform transition-transform duration-300 ease-in-out flex flex-col
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:static lg:translate-x-0'}
@@ -434,7 +506,6 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  // Active state uses module color, sidebar always Emerald
                   className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${activeModuleId === mod.id ? `bg-${mod.color}-600 text-white shadow-md` : 'text-emerald-100 hover:bg-emerald-800/50'}`}
                 >
                   {mod.title}
@@ -445,25 +516,37 @@ export default function USaskPocusApp() {
         </nav>
       </aside>
 
-      {/* Content Area */}
       <main className="flex-1 flex flex-col h-full overflow-hidden relative bg-slate-50/50">
         <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0 shadow-sm z-10">
           <div className="flex items-center">
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors">
               <Menu size={24} />
             </button>
-            <h2 className="text-lg font-bold text-slate-800 truncate">{activeModule.title}</h2>
+            <h2 className="text-lg font-bold text-slate-800 truncate">{activeModule?.title}</h2>
           </div>
         </header>
 
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
+        {/* ATTACHED REF FOR SCROLL-TO-TOP */}
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
           <div className="max-w-3xl mx-auto space-y-6 pb-20">
-            {activeModule.sections && activeModule.sections.length > 0 ? (
+            {activeModule && activeModule.sections ? (
               activeModule.sections.map((section, idx) => (
                 <SectionCard key={idx} section={section} color={section.color || activeModule.color} />
               ))
             ) : (
-              <div className="text-center p-10 text-slate-400">Content loading...</div>
+              <div className="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-sm border border-slate-200 text-center">
+                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Stethoscope size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-2">Content Coming Soon</h3>
+                <p className="text-slate-500 mb-6">
+                  Dr. K is currently curating the curriculum for this module. 
+                </p>
+                <div className="inline-flex items-center text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
+                  <Info size={12} className="mr-2" />
+                  Module ID: {activeModule?.id}
+                </div>
+              </div>
             )}
           </div>
         </div>
