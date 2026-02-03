@@ -20,10 +20,14 @@ import {
   AlertTriangle,
   CheckCircle,
   Droplet,
-  PlayCircle
+  PlayCircle,
+  Sliders,   
+  Wrench,    
+  Microscope,
+  Lightbulb // Replaced ClamIcon with Lightbulb
 } from 'lucide-react';
 
-// --- CUSTOM ICONS (Defined before use) ---
+// --- CUSTOM ICONS ---
 function HeartIcon({ size = 24, className = "" }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -35,8 +39,9 @@ function HeartIcon({ size = 24, className = "" }) {
 function LungsIcon({ size = 24, className = "" }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M18 19c0-5-3-9-6-9-2 0-4 2-4 5 0-3 2-5 4-5 3 0 6 4 6 9 0 4-2 7-5 7-2 0-4-2-5-5" />
-      <path d="M6 19c0-5 3-9 6-9 2 0 4 2 4 5 0-3-2-5-4-5-3 0-6 4-6 9 0 4 2 7 5 7 2 0 4-2 5-5" />
+      <path d="M8 21c-3.3 0-6-3-6-7c0-4.5 4-9 6-9c2 0 2 1.5 2 3c0 1.5 0 5-2 13Z" />
+      <path d="M16 21c3.3 0 6-3 6-7c0-4.5-4-9-6-9c-2 0-2 1.5-2 3c0 1.5 0 5 2 13Z" />
+      <path d="M12 5v10" strokeLinecap="round" strokeDasharray="3 3" opacity="0.4" />
     </svg>
   );
 }
@@ -53,6 +58,7 @@ const modules = [
       {
         title: "The Basics",
         icon: Info,
+        color: 'blue', 
         content: [
           { type: 'bold', text: "POCUS = Point-of-Care Ultrasound" },
           { type: 'text', text: "Defined as the acquisition, interpretation, and clinical integration of ultrasonographic imaging performed by a treating clinician at the patient’s bedside rather than by another healthcare provider." },
@@ -62,21 +68,23 @@ const modules = [
       {
         title: "Probes & Physics",
         icon: Scan,
+        color: 'violet',
         content: [
           { type: 'text', text: "Sound travels from the probe into the body. Some sound is lost as heat or scattered away. Some sound reflects back to our probe. The sound that reflects back to the probe is interpreted by our machine and an image is displayed on our screen." },
           { type: 'info', text: "Low frequency probes have high penetration but poor resolution (you can see far but not very well)." },
           { type: 'info', text: "High frequency probes have low penetration but high resolution (you can see well but not very far)." },
-          { type: 'header', text: "Curvilinear (Abdominal)" },
+          { type: 'subheader', text: "Curvilinear (Abdominal)" },
           { type: 'list', items: ["Low frequency probe", "Used for: free fluid in abdomen and pelvis, bladder, kidneys, lung ultrasound, AAA"] },
-          { type: 'header', text: "Phased Array (Cardiac)" },
+          { type: 'subheader', text: "Phased Array (Cardiac)" },
           { type: 'list', items: ["Low frequency probe that specializes in cardiac movement", "Used for: cardiac scans, lung ultrasound"] },
-          { type: 'header', text: "Linear (Vascular)" },
+          { type: 'subheader', text: "Linear (Vascular)" },
           { type: 'list', items: ["High frequency probe", "Best for seeing things close to the surface (lung sliding, vessels, skin, superficial joints)"] }
         ]
       },
       {
         title: "Body Planes",
         icon: Layers,
+        color: 'indigo',
         content: [
           { type: 'bold', text: "Coronal (Long axis / Longitudinal)" },
           { type: 'text', text: "Separates body anterior-posterior" },
@@ -92,6 +100,7 @@ const modules = [
       {
         title: "Probe Movements",
         icon: Move,
+        color: 'rose',
         content: [
           { type: 'text', text: "There are 5 standard ways an ultrasound probe can be moved:" },
           { type: 'list', items: [
@@ -106,18 +115,20 @@ const modules = [
       {
         title: "Conventions",
         icon: Settings,
+        color: 'amber',
         content: [
           { type: 'text', text: "Convention = the agreed upon way we do something (reading left to right, driving on the right side of the road)." },
           { type: 'text', text: "Different people have different conventions. There are two POCUS imaging conventions:" },
-          { type: 'bold', text: "Radiology Convention" },
+          { type: 'subheader', text: "Radiology Convention" },
           { type: 'list', items: ["Screen marker appears on screen LEFT", "Used for all POCUS applications except cardiac"] },
-          { type: 'bold', text: "Cardiology Convention" },
+          { type: 'subheader', text: "Cardiology Convention" },
           { type: 'list', items: ["Screen marker appears on screen RIGHT", "Used for Cardiac POCUS"] }
         ]
       },
       {
         title: "Documentation",
         icon: FileText,
+        color: 'slate',
         content: [
           { type: 'text', text: "If you did not document it in the patient’s chart, it did not happen." },
           { type: 'list', items: [
@@ -134,23 +145,24 @@ const modules = [
     title: 'Lung: Pleural Effusion',
     description: 'Scanning for fluid, Spine Sign, and landmarks.',
     icon: LungsIcon,
-    color: 'emerald',
+    color: 'violet', 
     sections: [
       {
         title: "Scan Basics",
-        icon: Anchor,
+        icon: BookOpen, 
+        color: 'blue',
         content: [
-          { type: 'header', text: "Indication" },
+          { type: 'subheader', text: "Indication" },
           { type: 'list', items: [
              "Dyspnea, Cough, Chest Pain", 
              "Trauma (FAST Scan), Respiratory Failure, Sepsis, Shock",
              "Procedural (Thoracentesis, Chest Tube)"
           ]},
-          { type: 'header', text: "Equipment" },
+          { type: 'subheader', text: "Equipment" },
           { type: 'list', items: ["Transducer: Curvilinear or Phased Array", "Preset: Abdominal", "Convention: Radiology"] },
-          { type: 'header', text: "Patient Positioning" },
+          { type: 'subheader', text: "Patient Positioning" },
           { type: 'list', items: ["Supine, Semi-Supine, or Sitting", "Arm above head or across body"] },
-          { type: 'header', text: "Landmarks" },
+          { type: 'subheader', text: "Landmarks" },
           { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
           { type: 'text', text: "Internal: Kidney | Diaphragm | Liver/Spleen | Spine | Lung" },
           { type: 'info', text: "Area of Interest: Area cranial to diaphragm" }
@@ -158,7 +170,8 @@ const modules = [
       },
       {
         title: "Scanning Technique",
-        icon: Scan,
+        icon: Sliders,
+        color: 'violet',
         content: [
           { type: 'list', items: [
             "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (Probe Marker toward head).",
@@ -176,7 +189,8 @@ const modules = [
       },
       {
         title: "Interpretation",
-        icon: CheckCircle,
+        icon: Microscope,
+        color: 'rose',
         content: [
           { type: 'header', text: "Positive Scan" },
           { type: 'text', text: "Anechoic area seen cranial to the diaphragm AND ≥ 1 of the following:" },
@@ -196,7 +210,6 @@ const modules = [
           { type: 'divider' },
           
           { type: 'header', text: "Negative Scan" },
-          // VIDEO INTEGRATION: Placed here because Curtain Sign = Negative for Effusion
           { 
             type: 'video', 
             url: "/videos/lus-right-z4-curtain.mp4", 
@@ -210,11 +223,12 @@ const modules = [
       },
       {
         title: "Troubleshooting",
-        icon: AlertTriangle,
+        icon: Wrench, 
+        color: 'amber',
         content: [
-          { type: 'bold', text: "Rib shadows in the way" },
+          { type: 'subheader', text: "Rib shadows in the way" },
           { type: 'list', items: ["Rotate probe toward bed into rib space", "Have patient take a breath in and hold to move structure out from under rib"] },
-          { type: 'bold', text: "Diaphragm not visualized well" },
+          { type: 'subheader', text: "Diaphragm not visualized well" },
           { type: 'list', items: [
             "Slide anteriorly then fan posteriorly",
             "Slide posteriorly then fan anteriorly",
@@ -224,7 +238,8 @@ const modules = [
       },
       {
         title: "Pearls & Pitfalls",
-        icon: Droplet,
+        icon: Lightbulb, // Swapped to Lightbulb
+        color: 'sky',
         content: [
           { type: 'list', items: [
             "Loculated pleural effusions may be missed by standard pleural effusion scanning technique.",
@@ -240,15 +255,20 @@ const modules = [
 
 // --- COMPONENTS ---
 
-const ContentBlock = ({ item }) => {
+const ContentBlock = ({ item, color }) => {
   switch (item.type) {
     case 'header':
-      return <h4 className="font-bold text-emerald-800 mt-4 mb-2 text-lg">{item.text}</h4>;
+      return <h4 className={`font-bold text-${color}-800 mt-4 mb-2 text-lg`}>{item.text}</h4>;
+    
+    // SUBHEADER (Small, Black, Bold - Consistent Style)
+    case 'subheader':
+      return <h4 className="font-bold text-slate-900 mt-3 mb-1 text-sm uppercase tracking-wide">{item.text}</h4>;
+
     case 'bold':
       return <p className="font-bold text-slate-800 mt-2">{item.text}</p>;
     case 'info':
       return (
-        <div className="bg-emerald-50 border-l-4 border-emerald-500 p-3 my-2 text-sm text-slate-700">
+        <div className={`bg-${color}-50 border-l-4 border-${color}-500 p-3 my-2 text-sm text-slate-700`}>
           {item.text}
         </div>
       );
@@ -261,7 +281,7 @@ const ContentBlock = ({ item }) => {
     case 'divider':
       return <hr className="my-6 border-slate-200" />;
     
-    // VIDEO COMPONENT (Updated with Auto-Loop)
+    // VIDEO COMPONENT
     case 'video':
       return (
         <div className="my-4 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
@@ -269,11 +289,11 @@ const ContentBlock = ({ item }) => {
              <video 
                src={item.url} 
                className="w-full h-full object-contain"
-               controls       // Allows pausing/scrubbing
-               muted          // Required for autoPlay
-               playsInline    // Required for iOS
-               autoPlay       // Starts automatically
-               loop           // Loops forever (GIF style)
+               controls       
+               muted          
+               playsInline    
+               autoPlay       
+               loop           
              />
           </div>
           {item.caption && (
@@ -291,17 +311,19 @@ const ContentBlock = ({ item }) => {
 
 const SectionCard = ({ section }) => {
   const Icon = section.icon || Info;
+  const color = section.color || 'emerald'; 
+
   return (
     <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-6">
-      <div className="bg-emerald-50/50 p-4 border-b border-emerald-100 flex items-center">
-        <div className="p-2 bg-white rounded-lg shadow-sm mr-3 text-emerald-600">
+      <div className={`bg-${color}-50 px-5 py-4 border-b border-${color}-100 flex items-center`}>
+        <div className={`p-2 bg-white rounded-lg shadow-sm mr-3 text-${color}-600`}>
           <Icon size={20} />
         </div>
         <h3 className="font-bold text-slate-800 text-lg">{section.title}</h3>
       </div>
-      <div className="p-5">
+      <div className="px-5 pb-5 pt-3">
         {section.content.map((block, idx) => (
-          <ContentBlock key={idx} item={block} />
+          <ContentBlock key={idx} item={block} color={color} />
         ))}
       </div>
     </div>
@@ -364,15 +386,15 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-emerald-400 transition-all text-left group flex flex-col h-full relative overflow-hidden"
+                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-${mod.color}-400 transition-all text-left group flex flex-col h-full relative overflow-hidden`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700 mb-4 group-hover:scale-110 transition-transform">
+                  <div className={`w-12 h-12 rounded-xl bg-${mod.color}-50 flex items-center justify-center text-${mod.color}-700 mb-4 group-hover:scale-110 transition-transform`}>
                     <mod.icon size={24} />
                   </div>
                   <h3 className="text-lg font-bold text-slate-800 mb-2">{mod.title}</h3>
                   <p className="text-sm text-slate-500 mb-6 flex-grow">{mod.description}</p>
                   
-                  <div className="flex items-center text-emerald-700 text-sm font-bold mt-auto">
+                  <div className={`flex items-center text-${mod.color}-700 text-sm font-bold mt-auto`}>
                     Start Module <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                   </div>
                 </button>
@@ -382,7 +404,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.06</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.12</p>
         </footer>
       </div>
     );
@@ -391,7 +413,7 @@ export default function USaskPocusApp() {
   // 2. MODULE VIEW (Dynamic Content)
   return (
     <div className="flex h-screen bg-slate-50 font-sans overflow-hidden w-full">
-      {/* Sidebar */}
+      {/* Sidebar - FIXED EMERALD 900 */}
       <aside className={`
         fixed inset-y-0 left-0 z-30 w-80 bg-emerald-900 text-white transform transition-transform duration-300 ease-in-out flex flex-col
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:static lg:translate-x-0'}
@@ -412,7 +434,8 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${activeModuleId === mod.id ? 'bg-emerald-800 text-white shadow-sm' : 'text-emerald-100 hover:bg-emerald-800/50'}`}
+                  // Active state uses module color, sidebar always Emerald
+                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${activeModuleId === mod.id ? `bg-${mod.color}-600 text-white shadow-md` : 'text-emerald-100 hover:bg-emerald-800/50'}`}
                 >
                   {mod.title}
                 </button>
@@ -437,7 +460,7 @@ export default function USaskPocusApp() {
           <div className="max-w-3xl mx-auto space-y-6 pb-20">
             {activeModule.sections && activeModule.sections.length > 0 ? (
               activeModule.sections.map((section, idx) => (
-                <SectionCard key={idx} section={section} />
+                <SectionCard key={idx} section={section} color={section.color || activeModule.color} />
               ))
             ) : (
               <div className="text-center p-10 text-slate-400">Content loading...</div>
