@@ -166,7 +166,12 @@ const modules = [
             "Adjust depth to just past the spine.",
             "Slide probe cranial until diaphragm in view.",
             "Fan through medial diaphragm anteriorly to posteriorly until the diaphragm disappears."
-          ]}
+          ]},
+          { 
+            type: 'video', 
+            url: "/videos/lus-right-z4-fan.mp4", 
+            caption: "Technique: Fanning through the costophrenic angle."
+          }
         ]
       },
       {
@@ -175,6 +180,13 @@ const modules = [
         content: [
           { type: 'header', text: "Positive Scan" },
           { type: 'text', text: "Anechoic area seen cranial to the diaphragm AND ≥ 1 of the following:" },
+          
+          { 
+            type: 'video', 
+            url: "/videos/lus-right-z4-ple.mp4", 
+            caption: "Positive Scan: Note the anechoic fluid above the diaphragm (Pleural Effusion)."
+          },
+
           { type: 'list', items: [
             "Spine sign (Spine visible above diaphragm)",
             "Solid lung floating in effusion",
@@ -223,14 +235,6 @@ const modules = [
         ]
       }
     ]
-  },
-  {
-    id: 'cardiac-basic',
-    title: 'Cardiac: The Basics',
-    description: 'Parasternal Long & Short Axis views.',
-    icon: HeartIcon, 
-    color: 'emerald',
-    content: {}
   }
 ];
 
@@ -378,7 +382,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.05</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.06</p>
         </footer>
       </div>
     );
