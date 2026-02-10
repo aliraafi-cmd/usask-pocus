@@ -269,14 +269,74 @@ const modules = [
   }
 ];
 
+// --- ROBUST VIDEO COMPONENT ---
+// This component forces iOS to play nice with backgrounding
+const VideoPlayer = ({ src, caption }) => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    // 1. Initial Attempt
+    const attemptPlay = async () => {
+      if (videoRef.current) {
+        try {
+          await videoRef.current.play();
+        } catch (err) {
+          console.log("Autoplay prevented (low power mode or interaction needed)", err);
+        }
+      }
+    };
+
+    attemptPlay();
+
+    // 2. The "Wake Up" Listener
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        // App is back in foreground: Force Play
+        attemptPlay();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    
+    // Cleanup
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [src]);
+
+  return (
+    <div className="my-4 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
+      <div className="relative bg-black aspect-video flex items-center justify-center group">
+         <video 
+           ref={videoRef}
+           src={src} 
+           className="w-full h-full object-contain"
+           controls       
+           muted          
+           playsInline    
+           autoPlay       
+           loop           
+         />
+      </div>
+      {caption && (
+        <div className="bg-slate-50 p-2 text-xs text-center text-slate-500 font-medium border-t border-slate-200">
+          {caption}
+        </div>
+      )}
+    </div>
+  );
+};
+
 // --- COMPONENTS ---
 
 const ContentBlock = ({ item, color }) => {
   switch (item.type) {
     case 'header':
       return <h4 className={`font-bold text-${color}-800 mt-4 mb-2 text-lg`}>{item.text}</h4>;
+    
     case 'subheader':
       return <h4 className="font-bold text-slate-900 mt-3 mb-1 text-sm uppercase tracking-wide">{item.text}</h4>;
+
     case 'bold':
       return <p className="font-bold text-slate-800 mt-2">{item.text}</p>;
     case 'info':
@@ -293,27 +353,11 @@ const ContentBlock = ({ item, color }) => {
       );
     case 'divider':
       return <hr className="my-6 border-slate-200" />;
+    
     case 'video':
-      return (
-        <div className="my-4 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
-          <div className="relative bg-black aspect-video flex items-center justify-center group">
-             <video 
-               src={item.url} 
-               className="w-full h-full object-contain"
-               controls       
-               muted          
-               playsInline    
-               autoPlay       
-               loop           
-             />
-          </div>
-          {item.caption && (
-            <div className="bg-slate-50 p-2 text-xs text-center text-slate-500 font-medium border-t border-slate-200">
-              {item.caption}
-            </div>
-          )}
-        </div>
-      );
+      // Using our new Robust Player
+      return <VideoPlayer src={item.url} caption={item.caption} />;
+
     default:
       return <p className="text-slate-600 leading-relaxed my-2 text-sm">{item.text}</p>;
   }
@@ -376,8 +420,6 @@ export default function USaskPocusApp() {
     setActiveModuleId(id);
     setCurrentView('module');
     setSidebarOpen(false);
-    
-    // Hard reset scroll on navigation
     window.scrollTo(0, 0);
     
     try {
@@ -392,12 +434,9 @@ export default function USaskPocusApp() {
     setCurrentView('dashboard');
     setActiveModuleId(null);
     setSidebarOpen(false);
-    
-    // Hard reset scroll on navigation
     window.scrollTo(0, 0);
     
     try {
-      // Aggressive URL clearing
       const cleanUrl = window.location.pathname;
       window.history.pushState({ view: 'dashboard' }, '', cleanUrl);
     } catch (e) {
@@ -454,9 +493,7 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  // STABILITY FIX: Added touch-manipulation and z-10
-                  // Only use hover scale on large screens (lg:)
-                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 lg:hover:shadow-md lg:hover:border-${mod.color}-400 active:scale-95 transition-all text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
+                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md lg:hover:border-${mod.color}-400 active:scale-95 transition-all text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
                 >
                   <div className={`w-12 h-12 rounded-xl bg-${mod.color}-50 flex items-center justify-center text-${mod.color}-700 mb-4 lg:group-hover:scale-110 transition-transform`}>
                     <mod.icon size={24} />
@@ -474,7 +511,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.17</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.18</p>
         </footer>
       </div>
     );
