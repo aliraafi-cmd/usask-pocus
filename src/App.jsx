@@ -266,6 +266,173 @@ const modules = [
         ]
       }
     ]
+  },
+  {
+    id: 'abd-free-fluid',
+    title: 'Abdomen: Free Fluid',
+    description: 'Scanning for free fluid in the abdomen and pelvis.',
+    icon: Droplet,
+    color: 'amber', 
+    sections: [
+      {
+        title: "Scan Basics",
+        icon: BookOpen, 
+        color: 'blue',
+        content: [
+          { type: 'subheader', text: "Indication" },
+          { type: 'list', items: [
+             "Abdominal Pain | Abdominal Distention", 
+             "Sepsis | Shock",
+             "Trauma (FAST Scan)",
+             "Procedural (Paracentesis)"
+          ]},
+          { type: 'subheader', text: "Equipment" },
+          { type: 'list', items: ["Transducer: Curvilinear", "Preset: Abdominal", "Convention: Radiology"] },
+          { type: 'subheader', text: "Patient Positioning" },
+          { type: 'list', items: ["Supine | Semi-Supine", "Arm above head or across body"] },
+          { type: 'divider' },
+          { type: 'header', text: "Landmarks" },
+          { type: 'subheader', text: "RUQ | LUQ" },
+          { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
+          { type: 'text', text: "Internal: Kidney | Diaphragm | Liver / Spleen | Spine | Lung" },
+          { type: 'subheader', text: "Pelvis (Male)" },
+          { type: 'text', text: "External: Superior to Pubic Symphysis" },
+          { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
+          { type: 'subheader', text: "Pelvis (Female)" },
+          { type: 'text', text: "External: Superior to Pubic Symphysis" },
+          { type: 'text', text: "Internal: Bladder | Uterus | Vagina | Rectum" },
+          { type: 'divider' },
+          { type: 'header', text: "Area of Interest" },
+          { type: 'bold', text: "Right Upper Quadrant (RUQ):" },
+          { type: 'text', text: "Hepatorenal Interface | Caudal Tip of Liver" },
+          { type: 'bold', text: "Left Upper Quadrant (LUQ):" },
+          { type: 'text', text: "Splenorenal Interface | Between Diaphragm and Spleen" },
+          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'text', text: "Rectovesicular Space" },
+          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'text', text: "Rectouterine Space (Pouch of Douglas) | Vesicouterine Space" }
+        ]
+      },
+      {
+        title: "Scanning Technique",
+        icon: Sliders,
+        color: 'violet',
+        content: [
+          { type: 'header', text: "Right Upper Quadrant (RUQ)" },
+          { type: 'list', items: [
+            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
+            "Start with lots of depth.",
+            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
+            "Adjust depth to just past the spine.",
+            "Fan through the hepatorenal interface anteriorly to posteriorly.",
+            "Slide inferiorly to identify the caudal tip of the liver.",
+            "Fan through the caudal tip of the liver anteriorly to posteriorly."
+          ]},
+          { type: 'video', url: "/videos/ruq-fan.mp4", caption: "Technique: RUQ Fanning" },
+          { type: 'video', url: "/videos/ruq-caudal-tip.mp4", caption: "Technique: RUQ Caudal Tip" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Left Upper Quadrant (LUQ)" },
+          { type: 'list', items: [
+            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
+            "Start with lots of depth.",
+            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
+            "Adjust depth to just past the spine.",
+            "Fan through the splenorenal interface anteriorly to posteriorly.",
+            "Slide cranially to identify the diaphragm.",
+            "Fan through the medial diaphragm anterior to posterior until the diaphragm disappears."
+          ]},
+          { type: 'video', url: "/videos/luq-fan.mp4", caption: "Technique: LUQ Fanning" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Pelvis Transverse" },
+          { type: 'list', items: [
+            "Place probe in transverse just superior to the pubic symphysis (probe marker toward patient right).",
+            "Start with lots of depth.",
+            "Fan probe inferiorly until the bladder is seen.",
+            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
+            "Fan the probe inferior and superior until the bladder disappears in both directions."
+          ]},
+          
+          { type: 'divider' },
+
+          { type: 'header', text: "Pelvis Longitudinal" },
+          { type: 'list', items: [
+            "Place probe in longitudinal just superior to the pubic symphysis (probe marker toward head).",
+            "Start with lots of depth.",
+            "Rock probe inferiorly until the bladder is seen.",
+            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
+            "Fan the probe left and right until the bladder disappears in both directions."
+          ]}
+        ]
+      },
+      {
+        title: "Interpretation",
+        icon: Microscope,
+        color: 'rose',
+        content: [
+          { type: 'header', text: "Positive Scan" },
+          { type: 'bold', text: "RUQ:" },
+          { type: 'text', text: "Anechoic free fluid seen in hepatorenal interface or around the caudal tip of the liver." },
+          { type: 'bold', text: "LUQ:" },
+          { type: 'text', text: "Anechoic free fluid seen in splenorenal interface or between medial diaphragm and spleen." },
+          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'text', text: "Anechoic free fluid seen in the rectovesicular space." },
+          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'text', text: "Anechoic free fluid seen in the rectouterine space and/or the vesicouterine space." },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Negative Scan" },
+          { type: 'bold', text: "RUQ:" },
+          { type: 'text', text: "No anechoic free fluid after fanning through entire hepatorenal interface anterior to posterior AND no anechoic free fluid around the caudal tip of the liver after fanning through the caudal tip anterior to posterior." },
+          { type: 'video', url: "/videos/ruq-negative.mp4", caption: "Negative Scan: RUQ" },
+          
+          { type: 'bold', text: "LUQ:" },
+          { type: 'text', text: "No anechoic free fluid after fanning through entire splenorenal interface anterior to posterior AND no anechoic free fluid between the medial diaphragm and spleen after fanning through the medial diaphragm until it disappears." },
+          { type: 'video', url: "/videos/luq-negative.mp4", caption: "Negative Scan: LUQ" },
+          
+          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'text', text: "No anechoic free fluid seen in the rectovesicular space after fanning through the bladder in both transverse and longitudinal." },
+          
+          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'text', text: "No anechoic free fluid seen in the rectouterine and vesicouterine space after fanning through the bladder in both transverse and longitudinal." }
+        ]
+      },
+      {
+        title: "Troubleshooting",
+        icon: Wrench, 
+        color: 'amber',
+        content: [
+          { type: 'subheader', text: "Rib shadows in the way" },
+          { type: 'list', items: ["Rotate probe toward bed into rib space.", "Have patient take a breath in and hold to move structure out from under rib."] },
+          { type: 'subheader', text: "Diaphragm not visualized well" },
+          { type: 'list', items: [
+            "Slide anteriorly then fan posteriorly.",
+            "Slide posteriorly then fan anteriorly.",
+            "Slide toward feet then rock toward head."
+          ]}
+        ]
+      },
+      {
+        title: "Pearls & Pitfalls",
+        icon: Lightbulb, 
+        color: 'sky',
+        content: [
+          { type: 'list', items: [
+            "POCUS cannot help you distinguish the type of fluid; clinical context is key.",
+            "Free fluid is not always anechoic (e.g., clotted blood in hemoperitoneum).",
+            "A negative FAST scan does not rule out an intra-abdominal injury.",
+            "A negative FAST scan is not reliable in patients with a history of prior abdominal surgery.",
+            "Do not mistake physiologically or pathologically fluid-filled organs for free fluid (e.g., gallbladder, fluid-filled bowel, or stomach).",
+            "Do not mistake the seminal vesicle or prostate for free fluid.",
+            "The female pelvis can contain a small amount of physiologic free fluid. Context is important; do not assume it is normal."
+          ]}
+        ]
+      }
+    ]
   }
 ];
 
@@ -493,7 +660,7 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md lg:hover:border-${mod.color}-400 active:scale-95 transition-all text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
+                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 lg:hover:shadow-md lg:hover:border-${mod.color}-400 active:scale-95 transition-all text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
                 >
                   <div className={`w-12 h-12 rounded-xl bg-${mod.color}-50 flex items-center justify-center text-${mod.color}-700 mb-4 lg:group-hover:scale-110 transition-transform`}>
                     <mod.icon size={24} />
@@ -511,7 +678,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.18</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.19</p>
         </footer>
       </div>
     );
