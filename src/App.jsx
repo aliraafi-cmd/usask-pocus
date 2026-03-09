@@ -57,6 +57,15 @@ function ClamIcon({ size = 24, className = "" }) {
   );
 }
 
+function LiverIcon({ size = 24, className = "" }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      {/* Custom Oblong Liver with a sharp caudal tip on the right */}
+      <path d="M3 9.5 C3 4 8 2.5 13 2.5 C18 2.5 22 4.5 23 7.5 C24 10.5 21.5 11.5 19 11.5 C15.5 11.5 14 14 12 16 C8.5 19 3 16 3 9.5 Z" />
+    </svg>
+  );
+}
+
 // --- DATA: CURRICULUM ---
 const modules = [
   {
@@ -268,10 +277,109 @@ const modules = [
     ]
   },
   {
+    id: 'lung-pneumothorax',
+    title: 'Lung: Pneumothorax',
+    description: 'Evaluating for lung sliding, lung point, and pneumothorax.',
+    icon: LungsIcon,
+    color: 'cyan', 
+    sections: [
+      {
+        title: "Scan Basics",
+        icon: BookOpen, 
+        color: 'blue',
+        content: [
+          { type: 'subheader', text: "Indication" },
+          { type: 'list', items: [
+             "Chest Pain | Dyspnea", 
+             "Respiratory Failure | Shock",
+             "Trauma (EFAST Scan)",
+             "Post Procedure (Thoracentesis, Chest Tube, CVL)"
+          ]},
+          { type: 'subheader', text: "Equipment" },
+          { type: 'list', items: ["Transducer: Linear | Curvilinear (EFAST)", "Preset: Lung | Abdominal", "Convention: Radiology"] },
+          { type: 'subheader', text: "Patient Positioning" },
+          { type: 'list', items: ["Supine"] },
+          { type: 'divider' },
+          { type: 'header', text: "Landmarks" },
+          { type: 'text', text: "External: Most Anterior Aspect of Chest | Mid-Clavicular Line" },
+          { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows" },
+          { type: 'divider' },
+          { type: 'header', text: "Area of Interest" },
+          { type: 'text', text: "VPPI of 2-3 of the most anterior rib spaces bilaterally" }
+        ]
+      },
+      {
+        title: "Scanning Technique",
+        icon: Sliders,
+        color: 'violet',
+        content: [
+          { type: 'list', items: [
+            "Place the probe in longitudinal in the mid-clavicular line in the most anterior rib space of the right or left chest (probe marker toward head).",
+            "Adjust depth so that the VPPI, ribs, and rib shadows are in view.",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
+            "Fan the probe medially and laterally until the VPPI appears the clearest.",
+            "Slide the probe superiorly or inferiorly to interrogate a total of 2-3 rib spaces.",
+            "Repeat the above steps in the remaining hemithorax.",
+            "If lung sliding is absent, slide the probe within the rib space laterally until a pathologic lung point is visualized."
+          ]}
+        ]
+      },
+      {
+        title: "Interpretation",
+        icon: Microscope,
+        color: 'rose',
+        content: [
+          { type: 'header', text: "Positive Scan" },
+          { type: 'text', text: "Absence of lung sliding, lung pulse, and B-lines plus visualization of a pathological lung point." },
+          { type: 'divider' },
+          { type: 'header', text: "Negative Scan" },
+          { type: 'list', items: [
+            "Lung sliding present in 2-3 of the most anterior rib spaces bilaterally OR",
+            "Lung pulse present in 2-3 of the most anterior rib spaces bilaterally OR",
+            "B-lines present in 2-3 of the most anterior rib spaces bilaterally"
+          ]}
+        ]
+      },
+      {
+        title: "Troubleshooting",
+        icon: Wrench, 
+        color: 'amber',
+        content: [
+          { type: 'subheader', text: "Trouble Visualizing Lung Sliding:" },
+          { type: 'list', items: [
+            "Decrease depth to optimize visualization of the VPPI.",
+            "Decrease gain to optimize visualization of the VPPI.",
+            "Rotate probe in the rib space to see more of the VPPI."
+          ]},
+          { type: 'subheader', text: "Differentiating Pathologic from Physiologic Lung Points:" },
+          { type: 'list', items: [
+            "Increase depth to attempt to visualize the underlying physiologic organ (liver, heart, spleen).",
+            "Be aware of surface anatomy and expected location of organs / physiologic lung points."
+          ]}
+        ]
+      },
+      {
+        title: "Pearls & Pitfalls",
+        icon: Lightbulb, 
+        color: 'sky',
+        content: [
+          { type: 'list', items: [
+            "Always fan medial and lateral to optimize visualization of the VPPI.",
+            "Do not mistake physiologic lung points for pathologic lung points.",
+            "If a patient is unstable, the absence of lung sliding, lung pulse, and B-lines may be sufficient to diagnose a pneumothorax in the right clinical context without identifying a pathologic lung point.",
+            "If a patient is stable, the absence of lung sliding, lung pulse, and B-lines without visualization of a pathologic lung point is insufficient to diagnose a pneumothorax and further investigations are warranted.",
+            "Absent lung sliding can be seen in multiple clinical contexts: Prior pleurodesis, Right mainstem intubation, Esophageal intubation in an apneic patient, Phrenic nerve palsy, Pleural adhesions from prior chest tube, Interstitial Lung Disease.",
+            "Patients with a large pneumothorax may not have a visible pathologic lung point due to the size."
+          ]}
+        ]
+      }
+    ]
+  },
+  {
     id: 'abd-free-fluid',
     title: 'Abdomen: Free Fluid',
     description: 'Scanning for free fluid in the abdomen and pelvis.',
-    icon: Droplet,
+    icon: LiverIcon,
     color: 'amber', 
     sections: [
       {
@@ -678,7 +786,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.19</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.20</p>
         </footer>
       </div>
     );
