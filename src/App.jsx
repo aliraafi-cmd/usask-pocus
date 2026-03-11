@@ -66,13 +66,43 @@ function LiverIcon({ size = 24, className = "" }) {
   );
 }
 
+function BLinesIcon({ size = 24, className = "" }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M17 21a9 9 0 0 0 4-7.5c0-4-3-7-7-7-1 0-2 .2-2.5 .6" />
+      <path d="M7 21a9 9 0 0 1-4-7.5c0-4 3-7 7-7 1 0 2 .2 2.5 .6" />
+      <path d="M12 7 v14" strokeWidth="1.5" />
+      <path d="M8 10 l-1 11" strokeWidth="1.5" opacity="0.7" />
+      <path d="M16 10 l1 11" strokeWidth="1.5" opacity="0.7" />
+    </svg>
+  );
+}
+
+function BasicsIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M13.5 11C15.433 11 17 12.567 17 14.5V40L13.5 44L10 40V14.5C10 12.567 11.567 11 13.5 11ZM13.5 13C14.3284 13 15 13.6716 15 14.5V17H12V14.5C12 13.6716 12.6716 13 13.5 13ZM13.5 40.9628L12 39.2485V19H15V39.2485L13.5 40.9628Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M33 28C31.8954 28 31 28.8954 31 30V42C31 43.1046 31.8954 44 33 44H36C37.1046 44 38 43.1046 38 42V30C38 28.8954 37.1046 28 36 28H33ZM36 30H33V35H36V30ZM36 37H33V42H36V37Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M29 4H19V44H29V4ZM21 6H27V8H23V10H27V13H25V15H27V18H25V20H27V23H23V25H27V28H25V30H27V33H25V35H27V38H23V40H27V42H21V6Z" fill="currentColor"/>
+    </svg>
+  );
+}
+
+function PleuralEffusionIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M23 6.00013C23 6.00004 23 6 24 6H24.1761C24.2533 6 24.3233 6 24.3868 6C25 6.00001 25 6.00005 25 6.00013V20.5C25 21.8977 25.5641 22.4421 26.0039 22.6987C26.053 22.7273 26.1024 22.7533 26.1516 22.777C26.1506 22.6568 26.1493 22.5316 26.1479 22.4019L26.1479 22.4003C26.1101 18.8716 26.0365 11.9997 31.4753 11.9997C38.9259 11.9997 44.2478 38.0062 41.0547 40.6599C37.8615 43.3136 31.4753 41.7214 28.2822 38.5369C25.7042 35.9659 25.9272 29.9583 26.0873 25.6457L26.0874 25.6443C26.0971 25.3819 26.1067 25.1258 26.1153 24.8771C25.79 24.7962 25.3959 24.6595 24.9962 24.4263C24.6398 24.2184 24.2975 23.9442 24 23.5919C23.7026 23.9442 23.3603 24.2184 23.0039 24.4263C22.6041 24.6595 22.2101 24.7962 21.8848 24.8771C21.8934 25.1261 21.9029 25.3826 21.9127 25.6453C22.0728 29.9579 22.2959 35.9662 19.7179 38.5372C16.5247 41.7217 10.1385 43.3139 6.94536 40.6602C3.75222 38.0065 9.07413 12 16.5247 12C21.9636 12 21.89 18.8717 21.8522 22.4003C21.852 22.4166 21.8518 22.4328 21.8516 22.4489C21.8504 22.5619 21.8493 22.6714 21.8484 22.777C21.8977 22.7534 21.9471 22.7274 21.9962 22.6987C22.436 22.4421 23 21.8977 23 20.5V6.00013ZM31.4753 13.9997C30.5212 13.9997 29.9843 14.3002 29.6086 14.6869C29.1752 15.1331 28.8132 15.8507 28.559 16.8646C28.1141 18.6395 28.133 20.6819 28.1483 22.3293C28.1509 22.6142 28.1534 22.8874 28.1534 23.1453C28.1534 23.9053 28.1196 24.8153 28.0845 25.7621C28.0707 26.1349 28.0566 26.5133 28.0443 26.8905C27.9996 28.2657 27.9741 29.7055 28.0405 31.0982C28.1072 32.4985 28.2642 33.7835 28.5573 34.8596C28.8538 35.9483 29.2509 36.6784 29.6944 37.1208C30.9726 38.3954 32.9908 39.4251 35.0492 39.8243C37.0842 40.2189 38.7224 39.9269 39.6818 39.1969C39.6868 39.1857 39.6923 39.1726 39.6984 39.1574C39.7576 39.0095 39.8294 38.7554 39.8878 38.3683C40.0047 37.5933 40.035 36.5122 39.9562 35.1803C39.7995 32.5305 39.2286 29.1689 38.3268 25.8606C37.4216 22.5396 36.2173 19.3998 34.8521 17.1383C34.1688 16.0062 33.4951 15.1786 32.8703 14.6535C32.2518 14.1337 31.7935 13.9997 31.4753 13.9997ZM16.5247 14C17.4788 14 18.0158 14.3005 18.3914 14.6872C18.8248 15.1334 19.1868 15.851 19.441 16.8649C19.8859 18.6399 19.867 20.6822 19.8518 22.3296C19.8491 22.6146 19.8466 22.8877 19.8466 23.1456C19.8466 23.9056 19.8804 24.8156 19.9155 25.7624C19.9294 26.135 19.9434 26.5138 19.9557 26.8908C20.0005 28.266 20.0259 29.7058 19.9596 31.0985C19.8929 32.4988 19.7359 33.7838 19.4427 34.8599C19.1462 35.9486 18.7492 36.6787 18.3056 37.1211C17.0275 38.3957 15.0093 39.4254 12.9509 39.8246C10.9159 40.2192 9.27768 39.9272 8.31823 39.1972C8.31326 39.186 8.3077 39.1729 8.30162 39.1577C8.24241 39.0098 8.17061 38.7557 8.11224 38.3686C7.99539 37.5936 7.965 36.5125 8.0438 35.1806C8.20056 32.5308 8.77147 29.1692 9.67324 25.8609C10.5785 22.5399 11.7827 19.4001 13.1479 17.1386C13.8313 16.0065 14.5049 15.1789 15.1298 14.6538C15.7482 14.134 16.2065 14 16.5247 14Z" fill="currentColor"/>
+    </svg>
+  );
+}
+
 // --- DATA: CURRICULUM ---
 const modules = [
   {
     id: 'basics',
     title: 'POCUS Basics',
     description: 'Definitions, Probes, Movements, and Conventions.',
-    icon: BookOpen,
+    icon: BasicsIcon,
     color: 'emerald',
     sections: [
       {
@@ -164,7 +194,7 @@ const modules = [
     id: 'lung-pleural',
     title: 'Lung: Pleural Effusion',
     description: 'Scanning for fluid, Spine Sign, and landmarks.',
-    icon: LungsIcon,
+    icon: PleuralEffusionIcon,
     color: 'violet', 
     sections: [
       {
@@ -281,7 +311,7 @@ const modules = [
     title: 'Lung: Pneumothorax',
     description: 'Evaluating for lung sliding, lung point, and pneumothorax.',
     icon: LungsIcon,
-    color: 'cyan', 
+    color: 'emerald', 
     sections: [
       {
         title: "Scan Basics",
@@ -370,6 +400,119 @@ const modules = [
             "If a patient is stable, the absence of lung sliding, lung pulse, and B-lines without visualization of a pathologic lung point is insufficient to diagnose a pneumothorax and further investigations are warranted.",
             "Absent lung sliding can be seen in multiple clinical contexts: Prior pleurodesis, Right mainstem intubation, Esophageal intubation in an apneic patient, Phrenic nerve palsy, Pleural adhesions from prior chest tube, Interstitial Lung Disease.",
             "Patients with a large pneumothorax may not have a visible pathologic lung point due to the size."
+          ]}
+        ]
+      }
+    ]
+  },
+  {
+    id: 'lung-interstitial',
+    title: 'Lung: Interstitial Syndrome',
+    description: 'Evaluating for B-Lines and coalescing artifacts.',
+    icon: BLinesIcon,
+    color: 'cyan',
+    sections: [
+      {
+        title: "Scan Basics",
+        icon: BookOpen,
+        color: 'blue',
+        content: [
+          { type: 'subheader', text: "Indication" },
+          { type: 'list', items: [
+             "Chest Pain | Dyspnea | Cough", 
+             "Respiratory Failure | Sepsis"
+          ]},
+          { type: 'subheader', text: "Equipment" },
+          { type: 'list', items: ["Transducer: Curvilinear | Phased Array", "Preset: Lung | Abdominal", "Convention: Radiology"] },
+          { type: 'subheader', text: "Patient Positioning" },
+          { type: 'list', items: ["Supine | Semi-Supine | Sitting"] },
+          { type: 'subheader', text: "Landmarks" },
+          { type: 'text', text: "External: Parasternal Line | Midclavicular Line | Anterior Axillary Line | Posterior Axillary Line | Inter-Nipple Line" },
+          { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows" },
+          { type: 'image', url: "/images/lung-zones.jpg", caption: "Anatomy: Lung Zones" },
+          { type: 'info', text: "Area of Interest: VPPI of ≥ 1 rib space in each lung zone" }
+        ]
+      },
+      {
+        title: "Scanning Technique",
+        icon: Sliders,
+        color: 'violet',
+        content: [
+          { type: 'header', text: "Zone 1" },
+          { type: 'list', items: [
+            "Place the probe in longitudinal in the mid-clavicular line in a rib space of the right hemithorax above the inter-nipple line (probe marker toward head).",
+            "Adjust depth to ≥ 10cm past the VPPI.",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
+            "Fan the probe medially and laterally until the VPPI appears the clearest.",
+            "Evaluate for presence of B-lines."
+          ]},
+          { type: 'header', text: "Zone 2" },
+          { type: 'list', items: [
+            "Place the probe in longitudinal in the mid-clavicular line in a rib space of the right hemithorax below the inter-nipple line (probe marker toward head).",
+            "Adjust depth to ≥ 10cm past the VPPI.",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
+            "Fan the probe medially and laterally until the VPPI appears the clearest.",
+            "Evaluate for presence of B-lines."
+          ]},
+          { type: 'header', text: "Zone 3" },
+          { type: 'list', items: [
+            "Place the probe in longitudinal between the anterior and posterior axillary line in a rib space of the right hemithorax above the inter-nipple line (probe marker toward head).",
+            "Adjust depth to ≥ 10cm past the VPPI.",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
+            "Fan the probe anterior and posterior until the VPPI appears the clearest.",
+            "Evaluate for presence of B-lines."
+          ]},
+          { type: 'header', text: "Zone 4" },
+          { type: 'list', items: [
+            "Place the probe in longitudinal between the anterior and posterior axillary line in a rib space of the right hemithorax below the inter-nipple line (probe marker toward head).",
+            "Adjust depth to ≥ 10cm past the VPPI.",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
+            "Fan the probe anterior and posterior until the VPPI appears the clearest.",
+            "Evaluate for presence of B-lines."
+          ]},
+          { type: 'bold', text: "Repeat above technique for the opposite hemithorax." },
+          { type: 'video', url: "/videos/lus-sliding.mp4", caption: "Technique: Sliding to center the VPPI" },
+          { type: 'video', url: "/videos/lus-fanning.mp4", caption: "Technique: Fanning to optimize the VPPI" }
+        ]
+      },
+      {
+        title: "Interpretation",
+        icon: Microscope,
+        color: 'rose',
+        content: [
+          { type: 'header', text: "Positive Scan" },
+          { type: 'text', text: "≥ 3 B-lines present in a single rib space at any time throughout the respiratory cycle OR" },
+          { type: 'video', url: "/videos/lus-b-lines.mp4", caption: "Positive Scan: B-Lines present" },
+          { type: 'text', text: "Coalescing B-lines" },
+          { type: 'video', url: "/videos/lus-coalescing.mp4", caption: "Positive Scan: Coalescing B-Lines" },
+          { type: 'divider' },
+          { type: 'header', text: "Negative Scan" },
+          { type: 'text', text: "< 3 B-lines present in a single rib space at any time throughout the respiratory cycle" },
+          { type: 'video', url: "/videos/lus-a-lines.mp4", caption: "Negative Scan: A-Lines present" }
+        ]
+      },
+      {
+        title: "Troubleshooting",
+        icon: Wrench,
+        color: 'amber',
+        content: [
+          { type: 'subheader', text: "Trouble Visualizing the VPPI:" },
+          { type: 'list', items: [
+            "Fan the probe until the pleural line looks as “crisp” and hyperechoic as possible.",
+            "Orient your sound so it is 90 degrees to the pleura by fanning."
+          ]}
+        ]
+      },
+      {
+        title: "Pearls & Pitfalls",
+        icon: Lightbulb,
+        color: 'sky',
+        content: [
+          { type: 'list', items: [
+            "The presence of an abnormal amount of B-lines has a differential diagnosis that extends beyond cardiogenic pulmonary edema. The clinical context and distribution of B-lines (unilateral vs bilateral, focal vs diffuse) will help you determine the cause.",
+            "Do not mistake B-lines for a normal vertical artifact called a Z-line.",
+            "Characteristics of B-lines: Arise from the VPPI, Hyperechoic, Vertical, Extend well into the far field (≥ 10cm beyond VPPI), Move with lung sliding, Typically erase A-lines.",
+            "Lung presets will often start with inadequate depth to evaluate for B-lines. Do not forget to optimize your depth!"
           ]}
         ]
       }
@@ -633,6 +776,24 @@ const ContentBlock = ({ item, color }) => {
       // Using our new Robust Player
       return <VideoPlayer src={item.url} caption={item.caption} />;
 
+    case 'image':
+      return (
+        <div className="my-4 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
+          <div className="relative bg-slate-100 flex items-center justify-center">
+             <img 
+               src={item.url} 
+               alt={item.caption || "Medical Reference"}
+               className="w-full h-auto object-contain max-h-[60vh]"
+             />
+          </div>
+          {item.caption && (
+            <div className="bg-slate-50 p-2 text-xs text-center text-slate-500 font-medium border-t border-slate-200">
+              {item.caption}
+            </div>
+          )}
+        </div>
+      );
+
     default:
       return <p className="text-slate-600 leading-relaxed my-2 text-sm">{item.text}</p>;
   }
@@ -751,7 +912,7 @@ export default function USaskPocusApp() {
              </div>
              <h1 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight">USask POCUS</h1>
              <p className="text-emerald-100 text-lg max-w-xl">
-               Undergraduate Medical Education Point of Care Ultrasound Curriculum.
+               Undergraduate Medical Education Point-of-Care Ultrasound Resource.
              </p>
           </div>
         </header>
@@ -760,7 +921,7 @@ export default function USaskPocusApp() {
           <div className="max-w-5xl mx-auto">
             <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center">
               <BookOpen size={20} className="mr-2 text-emerald-700" />
-              Learning Modules
+              Quick Guides
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -777,7 +938,7 @@ export default function USaskPocusApp() {
                   <p className="text-sm text-slate-500 mb-6 flex-grow">{mod.description}</p>
                   
                   <div className={`flex items-center text-${mod.color}-700 text-sm font-bold mt-auto`}>
-                    Start Module <ArrowRight size={16} className="ml-2 transition-transform lg:group-hover:translate-x-1" />
+                    Learn More <ArrowRight size={16} className="ml-2 transition-transform lg:group-hover:translate-x-1" />
                   </div>
                 </button>
               ))}
@@ -786,7 +947,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.20</p>
+          <p>© University of Saskatchewan • College of Medicine • v0.25</p>
         </footer>
       </div>
     );
@@ -809,7 +970,7 @@ export default function USaskPocusApp() {
           </button>
           
           <div className="mb-4 px-2">
-            <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Modules</h4>
+            <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Quick Guides</h4>
             <div className="space-y-1">
               {modules.map(mod => (
                 <button 
