@@ -24,7 +24,8 @@ import {
   Sliders,   
   Wrench,    
   Microscope,
-  Lightbulb 
+  Lightbulb,
+  Code2
 } from 'lucide-react';
 
 // --- CUSTOM ICONS ---
@@ -833,7 +834,11 @@ export default function USaskPocusApp() {
   const [currentView, setCurrentView] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search);
-      return params.get('module') ? 'module' : 'dashboard';
+      const view = params.get('view');
+      const module = params.get('module');
+      if (view === 'about') return 'about';
+      if (module) return 'module';
+      return 'dashboard';
     } catch(e) {
       return 'dashboard';
     }
@@ -857,7 +862,7 @@ export default function USaskPocusApp() {
     if (scrollRef.current) {
       scrollRef.current.scrollTo(0, 0);
     }
-  }, [activeModuleId]);
+  }, [activeModuleId, currentView]);
 
   const openModule = (id) => {
     setActiveModuleId(id);
@@ -887,12 +892,29 @@ export default function USaskPocusApp() {
     }
   };
 
+  const goToAbout = () => {
+    setCurrentView('about');
+    setActiveModuleId(null);
+    setSidebarOpen(false);
+    window.scrollTo(0, 0);
+    
+    try {
+      const newUrl = `?view=about`;
+      window.history.pushState({ view: 'about' }, '', newUrl);
+    } catch (e) {
+      console.log('History API unavailable');
+    }
+  };
+
   useEffect(() => {
     const handlePopState = (event) => {
       const state = event.state;
       if (state && state.view === 'module') {
         setActiveModuleId(state.id);
         setCurrentView('module');
+      } else if (state && state.view === 'about') {
+        setCurrentView('about');
+        setActiveModuleId(null);
       } else {
         setCurrentView('dashboard');
         setActiveModuleId(null);
@@ -903,6 +925,113 @@ export default function USaskPocusApp() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // --- ABOUT US VIEW ---
+  if (currentView === 'about') {
+    return (
+      <div className="flex h-screen bg-slate-50 font-sans overflow-hidden w-full">
+        {/* Sidebar (Kept for easy navigation back to modules) */}
+        <aside className={`
+          fixed inset-y-0 left-0 z-30 w-80 bg-emerald-900 text-white transform transition-transform duration-300 ease-in-out flex flex-col
+          ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:static lg:translate-x-0'}
+        `}>
+          <div className="p-6 border-b border-emerald-800 flex justify-between items-center shrink-0">
+            <span className="font-bold text-lg tracking-tight">USask POCUS</span>
+            <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-emerald-300"><X size={24} /></button>
+          </div>
+          <nav className="p-4 flex-1 overflow-y-auto">
+            <button onClick={goHome} className="flex items-center text-emerald-100 hover:text-white mb-8 w-full touch-manipulation">
+              <ArrowLeft size={18} className="mr-2" /> Back to Home
+            </button>
+            
+            <div className="mb-4 px-2">
+              <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Quick Guides</h4>
+              <div className="space-y-1">
+                {modules.map(mod => (
+                  <button 
+                    key={mod.id}
+                    onClick={() => openModule(mod.id)}
+                    className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation text-emerald-100 hover:bg-emerald-800/50`}
+                  >
+                    {mod.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 px-2">
+              <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">App Info</h4>
+              <button 
+                onClick={goToAbout}
+                className={`w-full flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation bg-emerald-600 text-white shadow-md`}
+              >
+                <Info size={18} className="mr-3" />
+                About Us
+              </button>
+            </div>
+          </nav>
+        </aside>
+
+        <main className="flex-1 flex flex-col h-full overflow-hidden relative bg-slate-50/50">
+          <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0 shadow-sm z-10">
+            <div className="flex items-center">
+              <button onClick={() => setSidebarOpen(true)} className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors">
+                <Menu size={24} />
+              </button>
+              <h2 className="text-lg font-bold text-slate-800 truncate">About Us</h2>
+            </div>
+          </header>
+
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
+            <div className="max-w-2xl mx-auto space-y-6 pb-20">
+              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                 <div className="bg-emerald-900 px-8 py-10 text-center">
+                    <GraduationCap size={48} className="mx-auto text-emerald-100 mb-4" />
+                    <h2 className="text-2xl font-bold text-white mb-2">USask POCUS Quick Reference</h2>
+                    <p className="text-emerald-100/80 text-sm">Created for the University of Saskatchewan College of Medicine</p>
+                 </div>
+                 
+                 <div className="p-8 space-y-8">
+                    <div className="flex items-start">
+                       <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mr-4 shrink-0">
+                          <Stethoscope size={24} />
+                       </div>
+                       <div>
+                          <h3 className="font-bold text-slate-800 text-lg">Dr. Linden Kolbenson</h3>
+                          <p className="text-slate-500 text-sm">Content Creation and Review</p>
+                       </div>
+                    </div>
+                    
+                    <div className="flex items-start">
+                       <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mr-4 shrink-0">
+                          <Stethoscope size={24} />
+                       </div>
+                       <div>
+                          <h3 className="font-bold text-slate-800 text-lg">Dr. Paul Olszynski</h3>
+                          <p className="text-slate-500 text-sm">Content Creation and Review</p>
+                       </div>
+                    </div>
+                    
+                    <hr className="border-slate-100" />
+                    
+                    <div className="flex items-start">
+                       <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl mr-4 shrink-0">
+                          <Code2 size={24} />
+                       </div>
+                       <div>
+                          <h3 className="font-bold text-slate-800 text-lg">Raafi Ali</h3>
+                          <p className="text-slate-600 font-medium text-sm mb-1">Internal Medicine Resident</p>
+                          <p className="text-slate-500 text-sm">App Development and Design</p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   // 1. DASHBOARD VIEW
   if (currentView === 'dashboard') {
     return (
@@ -912,15 +1041,24 @@ export default function USaskPocusApp() {
             <GraduationCap size={180} />
           </div>
           <div className="max-w-5xl mx-auto relative z-10">
-             <div className="flex items-center space-x-2 mb-4">
-               <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-bold uppercase tracking-wide border border-white/20 text-emerald-100">
+             <div className="flex flex-wrap items-center gap-3 mb-5">
+               <span className="px-3 py-1 bg-white text-emerald-900 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
                  College of Medicine
                </span>
              </div>
              <h1 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight">USask POCUS</h1>
-             <p className="text-emerald-100 text-lg max-w-xl">
-               Undergraduate Medical Education Point-of-Care Ultrasound Resource.
-             </p>
+             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                 <p className="text-emerald-100 text-lg max-w-xl">
+                   Undergraduate Medical Education Point of Care Ultrasound Curriculum.
+                 </p>
+                 <button 
+                   onClick={goToAbout}
+                   className="w-fit px-3 py-1 bg-emerald-800/40 hover:bg-emerald-700/60 backdrop-blur-sm rounded-full text-xs font-bold uppercase tracking-wide border border-emerald-600/50 text-emerald-100 transition-colors cursor-pointer flex items-center shrink-0"
+                 >
+                   <Info size={12} className="mr-1" />
+                   About
+                 </button>
+             </div>
           </div>
         </header>
 
@@ -928,7 +1066,7 @@ export default function USaskPocusApp() {
           <div className="max-w-5xl mx-auto">
             <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center">
               <BookOpen size={20} className="mr-2 text-emerald-700" />
-              Quick Guides
+              Learning Modules
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -945,7 +1083,7 @@ export default function USaskPocusApp() {
                   <p className="text-sm text-slate-500 mb-6 flex-grow">{mod.description}</p>
                   
                   <div className={`flex items-center text-${mod.color}-700 text-sm font-bold mt-auto`}>
-                    Learn More <ArrowRight size={16} className="ml-2 transition-transform lg:group-hover:translate-x-1" />
+                    Start Module <ArrowRight size={16} className="ml-2 transition-transform lg:group-hover:translate-x-1" />
                   </div>
                 </button>
               ))}
@@ -954,7 +1092,13 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p>© University of Saskatchewan • College of Medicine • v0.28</p>
+          <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.36</p>
+          <button 
+            onClick={goToAbout} 
+            className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-medium transition-colors"
+          >
+             <Info size={14} className="mr-1" /> About the Team
+          </button>
         </footer>
       </div>
     );
@@ -989,6 +1133,17 @@ export default function USaskPocusApp() {
                 </button>
               ))}
             </div>
+          </div>
+
+          <div className="mt-8 px-2">
+            <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">App Info</h4>
+            <button 
+              onClick={goToAbout}
+              className={`w-full flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation text-emerald-100 hover:bg-emerald-800/50`}
+            >
+              <Info size={18} className="mr-3" />
+              About Us
+            </button>
           </div>
         </nav>
       </aside>
