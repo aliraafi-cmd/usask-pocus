@@ -129,14 +129,16 @@ const modules = [
         color: 'violet',
         content: [
           { type: 'text', text: "Sound travels from the probe into the body. Some sound is lost as heat or scattered away. Some sound reflects back to our probe. The sound that reflects back to the probe is interpreted by our machine and an image is displayed on our screen." },
-          { type: 'info', text: "Low frequency probes have high penetration but poor resolution (you can see far but not very well)." },
-          { type: 'info', text: "High frequency probes have low penetration but high resolution (you can see well but not very far)." },
+          { type: 'video', url: "/videos/making_an_image.mp4", caption: "Making an image" },
           { type: 'subheader', text: "Curvilinear (Abdominal)" },
           { type: 'list', items: ["Low frequency probe", "Used for: free fluid in abdomen and pelvis, bladder, kidneys, lung ultrasound, AAA"] },
           { type: 'subheader', text: "Phased Array (Cardiac)" },
           { type: 'list', items: ["Low frequency probe that specializes in cardiac movement", "Used for: cardiac scans, lung ultrasound"] },
           { type: 'subheader', text: "Linear (Vascular)" },
-          { type: 'list', items: ["High frequency probe", "Best for seeing things close to the surface (lung sliding, vessels, skin, superficial joints)"] }
+          { type: 'list', items: ["High frequency probe", "Best for seeing things close to the surface (lung sliding, vessels, skin, superficial joints)"] },
+          { type: 'image', url: "/images/probes.png", caption: "Probes" },
+          { type: 'info', text: "Low frequency probes have high penetration but poor resolution (you can see far but not very well)" },
+          { type: 'info', text: "High frequency probes have low penetration but high resolution (you can see well but not very far)" }
         ]
       },
       {
@@ -144,15 +146,17 @@ const modules = [
         icon: Layers,
         color: 'indigo',
         content: [
-          { type: 'bold', text: "Coronal (Long axis / Longitudinal)" },
+          { type: 'text', text: "The images acquired during various POCUS applications will generally be acquired in 1 of 2 longitudinal planes and/or the transverse plane of the body. Conversely we are sometimes interested in acquiring an image demonstrating the long or short axis of a particular structure." },
+          { type: 'bold', text: "Coronal (Long Axis / Longitudinal)" },
           { type: 'text', text: "Separates body anterior-posterior" },
-          { type: 'bold', text: "Sagittal (Long axis / Longitudinal)" },
+          { type: 'bold', text: "Sagittal (Long Axis / Longitudinal)" },
           { type: 'text', text: "Separates body left-right" },
           { type: 'bold', text: "Transverse (Short Axis)" },
           { type: 'text', text: "Separates body superior-inferior" },
           { type: 'divider' },
-          { type: 'text', text: "Long Axis: Plane parallel to the maximum length of a structure" },
-          { type: 'text', text: "Short Axis: Plane perpendicular to the maximum length of a structure" }
+          { type: 'bold', text: "Long Axis: Plane parallel to the maximum length of a structure" },
+          { type: 'bold', text: "Short Axis: Plane perpendicular to the maximum length of a structure" },
+          { type: 'image', url: "/images/anatomical_planes.png", caption: "Anatomical Planes" }
         ]
       },
       {
@@ -160,14 +164,20 @@ const modules = [
         icon: Move,
         color: 'rose',
         content: [
-          { type: 'text', text: "There are 5 standard ways an ultrasound probe can be moved:" },
-          { type: 'list', items: [
-            "Sliding: Moving the probe about its long or short axis while keeping the angle between your probe and your structure (angle of insonation) constant (AKA translating)",
-            "Fanning: Keeping the probe on a fixed point while changing the angle of insonation along the short axis of the probe (AKA sweeping / tilting)",
-            "Rocking: Keeping the probe on a fixed point while changing the angle of insonation along the long axis of the probe (AKA angling)",
-            "Rotating: Keeping the probe on a fixed point while moving clockwise or counter clockwise",
-            "Compression: Applying pressure to the body on a fixed point with the probe"
-          ]}
+          { type: 'text', text: "There are 5 standard ways an ultrasound probe can be moved." },
+          { type: 'bold', text: "Sliding:" },
+          { type: 'text', text: "Moving the probe about its long or short axis while keeping the angle between your probe and your structure (angle of insonation) constant (AKA translating)" },
+          { type: 'bold', text: "Fanning:" },
+          { type: 'text', text: "Keeping the probe on a fixed point while changing the angle of insonation along the short axis of the probe (AKA sweeping / tilting)" },
+          { type: 'bold', text: "Rocking:" },
+          { type: 'text', text: "Keeping the probe on a fixed point while changing the angle of insonation along the long axis of the probe (AKA angling)" },
+          { type: 'bold', text: "Rotating:" },
+          { type: 'text', text: "Keeping the probe on a fixed point while moving clockwise or counter clockwise" },
+          { type: 'bold', text: "Compression:" },
+          { type: 'text', text: "Applying pressure to the body on a fixed point with the probe" },
+          { type: 'image', url: "/images/probe_movements.png", caption: "Probe Movements" },
+          { type: 'text', text: "The ultrasound probe is moved with respect to standard anatomic directions:" },
+          { type: 'image', url: "/images/anatomical_directions.png", caption: "Anatomical Directions" }
         ]
       },
       {
@@ -180,7 +190,9 @@ const modules = [
           { type: 'subheader', text: "Radiology Convention" },
           { type: 'list', items: ["Screen marker appears on screen LEFT", "Used for all POCUS applications except cardiac"] },
           { type: 'subheader', text: "Cardiology Convention" },
-          { type: 'list', items: ["Screen marker appears on screen RIGHT", "Used for Cardiac POCUS"] }
+          { type: 'list', items: ["Screen marker appears on screen RIGHT", "Used for Cardiac POCUS"] },
+          { type: 'image', url: "/images/conventions.png", caption: "Conventions" },
+          { type: 'image', url: "/images/screen_anatomy.png", caption: "Screen Anatomy" }
         ]
       },
       {
@@ -199,8 +211,197 @@ const modules = [
     ]
   },
   {
+    id: 'abd-free-fluid',
+    title: 'Free Fluid Abdomen and Pelvis',
+    description: 'Scanning for free fluid in the abdomen and pelvis.',
+    icon: SpleenIcon,
+    color: 'amber', 
+    sections: [
+      {
+        title: "Scan Basics",
+        icon: BookOpen, 
+        color: 'blue',
+        content: [
+          { type: 'subheader', text: "Indication" },
+          { type: 'list', items: [
+             "Abdominal Pain | Abdominal Distention", 
+             "Sepsis | Shock",
+             "Trauma (FAST Scan)",
+             "Procedural (Paracentesis)"
+          ]},
+          { type: 'subheader', text: "Equipment" },
+          { type: 'list', items: ["Transducer: Curvilinear", "Preset: Abdominal", "Convention: Radiology"] },
+          { type: 'subheader', text: "Patient Positioning" },
+          { type: 'list', items: ["Supine | Semi-Supine", "Arm above head or across body"] },
+          { type: 'divider' },
+          { type: 'header', text: "Landmarks" },
+          { type: 'subheader', text: "RUQ | LUQ" },
+          { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
+          { type: 'text', text: "Internal: Kidney | Diaphragm | Liver / Spleen | Spine | Lung" },
+          { type: 'video', url: "/videos/ruq_external_internal_landmarks.mp4", caption: "RUQ External Internal Landmarks" },
+          { type: 'video', url: "/videos/luq_external_internal_landmarks.mp4", caption: "LUQ External Internal Landmarks" },
+          { type: 'subheader', text: "Pelvis (Male)" },
+          { type: 'text', text: "External: Superior to Pubic Symphysis" },
+          { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
+          { type: 'video', url: "/videos/male_pelvis_transverse_longitudinal_internal_landmarks.mp4", caption: "Male Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'subheader', text: "Pelvis (Female)" },
+          { type: 'text', text: "External: Superior to Pubic Symphysis" },
+          { type: 'text', text: "Internal: Bladder | Uterus | Vagina | Rectum" },
+          { type: 'video', url: "/videos/female_pelvis_transverse_longitudinal_internal_landmarks.mp4", caption: "Female Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'divider' },
+          { type: 'header', text: "Area of Interest" },
+          { type: 'bold', text: "Right Upper Quadrant (RUQ):" },
+          { type: 'text', text: "Hepatorenal Interface | Caudal Tip of Liver" },
+          { type: 'bold', text: "Left Upper Quadrant (LUQ):" },
+          { type: 'text', text: "Splenorenal Interface | Between Diaphragm and Spleen" },
+          { type: 'video', url: "/videos/ruq_luq_area_of_interest.mp4", caption: "RUQ LUQ Area of Interest" },
+          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'text', text: "Rectovesicular Space" },
+          { type: 'video', url: "/videos/male_pelvis_transverse_longitudinal_area_of_interest.mp4", caption: "Male Pelvis Transverse Longitudinal Area of Interest" },
+          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'text', text: "Rectouterine Space (Pouch of Douglas) | Vesicouterine Space" },
+          { type: 'video', url: "/videos/female_pelvis_transverse_longitudinal_area_of_interest.mp4", caption: "Female Pelvis Transverse Longitudinal Area of Interest" }
+        ]
+      },
+      {
+        title: "Scanning Technique",
+        icon: Sliders,
+        color: 'violet',
+        content: [
+          { type: 'header', text: "Right Upper Quadrant (RUQ)" },
+          { type: 'list', items: [
+            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
+            "Start with lots of depth.",
+            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
+            "Adjust depth to just past the spine.",
+            "Fan through the hepatorenal interface anteriorly to posteriorly.",
+            "Slide inferiorly to identify the caudal tip of the liver.",
+            "Fan through the caudal tip of the liver anteriorly to posteriorly."
+          ]},
+          { type: 'video', url: "/videos/ruq_fanning_interface.mp4", caption: "RUQ Fanning Interface" },
+          { type: 'video', url: "/videos/ruq_fanning_caudal_tip_of_liver.mp4", caption: "RUQ Fanning Caudal Tip of Liver" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Left Upper Quadrant (LUQ)" },
+          { type: 'list', items: [
+            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
+            "Start with lots of depth.",
+            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
+            "Adjust depth to just past the spine.",
+            "Fan through the splenorenal interface anteriorly to posteriorly.",
+            "Slide cranially to identify the diaphragm.",
+            "Fan through the medial diaphragm anterior to posterior until the diaphragm disappears."
+          ]},
+          { type: 'video', url: "/videos/luq_fanning_interface_and_medial_diaphragm.mp4", caption: "LUQ Fanning Interface and Medial Diaphragm" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Pelvis Transverse" },
+          { type: 'list', items: [
+            "Place probe in transverse just superior to the pubic symphysis (probe marker toward patient right).",
+            "Start with lots of depth.",
+            "Fan probe inferiorly until the bladder is seen.",
+            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
+            "Fan the probe inferior and superior until the bladder disappears in both directions."
+          ]},
+          { type: 'video', url: "/videos/pelvis_transverse_probe_starting_position.mp4", caption: "Pelvis Transverse Probe Starting Position" },
+          { type: 'video', url: "/videos/male_pelvis_transverse_fanning.mp4", caption: "Male Pelvis Transverse Fanning" },
+          { type: 'video', url: "/videos/female_pelvis_transverse_fanning.mp4", caption: "Female Pelvis Transverse Fanning" },
+          
+          { type: 'divider' },
+
+          { type: 'header', text: "Pelvis Longitudinal" },
+          { type: 'list', items: [
+            "Place probe in longitudinal just superior to the pubic symphysis (probe marker toward head).",
+            "Start with lots of depth.",
+            "Rock probe inferiorly until the bladder is seen.",
+            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
+            "Fan the probe left and right until the bladder disappears in both directions."
+          ]},
+          { type: 'video', url: "/videos/pelvis_longitudinal_probe_starting_position.mp4", caption: "Pelvis Longitudinal Probe Starting Position" },
+          { type: 'video', url: "/videos/male_pelvis_longitudinal_fanning.mp4", caption: "Male Pelvis Longitudinal Fanning" },
+          { type: 'video', url: "/videos/female_pelvis_longitudinal_fanning.mp4", caption: "Female Pelvis Longitudinal Fanning" }
+        ]
+      },
+      {
+        title: "Interpretation",
+        icon: Microscope,
+        color: 'rose',
+        content: [
+          { type: 'header', text: "Negative Scan" },
+          { type: 'bold', text: "RUQ:" },
+          { type: 'text', text: "No anechoic free fluid after fanning through entire hepatorenal interface anterior to posterior AND no anechoic free fluid around the caudal tip of the liver after fanning through the caudal tip anterior to posterior. (See scanning technique clips)" },
+          
+          { type: 'bold', text: "LUQ:" },
+          { type: 'text', text: "No anechoic free fluid after fanning through entire splenorenal interface anterior to posterior AND no anechoic free fluid between the medial diaphragm and spleen after fanning through the medial diaphragm until it disappears. (See scanning technique clips)" },
+          
+          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'text', text: "No anechoic free fluid seen in the rectovesicular space after fanning through the bladder in both transverse and longitudinal. (See scanning technique clips)" },
+          
+          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'text', text: "No anechoic free fluid seen in the rectouterine and vesicouterine space after fanning through the bladder in both transverse and longitudinal. (See scanning technique clips)" },
+          
+          { type: 'divider' },
+
+          { type: 'header', text: "Positive Scan" },
+          { type: 'bold', text: "RUQ:" },
+          { type: 'text', text: "Anechoic free fluid seen in hepatorenal interface or around the caudal tip of the liver" },
+          { type: 'video', url: "/videos/ruq_positive_scan_free_fluid_large_amount.mp4", caption: "RUQ Positive Scan Free Fluid Large Amount" },
+          { type: 'video', url: "/videos/ruq_positive_scan_small_amount_caudal_tip.mp4", caption: "RUQ Positive Scan Small Amount Caudal Tip" },
+          
+          { type: 'bold', text: "LUQ:" },
+          { type: 'text', text: "Anechoic free fluid seen in splenorenal interface or between medial diaphragm and spleen" },
+          { type: 'video', url: "/videos/luq_positive_scan_free_fluid_large_amount.mp4", caption: "LUQ Positive Scan Free Fluid Large Amount" },
+          { type: 'video', url: "/videos/luq_positive_scan_free_fluid_small_amount.mp4", caption: "LUQ Positive Scan Free Fluid Small Amount" },
+          
+          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'text', text: "Anechoic free fluid seen in the rectovesicular space" },
+          { type: 'video', url: "/videos/male_pelvis_transverse_positive_scan_free_fluid.mp4", caption: "Male Pelvis Transverse Positive Scan Free Fluid" },
+          { type: 'video', url: "/videos/male_pelvis_longitudinal_positive_scan_free_fluid.mp4", caption: "Male Pelvis Longitudinal Positive Scan Free Fluid" },
+          
+          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'text', text: "Anechoic free fluid seen in the rectouterine space and/or the vesicouterine space" },
+          { type: 'video', url: "/videos/female_pelvis_transverse_positive_scan_free_fluid.mp4", caption: "Female Pelvis Transverse Positive Scan Free Fluid" },
+          { type: 'video', url: "/videos/female_pelvis_longitudinal_positive_scan_free_fluid.mp4", caption: "Female Pelvis Longitudinal Positive Scan Free Fluid" }
+        ]
+      },
+      {
+        title: "Troubleshooting",
+        icon: Wrench, 
+        color: 'amber',
+        content: [
+          { type: 'subheader', text: "Rib shadows in the way" },
+          { type: 'list', items: ["Rotate probe toward bed into rib space", "Have patient take a breath in and hold to move structure out from under rib"] },
+          { type: 'subheader', text: "Diaphragm not visualized well" },
+          { type: 'list', items: [
+            "Slide anteriorly then fan posteriorly",
+            "Slide posteriorly then fan anteriorly",
+            "Slide toward feet then rock toward head"
+          ]}
+        ]
+      },
+      {
+        title: "Pearls & Pitfalls",
+        icon: Lightbulb, 
+        color: 'sky',
+        content: [
+          { type: 'list', items: [
+            "POCUS can not help you distinguish the type of fluid, clinical context is key.",
+            "Free fluid is not always anechoic (clotted blood in hemoperitoneum).",
+            "A negative FAST scan does not rule out an intra-abdominal injury.",
+            "A negative FAST scan is not reliable in patients with a history of prior abdominal surgery.",
+            "Do not mistake physiologically or pathologically fluid filled organs for free fluid (gallbladder, fluid filled bowel or stomach).",
+            "Do not mistake the seminal vesicle or prostate for free fluid.",
+            "The female pelvis can contain a small amount of physiologic free fluid, context is important, do not assume it is normal."
+          ]}
+        ]
+      }
+    ]
+  },
+  {
     id: 'lung-pleural',
-    title: 'Lung: Pleural Effusion',
+    title: 'Pleural Effusion',
     description: 'Scanning for fluid, Spine Sign, and landmarks.',
     icon: PleuralEffusionIcon,
     color: 'violet', 
@@ -212,18 +413,23 @@ const modules = [
         content: [
           { type: 'subheader', text: "Indication" },
           { type: 'list', items: [
-             "Dyspnea, Cough, Chest Pain", 
-             "Trauma (FAST Scan), Respiratory Failure, Sepsis, Shock",
-             "Procedural (Thoracentesis, Chest Tube)"
+             "Dyspnea | Cough | Chest Pain", 
+             "Trauma (FAST Scan) | Respiratory Failure | Sepsis | Shock",
+             "Procedural (Thoracentesis | Chest Tube)"
           ]},
           { type: 'subheader', text: "Equipment" },
-          { type: 'list', items: ["Transducer: Curvilinear or Phased Array", "Preset: Abdominal", "Convention: Radiology"] },
+          { type: 'list', items: ["Transducer: Curvilinear | Phased Array", "Preset: Abdominal", "Convention: Radiology"] },
           { type: 'subheader', text: "Patient Positioning" },
-          { type: 'list', items: ["Supine, Semi-Supine, or Sitting", "Arm above head or across body"] },
-          { type: 'subheader', text: "Landmarks" },
-          { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
-          { type: 'text', text: "Internal: Kidney | Diaphragm | Liver/Spleen | Spine | Lung" },
-          { type: 'info', text: "Area of Interest: Area cranial to diaphragm" }
+          { type: 'list', items: ["Supine | Semi-Supine | Sitting", "Arm above head or across body"] },
+          { type: 'divider' },
+          { type: 'header', text: "Landmarks" },
+          { type: 'text', text: "External Landmarks: Mid-Posterior Axillary Line | Xiphoid Process" },
+          { type: 'text', text: "Internal Landmarks: Kidney | Diaphragm | Liver / Spleen | Spine | Lung" },
+          { type: 'video', url: "/videos/ruq_external_internal_landmarks.mp4", caption: "RUQ External Internal Landmarks" },
+          { type: 'divider' },
+          { type: 'header', text: "Area of Interest" },
+          { type: 'text', text: "Area cranial to diaphragm" },
+          { type: 'video', url: "/videos/area_of_interest.mp4", caption: "Area of Interest" }
         ]
       },
       {
@@ -232,17 +438,14 @@ const modules = [
         color: 'violet',
         content: [
           { type: 'list', items: [
-            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (Probe Marker toward head).",
+            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
             "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
             "Adjust depth to just past the spine.",
             "Slide probe cranial until diaphragm in view.",
             "Fan through medial diaphragm anteriorly to posteriorly until the diaphragm disappears."
           ]},
-          { 
-            type: 'video', 
-            url: "/videos/lus-right-z4-ple.mp4", 
-            caption: "Technique: Pleural Effusion view prior to fanning"
-          }
+          { type: 'video', url: "/videos/starting_view_before_fanning.mp4", caption: "Starting view before fanning" },
+          { type: 'video', url: "/videos/fanning_through_medial_diaphragm.mp4", caption: "Fanning Through Medial Diaphragm" }
         ]
       },
       {
@@ -251,37 +454,23 @@ const modules = [
         color: 'rose',
         content: [
           { type: 'header', text: "Positive Scan" },
-          { type: 'text', text: "Anechoic area seen cranial to the diaphragm AND ≥ 1 of the following:" },
-          
-          { 
-            type: 'video', 
-            url: "/videos/lus-right-z4-plueraleffusion.mp4", 
-            caption: "Positive Scan: Pleural effusion with spine sign, solid lung floating, and lateral diaphragm visualized."
-          },
-
+          { type: 'text', text: "Anechoic area seen cranial to the diaphragm and ≥ 1 of the following:" },
           { type: 'list', items: [
-            "Spine sign (Spine visible above diaphragm)",
+            "Spine sign",
             "Solid lung floating in effusion",
             "Lateral diaphragm visualized"
           ]},
+          { type: 'video', url: "/videos/positive_scan_large_pleural_effusion_and_solid_lung.mp4", caption: "Positive Scan - Large Pleural Effusion and Solid Lung" },
+          { type: 'video', url: "/videos/positive_scan_small_pleural_effusion.mp4", caption: "Positive Scan - Small Pleural Effusion" },
           
           { type: 'divider' },
           
           { type: 'header', text: "Negative Scan" },
-          { 
-            type: 'video', 
-            url: "/videos/lus-right-z4-curtain.mp4", 
-            caption: "Negative Scan: The 'Curtain Sign' (Aerated lung obscuring abdominal contents)."
-          },
-          { 
-            type: 'video', 
-            url: "/videos/lus-right-z4-fan.mp4",
-            caption: "Technique: Fanning through the medial diaphragm."
-          },
           { type: 'list', items: [
-            "No pleural effusion after fanning entire medial diaphragm anteriorly to posteriorly.",
-            "The Curtain Sign can rule out a large pleural effusion."
-          ]}
+            "No pleural effusion after fanning entire medial diaphragm anteriorly to posteriorly until it disappears (see scanning technique)",
+            "The curtain sign can rule out a large pleural effusion"
+          ]},
+          { type: 'video', url: "/videos/curtain_sign.mp4", caption: "Curtain sign" }
         ]
       },
       {
@@ -308,7 +497,7 @@ const modules = [
             "Loculated pleural effusions may be missed by standard pleural effusion scanning technique.",
             "The sensitivity for finding a pleural effusion will increase the more upright your patient is (free flowing fluid will be gravity dependent).",
             "The presence of a spine sign can also be seen in consolidated lung without pleural effusion.",
-            "Mirror artifact can mimic lung pathology: a spine sign will NOT be present with mirror artifact but WILL be present with lung pathology."
+            "Mirror artifact can mimic lung pathology, a spine sign will not be present with mirror artifact but will be present with lung pathology."
           ]}
         ]
       }
@@ -316,7 +505,7 @@ const modules = [
   },
   {
     id: 'lung-pneumothorax',
-    title: 'Lung: Pneumothorax',
+    title: 'Pneumothorax',
     description: 'Evaluating for lung sliding, lung point, and pneumothorax.',
     icon: PneumothoraxIcon,
     color: 'emerald', 
@@ -331,7 +520,7 @@ const modules = [
              "Chest Pain | Dyspnea", 
              "Respiratory Failure | Shock",
              "Trauma (EFAST Scan)",
-             "Post Procedure (Thoracentesis, Chest Tube, CVL)"
+             "Post Procedure (Thoracentesis | Chest Tube | CVL)"
           ]},
           { type: 'subheader', text: "Equipment" },
           { type: 'list', items: ["Transducer: Linear | Curvilinear (EFAST)", "Preset: Lung | Abdominal", "Convention: Radiology"] },
@@ -340,10 +529,13 @@ const modules = [
           { type: 'divider' },
           { type: 'header', text: "Landmarks" },
           { type: 'text', text: "External: Most Anterior Aspect of Chest | Mid-Clavicular Line" },
-          { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows" },
+          { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows | A-Lines (if present)" },
+          { type: 'video', url: "/videos/probe_starting_position_need_to_obtain.mp4", caption: "Probe Starting Position" },
+          { type: 'video', url: "/videos/internal_landmarks.mp4", caption: "Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
-          { type: 'text', text: "VPPI of 2-3 of the most anterior rib spaces bilaterally" }
+          { type: 'text', text: "VPPI of 2-3 of the most anterior rib spaces bilaterally" },
+          { type: 'video', url: "/videos/area_of_interest.mp4", caption: "Area of Interest" }
         ]
       },
       {
@@ -359,7 +551,9 @@ const modules = [
             "Slide the probe superiorly or inferiorly to interrogate a total of 2-3 rib spaces.",
             "Repeat the above steps in the remaining hemithorax.",
             "If lung sliding is absent, slide the probe within the rib space laterally until a pathologic lung point is visualized."
-          ]}
+          ]},
+          { type: 'video', url: "/videos/negative_scan_lung_sliding.mp4", caption: "Negative Scan Lung Sliding" },
+          { type: 'video', url: "/videos/negative_scan_lung_pulse.mp4", caption: "Negative Scan Lung Pulse" }
         ]
       },
       {
@@ -368,12 +562,16 @@ const modules = [
         color: 'rose',
         content: [
           { type: 'header', text: "Positive Scan" },
-          { type: 'text', text: "Absence of lung sliding, lung pulse, and B-lines plus visualization of a pathological lung point." },
+          { type: 'text', text: "Absence of lung sliding, lung pulse, and B-lines PLUS visualization of a pathological lung point." },
+          { type: 'video', url: "/videos/no_lung_sliding.mp4", caption: "No Lung Sliding" },
+          { type: 'video', url: "/videos/pathologic_lung_point.mp4", caption: "Pathologic Lung Point" },
+          
           { type: 'divider' },
+          
           { type: 'header', text: "Negative Scan" },
           { type: 'list', items: [
-            "Lung sliding present in 2-3 of the most anterior rib spaces bilaterally OR",
-            "Lung pulse present in 2-3 of the most anterior rib spaces bilaterally OR",
+            "Lung sliding present in 2-3 of the most anterior rib spaces bilaterally (see scanning technique) OR",
+            "Lung pulse present in 2-3 of the most anterior rib spaces bilaterally (see scanning technique) OR",
             "B-lines present in 2-3 of the most anterior rib spaces bilaterally"
           ]}
         ]
@@ -393,7 +591,9 @@ const modules = [
           { type: 'list', items: [
             "Increase depth to attempt to visualize the underlying physiologic organ (liver, heart, spleen).",
             "Be aware of surface anatomy and expected location of organs / physiologic lung points."
-          ]}
+          ]},
+          { type: 'video', url: "/videos/physiologic_lung_point_cardiac_lung_point.mp4", caption: "Physiologic Lung Point - Cardiac Lung Point" },
+          { type: 'video', url: "/videos/physiologic_lung_point_liver_lung_point.mp4", caption: "Physiologic Lung Point - Liver Lung Point" }
         ]
       },
       {
@@ -406,7 +606,17 @@ const modules = [
             "Do not mistake physiologic lung points for pathologic lung points.",
             "If a patient is unstable, the absence of lung sliding, lung pulse, and B-lines may be sufficient to diagnose a pneumothorax in the right clinical context without identifying a pathologic lung point.",
             "If a patient is stable, the absence of lung sliding, lung pulse, and B-lines without visualization of a pathologic lung point is insufficient to diagnose a pneumothorax and further investigations are warranted.",
-            "Absent lung sliding can be seen in multiple clinical contexts: Prior pleurodesis, Right mainstem intubation, Esophageal intubation in an apneic patient, Phrenic nerve palsy, Pleural adhesions from prior chest tube, Interstitial Lung Disease.",
+            "Absent lung sliding can be seen in multiple clinical contexts:"
+          ]},
+          { type: 'sublist', items: [
+            "Prior pleurodesis",
+            "Right mainstem intubation",
+            "Esophageal intubation in an apneic patient",
+            "Phrenic nerve palsy",
+            "Pleural adhesions from prior chest tube",
+            "Interstitial Lung Disease"
+          ]},
+          { type: 'list', items: [
             "Patients with a large pneumothorax may not have a visible pathologic lung point due to the size."
           ]}
         ]
@@ -415,7 +625,7 @@ const modules = [
   },
   {
     id: 'lung-interstitial',
-    title: 'Lung: Interstitial Syndrome',
+    title: 'Interstitial Lung Syndrome (B-Lines)',
     description: 'Evaluating the B-Lines in Lung Zones.',
     icon: InterstitialIcon,
     color: 'cyan',
@@ -436,8 +646,9 @@ const modules = [
           { type: 'list', items: ["Supine | Semi-Supine | Sitting"] },
           { type: 'subheader', text: "Landmarks" },
           { type: 'text', text: "External: Parasternal Line | Midclavicular Line | Anterior Axillary Line | Posterior Axillary Line | Inter-Nipple Line" },
-          { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows" },
-          { type: 'image', url: "/images/lung-zones.jpg", caption: "Anatomy: Lung Zones" },
+          { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows | A-lines (if present)" },
+          { type: 'image', url: "/images/lung_zones.png", caption: "Lung Zones" },
+          { type: 'video', url: "/videos/internal_landmarks.mp4", caption: "Internal Landmarks" },
           { type: 'info', text: "Area of Interest: VPPI of ≥ 1 rib space in each lung zone" }
         ]
       },
@@ -479,8 +690,8 @@ const modules = [
             "Evaluate for presence of B-lines."
           ]},
           { type: 'bold', text: "Repeat above technique for the opposite hemithorax." },
-          { type: 'video', url: "/videos/lus-sliding.mp4", caption: "Technique: Sliding to center the VPPI" },
-          { type: 'video', url: "/videos/lus-fanning.mp4", caption: "Technique: Fanning to optimize the VPPI" }
+          { type: 'video', url: "/videos/sliding_to_center_the_vppi.mp4", caption: "Sliding to center the VPPI" },
+          { type: 'video', url: "/videos/fanning_to_optimize_vppi.mp4", caption: "Fanning to optimize VPPI" }
         ]
       },
       {
@@ -490,13 +701,16 @@ const modules = [
         content: [
           { type: 'header', text: "Positive Scan" },
           { type: 'text', text: "≥ 3 B-lines present in a single rib space at any time throughout the respiratory cycle OR" },
-          { type: 'video', url: "/videos/lus-b-lines.mp4", caption: "Positive Scan: B-Lines present" },
+          { type: 'video', url: "/videos/b_lines.mp4", caption: "B-Lines" },
           { type: 'text', text: "Coalescing B-lines" },
-          { type: 'video', url: "/videos/lus-coalescing.mp4", caption: "Positive Scan: Coalescing B-Lines" },
+          { type: 'video', url: "/videos/coalescing_b_lines.mp4", caption: "Coalescing B-Lines" },
+          { type: 'video', url: "/videos/coalescing_b_lines_making_white_lung.mp4", caption: "Coalescing B-Lines Making White Lung" },
+          
           { type: 'divider' },
+          
           { type: 'header', text: "Negative Scan" },
           { type: 'text', text: "< 3 B-lines present in a single rib space at any time throughout the respiratory cycle" },
-          { type: 'video', url: "/videos/lus-a-lines.mp4", caption: "Negative Scan: A-Lines present" }
+          { type: 'video', url: "/videos/normal_a_lines.mp4", caption: "Normal A-Lines" }
         ]
       },
       {
@@ -506,7 +720,7 @@ const modules = [
         content: [
           { type: 'subheader', text: "Trouble Visualizing the VPPI:" },
           { type: 'list', items: [
-            "Fan the probe until the pleural line looks as “crisp” and hyperechoic as possible.",
+            "Fan the probe until the the pleural line looks as “crisp” and hyperechoic as possible.",
             "Orient your sound so it is 90 degrees to the pleura by fanning."
           ]}
         ]
@@ -517,177 +731,19 @@ const modules = [
         color: 'sky',
         content: [
           { type: 'list', items: [
-            "The presence of an abnormal amount of B-lines has a differential diagnosis that extends beyond cardiogenic pulmonary edema. The clinical context and distribution of B-lines (unilateral vs bilateral, focal vs diffuse) will help you determine the cause.",
-            "Do not mistake B-lines for a normal vertical artifact called a Z-line.",
-            "Characteristics of B-lines: Arise from the VPPI, Hyperechoic, Vertical, Extend well into the far field (≥ 10cm beyond VPPI), Move with lung sliding, Typically erase A-lines.",
-            "Lung presets will often start with inadequate depth to evaluate for B-lines. Do not forget to optimize your depth!"
-          ]}
-        ]
-      }
-    ]
-  },
-  {
-    id: 'abd-free-fluid',
-    title: 'Abdomen: Free Fluid',
-    description: 'Scanning for free fluid in the abdomen and pelvis.',
-    icon: SpleenIcon,
-    color: 'amber', 
-    sections: [
-      {
-        title: "Scan Basics",
-        icon: BookOpen, 
-        color: 'blue',
-        content: [
-          { type: 'subheader', text: "Indication" },
-          { type: 'list', items: [
-             "Abdominal Pain | Abdominal Distention", 
-             "Sepsis | Shock",
-             "Trauma (FAST Scan)",
-             "Procedural (Paracentesis)"
+            "The presence of an abnormal amount of B-lines has a differential diagnosis that extends beyond cardiogenic pulmonary edema, the clinical context and distribution of B-lines (unilateral vs bilateral, focal vs diffuse) will help you determine the cause.",
+            "Do not mistake B-lines for a normal vertical artifact called a Z-line, remember the following characteristics of B-lines:"
           ]},
-          { type: 'subheader', text: "Equipment" },
-          { type: 'list', items: ["Transducer: Curvilinear", "Preset: Abdominal", "Convention: Radiology"] },
-          { type: 'subheader', text: "Patient Positioning" },
-          { type: 'list', items: ["Supine | Semi-Supine", "Arm above head or across body"] },
-          { type: 'divider' },
-          { type: 'header', text: "Landmarks" },
-          { type: 'subheader', text: "RUQ | LUQ" },
-          { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
-          { type: 'text', text: "Internal: Kidney | Diaphragm | Liver / Spleen | Spine | Lung" },
-          { type: 'subheader', text: "Pelvis (Male)" },
-          { type: 'text', text: "External: Superior to Pubic Symphysis" },
-          { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
-          { type: 'subheader', text: "Pelvis (Female)" },
-          { type: 'text', text: "External: Superior to Pubic Symphysis" },
-          { type: 'text', text: "Internal: Bladder | Uterus | Vagina | Rectum" },
-          { type: 'divider' },
-          { type: 'header', text: "Area of Interest" },
-          { type: 'bold', text: "Right Upper Quadrant (RUQ):" },
-          { type: 'text', text: "Hepatorenal Interface | Caudal Tip of Liver" },
-          { type: 'bold', text: "Left Upper Quadrant (LUQ):" },
-          { type: 'text', text: "Splenorenal Interface | Between Diaphragm and Spleen" },
-          { type: 'bold', text: "Pelvis (Male):" },
-          { type: 'text', text: "Rectovesicular Space" },
-          { type: 'bold', text: "Pelvis (Female):" },
-          { type: 'text', text: "Rectouterine Space (Pouch of Douglas) | Vesicouterine Space" }
-        ]
-      },
-      {
-        title: "Scanning Technique",
-        icon: Sliders,
-        color: 'violet',
-        content: [
-          { type: 'header', text: "Right Upper Quadrant (RUQ)" },
-          { type: 'list', items: [
-            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
-            "Start with lots of depth.",
-            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
-            "Adjust depth to just past the spine.",
-            "Fan through the hepatorenal interface anteriorly to posteriorly.",
-            "Slide inferiorly to identify the caudal tip of the liver.",
-            "Fan through the caudal tip of the liver anteriorly to posteriorly."
+          { type: 'sublist', items: [
+            "Arise from the VPPI",
+            "Hyperechoic",
+            "Vertical",
+            "Extend well into to the far field (≥ 10cm beyond VPPI)",
+            "Move with lung sliding",
+            "Typically erase A-lines"
           ]},
-          { type: 'video', url: "/videos/ruq-fan.mp4", caption: "Technique: RUQ Fanning" },
-          { type: 'video', url: "/videos/ruq-caudal-tip.mp4", caption: "Technique: RUQ Caudal Tip" },
-          
-          { type: 'divider' },
-          
-          { type: 'header', text: "Left Upper Quadrant (LUQ)" },
           { type: 'list', items: [
-            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
-            "Start with lots of depth.",
-            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
-            "Adjust depth to just past the spine.",
-            "Fan through the splenorenal interface anteriorly to posteriorly.",
-            "Slide cranially to identify the diaphragm.",
-            "Fan through the medial diaphragm anterior to posterior until the diaphragm disappears."
-          ]},
-          { type: 'video', url: "/videos/luq-fan.mp4", caption: "Technique: LUQ Fanning" },
-          
-          { type: 'divider' },
-          
-          { type: 'header', text: "Pelvis Transverse" },
-          { type: 'list', items: [
-            "Place probe in transverse just superior to the pubic symphysis (probe marker toward patient right).",
-            "Start with lots of depth.",
-            "Fan probe inferiorly until the bladder is seen.",
-            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
-            "Fan the probe inferior and superior until the bladder disappears in both directions."
-          ]},
-          
-          { type: 'divider' },
-
-          { type: 'header', text: "Pelvis Longitudinal" },
-          { type: 'list', items: [
-            "Place probe in longitudinal just superior to the pubic symphysis (probe marker toward head).",
-            "Start with lots of depth.",
-            "Rock probe inferiorly until the bladder is seen.",
-            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
-            "Fan the probe left and right until the bladder disappears in both directions."
-          ]}
-        ]
-      },
-      {
-        title: "Interpretation",
-        icon: Microscope,
-        color: 'rose',
-        content: [
-          { type: 'header', text: "Positive Scan" },
-          { type: 'bold', text: "RUQ:" },
-          { type: 'text', text: "Anechoic free fluid seen in hepatorenal interface or around the caudal tip of the liver." },
-          { type: 'bold', text: "LUQ:" },
-          { type: 'text', text: "Anechoic free fluid seen in splenorenal interface or between medial diaphragm and spleen." },
-          { type: 'bold', text: "Pelvis (Male):" },
-          { type: 'text', text: "Anechoic free fluid seen in the rectovesicular space." },
-          { type: 'bold', text: "Pelvis (Female):" },
-          { type: 'text', text: "Anechoic free fluid seen in the rectouterine space and/or the vesicouterine space." },
-          
-          { type: 'divider' },
-          
-          { type: 'header', text: "Negative Scan" },
-          { type: 'bold', text: "RUQ:" },
-          { type: 'text', text: "No anechoic free fluid after fanning through entire hepatorenal interface anterior to posterior AND no anechoic free fluid around the caudal tip of the liver after fanning through the caudal tip anterior to posterior." },
-          { type: 'video', url: "/videos/ruq-negative.mp4", caption: "Negative Scan: RUQ" },
-          
-          { type: 'bold', text: "LUQ:" },
-          { type: 'text', text: "No anechoic free fluid after fanning through entire splenorenal interface anterior to posterior AND no anechoic free fluid between the medial diaphragm and spleen after fanning through the medial diaphragm until it disappears." },
-          { type: 'video', url: "/videos/luq-negative.mp4", caption: "Negative Scan: LUQ" },
-          
-          { type: 'bold', text: "Pelvis (Male):" },
-          { type: 'text', text: "No anechoic free fluid seen in the rectovesicular space after fanning through the bladder in both transverse and longitudinal." },
-          
-          { type: 'bold', text: "Pelvis (Female):" },
-          { type: 'text', text: "No anechoic free fluid seen in the rectouterine and vesicouterine space after fanning through the bladder in both transverse and longitudinal." }
-        ]
-      },
-      {
-        title: "Troubleshooting",
-        icon: Wrench, 
-        color: 'amber',
-        content: [
-          { type: 'subheader', text: "Rib shadows in the way" },
-          { type: 'list', items: ["Rotate probe toward bed into rib space.", "Have patient take a breath in and hold to move structure out from under rib."] },
-          { type: 'subheader', text: "Diaphragm not visualized well" },
-          { type: 'list', items: [
-            "Slide anteriorly then fan posteriorly.",
-            "Slide posteriorly then fan anteriorly.",
-            "Slide toward feet then rock toward head."
-          ]}
-        ]
-      },
-      {
-        title: "Pearls & Pitfalls",
-        icon: Lightbulb, 
-        color: 'sky',
-        content: [
-          { type: 'list', items: [
-            "POCUS cannot help you distinguish the type of fluid; clinical context is key.",
-            "Free fluid is not always anechoic (e.g., clotted blood in hemoperitoneum).",
-            "A negative FAST scan does not rule out an intra-abdominal injury.",
-            "A negative FAST scan is not reliable in patients with a history of prior abdominal surgery.",
-            "Do not mistake physiologically or pathologically fluid-filled organs for free fluid (e.g., gallbladder, fluid-filled bowel, or stomach).",
-            "Do not mistake the seminal vesicle or prostate for free fluid.",
-            "The female pelvis can contain a small amount of physiologic free fluid. Context is important; do not assume it is normal."
+            "Lung presets will often start with inadequate depth to evaluate for B-lines, do not forget to optimize your depth."
           ]}
         ]
       }
@@ -731,8 +787,8 @@ const VideoPlayer = ({ src, caption }) => {
   }, [src]);
 
   return (
-    <div className="my-4 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
-      <div className="relative bg-black aspect-video flex items-center justify-center group">
+    <div className="my-5 rounded-2xl overflow-hidden shadow-lg border border-white/50 bg-white/40 backdrop-blur-md">
+      <div className="relative bg-black/90 aspect-video flex items-center justify-center group">
          <video 
            ref={videoRef}
            src={src} 
@@ -745,7 +801,7 @@ const VideoPlayer = ({ src, caption }) => {
          />
       </div>
       {caption && (
-        <div className="bg-slate-50 p-2 text-xs text-center text-slate-500 font-medium border-t border-slate-200">
+        <div className="bg-white/80 backdrop-blur-lg p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50">
           {caption}
         </div>
       )}
@@ -758,27 +814,37 @@ const VideoPlayer = ({ src, caption }) => {
 const ContentBlock = ({ item, color }) => {
   switch (item.type) {
     case 'header':
-      return <h4 className={`font-bold text-${color}-800 mt-4 mb-2 text-lg`}>{item.text}</h4>;
+      return <h4 className={`font-bold text-${color}-800 mt-5 mb-2 text-lg`}>{item.text}</h4>;
     
     case 'subheader':
-      return <h4 className="font-bold text-slate-900 mt-3 mb-1 text-sm uppercase tracking-wide">{item.text}</h4>;
+      return <h4 className="font-bold text-slate-900 mt-4 mb-1 text-sm uppercase tracking-wide">{item.text}</h4>;
 
     case 'bold':
-      return <p className="font-bold text-slate-800 mt-2">{item.text}</p>;
+      return <p className="font-bold text-slate-800 mt-3">{item.text}</p>;
+    
     case 'info':
       return (
-        <div className={`bg-${color}-50 border-l-4 border-${color}-500 p-3 my-2 text-sm text-slate-700`}>
+        <div className={`bg-${color}-50/60 backdrop-blur-md border-l-4 border-${color}-400 p-4 my-3 rounded-r-xl shadow-sm text-sm text-slate-700`}>
           {item.text}
         </div>
       );
+    
     case 'list':
       return (
-        <ul className="list-disc list-inside space-y-1 my-2 text-slate-600 text-sm">
+        <ul className="list-disc list-inside space-y-1 my-3 text-slate-700 text-sm">
           {item.items.map((li, idx) => <li key={idx} className="leading-relaxed pl-1">{li}</li>)}
         </ul>
       );
+
+    case 'sublist':
+      return (
+        <ul className="list-[circle] list-inside space-y-1 my-2 ml-6 text-slate-600 text-sm">
+          {item.items.map((li, idx) => <li key={idx} className="leading-relaxed pl-1">{li}</li>)}
+        </ul>
+      );
+
     case 'divider':
-      return <hr className="my-6 border-slate-200" />;
+      return <hr className="my-8 border-slate-200/60" />;
     
     case 'video':
       // Using our new Robust Player
@@ -786,16 +852,16 @@ const ContentBlock = ({ item, color }) => {
 
     case 'image':
       return (
-        <div className="my-4 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
-          <div className="relative bg-slate-100 flex items-center justify-center">
+        <div className="my-5 rounded-2xl overflow-hidden shadow-lg border border-white/50 bg-white/40 backdrop-blur-md">
+          <div className="relative bg-white/50 flex items-center justify-center p-4">
              <img 
                src={item.url} 
                alt={item.caption || "Medical Reference"}
-               className="w-full h-auto object-contain max-h-[60vh]"
+               className="w-full h-auto object-contain max-h-[60vh] rounded-xl shadow-sm"
              />
           </div>
           {item.caption && (
-            <div className="bg-slate-50 p-2 text-xs text-center text-slate-500 font-medium border-t border-slate-200">
+            <div className="bg-white/80 backdrop-blur-lg p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50">
               {item.caption}
             </div>
           )}
@@ -803,7 +869,7 @@ const ContentBlock = ({ item, color }) => {
       );
 
     default:
-      return <p className="text-slate-600 leading-relaxed my-2 text-sm">{item.text}</p>;
+      return <p className="text-slate-700 leading-relaxed my-2 text-sm">{item.text}</p>;
   }
 };
 
@@ -812,14 +878,14 @@ const SectionCard = ({ section }) => {
   const color = section.color || 'emerald'; 
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-6">
-      <div className={`bg-${color}-50 px-5 py-4 border-b border-${color}-100 flex items-center`}>
-        <div className={`p-2 bg-white rounded-lg shadow-sm mr-3 text-${color}-600`}>
-          <Icon size={20} />
+    <div className="bg-white/60 backdrop-blur-xl rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 overflow-hidden mb-8 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
+      <div className={`bg-${color}-100/40 backdrop-blur-md px-6 py-5 border-b border-white/60 flex items-center`}>
+        <div className={`p-2.5 bg-white/90 backdrop-blur-sm rounded-xl shadow-sm border border-white/50 mr-4 text-${color}-600`}>
+          <Icon size={22} />
         </div>
-        <h3 className="font-bold text-slate-800 text-lg">{section.title}</h3>
+        <h3 className="font-bold text-slate-800 text-xl tracking-tight">{section.title}</h3>
       </div>
-      <div className="px-5 pb-5 pt-3">
+      <div className="px-6 pb-6 pt-4">
         {section.content.map((block, idx) => (
           <ContentBlock key={idx} item={block} color={color} />
         ))}
@@ -925,32 +991,43 @@ export default function USaskPocusApp() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // --- BACKGROUND GLOW COMPONENT ---
+  const AmbientGlow = () => (
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-200/30 rounded-full blur-[100px] opacity-70 mix-blend-multiply" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-blue-200/30 rounded-full blur-[120px] opacity-60 mix-blend-multiply" />
+      <div className="absolute top-[30%] left-[60%] w-[30vw] h-[30vw] bg-violet-200/20 rounded-full blur-[90px] opacity-50 mix-blend-multiply" />
+    </div>
+  );
+
   // --- ABOUT US VIEW ---
   if (currentView === 'about') {
     return (
-      <div className="flex h-screen bg-slate-50 font-sans overflow-hidden w-full">
-        {/* Sidebar (Kept for easy navigation back to modules) */}
+      <div className="flex h-screen bg-slate-50/80 font-sans overflow-hidden w-full relative">
+        <AmbientGlow />
+        
+        {/* Sidebar */}
         <aside className={`
-          fixed inset-y-0 left-0 z-30 w-80 bg-emerald-900 text-white transform transition-transform duration-300 ease-in-out flex flex-col
-          ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:static lg:translate-x-0'}
+          fixed inset-y-0 left-0 z-30 w-80 bg-emerald-950/90 backdrop-blur-2xl text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
+          ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:static lg:translate-x-0'}
         `}>
-          <div className="p-6 border-b border-emerald-800 flex justify-between items-center shrink-0">
-            <span className="font-bold text-lg tracking-tight">USask POCUS</span>
-            <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-emerald-300"><X size={24} /></button>
+          <div className="p-6 border-b border-emerald-800/50 flex justify-between items-center shrink-0">
+            <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-100 to-white">USask POCUS</span>
+            <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-emerald-300 hover:text-white transition-colors"><X size={24} /></button>
           </div>
-          <nav className="p-4 flex-1 overflow-y-auto">
-            <button onClick={goHome} className="flex items-center text-emerald-100 hover:text-white mb-8 w-full touch-manipulation">
+          <nav className="p-4 flex-1 overflow-y-auto no-scrollbar">
+            <button onClick={goHome} className="flex items-center text-emerald-200 hover:text-white mb-8 w-full touch-manipulation transition-colors font-medium">
               <ArrowLeft size={18} className="mr-2" /> Back to Home
             </button>
             
             <div className="mb-4 px-2">
-              <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Quick Guides</h4>
-              <div className="space-y-1">
+              <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
+              <div className="space-y-1.5">
                 {modules.map(mod => (
                   <button 
                     key={mod.id}
                     onClick={() => openModule(mod.id)}
-                    className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation text-emerald-100 hover:bg-emerald-800/50`}
+                    className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white`}
                   >
                     {mod.title}
                   </button>
@@ -959,10 +1036,10 @@ export default function USaskPocusApp() {
             </div>
 
             <div className="mt-8 px-2">
-              <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">App Info</h4>
+              <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">App Info</h4>
               <button 
                 onClick={goToAbout}
-                className={`w-full flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation bg-emerald-600 text-white shadow-md`}
+                className={`w-full flex items-center px-4 py-2.5 rounded-xl text-sm font-bold transition-all touch-manipulation bg-white text-emerald-900 shadow-[0_0_15px_rgba(255,255,255,0.2)]`}
               >
                 <Info size={18} className="mr-3" />
                 About Us
@@ -971,56 +1048,57 @@ export default function USaskPocusApp() {
           </nav>
         </aside>
 
-        <main className="flex-1 flex flex-col h-full overflow-hidden relative bg-slate-50/50">
-          <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0 shadow-sm z-10">
+        <main className="flex-1 flex flex-col h-full overflow-hidden relative z-10">
+          <header className="h-16 bg-white/70 backdrop-blur-xl border-b border-white/50 flex items-center justify-between px-6 shrink-0 shadow-sm z-20">
             <div className="flex items-center">
               <button onClick={() => setSidebarOpen(true)} className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors">
                 <Menu size={24} />
               </button>
-              <h2 className="text-lg font-bold text-slate-800 truncate">About Us</h2>
+              <h2 className="text-lg font-bold text-slate-800 truncate tracking-tight">About Us</h2>
             </div>
           </header>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth z-10 relative">
             <div className="max-w-2xl mx-auto space-y-6 pb-20">
-              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                 <div className="bg-emerald-900 px-8 py-10 text-center">
-                    <GraduationCap size={48} className="mx-auto text-emerald-100 mb-4" />
-                    <h2 className="text-2xl font-bold text-white mb-2">USask POCUS Quick Reference</h2>
-                    <p className="text-emerald-100/80 text-sm">Created for the University of Saskatchewan College of Medicine</p>
+              <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 overflow-hidden">
+                 <div className="bg-emerald-900/90 backdrop-blur-md px-8 py-12 text-center relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px]" />
+                    <GraduationCap size={56} className="mx-auto text-emerald-100 mb-5 relative z-10" />
+                    <h2 className="text-3xl font-bold text-white mb-3 tracking-tight relative z-10">USask POCUS Quick Reference</h2>
+                    <p className="text-emerald-100/90 text-sm font-medium relative z-10">Created for the University of Saskatchewan College of Medicine</p>
                  </div>
                  
-                 <div className="p-8 space-y-8">
-                    <div className="flex items-start">
-                       <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mr-4 shrink-0">
+                 <div className="p-8 md:p-10 space-y-8">
+                    <div className="flex items-start group">
+                       <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
                           <Stethoscope size={24} />
                        </div>
                        <div>
-                          <h3 className="font-bold text-slate-800 text-lg">Dr. Linden Kolbenson</h3>
-                          <p className="text-slate-500 text-sm">Content Creation and Review</p>
+                          <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">Dr. Linden Kolbenson</h3>
+                          <p className="text-slate-500 text-sm font-medium">Content Creation and Review</p>
                        </div>
                     </div>
                     
-                    <div className="flex items-start">
-                       <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mr-4 shrink-0">
+                    <div className="flex items-start group">
+                       <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
                           <Stethoscope size={24} />
                        </div>
                        <div>
-                          <h3 className="font-bold text-slate-800 text-lg">Dr. Paul Olszynski</h3>
-                          <p className="text-slate-500 text-sm">Content Creation and Review</p>
+                          <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">Dr. Paul Olszynski</h3>
+                          <p className="text-slate-500 text-sm font-medium">Content Creation and Review</p>
                        </div>
                     </div>
                     
-                    <hr className="border-slate-100" />
+                    <hr className="border-slate-200/60" />
                     
-                    <div className="flex items-start">
-                       <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl mr-4 shrink-0">
+                    <div className="flex items-start group">
+                       <div className="p-3.5 bg-emerald-50/80 border border-emerald-100 shadow-sm text-emerald-600 rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
                           <Code2 size={24} />
                        </div>
                        <div>
-                          <h3 className="font-bold text-slate-800 text-lg">Raafi Ali</h3>
-                          <p className="text-slate-600 font-medium text-sm mb-1">Internal Medicine Resident</p>
-                          <p className="text-slate-500 text-sm">App Development and Design</p>
+                          <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">Raafi Ali</h3>
+                          <p className="text-slate-600 font-bold text-sm mb-1">Internal Medicine Resident</p>
+                          <p className="text-slate-500 text-sm font-medium">App Development and Design</p>
                        </div>
                     </div>
                  </div>
@@ -1035,55 +1113,61 @@ export default function USaskPocusApp() {
   // 1. DASHBOARD VIEW
   if (currentView === 'dashboard') {
     return (
-      <div className="min-h-screen bg-slate-50 font-sans text-slate-800 flex flex-col w-full">
-        <header className="bg-emerald-900 text-white py-10 px-6 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 opacity-10">
-            <GraduationCap size={180} />
+      <div className="min-h-screen bg-slate-50/80 font-sans text-slate-800 flex flex-col w-full relative overflow-hidden">
+        <AmbientGlow />
+        
+        <header className="bg-emerald-950/90 backdrop-blur-2xl text-white py-12 px-6 relative overflow-hidden border-b border-white/10 shadow-lg">
+          <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-emerald-400/20 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-[-20%] left-[-10%] w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+          
+          <div className="absolute top-4 right-4 p-8 opacity-5">
+            <GraduationCap size={200} />
           </div>
+          
           <div className="max-w-5xl mx-auto relative z-10">
-             <div className="flex flex-wrap items-center gap-3 mb-5">
-               <span className="px-3 py-1 bg-white text-emerald-900 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
+             <div className="flex flex-wrap items-center gap-3 mb-6">
+               <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-emerald-50 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-sm">
                  College of Medicine
                </span>
              </div>
-             <h1 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight">USask POCUS</h1>
-             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                 <p className="text-emerald-100 text-lg max-w-xl">
+             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-200">USask POCUS</h1>
+             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                 <p className="text-emerald-100/90 text-lg md:text-xl max-w-xl font-medium leading-relaxed">
                    Undergraduate Medical Education Point of Care Ultrasound Curriculum.
                  </p>
                  <button 
                    onClick={goToAbout}
-                   className="w-fit px-3 py-1 bg-emerald-800/40 hover:bg-emerald-700/60 backdrop-blur-sm rounded-full text-xs font-bold uppercase tracking-wide border border-emerald-600/50 text-emerald-100 transition-colors cursor-pointer flex items-center shrink-0"
+                   className="w-fit px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 text-white transition-all cursor-pointer flex items-center shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
                  >
-                   <Info size={12} className="mr-1" />
+                   <Info size={14} className="mr-2" />
                    About
                  </button>
              </div>
           </div>
         </header>
 
-        <main className="flex-1 px-6 py-10 w-full">
+        <main className="flex-1 px-6 py-12 w-full relative z-10">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center">
-              <BookOpen size={20} className="mr-2 text-emerald-700" />
+            <h2 className="text-2xl font-extrabold text-slate-800 mb-8 flex items-center tracking-tight">
+              <BookOpen size={24} className="mr-3 text-emerald-600" />
               Learning Modules
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {modules.map((mod) => (
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className={`bg-white p-6 rounded-xl shadow-sm border border-slate-200 lg:hover:shadow-md lg:hover:border-${mod.color}-400 active:scale-95 transition-all text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
+                  className={`bg-white/60 backdrop-blur-xl p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-${mod.color}-300/50 hover:bg-white/80 active:scale-[0.98] transition-all duration-300 text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
                 >
-                  <div className={`w-12 h-12 rounded-xl bg-${mod.color}-50 flex items-center justify-center text-${mod.color}-700 mb-4 lg:group-hover:scale-110 transition-transform`}>
-                    <mod.icon size={24} />
+                  <div className={`w-14 h-14 rounded-2xl bg-${mod.color}-50/80 backdrop-blur-md border border-${mod.color}-100 flex items-center justify-center text-${mod.color}-600 mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                    <mod.icon size={28} />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-800 mb-2">{mod.title}</h3>
-                  <p className="text-sm text-slate-500 mb-6 flex-grow">{mod.description}</p>
+                  <h3 className="text-xl font-bold text-slate-800 mb-3 tracking-tight group-hover:text-slate-900">{mod.title}</h3>
+                  <p className="text-sm text-slate-600 mb-8 flex-grow leading-relaxed font-medium">{mod.description}</p>
                   
-                  <div className={`flex items-center text-${mod.color}-700 text-sm font-bold mt-auto`}>
-                    Start Module <ArrowRight size={16} className="ml-2 transition-transform lg:group-hover:translate-x-1" />
+                  <div className={`flex items-center text-${mod.color}-600 text-sm font-bold mt-auto tracking-wide uppercase`}>
+                    Start Module <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-2" />
                   </div>
                 </button>
               ))}
@@ -1091,11 +1175,11 @@ export default function USaskPocusApp() {
           </div>
         </main>
 
-        <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-          <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.36</p>
+        <footer className="relative z-10 bg-white/40 backdrop-blur-md border-t border-white/60 py-8 text-center text-slate-500 text-xs font-medium">
+          <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.38</p>
           <button 
             onClick={goToAbout} 
-            className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-medium transition-colors"
+            className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-bold transition-colors"
           >
              <Info size={14} className="mr-1" /> About the Team
           </button>
@@ -1106,28 +1190,30 @@ export default function USaskPocusApp() {
 
   // 2. MODULE VIEW
   return (
-    <div className="flex h-screen bg-slate-50 font-sans overflow-hidden w-full">
+    <div className="flex h-screen bg-slate-50/80 font-sans overflow-hidden w-full relative">
+      <AmbientGlow />
+      
       <aside className={`
-        fixed inset-y-0 left-0 z-30 w-80 bg-emerald-900 text-white transform transition-transform duration-300 ease-in-out flex flex-col
-        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:static lg:translate-x-0'}
+        fixed inset-y-0 left-0 z-40 w-80 bg-emerald-950/90 backdrop-blur-2xl text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
+        ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:static lg:translate-x-0'}
       `}>
-        <div className="p-6 border-b border-emerald-800 flex justify-between items-center shrink-0">
-          <span className="font-bold text-lg tracking-tight">USask POCUS</span>
-          <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-emerald-300"><X size={24} /></button>
+        <div className="p-6 border-b border-emerald-800/50 flex justify-between items-center shrink-0">
+          <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-100 to-white">USask POCUS</span>
+          <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-emerald-300 hover:text-white transition-colors"><X size={24} /></button>
         </div>
-        <nav className="p-4 flex-1 overflow-y-auto">
-          <button onClick={goHome} className="flex items-center text-emerald-100 hover:text-white mb-8 w-full touch-manipulation">
+        <nav className="p-4 flex-1 overflow-y-auto no-scrollbar">
+          <button onClick={goHome} className="flex items-center text-emerald-200 hover:text-white mb-8 w-full touch-manipulation transition-colors font-medium">
             <ArrowLeft size={18} className="mr-2" /> Back to Home
           </button>
           
           <div className="mb-4 px-2">
-            <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Quick Guides</h4>
-            <div className="space-y-1">
+            <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
+            <div className="space-y-1.5">
               {modules.map(mod => (
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation ${activeModuleId === mod.id ? `bg-${mod.color}-600 text-white shadow-md` : 'text-emerald-100 hover:bg-emerald-800/50'}`}
+                  className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation ${activeModuleId === mod.id ? `bg-white text-emerald-900 shadow-[0_0_15px_rgba(255,255,255,0.2)] font-bold` : 'text-emerald-100/80 hover:bg-white/10 hover:text-white'}`}
                 >
                   {mod.title}
                 </button>
@@ -1136,10 +1222,10 @@ export default function USaskPocusApp() {
           </div>
 
           <div className="mt-8 px-2">
-            <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">App Info</h4>
+            <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">App Info</h4>
             <button 
               onClick={goToAbout}
-              className={`w-full flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors touch-manipulation text-emerald-100 hover:bg-emerald-800/50`}
+              className={`w-full flex items-center px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white`}
             >
               <Info size={18} className="mr-3" />
               About Us
@@ -1148,33 +1234,41 @@ export default function USaskPocusApp() {
         </nav>
       </aside>
 
-      <main className="flex-1 flex flex-col h-full overflow-hidden relative bg-slate-50/50">
-        <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0 shadow-sm z-10">
+      {/* Background Overlay for mobile sidebar */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      <main className="flex-1 flex flex-col h-full overflow-hidden relative z-10">
+        <header className="h-16 bg-white/70 backdrop-blur-xl border-b border-white/50 flex items-center justify-between px-6 shrink-0 shadow-sm z-20">
           <div className="flex items-center">
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors">
               <Menu size={24} />
             </button>
-            <h2 className="text-lg font-bold text-slate-800 truncate">{activeModule?.title}</h2>
+            <h2 className="text-lg font-bold text-slate-800 truncate tracking-tight">{activeModule?.title}</h2>
           </div>
         </header>
 
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
-          <div className="max-w-3xl mx-auto space-y-6 pb-20">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth relative z-10">
+          <div className="max-w-3xl mx-auto space-y-8 pb-24 pt-2">
             {activeModule && activeModule.sections ? (
               activeModule.sections.map((section, idx) => (
                 <SectionCard key={idx} section={section} color={section.color || activeModule.color} />
               ))
             ) : (
-              <div className="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-sm border border-slate-200 text-center">
-                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Stethoscope size={32} />
+              <div className="max-w-3xl mx-auto bg-white/70 backdrop-blur-xl p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 text-center">
+                <div className="w-20 h-20 bg-emerald-50/80 border border-emerald-100/50 shadow-sm text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Stethoscope size={40} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-2">Content Coming Soon</h3>
-                <p className="text-slate-500 mb-6">
-                  Dr. K is currently curating the curriculum for this module. 
+                <h3 className="text-3xl font-extrabold text-slate-800 mb-3 tracking-tight">Content Coming Soon</h3>
+                <p className="text-slate-600 mb-8 font-medium">
+                  Dr. Kolbenson is currently curating the curriculum for this module. 
                 </p>
-                <div className="inline-flex items-center text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
-                  <Info size={12} className="mr-2" />
+                <div className="inline-flex items-center text-xs font-bold text-slate-400 bg-slate-100/80 border border-slate-200/50 backdrop-blur-sm px-4 py-1.5 rounded-full uppercase tracking-wider">
+                  <Info size={14} className="mr-2" />
                   Module ID: {activeModule?.id}
                 </div>
               </div>
