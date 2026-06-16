@@ -31,8 +31,11 @@ import {
 // --- CUSTOM ICONS ---
 function HeartIcon({ size = 24, className = "" }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M5.72287 6.88562C5.78469 6.88996 5.85725 6.89834 5.94113 6.91291C6.26185 6.96858 6.64653 7.09842 7.02516 7.30622C7.79966 7.7313 8.38314 8.38135 8.51366 9.16448C8.60446 9.70925 9.11968 10.0773 9.66446 9.98647C10.2092 9.89568 10.5772 9.38045 10.4865 8.83568C10.2214 7.24514 9.08868 6.15733 7.98742 5.55293C7.42818 5.24599 6.83507 5.03818 6.28322 4.94238C5.76343 4.85214 5.1485 4.83873 4.62738 5.07048C4.33792 5.1992 4.15083 5.43056 4.05746 5.66399L3.12644 7.99155C2.83287 8.72548 3.38094 9.49291 4.1379 9.50079C5.05927 9.51038 5.51461 9.6198 5.71608 9.72631C5.75909 9.74905 5.77823 9.76535 5.78516 9.77249C5.78918 9.7829 5.80006 9.81936 5.80006 9.90008C5.80006 10.4524 6.24777 10.9001 6.80006 10.9001C7.35234 10.9001 7.80006 10.4524 7.80006 9.90008C7.80006 9.52602 7.72647 9.1359 7.51857 8.77439C7.30817 8.40854 7.00126 8.14346 6.65082 7.95819C6.30362 7.77464 5.89424 7.65972 5.44077 7.59088L5.72287 6.88562ZM5.78455 9.77096C5.78393 9.76985 5.78367 9.76924 5.78369 9.76921L5.78455 9.77096Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M13.9884 8.02486C13.0512 8.63689 12.5742 9.32939 12.4698 9.74417C12.335 10.2797 11.7915 10.6046 11.256 10.4698C10.7204 10.335 10.3955 9.79156 10.5303 9.25599C10.8035 8.17077 11.7265 7.11327 12.8949 6.35029C14.0981 5.56458 15.6918 5.00008 17.5001 5.00008H19.8901C20.5031 5.00008 21.0001 5.49704 21.0001 6.11008V8.90689C21.0001 9.43487 20.6125 9.94088 20.0179 10.0066C19.6752 10.0445 19.259 10.0264 18.8954 10.0106C18.8794 10.0099 18.8636 10.0092 18.8479 10.0085C18.439 9.99085 18.0169 9.9729 17.5747 9.98983C16.6918 10.0236 15.8223 10.1951 15.0735 10.7193C14.6211 11.036 13.9975 10.926 13.6808 10.4735C13.3641 10.0211 13.4741 9.39756 13.9266 9.08085C15.1189 8.24621 16.4262 8.03233 17.4982 7.99129C18.0258 7.9711 18.5191 7.99244 18.9167 8.00964L18.9342 8.0104C18.9566 8.01136 18.9786 8.0123 19.0001 8.01321V7.00008H17.5001C16.1083 7.00008 14.8908 7.43557 13.9884 8.02486Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M10.8178 4.58555L11.124 5.61993C11.246 6.03197 11.1169 6.47731 10.7934 6.76019L9.65837 7.75283C9.24264 8.1164 8.61089 8.07412 8.24731 7.65839C7.88374 7.24267 7.92602 6.61091 8.34175 6.24734L9.04252 5.63448L8.64459 4.29027C8.47215 3.70775 8.80459 3.09572 9.38711 2.92328L12.2854 2.06531C12.8679 1.89286 13.4799 2.2253 13.6524 2.80782L14.0986 4.3153L15.8923 5.08023C16.4004 5.29687 16.6366 5.88433 16.4199 6.39235C16.2033 6.90037 15.6158 7.13657 15.1078 6.91993L12.9244 5.98882C12.6228 5.86019 12.3942 5.60367 12.3011 5.28923L11.9901 4.23851L10.8178 4.58555Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M20.0179 11.6907C20.0534 13.4076 19.503 15.4243 18.9295 16.869C18.2754 18.5168 16.9791 19.7861 15.6977 20.6327C14.4435 21.4614 13.0264 22.0001 12.0001 22.0001C10.9717 22.0001 9.8343 21.5093 8.87018 20.9131C7.87794 20.2995 6.9151 19.4785 6.22497 18.6319C5.51112 17.7563 4.51283 15.8577 4.13823 14.0115C3.95039 13.0857 3.89409 12.0549 4.21127 11.1351C4.55065 10.1509 5.29126 9.38061 6.47255 9.03936C7.99257 8.60026 9.51617 8.65232 10.7911 8.92001C11.6625 9.10299 12.4616 9.39628 13.095 9.7393C14.5236 8.47677 15.588 8.00025 16.8467 8.00007C16.992 8.00005 17.1332 8.00777 17.2702 8.02305C17.4863 8.00785 17.7095 8.00008 17.94 8.00008C18.3963 8.00008 18.7812 8.30565 18.9012 8.72331C19.06 8.86514 19.2033 9.02687 19.3303 9.20763C19.836 9.92781 20.0003 10.8369 20.0179 11.6907ZM10.3801 10.8773C11.16 11.0411 11.7978 11.3002 12.2229 11.5425C12.0682 11.9798 11.9672 12.4293 11.9083 12.8762C11.4196 12.8692 10.8419 12.9586 10.2681 13.2377C10.2523 13.2315 10.2363 13.2257 10.22 13.2202L8.16307 12.5243L7.52217 14.4189L8.69866 14.8169L8.17666 16.2102L10.0495 16.9119L10.5973 15.4499L10.7229 15.3308C11.1218 14.9525 11.583 14.8682 11.8936 14.874C11.9193 15.113 11.9534 15.3431 11.9936 15.5611C11.9771 15.6196 11.9653 15.6803 11.9586 15.7428L11.649 18.6262L13.6376 18.8397L13.8511 16.8511L15.8397 17.0646L16.0532 15.076L13.9043 14.8453C13.7663 13.8142 13.8383 12.6649 14.2975 11.7686C14.7162 10.9513 15.5268 10.2038 17.2012 10.0354C17.4582 10.094 17.5963 10.2186 17.6935 10.357C17.8714 10.6103 18.0044 11.057 18.0184 11.732C18.0461 13.0729 17.5964 14.8065 17.0706 16.1311C16.615 17.2788 15.6613 18.2596 14.5951 18.9641C13.5017 19.6865 12.4737 20.0001 12.0001 20.0001C11.5284 20.0001 10.7772 19.7409 9.92206 19.2121C9.09499 18.7006 8.30781 18.0216 7.77514 17.3682C7.26617 16.7439 6.40847 15.1425 6.09829 13.6138C5.94373 12.852 5.95044 12.2266 6.10202 11.7871C6.23139 11.4119 6.4779 11.1196 7.02761 10.9608C8.16938 10.631 9.35302 10.6617 10.3801 10.8773Z" fill="currentColor"/>
     </svg>
   );
 }
@@ -748,6 +751,248 @@ const modules = [
         ]
       }
     ]
+  },
+  {
+    id: 'cardiac',
+    title: 'Cardiac',
+    description: 'Evaluating for Pericardial Effusion, LV/RV Systolic Function, and RV Size.',
+    icon: HeartIcon,
+    color: 'rose',
+    sections: [
+      {
+        title: "Scan Basics",
+        icon: BookOpen,
+        color: 'blue',
+        content: [
+          { type: 'subheader', text: "Indication" },
+          { type: 'list', items: [
+            "Chest Pain | Dyspnea | Cough",
+            "Trauma (FAST Scan)",
+            "Respiratory Failure | Shock"
+          ]},
+          { type: 'subheader', text: "Equipment" },
+          { type: 'list', items: [
+            "Transducer: Phased Array",
+            "Preset: Cardiac | Focused Cardiac",
+            "Convention: Cardiology"
+          ]},
+          { type: 'subheader', text: "Patient Positioning" },
+          { type: 'list', items: [
+            "Supine | Semi-Supine | Left Lateral Decubitus"
+          ]},
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Landmarks" },
+          { type: 'bold', text: "Parasternal Long Axis (PLAX | PSL)" },
+          { type: 'text', text: "External: Left Sternal Border | Rib Spaces 2-5" },
+          { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Aortic Valve | Ascending Aorta | Pericardium | Left Atrium | Interventricular Septum" },
+          { type: 'video', url: "", caption: "PLAX External Internal Landmarks" },
+          
+          { type: 'bold', text: "Apical Four Chamber (A4C)" },
+          { type: 'text', text: "External: Inferolateral to Left Nipple" },
+          { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Tricuspid Valve | Pericardium | Left Atrium | Right Atrium | Interventricular Septum" },
+          { type: 'video', url: "", caption: "A4C External Internal Landmarks" },
+          
+          { type: 'bold', text: "Subcostal / Subxiphoid (SC | SX)" },
+          { type: 'text', text: "External: Midline | Between Umbilicus and Xiphoid Process" },
+          { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Tricuspid Valve | Pericardium | Left Atrium | Right Atrium | Interventricular Septum | Liver | Diaphragm" },
+          { type: 'video', url: "", caption: "SC External Internal Landmarks" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Area of Interest" },
+          { type: 'bold', text: "Parasternal Long Axis (PLAX | PSL):" },
+          { type: 'list', items: [
+            "Posterior Pericardium | Descending Thoracic Aorta (Pericardial Effusion)",
+            "Inside Walls of Left Ventricle | Anterior Mitral Valve Leaflet (LV Systolic Function)",
+            "Right Ventricle | Ascending Aorta | Left Atrium (RV Size)"
+          ]},
+          
+          { type: 'bold', text: "Apical Four Chamber (A4C):" },
+          { type: 'list', items: [
+            "Pericardium | Descending Thoracic Aorta (if visible) (Pericardial Effusion)",
+            "Inside Walls of Left Ventricle | Anterior Mitral Valve Leaflet (LV Systolic Function)",
+            "Left Ventricle | Right Ventricle | Interventricular Septum | Tricuspid Valve (RV Size \\ Systolic Function)"
+          ]},
+          
+          { type: 'bold', text: "Subcostal / Subxiphoid (SC | SX):" },
+          { type: 'list', items: [
+            "Pericardium | Right Ventricle | Interventricular Septum (Pericardial Effusion)",
+            "Inside Walls of Left Ventricle | Anterior Mitral Valve Leaflet (LV Systolic Function)",
+            "Tricuspid Valve Annulus (RV Systolic Function)"
+          ]}
+        ]
+      },
+      {
+        title: "Scanning Technique",
+        icon: Sliders,
+        color: 'violet',
+        content: [
+          { type: 'header', text: "Parasternal Long Axis (PLAX | PSL)" },
+          { type: 'list', items: [
+            "Place probe perpendicular to chest along the left sternal border between the ribs (Rib spaces 2-5) with probe marker pointing toward the right shoulder",
+            "Slide superior-inferior between rib spaces until the best view of the heart is seen",
+            "Adjust depth to just past the descending thoracic aorta",
+            "Slide probe toward sternum to center the RV on the screen",
+            "Fan probe to visualize MV and AV",
+            "Fan probe to see LV at widest diameter",
+            "Rotate probe to see LV in its longest axis",
+            "Rock probe to make LV as horizontal as possible",
+            "See troubleshooting section for tips"
+          ]},
+          
+          { type: 'header', text: "Apical Four Chamber (A4C)" },
+          { type: 'list', items: [
+            "Place probe under the left nipple with probe marker pointing toward 3 o-clock | patient left | the bed with your sound directed toward the right shoulder",
+            "Slide the probe medial-lateral and superior-inferior to find the apex of the heart",
+            "Slide the probe medial-lateral to center the LV on the screen",
+            "Fan the probe superior to see the atria",
+            "Rotate the probe to visualize the RV",
+            "Rock the probe to make the interventricular septum vertical on the screen",
+            "See troubleshooting section for tips"
+          ]},
+          
+          { type: 'header', text: "Subcostal / Subxiphoid (SC | SX)" },
+          { type: 'list', items: [
+            "Place the probe perpendicularly on the patient in the midline between the xiphoid process and the umbilicus with the probe marker pointed toward 3 o-clock",
+            "Fan the probe superiorly while maintaining good probe contact with the skin",
+            "Slide the probe superiorly until the liver and heart are seen on the screen",
+            "Fan the probe superior-inferior to visualize all four chambers and the TV and MV",
+            "Rock the probe to center the heart on the screen",
+            "See troubleshooting section for tips"
+          ]}
+        ]
+      },
+      {
+        title: "Interpretation",
+        icon: Microscope,
+        color: 'rose',
+        content: [
+          { type: 'header', text: "Pericardial Effusion" },
+          { type: 'bold', text: "Positive For Pericardial Effusion:" },
+          { type: 'list', items: [
+            "PLAX: anechoic fluid collection seen tracking anterior to the descending thoracic aorta",
+            "A4C: anechoic fluid collection seen around the heart (difficult to distinguish from pleural effusion in this view)",
+            "SC: anechoic fluid seen between the RV and the diaphragm"
+          ]},
+          { type: 'bold', text: "Negative for Pericardial Effusion:" },
+          { type: 'list', items: [
+            "No fluid collections seen in areas listed above",
+            "Please note to rule out a pericardial effusion with a single subcostal view the RV and the interventricular septum “7-sign” must be fanned through from anterior to posterior. This is paramount in the setting of an EFAST scan for hemopericardium"
+          ]},
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/plax_no_pce_vs_pce.mp4", caption: "PLAX No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/a4c_no_pce_vs_pce.mp4", caption: "A4C No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/sc_no_pce_vs_pce.mp4", caption: "SC No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/sc_pce_fanning_posterior.mp4", caption: "SC PCE Seen When Fanning Posterior" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "LV Systolic Function" },
+          { type: 'bold', text: "Normal LV Systolic Function:" },
+          { type: 'list', items: [
+            "PLAX: fractional shortening of approximately 30%, EPSS (Septal Slap) approximately <1cm",
+            "A4C: fractional shortening of approximately 30%, EPSS (Septal Slap) approximately <1cm",
+            "SC: fractional shortening of approximately 30%, EPSS (Septal Slap) approximately <1cm"
+          ]},
+          { type: 'bold', text: "LV Systolic Dysfunction:" },
+          { type: 'list', items: [
+            "PLAX: fractional shortening <30%, EPSS >1cm",
+            "A4C: fractional shortening <30%, EPSS >1cm",
+            "SC: fractional shortening <30%, EPSS >1cm"
+          ]},
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/plax_fractional_shortening.png", caption: "PLAX Fractional Shortening" },
+          { type: 'video', url: "", caption: "PLAX EPSS" },
+          { type: 'video', url: "", caption: "PLAX Normal vs Severely Abnormal LV Systolic Function" },
+          { type: 'video', url: "", caption: "A4C Normal vs Severely Abnormal LV Systolic Function" },
+          { type: 'video', url: "", caption: "SC Normal vs Severely Abnormal LV Systolic Function" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "RV Size \\ Systolic Function" },
+          { type: 'bold', text: "RV Enlarged \\ RV Systolic Function Reduced:" },
+          { type: 'list', items: [
+            "PLAX: RV takes up more than ⅓ of right side of screen compared with ascending aorta and left atrium. Not used for RV systolic function.",
+            "A4C: RV the same size or bigger than the LV. TAPSE subjectively abnormal (approximately <1.7cm).",
+            "SC: Not used for RV size. TAPSE subjectively abnormal (approximately <1.7cm)."
+          ]},
+          { type: 'bold', text: "RV Normal Size \\ RV Systolic Function Normal:" },
+          { type: 'list', items: [
+            "PLAX: RV, Ascending Aorta, and Left atrium all take up ⅓ of right side of screen. Not used for RV systolic function.",
+            "A4C: RV is smaller than the LV. TAPSE subjectively normal (approximately ≥1.7cm).",
+            "SC: Not used for RV size. TAPSE subjectively normal (approximately ≥1.7cm)."
+          ]},
+          { type: 'video', url: "", caption: "Qualitative RV Size" },
+          { type: 'video', url: "", caption: "TAPSE" },
+          { type: 'video', url: "", caption: "PLAX Normal RV Size vs Enlarged RV" },
+          { type: 'video', url: "", caption: "A4C Normal RV vs Abnormal RV" },
+          { type: 'video', url: "", caption: "SC Normal RV vs Abnormal RV" }
+        ]
+      },
+      {
+        title: "Troubleshooting",
+        icon: Wrench,
+        color: 'amber',
+        content: [
+          { type: 'subheader', text: "General considerations:" },
+          { type: 'text', text: "Within each view, different probe movements will help you accomplish different goals. A combination of probe movements within the acoustic window will usually be needed to obtain an adequate view. If a probe movement takes you out of your rib space or acoustic window, your next step is to get back into the rib space / acoustic window." },
+          
+          { type: 'subheader', text: "PLAX:" },
+          { type: 'list', items: [
+            "Make sure patient’s left arm is behind their head, this opens up the rib spaces",
+            "Consider having the patient completely supine or in left lateral decubitus position",
+            "Sliding medially: helps center the RV on the screen and make the LV more horizontal",
+            "Fanning inferior-superior: helps visualize the valves and find the widest diameter of the LV",
+            "Rotating: helps ensure the LV is visualized in its longest axis (more like a rectangle than a circle)",
+            "Rocking: helps ensure the LV is horizontal on the screen"
+          ]},
+          
+          { type: 'subheader', text: "A4C:" },
+          { type: 'list', items: [
+            "Make sure patient’s left arm is behind their head, this opens up the rib spaces",
+            "Consider having the patient completely supine or in left lateral decubitus position",
+            "If you see only lung then slide medially",
+            "If you see abdomen slide superiorly",
+            "Sliding medial-lateral: centers the LV on the screen",
+            "Rocking: makes the interventricular septum vertical",
+            "Fanning superior-inferior: helps see the atria",
+            "Rotating: helps see the RV and tricuspid valve"
+          ]},
+          
+          { type: 'subheader', text: "SC:" },
+          { type: 'list', items: [
+            "Make sure the patient is supine with arms at sides, this will relax the abdomen. Having the patient bend their knees can also relax the abdomen",
+            "A deep breath hold can move the heart inferior and posterior which sometimes improves your view.",
+            "The liver is the window to the heart, if you do not see the liver you probably will not see the heart. Try sliding laterally to the patient’s right to get more liver on the screen and then rocking to patient left to center the heart.",
+            "Sliding superior-inferior: helps find the acoustic window",
+            "Fanning inferior-superior: helps visualize the valves and find the widest diameter of the LV",
+            "Rocking: helps center the heart on the screen",
+            "Rotating: helps ensure the LV is visualized in its longest axis (more like a rectangle than a circle)"
+          ]}
+        ]
+      },
+      {
+        title: "Pearls & Pitfalls",
+        icon: Lightbulb,
+        color: 'sky',
+        content: [
+          { type: 'bold', text: "Distinguishing a pericardial effusion from a pleural effusion:" },
+          { type: 'sublist', items: [
+            "The pleura and pericardium are apposed to each other which can make pleural effusions easy to mistake for pleural effusions especially in the PLAX and A4C view",
+            "A pericardial effusion will track anterior to the descending thoracic aorta, a pleural effusion will not",
+            "When in doubt, remember that lung ultrasound can be performed to look for the presence of a pleural effusion",
+            "It is very difficult to tell if a fluid collection is pleural or pericardial in an A4C view, proceed with caution."
+          ]},
+          
+          { type: 'bold', text: "Distinguishing a pericardial effusion from an epicardial pad in the SC view:" },
+          { type: 'sublist', items: [
+            "Pericardial fluid will get bigger / easier to see as you fan the probe more inferior/posterior",
+            "Pericardial fluid is typically anechoic whereas some echogenicity is typically present in an epicardial pad",
+            "An epicardial pad will move with the contraction of the RV, a pericardial effusion will not"
+          ]}
+        ]
+      }
+    ]
   }
 ];
 
@@ -793,7 +1038,7 @@ const VideoPlayer = ({ src, caption }) => {
            ref={videoRef}
            src={src} 
            className="w-full h-full object-contain"
-           controls       
+           controls        
            muted          
            playsInline    
            autoPlay       
@@ -1176,7 +1421,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className="relative z-10 bg-white/40 backdrop-blur-md border-t border-white/60 py-8 text-center text-slate-500 text-xs font-medium">
-          <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.38</p>
+          <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.39</p>
           <button 
             onClick={goToAbout} 
             className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-bold transition-colors"
