@@ -129,14 +129,14 @@ const modules = [
         color: 'violet',
         content: [
           { type: 'text', text: "Sound travels from the probe into the body. Some sound is lost as heat or scattered away. Some sound reflects back to our probe. The sound that reflects back to the probe is interpreted by our machine and an image is displayed on our screen." },
-          { type: 'video', url: "/videos/making_an_image.mp4", caption: "Making an image" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/making_an_image.mp4", caption: "Making an image" },
           { type: 'subheader', text: "Curvilinear (Abdominal)" },
           { type: 'list', items: ["Low frequency probe", "Used for: free fluid in abdomen and pelvis, bladder, kidneys, lung ultrasound, AAA"] },
           { type: 'subheader', text: "Phased Array (Cardiac)" },
           { type: 'list', items: ["Low frequency probe that specializes in cardiac movement", "Used for: cardiac scans, lung ultrasound"] },
           { type: 'subheader', text: "Linear (Vascular)" },
           { type: 'list', items: ["High frequency probe", "Best for seeing things close to the surface (lung sliding, vessels, skin, superficial joints)"] },
-          { type: 'image', url: "/images/probes.png", caption: "Probes" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/probes.png", caption: "Probes" },
           { type: 'info', text: "Low frequency probes have high penetration but poor resolution (you can see far but not very well)" },
           { type: 'info', text: "High frequency probes have low penetration but high resolution (you can see well but not very far)" }
         ]
@@ -156,7 +156,7 @@ const modules = [
           { type: 'divider' },
           { type: 'bold', text: "Long Axis: Plane parallel to the maximum length of a structure" },
           { type: 'bold', text: "Short Axis: Plane perpendicular to the maximum length of a structure" },
-          { type: 'image', url: "/images/anatomical_planes.png", caption: "Anatomical Planes" }
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/anatomical_planes.png", caption: "Anatomical Planes" }
         ]
       },
       {
@@ -175,9 +175,9 @@ const modules = [
           { type: 'text', text: "Keeping the probe on a fixed point while moving clockwise or counter clockwise" },
           { type: 'bold', text: "Compression:" },
           { type: 'text', text: "Applying pressure to the body on a fixed point with the probe" },
-          { type: 'image', url: "/images/probe_movements.png", caption: "Probe Movements" },
+          { type: 'image', url: "", caption: "Probe Movements" },
           { type: 'text', text: "The ultrasound probe is moved with respect to standard anatomic directions:" },
-          { type: 'image', url: "/images/anatomical_directions.png", caption: "Anatomical Directions" }
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/anatomical_directions.png", caption: "Anatomical Directions" }
         ]
       },
       {
@@ -191,8 +191,8 @@ const modules = [
           { type: 'list', items: ["Screen marker appears on screen LEFT", "Used for all POCUS applications except cardiac"] },
           { type: 'subheader', text: "Cardiology Convention" },
           { type: 'list', items: ["Screen marker appears on screen RIGHT", "Used for Cardiac POCUS"] },
-          { type: 'image', url: "/images/conventions.png", caption: "Conventions" },
-          { type: 'image', url: "/images/screen_anatomy.png", caption: "Screen Anatomy" }
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/conventions.png", caption: "Conventions" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/screen_anatomy.png", caption: "Screen Anatomy" }
         ]
       },
       {
@@ -238,29 +238,29 @@ const modules = [
           { type: 'subheader', text: "RUQ | LUQ" },
           { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
           { type: 'text', text: "Internal: Kidney | Diaphragm | Liver / Spleen | Spine | Lung" },
-          { type: 'video', url: "/videos/ruq_external_internal_landmarks.mp4", caption: "RUQ External Internal Landmarks" },
-          { type: 'video', url: "/videos/luq_external_internal_landmarks.mp4", caption: "LUQ External Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/abdo_ruq_external_internal_landmarks.mp4", caption: "RUQ External Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/luq_external_internal_landmarks.mp4", caption: "LUQ External Internal Landmarks" },
           { type: 'subheader', text: "Pelvis (Male)" },
           { type: 'text', text: "External: Superior to Pubic Symphysis" },
           { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
-          { type: 'video', url: "/videos/male_pelvis_transverse_longitudinal_internal_landmarks.mp4", caption: "Male Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/male_pelvis_transverse_longitudinal_internal_landmarks.mp4", caption: "Male Pelvis Transverse Longitudinal Internal Landmarks" },
           { type: 'subheader', text: "Pelvis (Female)" },
           { type: 'text', text: "External: Superior to Pubic Symphysis" },
           { type: 'text', text: "Internal: Bladder | Uterus | Vagina | Rectum" },
-          { type: 'video', url: "/videos/female_pelvis_transverse_longitudinal_internal_landmarks.mp4", caption: "Female Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'video', url: "", caption: "Female Pelvis Transverse Longitudinal Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
           { type: 'bold', text: "Right Upper Quadrant (RUQ):" },
           { type: 'text', text: "Hepatorenal Interface | Caudal Tip of Liver" },
           { type: 'bold', text: "Left Upper Quadrant (LUQ):" },
           { type: 'text', text: "Splenorenal Interface | Between Diaphragm and Spleen" },
-          { type: 'video', url: "/videos/ruq_luq_area_of_interest.mp4", caption: "RUQ LUQ Area of Interest" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_luq_area_of_interest.mp4", caption: "RUQ LUQ Area of Interest" },
           { type: 'bold', text: "Pelvis (Male):" },
           { type: 'text', text: "Rectovesicular Space" },
-          { type: 'video', url: "/videos/male_pelvis_transverse_longitudinal_area_of_interest.mp4", caption: "Male Pelvis Transverse Longitudinal Area of Interest" },
+          { type: 'video', url: "", caption: "Male Pelvis Transverse Longitudinal Area of Interest" },
           { type: 'bold', text: "Pelvis (Female):" },
           { type: 'text', text: "Rectouterine Space (Pouch of Douglas) | Vesicouterine Space" },
-          { type: 'video', url: "/videos/female_pelvis_transverse_longitudinal_area_of_interest.mp4", caption: "Female Pelvis Transverse Longitudinal Area of Interest" }
+          { type: 'video', url: "", caption: "Female Pelvis Transverse Longitudinal Area of Interest" }
         ]
       },
       {
@@ -278,8 +278,8 @@ const modules = [
             "Slide inferiorly to identify the caudal tip of the liver.",
             "Fan through the caudal tip of the liver anteriorly to posteriorly."
           ]},
-          { type: 'video', url: "/videos/ruq_fanning_interface.mp4", caption: "RUQ Fanning Interface" },
-          { type: 'video', url: "/videos/ruq_fanning_caudal_tip_of_liver.mp4", caption: "RUQ Fanning Caudal Tip of Liver" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_fanning_interface.mp4", caption: "RUQ Fanning Interface" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_fanning_caudal_tip_of_liver.mp4", caption: "RUQ Fanning Caudal Tip of Liver" },
           
           { type: 'divider' },
           
@@ -293,7 +293,7 @@ const modules = [
             "Slide cranially to identify the diaphragm.",
             "Fan through the medial diaphragm anterior to posterior until the diaphragm disappears."
           ]},
-          { type: 'video', url: "/videos/luq_fanning_interface_and_medial_diaphragm.mp4", caption: "LUQ Fanning Interface and Medial Diaphragm" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/luq_fanning_interface_and_medial_diaphragm.mp4", caption: "LUQ Fanning Interface and Medial Diaphragm" },
           
           { type: 'divider' },
           
@@ -305,9 +305,9 @@ const modules = [
             "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
             "Fan the probe inferior and superior until the bladder disappears in both directions."
           ]},
-          { type: 'video', url: "/videos/pelvis_transverse_probe_starting_position.mp4", caption: "Pelvis Transverse Probe Starting Position" },
-          { type: 'video', url: "/videos/male_pelvis_transverse_fanning.mp4", caption: "Male Pelvis Transverse Fanning" },
-          { type: 'video', url: "/videos/female_pelvis_transverse_fanning.mp4", caption: "Female Pelvis Transverse Fanning" },
+          { type: 'video', url: "", caption: "Pelvis Transverse Probe Starting Position" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/male_pelvis_transverse_fanning.mp4", caption: "Male Pelvis Transverse Fanning" },
+          { type: 'video', url: "", caption: "Female Pelvis Transverse Fanning" },
           
           { type: 'divider' },
 
@@ -319,9 +319,9 @@ const modules = [
             "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
             "Fan the probe left and right until the bladder disappears in both directions."
           ]},
-          { type: 'video', url: "/videos/pelvis_longitudinal_probe_starting_position.mp4", caption: "Pelvis Longitudinal Probe Starting Position" },
-          { type: 'video', url: "/videos/male_pelvis_longitudinal_fanning.mp4", caption: "Male Pelvis Longitudinal Fanning" },
-          { type: 'video', url: "/videos/female_pelvis_longitudinal_fanning.mp4", caption: "Female Pelvis Longitudinal Fanning" }
+          { type: 'video', url: "", caption: "Pelvis Longitudinal Probe Starting Position" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/male_pelvis_longitudinal_fanning.mp4", caption: "Male Pelvis Longitudinal Fanning" },
+          { type: 'video', url: "", caption: "Female Pelvis Longitudinal Fanning" }
         ]
       },
       {
@@ -347,23 +347,23 @@ const modules = [
           { type: 'header', text: "Positive Scan" },
           { type: 'bold', text: "RUQ:" },
           { type: 'text', text: "Anechoic free fluid seen in hepatorenal interface or around the caudal tip of the liver" },
-          { type: 'video', url: "/videos/ruq_positive_scan_free_fluid_large_amount.mp4", caption: "RUQ Positive Scan Free Fluid Large Amount" },
-          { type: 'video', url: "/videos/ruq_positive_scan_small_amount_caudal_tip.mp4", caption: "RUQ Positive Scan Small Amount Caudal Tip" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_positive_scan_free_fluid_large_amount.mp4", caption: "RUQ Positive Scan Free Fluid Large Amount" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_positive_scan_small_amount_caudal_tip.mp4", caption: "RUQ Positive Scan Small Amount Caudal Tip" },
           
           { type: 'bold', text: "LUQ:" },
           { type: 'text', text: "Anechoic free fluid seen in splenorenal interface or between medial diaphragm and spleen" },
-          { type: 'video', url: "/videos/luq_positive_scan_free_fluid_large_amount.mp4", caption: "LUQ Positive Scan Free Fluid Large Amount" },
-          { type: 'video', url: "/videos/luq_positive_scan_free_fluid_small_amount.mp4", caption: "LUQ Positive Scan Free Fluid Small Amount" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/luq_positive_scan_free_fluid_large_amount.mp4", caption: "LUQ Positive Scan Free Fluid Large Amount" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/luq_positive_scan_free_fluid_small_amount.mp4", caption: "LUQ Positive Scan Free Fluid Small Amount" },
           
           { type: 'bold', text: "Pelvis (Male):" },
           { type: 'text', text: "Anechoic free fluid seen in the rectovesicular space" },
-          { type: 'video', url: "/videos/male_pelvis_transverse_positive_scan_free_fluid.mp4", caption: "Male Pelvis Transverse Positive Scan Free Fluid" },
-          { type: 'video', url: "/videos/male_pelvis_longitudinal_positive_scan_free_fluid.mp4", caption: "Male Pelvis Longitudinal Positive Scan Free Fluid" },
+          { type: 'video', url: "", caption: "Male Pelvis Transverse Positive Scan Free Fluid" },
+          { type: 'video', url: "", caption: "Male Pelvis Longitudinal Positive Scan Free Fluid" },
           
           { type: 'bold', text: "Pelvis (Female):" },
           { type: 'text', text: "Anechoic free fluid seen in the rectouterine space and/or the vesicouterine space" },
-          { type: 'video', url: "/videos/female_pelvis_transverse_positive_scan_free_fluid.mp4", caption: "Female Pelvis Transverse Positive Scan Free Fluid" },
-          { type: 'video', url: "/videos/female_pelvis_longitudinal_positive_scan_free_fluid.mp4", caption: "Female Pelvis Longitudinal Positive Scan Free Fluid" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/female_pelvis_transverse_positive_scan_free_fluid.mp4", caption: "Female Pelvis Transverse Positive Scan Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/female_pelvis_longitudinal_positive_scan_free_fluid.mp4", caption: "Female Pelvis Longitudinal Positive Scan Free Fluid" }
         ]
       },
       {
@@ -425,11 +425,11 @@ const modules = [
           { type: 'header', text: "Landmarks" },
           { type: 'text', text: "External Landmarks: Mid-Posterior Axillary Line | Xiphoid Process" },
           { type: 'text', text: "Internal Landmarks: Kidney | Diaphragm | Liver / Spleen | Spine | Lung" },
-          { type: 'video', url: "/videos/ruq_external_internal_landmarks.mp4", caption: "RUQ External Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_external_internal_landmarks.mp4", caption: "RUQ External Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
           { type: 'text', text: "Area cranial to diaphragm" },
-          { type: 'video', url: "/videos/area_of_interest.mp4", caption: "Area of Interest" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/area_of_interest.mp4", caption: "Area of Interest" }
         ]
       },
       {
@@ -444,8 +444,8 @@ const modules = [
             "Slide probe cranial until diaphragm in view.",
             "Fan through medial diaphragm anteriorly to posteriorly until the diaphragm disappears."
           ]},
-          { type: 'video', url: "/videos/starting_view_before_fanning.mp4", caption: "Starting view before fanning" },
-          { type: 'video', url: "/videos/fanning_through_medial_diaphragm.mp4", caption: "Fanning Through Medial Diaphragm" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/starting_view_before_fanning.mp4", caption: "Starting view before fanning" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/fanning_through_medial_diaphragm.mp4", caption: "Fanning Through Medial Diaphragm" }
         ]
       },
       {
@@ -460,8 +460,8 @@ const modules = [
             "Solid lung floating in effusion",
             "Lateral diaphragm visualized"
           ]},
-          { type: 'video', url: "/videos/positive_scan_large_pleural_effusion_and_solid_lung.mp4", caption: "Positive Scan - Large Pleural Effusion and Solid Lung" },
-          { type: 'video', url: "/videos/positive_scan_small_pleural_effusion.mp4", caption: "Positive Scan - Small Pleural Effusion" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/positive_scan_large_pleural_effusion_and_solid_lung.mp4", caption: "Positive Scan - Large Pleural Effusion and Solid Lung" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/positive_scan_small_pleural_effusion.mp4", caption: "Positive Scan - Small Pleural Effusion" },
           
           { type: 'divider' },
           
@@ -470,7 +470,7 @@ const modules = [
             "No pleural effusion after fanning entire medial diaphragm anteriorly to posteriorly until it disappears (see scanning technique)",
             "The curtain sign can rule out a large pleural effusion"
           ]},
-          { type: 'video', url: "/videos/curtain_sign.mp4", caption: "Curtain sign" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/curtain_sign.mp4", caption: "Curtain sign" }
         ]
       },
       {
@@ -530,12 +530,12 @@ const modules = [
           { type: 'header', text: "Landmarks" },
           { type: 'text', text: "External: Most Anterior Aspect of Chest | Mid-Clavicular Line" },
           { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows | A-Lines (if present)" },
-          { type: 'video', url: "/videos/probe_starting_position_need_to_obtain.mp4", caption: "Probe Starting Position" },
-          { type: 'video', url: "/videos/internal_landmarks.mp4", caption: "Internal Landmarks" },
+          { type: 'video', url: "", caption: "Probe Starting Position" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/internal_landmarks.mp4", caption: "Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
           { type: 'text', text: "VPPI of 2-3 of the most anterior rib spaces bilaterally" },
-          { type: 'video', url: "/videos/area_of_interest.mp4", caption: "Area of Interest" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/area_of_interest_PTX.mp4", caption: "Area of Interest" }
         ]
       },
       {
@@ -552,8 +552,8 @@ const modules = [
             "Repeat the above steps in the remaining hemithorax.",
             "If lung sliding is absent, slide the probe within the rib space laterally until a pathologic lung point is visualized."
           ]},
-          { type: 'video', url: "/videos/negative_scan_lung_sliding.mp4", caption: "Negative Scan Lung Sliding" },
-          { type: 'video', url: "/videos/negative_scan_lung_pulse.mp4", caption: "Negative Scan Lung Pulse" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/negative_scan_lung_sliding.mp4", caption: "Negative Scan Lung Sliding" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/negative_scan_lung_pulse.mp4", caption: "Negative Scan Lung Pulse" }
         ]
       },
       {
@@ -563,8 +563,8 @@ const modules = [
         content: [
           { type: 'header', text: "Positive Scan" },
           { type: 'text', text: "Absence of lung sliding, lung pulse, and B-lines PLUS visualization of a pathological lung point." },
-          { type: 'video', url: "/videos/no_lung_sliding.mp4", caption: "No Lung Sliding" },
-          { type: 'video', url: "/videos/pathologic_lung_point.mp4", caption: "Pathologic Lung Point" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/no_lung_sliding.mp4", caption: "No Lung Sliding" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/pathologic_lung_point.mp4", caption: "Pathologic Lung Point" },
           
           { type: 'divider' },
           
@@ -592,8 +592,8 @@ const modules = [
             "Increase depth to attempt to visualize the underlying physiologic organ (liver, heart, spleen).",
             "Be aware of surface anatomy and expected location of organs / physiologic lung points."
           ]},
-          { type: 'video', url: "/videos/physiologic_lung_point_cardiac_lung_point.mp4", caption: "Physiologic Lung Point - Cardiac Lung Point" },
-          { type: 'video', url: "/videos/physiologic_lung_point_liver_lung_point.mp4", caption: "Physiologic Lung Point - Liver Lung Point" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/physiologic_lung_point_cardiac_lung_point.mp4", caption: "Physiologic Lung Point - Cardiac Lung Point" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/physiologic_lung_point_liver_lung_point.mp4", caption: "Physiologic Lung Point - Liver Lung Point" }
         ]
       },
       {
@@ -647,8 +647,8 @@ const modules = [
           { type: 'subheader', text: "Landmarks" },
           { type: 'text', text: "External: Parasternal Line | Midclavicular Line | Anterior Axillary Line | Posterior Axillary Line | Inter-Nipple Line" },
           { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows | A-lines (if present)" },
-          { type: 'image', url: "/images/lung_zones.png", caption: "Lung Zones" },
-          { type: 'video', url: "/videos/internal_landmarks.mp4", caption: "Internal Landmarks" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/lung_zones.png", caption: "Anatomy: Lung Zones" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/internal_landmarks_ILS.mp4", caption: "Internal Landmarks" },
           { type: 'info', text: "Area of Interest: VPPI of ≥ 1 rib space in each lung zone" }
         ]
       },
@@ -690,8 +690,8 @@ const modules = [
             "Evaluate for presence of B-lines."
           ]},
           { type: 'bold', text: "Repeat above technique for the opposite hemithorax." },
-          { type: 'video', url: "/videos/sliding_to_center_the_vppi.mp4", caption: "Sliding to center the VPPI" },
-          { type: 'video', url: "/videos/fanning_to_optimize_vppi.mp4", caption: "Fanning to optimize VPPI" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/sliding_to_center_the_vppi.mp4", caption: "Sliding to center the VPPI" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/fanning_to_optimize_vppi.mp4", caption: "Fanning to optimize VPPI" }
         ]
       },
       {
@@ -701,16 +701,16 @@ const modules = [
         content: [
           { type: 'header', text: "Positive Scan" },
           { type: 'text', text: "≥ 3 B-lines present in a single rib space at any time throughout the respiratory cycle OR" },
-          { type: 'video', url: "/videos/b_lines.mp4", caption: "B-Lines" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/b_lines.mp4", caption: "B-Lines" },
           { type: 'text', text: "Coalescing B-lines" },
-          { type: 'video', url: "/videos/coalescing_b_lines.mp4", caption: "Coalescing B-Lines" },
-          { type: 'video', url: "/videos/coalescing_b_lines_making_white_lung.mp4", caption: "Coalescing B-Lines Making White Lung" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/coalescing_b_lines.mp4", caption: "Coalescing B-Lines" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/coalescing_b_lines_making_white_lung.mp4", caption: "Coalescing B-Lines Making White Lung" },
           
           { type: 'divider' },
           
           { type: 'header', text: "Negative Scan" },
           { type: 'text', text: "< 3 B-lines present in a single rib space at any time throughout the respiratory cycle" },
-          { type: 'video', url: "/videos/normal_a_lines.mp4", caption: "Normal A-Lines" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/normal_a_lines.mp4", caption: "Normal A-Lines" }
         ]
       },
       {
