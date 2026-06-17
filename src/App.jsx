@@ -28,6 +28,27 @@ import {
   Code2
 } from 'lucide-react';
 
+// --- CUSTOM HOOKS ---
+// The Safari-Only Quarantine Hook
+const useIsSafari = () => {
+  const [isSafari, setIsSafari] = useState(false);
+
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isAppleWebKit = /AppleWebKit/.test(ua);
+    const isChrome = /Chrome|CriOS/.test(ua);
+    const isFirefox = /FxiOS|Firefox/.test(ua);
+    const isEdge = /EdgiOS|Edg/.test(ua);
+    
+    // If it is WebKit but NOT Chrome, Firefox, or Edge, it is true Safari
+    if (isAppleWebKit && !isChrome && !isFirefox && !isEdge) {
+      setIsSafari(true);
+    }
+  }, []);
+
+  return isSafari;
+};
+
 // --- CUSTOM ICONS ---
 function HeartIcon({ size = 24, className = "" }) {
   return (
@@ -92,7 +113,7 @@ function InterstitialIcon({ size = 24, className = "" }) {
       <path d="M15.9876 36.0146C14.883 36.0155 13.9869 35.1209 13.986 34.0163C13.9851 32.9117 14.8798 32.0156 15.9843 32.0146C17.0889 32.0137 17.9851 32.9084 17.986 34.013C17.9869 35.1176 17.0922 36.0137 15.9876 36.0146Z" fill="currentColor"/>
       <path d="M9.98207 29.0195C9.98298 30.124 10.8791 31.0187 11.9837 31.0178C13.0883 31.0169 13.983 30.1208 13.9821 29.0162C13.9812 27.9116 13.085 27.0169 11.9804 27.0178C10.8759 27.0187 9.98117 27.9149 9.98207 29.0195Z" fill="currentColor"/>
       <path d="M15.9803 27.0146C14.8757 27.0155 13.9796 26.1209 13.9787 25.0163C13.9778 23.9117 14.8724 23.0156 15.977 23.0146C17.0816 23.0137 17.9777 23.9084 17.9787 25.013C17.9796 26.1176 17.0849 27.0137 15.9803 27.0146Z" fill="currentColor"/>
-      <path fillRule="evenodd" clipRule="evenodd" d="M24 6.00122C25 6.00122 25 6.00126 25 6.00135L25.0003 20.4973C25.0003 21.8944 25.5642 22.4386 26.0041 22.6951C26.0531 22.7237 26.1024 22.7496 26.1515 22.7732C26.1505 22.6537 26.1492 22.5292 26.1478 22.4003C26.11 18.8717 26.0364 12 31.4752 12C38.9258 12 44.2477 38.0065 41.0546 40.6602C37.8614 43.3139 31.4752 41.7217 28.2821 38.5372C25.7041 35.9663 25.9271 29.9586 26.0873 25.646C26.0971 25.3817 26.1066 25.1237 26.1153 24.8734C25.7901 24.7925 25.3962 24.6558 24.9966 24.4228C24.6406 24.2152 24.2986 23.9414 24.0014 23.5897C23.7036 23.9426 23.3609 24.2171 23.0041 24.4252C22.6045 24.6583 22.2106 24.7949 21.8854 24.8758C21.8941 25.1254 21.9036 25.3824 21.9134 25.6458C22.0738 29.9584 22.2972 35.9663 19.7193 38.5372C16.5264 41.7217 10.1402 43.3139 6.94693 40.6602C3.75364 38.0065 9.07407 12 16.5247 12C21.9635 12 21.8903 18.8717 21.8527 22.4003C21.8525 22.4165 21.8524 22.4327 21.8522 22.4488C21.851 22.5614 21.8499 22.6705 21.849 22.7757C21.8982 22.7521 21.9475 22.7261 21.9966 22.6975C22.4364 22.441 23.0003 21.8968 23.0003 20.4997L23 6.00135C23 6.00126 23 6.00122 24 6.00122ZM31.4752 14C30.5211 14 29.9842 14.3005 29.6085 14.6872C29.1751 15.1334 28.8131 15.851 28.559 16.865C28.114 18.6399 28.1329 20.6823 28.1482 22.3296C28.1508 22.6146 28.1533 22.8877 28.1533 23.1457C28.1533 23.9056 28.1196 24.8156 28.0844 25.7624L28.0844 25.7637C28.0705 26.1361 28.0565 26.5141 28.0442 26.8908C27.9995 28.266 27.974 29.7058 28.0404 31.0985C28.1071 32.4988 28.2641 33.7838 28.5572 34.8599C28.8537 35.9486 29.2508 36.6787 29.6943 37.1211C30.9725 38.3957 32.9907 39.4255 35.0491 39.8246C37.0841 40.2192 38.7223 39.9272 39.6817 39.1972C39.6867 39.186 39.6922 39.1729 39.6983 39.1577C39.7575 39.0095 39.8293 38.7557 39.8877 38.3686C40.0046 37.5936 40.0349 36.5126 39.9562 35.1806C39.7994 32.5308 39.2285 29.1692 38.3267 25.8609C37.4215 22.5399 36.2172 19.4001 34.852 17.1386C34.1687 16.0065 33.495 15.1789 32.8702 14.6538C32.2517 14.134 31.7934 14 31.4752 14ZM16.5248 14C17.4789 14 18.0158 14.3005 18.3915 14.6872C18.825 15.1334 19.187 15.851 19.4412 16.865C19.8862 18.6399 19.8675 20.6823 19.8523 22.3296C19.8497 22.6146 19.8472 22.8877 19.8472 23.1457C19.8472 23.9056 19.8811 24.8156 19.9163 25.7624C19.9301 26.1352 19.9442 26.5136 19.9565 26.8908C20.0014 28.266 20.0269 29.7058 19.9606 31.0985C19.894 32.4988 19.737 33.7838 19.444 34.8599C19.1475 35.9486 18.7505 36.6787 18.307 37.1211C17.0289 38.3957 15.0108 39.4254 12.9524 39.8246C10.9174 40.2192 9.27921 39.9272 8.31972 39.1972C8.31475 39.186 8.30919 39.1729 8.30311 39.1577C8.24389 39.0098 8.17207 38.7557 8.11369 38.3686C7.99679 37.5936 7.96634 36.5125 8.04506 35.1806C8.20167 32.5308 8.77238 29.1692 9.67397 25.8609C10.579 22.5399 11.7831 19.4001 13.1482 17.1386C13.8314 16.0066 14.505 15.1789 15.1298 14.6538C15.7483 14.134 16.2066 14 16.5248 14Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M24 6.00122C25 6.00122 25 6.00126 25 6.00135L25.0003 20.4973C25.0003 21.8944 25.5642 22.4386 26.0041 22.6951C26.0531 22.7237 26.1024 22.7496 26.1515 22.7732C26.1505 22.6537 26.1492 22.5292 26.1478 22.4003C26.11 18.8717 26.0364 12 31.4752 12C38.9258 12 44.2477 38.0065 41.0546 40.6602C37.8614 43.3139 31.4752 41.7217 28.2821 38.5372C25.7041 35.9663 25.9271 29.9586 26.0873 25.646C26.0971 25.3817 26.1066 25.1237 26.1153 24.8734C25.7901 24.7925 25.3962 24.6558 24.9966 24.4228C24.6406 24.2152 24.2986 23.9414 24.0014 23.5897C23.7036 23.9426 23.3609 24.2171 23.0041 24.4252C22.6045 24.6583 22.2106 24.7949 21.8854 24.8758C21.8941 25.1254 21.9036 25.3824 21.9134 25.6458C22.0738 29.9584 22.2972 35.9663 19.7193 38.5372C16.5264 41.7217 10.1402 43.3139 6.94693 40.6602C3.75364 38.0065 9.07407 12 16.5247 12C21.9635 12 21.8903 18.8717 21.8527 22.4003C21.8525 22.4165 21.8524 22.4327 21.8522 22.4488C21.851 22.5614 21.8499 22.6705 21.849 22.7757C21.8982 22.7521 21.9475 22.7261 21.9966 22.6975C22.4364 22.441 23.0003 21.8968 23.0003 20.4997L23 6.00135C23 6.00126 23 6.00122 24 6.00122ZM31.4752 14C30.5211 14 29.9842 14.3005 29.6085 14.6872C29.1751 15.1334 28.8131 15.851 28.559 16.865C28.114 18.6399 28.1329 20.6823 28.1482 22.3296C28.1508 22.6146 28.1533 22.8877 28.1533 23.1457C28.1533 23.9056 28.1196 24.8156 28.0844 25.7624L28.0844 25.7637C28.0705 26.1361 28.0565 26.5141 28.0442 26.8908C27.9995 28.266 27.974 29.7058 28.0404 31.0985C28.1071 32.4988 28.2641 33.7838 28.5572 34.8599C28.8537 35.9486 29.2508 36.6787 29.6943 37.1211C30.9725 38.3957 32.9907 39.4255 35.0491 39.8246C37.0841 40.2192 38.7223 39.9272 39.6817 39.1972C39.6867 39.186 39.6922 39.1729 39.6983 39.1577C39.7575 39.0095 39.8293 38.7557 39.8877 38.3683C40.0046 37.5936 40.0349 36.5126 39.9562 35.1806C39.7994 32.5308 39.2285 29.1692 38.3267 25.8609C37.4215 22.5399 36.2172 19.4001 34.852 17.1386C34.1687 16.0065 33.495 15.1789 32.8702 14.6538C32.2517 14.134 31.7934 14 31.4752 14ZM16.5248 14C17.4789 14 18.0158 14.3005 18.3915 14.6872C18.825 15.1334 19.187 15.851 19.4412 16.865C19.8862 18.6399 19.8675 20.6823 19.8523 22.3296C19.8497 22.6146 19.8472 22.8877 19.8472 23.1457C19.8472 23.9056 19.8811 24.8156 19.9163 25.7624C19.9301 26.1352 19.9442 26.5136 19.9565 26.8908C20.0014 28.266 20.0269 29.7058 19.9606 31.0985C19.894 32.4988 19.737 33.7838 19.444 34.8599C19.1475 35.9486 18.7505 36.6787 18.307 37.1211C17.0289 38.3957 15.0108 39.4254 12.9524 39.8246C10.9174 40.2192 9.27921 39.9272 8.31972 39.1972C8.31475 39.186 8.30919 39.1729 8.30311 39.1577C8.24389 39.0098 8.17207 38.7557 8.11369 38.3686C7.99679 37.5936 7.96634 36.5125 8.04506 35.1806C8.20167 32.5308 8.77238 29.1692 9.67397 25.8609C10.579 22.5399 11.7831 19.4001 13.1482 17.1386C13.8314 16.0066 14.505 15.1789 15.1298 14.6538C15.7483 14.134 16.2066 14 16.5248 14Z" fill="currentColor"/>
     </svg>
   );
 }
@@ -997,73 +1018,84 @@ const modules = [
 ];
 
 // --- ROBUST VIDEO COMPONENT ---
-// This component forces iOS to play nice with backgrounding
-const VideoPlayer = ({ src, caption }) => {
+// This component forces iOS to play nice with backgrounding and implements strict lazy rendering
+const VideoPlayer = ({ src, caption, isSafari }) => {
+  const containerRef = useRef(null);
   const videoRef = useRef(null);
-  const isInViewRef = useRef(false);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-
-    // 1. Intersection Observer for Scroll-Based Autoplay
+    // 1. Strict Lazy Loading Observer
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Video is in view, play it
-            isInViewRef.current = true;
-            videoElement.play().catch(err => {
-              console.log("Autoplay prevented (low power mode or interaction needed)", err);
-            });
-          } else {
-            // Video left the view, pause it to save memory and battery
-            isInViewRef.current = false;
-            videoElement.pause();
-          }
-        });
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
       },
-      {
-        threshold: 0.25, // Trigger when at least 25% of the video is visible
-      }
+      { threshold: 0.1 } // Small threshold to catch it just as it enters the view
     );
+    
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
 
-    observer.observe(videoElement);
+  useEffect(() => {
+    // 2. Wake Up Listener (Only matters when the video is actually mounted and in view)
+    if (!isInView || !videoRef.current) return;
+    
+    const videoElement = videoRef.current;
+    
+    const attemptPlay = async () => {
+      try {
+        await videoElement.play();
+      } catch (err) {
+        console.log("Autoplay prevented (low power mode or interaction needed)", err);
+      }
+    };
+    
+    attemptPlay();
 
-    // 2. The "Wake Up" Listener for iOS backgrounding
     const handleVisibilityChange = () => {
-      // Only force play if the app is foregrounded AND the video is currently in the viewport
-      if (document.visibilityState === 'visible' && isInViewRef.current) {
-        videoElement.play().catch(err => {
-          console.log("Autoplay prevented on wake up", err);
-        });
+      if (document.visibilityState === 'visible') {
+        attemptPlay();
       }
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
     
-    // Cleanup
     return () => {
-      observer.disconnect();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [src]);
+  }, [isInView, src]);
+
+  // Use progressive enhancement class based on Safari quarantine
+  const containerGlassClass = isSafari ? 'bg-white/95' : 'bg-white/40 backdrop-blur-md';
+  const captionGlassClass = isSafari ? 'bg-white/95' : 'bg-white/80 backdrop-blur-lg';
 
   return (
-    <div className="my-5 rounded-2xl overflow-hidden shadow-lg border border-white/50 bg-white/40 backdrop-blur-md">
+    <div ref={containerRef} className={`my-5 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-white/50 ${containerGlassClass}`}>
       <div className="relative bg-black aspect-video flex items-center justify-center group">
-         <video 
-           ref={videoRef}
-           src={src} 
-           className="w-full h-full object-contain"
-           controls        
-           muted          
-           playsInline    
-           loop           
-         />
+         {isInView ? (
+           <video 
+             ref={videoRef}
+             src={src} 
+             className="w-full h-full object-contain"
+             controls        
+             muted          
+             playsInline 
+             preload="none"   
+             loop           
+           />
+         ) : (
+           <div className="w-full h-full flex flex-col items-center justify-center bg-slate-900 text-slate-500">
+              <PlayCircle size={32} className="mb-2 opacity-30" />
+              <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">Loading Media</span>
+           </div>
+         )}
       </div>
       {caption && (
-        <div className="bg-white/80 backdrop-blur-lg p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50">
+        <div className={`p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50 ${captionGlassClass}`}>
           {caption}
         </div>
       )}
@@ -1073,7 +1105,7 @@ const VideoPlayer = ({ src, caption }) => {
 
 // --- COMPONENTS ---
 
-const ContentBlock = ({ item, color }) => {
+const ContentBlock = ({ item, color, isSafari }) => {
   switch (item.type) {
     case 'header':
       return <h4 className={`font-bold text-${color}-800 mt-5 mb-2 text-lg`}>{item.text}</h4>;
@@ -1085,8 +1117,9 @@ const ContentBlock = ({ item, color }) => {
       return <p className="font-bold text-slate-800 mt-3">{item.text}</p>;
     
     case 'info':
+      const infoBgClass = isSafari ? `bg-${color}-50` : `bg-${color}-50/60 backdrop-blur-md`;
       return (
-        <div className={`bg-${color}-50/60 backdrop-blur-md border-l-4 border-${color}-400 p-4 my-3 rounded-r-xl shadow-sm text-sm text-slate-700`}>
+        <div className={`${infoBgClass} border-l-4 border-${color}-400 p-4 my-3 rounded-r-xl shadow-sm text-sm text-slate-700`}>
           {item.text}
         </div>
       );
@@ -1109,21 +1142,24 @@ const ContentBlock = ({ item, color }) => {
       return <hr className="my-8 border-slate-200/60" />;
     
     case 'video':
-      // Using our new Robust Player
-      return <VideoPlayer src={item.url} caption={item.caption} />;
+      // Passing isSafari to the VideoPlayer to control its inner glass effects
+      return <VideoPlayer src={item.url} caption={item.caption} isSafari={isSafari} />;
 
     case 'image':
+      const imageContainerBg = isSafari ? 'bg-white/95' : 'bg-white/40 backdrop-blur-md';
+      const imageCaptionBg = isSafari ? 'bg-white/95' : 'bg-white/80 backdrop-blur-lg';
+      
       return (
-        <div className="my-5 rounded-2xl overflow-hidden shadow-lg border border-white/50 bg-white/40 backdrop-blur-md">
+        <div className={`my-5 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-white/50 ${imageContainerBg}`}>
           <div className="relative bg-white/50 flex items-center justify-center p-4">
              <img 
                src={item.url} 
                alt={item.caption || "Medical Reference"}
-               className="w-full h-auto object-contain max-h-[60vh] rounded-xl shadow-sm"
+               className="w-full h-auto object-contain max-h-[60vh] rounded-lg shadow-sm"
              />
           </div>
           {item.caption && (
-            <div className="bg-white/80 backdrop-blur-lg p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50">
+            <div className={`p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50 ${imageCaptionBg}`}>
               {item.caption}
             </div>
           )}
@@ -1135,21 +1171,25 @@ const ContentBlock = ({ item, color }) => {
   }
 };
 
-const SectionCard = ({ section }) => {
+const SectionCard = ({ section, isSafari }) => {
   const Icon = section.icon || Info;
   const color = section.color || 'emerald'; 
 
+  const cardBgClass = isSafari ? 'bg-white/95' : 'bg-white/60 backdrop-blur-xl';
+  const headerBgClass = isSafari ? `bg-${color}-100/90` : `bg-${color}-100/40 backdrop-blur-md`;
+  const iconContainerClass = isSafari ? 'bg-white' : 'bg-white/90 backdrop-blur-sm';
+
   return (
-    <div className="bg-white/60 backdrop-blur-xl rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 overflow-hidden mb-8 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
-      <div className={`bg-${color}-100/40 backdrop-blur-md px-6 py-5 border-b border-white/60 flex items-center`}>
-        <div className={`p-2.5 bg-white/90 backdrop-blur-sm rounded-xl shadow-sm border border-white/50 mr-4 text-${color}-600`}>
+    <div className={`${cardBgClass} rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 overflow-hidden mb-8 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]`}>
+      <div className={`${headerBgClass} px-4 md:px-6 py-4 md:py-5 border-b border-white/60 flex items-center`}>
+        <div className={`p-2 md:p-2.5 ${iconContainerClass} rounded-lg md:rounded-xl shadow-sm border border-white/50 mr-4 text-${color}-600`}>
           <Icon size={22} />
         </div>
-        <h3 className="font-bold text-slate-800 text-xl tracking-tight">{section.title}</h3>
+        <h3 className="font-bold text-slate-800 text-lg md:text-xl tracking-tight">{section.title}</h3>
       </div>
-      <div className="px-6 pb-6 pt-4">
+      <div className="px-4 md:px-6 pb-6 pt-4">
         {section.content.map((block, idx) => (
-          <ContentBlock key={idx} item={block} color={color} />
+          <ContentBlock key={idx} item={block} color={color} isSafari={isSafari} />
         ))}
       </div>
     </div>
@@ -1159,6 +1199,8 @@ const SectionCard = ({ section }) => {
 // --- MAIN APP COMPONENT ---
 
 export default function USaskPocusApp() {
+  const isSafari = useIsSafari();
+  
   const [currentView, setCurrentView] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -1254,23 +1296,43 @@ export default function USaskPocusApp() {
   }, []);
 
   // --- BACKGROUND GLOW COMPONENT ---
-  const AmbientGlow = () => (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-200/30 rounded-full blur-[100px] opacity-70 mix-blend-multiply" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-blue-200/30 rounded-full blur-[120px] opacity-60 mix-blend-multiply" />
-      <div className="absolute top-[30%] left-[60%] w-[30vw] h-[30vw] bg-violet-200/20 rounded-full blur-[90px] opacity-50 mix-blend-multiply" />
-    </div>
-  );
+  const AmbientGlow = () => {
+    if (isSafari) {
+      // Graphics diet: static soft orbs, no heavy blurs
+      return (
+        <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-slate-100">
+          <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-200/50 rounded-full opacity-70" />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-blue-200/50 rounded-full opacity-60" />
+          <div className="absolute top-[30%] left-[60%] w-[30vw] h-[30vw] bg-violet-200/40 rounded-full opacity-50" />
+        </div>
+      );
+    }
+    
+    // Supreme UI: deep glass, blurs, and pulsing dynamic orbs
+    return (
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-300/40 rounded-full blur-[100px] opacity-70 mix-blend-multiply animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-blue-300/40 rounded-full blur-[120px] opacity-60 mix-blend-multiply animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-[30%] left-[60%] w-[30vw] h-[30vw] bg-violet-300/30 rounded-full blur-[90px] opacity-50 mix-blend-multiply animate-pulse" style={{ animationDelay: '2s' }} />
+      </div>
+    );
+  };
+
+  const sidebarClass = isSafari ? 'bg-emerald-950' : 'bg-emerald-950/90 backdrop-blur-2xl';
+  const headerClass = isSafari ? 'bg-white/95' : 'bg-white/70 backdrop-blur-xl';
+  const dashboardHeaderClass = isSafari ? 'bg-emerald-950' : 'bg-emerald-950/90 backdrop-blur-2xl';
+  const dashboardCardClass = isSafari ? 'bg-white/95' : 'bg-white/60 backdrop-blur-xl hover:bg-white/80';
+  const footerClass = isSafari ? 'bg-slate-100 border-slate-200' : 'bg-white/40 backdrop-blur-md border-white/60';
 
   // --- ABOUT US VIEW ---
   if (currentView === 'about') {
     return (
-      <div className="flex h-screen bg-slate-50/80 font-sans overflow-hidden w-full relative">
+      <div className="flex h-screen font-sans overflow-hidden w-full relative">
         <AmbientGlow />
         
         {/* Sidebar */}
         <aside className={`
-          fixed inset-y-0 left-0 z-30 w-80 bg-emerald-950/90 backdrop-blur-2xl text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
+          fixed inset-y-0 left-0 z-30 w-80 ${sidebarClass} text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
           ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:static lg:translate-x-0'}
         `}>
           <div className="p-6 border-b border-emerald-800/50 flex justify-between items-center shrink-0">
@@ -1311,7 +1373,7 @@ export default function USaskPocusApp() {
         </aside>
 
         <main className="flex-1 flex flex-col h-full overflow-hidden relative z-10">
-          <header className="h-16 bg-white/70 backdrop-blur-xl border-b border-white/50 flex items-center justify-between px-6 shrink-0 shadow-sm z-20">
+          <header className={`h-16 ${headerClass} border-b flex items-center justify-between px-6 shrink-0 shadow-sm z-20`}>
             <div className="flex items-center">
               <button onClick={() => setSidebarOpen(true)} className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors">
                 <Menu size={24} />
@@ -1322,17 +1384,17 @@ export default function USaskPocusApp() {
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth z-10 relative">
             <div className="max-w-2xl mx-auto space-y-6 pb-20">
-              <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 overflow-hidden">
-                 <div className="bg-emerald-900/90 backdrop-blur-md px-8 py-12 text-center relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px]" />
+              <div className={`${dashboardCardClass} rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 overflow-hidden`}>
+                 <div className={`${isSafari ? 'bg-emerald-900' : 'bg-emerald-900/90 backdrop-blur-md'} px-8 py-12 text-center relative overflow-hidden`}>
+                    {!isSafari && <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px]" />}
                     <GraduationCap size={56} className="mx-auto text-emerald-100 mb-5 relative z-10" />
                     <h2 className="text-3xl font-bold text-white mb-3 tracking-tight relative z-10">USask POCUS Quick Reference</h2>
                     <p className="text-emerald-100/90 text-sm font-medium relative z-10">Created for the University of Saskatchewan College of Medicine</p>
                  </div>
                  
-                 <div className="p-8 md:p-10 space-y-8">
+                 <div className="p-6 md:p-10 space-y-8">
                     <div className="flex items-start group">
-                       <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
+                       <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
                           <Stethoscope size={24} />
                        </div>
                        <div>
@@ -1342,7 +1404,7 @@ export default function USaskPocusApp() {
                     </div>
                     
                     <div className="flex items-start group">
-                       <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
+                       <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
                           <Stethoscope size={24} />
                        </div>
                        <div>
@@ -1354,7 +1416,7 @@ export default function USaskPocusApp() {
                     <hr className="border-slate-200/60" />
                     
                     <div className="flex items-start group">
-                       <div className="p-3.5 bg-emerald-50/80 border border-emerald-100 shadow-sm text-emerald-600 rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
+                       <div className="p-3.5 bg-emerald-50/80 border border-emerald-100 shadow-sm text-emerald-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
                           <Code2 size={24} />
                        </div>
                        <div>
@@ -1375,12 +1437,16 @@ export default function USaskPocusApp() {
   // 1. DASHBOARD VIEW
   if (currentView === 'dashboard') {
     return (
-      <div className="min-h-screen bg-slate-50/80 font-sans text-slate-800 flex flex-col w-full relative overflow-hidden">
+      <div className="min-h-screen font-sans text-slate-800 flex flex-col w-full relative overflow-hidden">
         <AmbientGlow />
         
-        <header className="bg-emerald-950/90 backdrop-blur-2xl text-white py-12 px-6 relative overflow-hidden border-b border-white/10 shadow-lg">
-          <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-emerald-400/20 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-[-20%] left-[-10%] w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <header className={`${dashboardHeaderClass} text-white py-12 px-6 relative overflow-hidden border-b border-white/10 shadow-lg`}>
+          {!isSafari && (
+            <>
+              <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-emerald-400/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute bottom-[-20%] left-[-10%] w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+            </>
+          )}
           
           <div className="absolute top-4 right-4 p-8 opacity-5">
             <GraduationCap size={200} />
@@ -1388,7 +1454,7 @@ export default function USaskPocusApp() {
           
           <div className="max-w-5xl mx-auto relative z-10">
              <div className="flex flex-wrap items-center gap-3 mb-6">
-               <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-emerald-50 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-sm">
+               <span className={`px-4 py-1.5 ${isSafari ? 'bg-white/20' : 'bg-white/10 backdrop-blur-md'} border border-white/20 text-emerald-50 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-sm`}>
                  College of Medicine
                </span>
              </div>
@@ -1399,7 +1465,7 @@ export default function USaskPocusApp() {
                  </p>
                  <button 
                    onClick={goToAbout}
-                   className="w-fit px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 text-white transition-all cursor-pointer flex items-center shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                   className={`w-fit px-4 py-2 ${isSafari ? 'bg-white/20 hover:bg-white/30' : 'bg-white/10 hover:bg-white/20 backdrop-blur-md'} rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 text-white transition-all cursor-pointer flex items-center shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]`}
                  >
                    <Info size={14} className="mr-2" />
                    About
@@ -1420,9 +1486,9 @@ export default function USaskPocusApp() {
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className={`bg-white/60 backdrop-blur-xl p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-${mod.color}-300/50 hover:bg-white/80 active:scale-[0.98] transition-all duration-300 text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
+                  className={`${dashboardCardClass} p-6 md:p-8 rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-${mod.color}-300/50 active:scale-[0.98] transition-all duration-300 text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
                 >
-                  <div className={`w-14 h-14 rounded-2xl bg-${mod.color}-50/80 backdrop-blur-md border border-${mod.color}-100 flex items-center justify-center text-${mod.color}-600 mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                  <div className={`w-14 h-14 rounded-xl md:rounded-2xl ${isSafari ? `bg-${mod.color}-100` : `bg-${mod.color}-50/80 backdrop-blur-md`} border border-${mod.color}-100 flex items-center justify-center text-${mod.color}-600 mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
                     <mod.icon size={28} />
                   </div>
                   <h3 className="text-xl font-bold text-slate-800 mb-3 tracking-tight group-hover:text-slate-900">{mod.title}</h3>
@@ -1437,7 +1503,7 @@ export default function USaskPocusApp() {
           </div>
         </main>
 
-        <footer className="relative z-10 bg-white/40 backdrop-blur-md border-t border-white/60 py-8 text-center text-slate-500 text-xs font-medium">
+        <footer className={`relative z-10 border-t py-8 text-center text-slate-500 text-xs font-medium ${footerClass}`}>
           <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.39</p>
           <button 
             onClick={goToAbout} 
@@ -1452,11 +1518,11 @@ export default function USaskPocusApp() {
 
   // 2. MODULE VIEW
   return (
-    <div className="flex h-screen bg-slate-50/80 font-sans overflow-hidden w-full relative">
+    <div className="flex h-screen font-sans overflow-hidden w-full relative">
       <AmbientGlow />
       
       <aside className={`
-        fixed inset-y-0 left-0 z-40 w-80 bg-emerald-950/90 backdrop-blur-2xl text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
+        fixed inset-y-0 left-0 z-40 w-80 ${sidebarClass} text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
         ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:static lg:translate-x-0'}
       `}>
         <div className="p-6 border-b border-emerald-800/50 flex justify-between items-center shrink-0">
@@ -1505,7 +1571,7 @@ export default function USaskPocusApp() {
       )}
 
       <main className="flex-1 flex flex-col h-full overflow-hidden relative z-10">
-        <header className="h-16 bg-white/70 backdrop-blur-xl border-b border-white/50 flex items-center justify-between px-6 shrink-0 shadow-sm z-20">
+        <header className={`h-16 ${headerClass} border-b flex items-center justify-between px-6 shrink-0 shadow-sm z-20`}>
           <div className="flex items-center">
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors">
               <Menu size={24} />
@@ -1515,13 +1581,13 @@ export default function USaskPocusApp() {
         </header>
 
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth relative z-10">
-          <div className="max-w-3xl mx-auto space-y-8 pb-24 pt-2">
+          <div className="max-w-3xl mx-auto space-y-6 md:space-y-8 pb-24 pt-2">
             {activeModule && activeModule.sections ? (
               activeModule.sections.map((section, idx) => (
-                <SectionCard key={idx} section={section} color={section.color || activeModule.color} />
+                <SectionCard key={idx} section={section} isSafari={isSafari} />
               ))
             ) : (
-              <div className="max-w-3xl mx-auto bg-white/70 backdrop-blur-xl p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 text-center">
+              <div className={`${dashboardCardClass} max-w-3xl mx-auto p-12 rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 text-center`}>
                 <div className="w-20 h-20 bg-emerald-50/80 border border-emerald-100/50 shadow-sm text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Stethoscope size={40} />
                 </div>
