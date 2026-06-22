@@ -226,7 +226,10 @@ export default function USaskPocusApp() {
         setLoadedModules(data.modules);
         setIsLoading(false);
       })
-      .catch((error) => console.error("Failed to load modules:", error));
+      .catch((error) => {
+        console.error("Failed to load modules:", error);
+        setIsLoading(false);
+      });
   }, []);
 
   const [currentView, setCurrentView] = useState(() => {
@@ -322,7 +325,7 @@ export default function USaskPocusApp() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
- 
+
   // --- BACKGROUND GLOW COMPONENT ---
   const AmbientGlow = () => {
     if (isSafari) {
@@ -351,6 +354,18 @@ export default function USaskPocusApp() {
   const dashboardHeaderClass = isSafari ? 'bg-emerald-950' : 'bg-emerald-950/90 backdrop-blur-2xl';
   const dashboardCardClass = isSafari ? 'bg-white/95' : 'bg-white/60 backdrop-blur-xl hover:bg-white/80';
   const footerClass = isSafari ? 'bg-slate-100 border-slate-200' : 'bg-white/40 backdrop-blur-md border-white/60';
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-slate-50 relative overflow-hidden">
+        <AmbientGlow />
+        <div className="relative z-10 flex flex-col items-center text-emerald-800">
+           <Stethoscope size={48} className="mb-4 animate-pulse" />
+           <h2 className="text-xl font-bold tracking-widest uppercase">Loading Modules...</h2>
+        </div>
+      </div>
+    );
+  }
 
   // --- ABOUT US VIEW ---
   if (currentView === 'about') {
