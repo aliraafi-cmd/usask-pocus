@@ -221,7 +221,7 @@ export default function USaskPocusApp() {
 
   useEffect(() => {
     // Dynamically load the massive text array in the background
-    import('./moduleData.jsx')
+    import('./moduleData')
       .then((data) => {
         setLoadedModules(data.modules);
         setIsLoading(false);
