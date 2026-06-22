@@ -1,31 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { 
-  BookOpen, 
-  Menu, 
-  X, 
-  Stethoscope, 
-  GraduationCap, 
   Info,
-  ArrowRight,
-  ArrowLeft,
   Scan,
   Move,
   FileText,
   Layers,
   Settings,
-  Activity,
-  Anchor,
-  User,
-  Maximize,
-  AlertTriangle,
-  CheckCircle,
-  Droplet,
-  PlayCircle,
   Sliders,   
   Wrench,    
   Microscope,
-  Lightbulb,
-  Code2
+  Lightbulb
 } from 'lucide-react';
 
 // --- CUSTOM ICONS ---

@@ -1,3 +1,16 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  BookOpen, 
+  Menu, 
+  X, 
+  Stethoscope, 
+  GraduationCap, 
+  Info,
+  ArrowRight,
+  ArrowLeft,
+  PlayCircle,
+  Code2
+} from 'lucide-react';
 
 // --- CUSTOM HOOKS ---
 // The Safari-Only Quarantine Hook
@@ -208,7 +221,7 @@ export default function USaskPocusApp() {
 
   useEffect(() => {
     // This fetches your medical textbook in the background!
-    import('./moduleData.js')
+    import('./moduleData.jsx')
       .then((data) => {
         setLoadedModules(data.modules);
         setIsLoading(false);
