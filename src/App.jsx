@@ -216,7 +216,19 @@ const SectionCard = ({ section, isSafari }) => {
 
 export default function USaskPocusApp() {
   const isSafari = useIsSafari();
-  
+  const [loadedModules, setLoadedModules] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Dynamically load the massive text array in the background
+    import('./moduleData.jsx')
+      .then((data) => {
+        setLoadedModules(data.modules);
+        setIsLoading(false);
+      })
+      .catch((error) => console.error("Failed to load modules:", error));
+  }, []);
+
   const [currentView, setCurrentView] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search);
