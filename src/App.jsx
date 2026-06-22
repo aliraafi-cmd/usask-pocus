@@ -216,18 +216,6 @@ const SectionCard = ({ section, isSafari }) => {
 
 export default function USaskPocusApp() {
   const isSafari = useIsSafari();
-  const [loadedModules, setLoadedModules] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // This fetches your medical textbook in the background!
-    import('./moduleData.jsx')
-      .then((data) => {
-        setLoadedModules(data.modules);
-        setIsLoading(false);
-      })
-      .catch((error) => console.error("Failed to load modules:", error));
-  }, []);
   
   const [currentView, setCurrentView] = useState(() => {
     try {
@@ -254,7 +242,7 @@ export default function USaskPocusApp() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const scrollRef = useRef(null);
 
-  const activeModule = loadedModules.find(m => m.id === activeModuleId);
+  const activeModule = modules.find(m => m.id === activeModuleId);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -322,19 +310,7 @@ export default function USaskPocusApp() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
-
-  if (isLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-slate-50">
-        <div className="flex flex-col items-center">
-           {/* A little spinning icon to make it look professional */}
-           <div className="w-12 h-12 border-4 border-emerald-200 border-t-emerald-600 rounded-full animate-spin mb-4" />
-           <p className="text-emerald-800 font-bold tracking-widest uppercase">Loading USask POCUS...</p>
-        </div>
-      </div>
-    );
-  }
-  
+ 
   // --- BACKGROUND GLOW COMPONENT ---
   const AmbientGlow = () => {
     if (isSafari) {
@@ -387,7 +363,7 @@ export default function USaskPocusApp() {
             <div className="mb-4 px-2">
               <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
               <div className="space-y-1.5">
-                {loadedModules.map(mod => (
+                {modules.map(mod => (
                   <button 
                     key={mod.id}
                     onClick={() => openModule(mod.id)}
@@ -522,7 +498,7 @@ export default function USaskPocusApp() {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {loadedModules.map((mod) => (
+              {modules.map((mod) => (
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
@@ -577,7 +553,7 @@ export default function USaskPocusApp() {
           <div className="mb-4 px-2">
             <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
             <div className="space-y-1.5">
-              {loadedModules.map(mod => (
+              {modules.map(mod => (
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
