@@ -11,6 +11,8 @@ import {
   PlayCircle,
   Code2
 } from 'lucide-react';
+// BRINGING IN OUR DATA THE ROCK-SOLID WAY!
+import { modules } from './moduleData';
 
 // --- CUSTOM HOOKS ---
 // The Safari-Only Quarantine Hook
@@ -46,7 +48,7 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.1 } // Small threshold to catch it just as it enters the view
+      { threshold: 0.25 } // Catch it when 25% enters the view!
     );
     
     if (containerRef.current) {
@@ -216,21 +218,6 @@ const SectionCard = ({ section, isSafari }) => {
 
 export default function USaskPocusApp() {
   const isSafari = useIsSafari();
-  const [loadedModules, setLoadedModules] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Dynamically load the massive text array in the background
-    import('./moduleData')
-      .then((data) => {
-        setLoadedModules(data.modules);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Failed to load modules:", error);
-        setIsLoading(false);
-      });
-  }, []);
 
   const [currentView, setCurrentView] = useState(() => {
     try {
@@ -257,7 +244,8 @@ export default function USaskPocusApp() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const scrollRef = useRef(null);
 
-  const activeModule = loadedModules.find(m => m.id === activeModuleId);
+  // Directly pulling from our robust static import now!
+  const activeModule = modules.find(m => m.id === activeModuleId);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -355,18 +343,6 @@ export default function USaskPocusApp() {
   const dashboardCardClass = isSafari ? 'bg-white/95' : 'bg-white/60 backdrop-blur-xl hover:bg-white/80';
   const footerClass = isSafari ? 'bg-slate-100 border-slate-200' : 'bg-white/40 backdrop-blur-md border-white/60';
 
-  if (isLoading) {
-    return (
-      <div className="flex h-screen w-full items-center justify-center bg-slate-50 relative overflow-hidden">
-        <AmbientGlow />
-        <div className="relative z-10 flex flex-col items-center text-emerald-800">
-           <Stethoscope size={48} className="mb-4 animate-pulse" />
-           <h2 className="text-xl font-bold tracking-widest uppercase">Loading Modules...</h2>
-        </div>
-      </div>
-    );
-  }
-
   // --- ABOUT US VIEW ---
   if (currentView === 'about') {
     return (
@@ -390,7 +366,7 @@ export default function USaskPocusApp() {
             <div className="mb-4 px-2">
               <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
               <div className="space-y-1.5">
-                {loadedModules.map(mod => (
+                {modules.map(mod => (
                   <button 
                     key={mod.id}
                     onClick={() => openModule(mod.id)}
@@ -525,7 +501,7 @@ export default function USaskPocusApp() {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {loadedModules.map((mod) => (
+              {modules.map((mod) => (
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
@@ -580,7 +556,7 @@ export default function USaskPocusApp() {
           <div className="mb-4 px-2">
             <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
             <div className="space-y-1.5">
-              {loadedModules.map(mod => (
+              {modules.map(mod => (
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
