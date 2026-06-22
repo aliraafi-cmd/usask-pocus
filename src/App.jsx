@@ -254,7 +254,7 @@ export default function USaskPocusApp() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const scrollRef = useRef(null);
 
-  const activeModule = modules.find(m => m.id === activeModuleId);
+  const activeModule = loadedModules.find(m => m.id === activeModuleId);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -375,7 +375,7 @@ export default function USaskPocusApp() {
             <div className="mb-4 px-2">
               <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
               <div className="space-y-1.5">
-                {modules.map(mod => (
+                {loadedModules.map(mod => (
                   <button 
                     key={mod.id}
                     onClick={() => openModule(mod.id)}
@@ -510,7 +510,7 @@ export default function USaskPocusApp() {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {modules.map((mod) => (
+              {loadedModules.map((mod) => (
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
@@ -565,7 +565,7 @@ export default function USaskPocusApp() {
           <div className="mb-4 px-2">
             <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
             <div className="space-y-1.5">
-              {modules.map(mod => (
+              {loadedModules.map(mod => (
                 <button 
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
