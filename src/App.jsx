@@ -36,14 +36,22 @@ const useIsSafari = () => {
 };
 
 // --- ROBUST VIDEO COMPONENT ---
-// This component forces iOS to play nice with backgrounding and implements strict lazy rendering
+// This component forces iOS to play nice with backgrounding and implements strict lazy rendering ONLY for Safari
 const VideoPlayer = ({ src, caption, isSafari }) => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
-  const [isInView, setIsInView] = useState(false);
+  
+  // If it's NOT Safari, we set it to be in view immediately to load everything at once
+  const [isInView, setIsInView] = useState(!isSafari);
 
   useEffect(() => {
-    // 1. Strict Lazy Loading Observer
+    // If we are not on Safari, bypass the IntersectionObserver completely
+    if (!isSafari) {
+      setIsInView(true);
+      return;
+    }
+
+    // 1. Strict Lazy Loading Observer for Safari
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
@@ -56,7 +64,7 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
     }
     
     return () => observer.disconnect();
-  }, []);
+  }, [isSafari]);
 
   useEffect(() => {
     // 2. Wake Up Listener (Only matters when the video is actually mounted and in view)
@@ -160,7 +168,6 @@ const ContentBlock = ({ item, color, isSafari }) => {
       return <hr className="my-8 border-slate-200/60" />;
     
     case 'video':
-      // Passing isSafari to the VideoPlayer to control its inner glass effects
       return <VideoPlayer src={item.url} caption={item.caption} isSafari={isSafari} />;
 
     case 'image':
@@ -523,7 +530,7 @@ export default function USaskPocusApp() {
         </main>
 
         <footer className={`relative z-10 border-t py-8 text-center text-slate-500 text-xs font-medium ${footerClass}`}>
-          <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.39</p>
+          <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.40</p>
           <button 
             onClick={goToAbout} 
             className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-bold transition-colors"
