@@ -14,13 +14,12 @@ import {
 } from 'lucide-react';
 
 // --- CUSTOM ICONS ---
+
 function HeartIcon({ size = 24, className = "" }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <path fillRule="evenodd" clipRule="evenodd" d="M5.72287 6.88562C5.78469 6.88996 5.85725 6.89834 5.94113 6.91291C6.26185 6.96858 6.64653 7.09842 7.02516 7.30622C7.79966 7.7313 8.38314 8.38135 8.51366 9.16448C8.60446 9.70925 9.11968 10.0773 9.66446 9.98647C10.2092 9.89568 10.5772 9.38045 10.4865 8.83568C10.2214 7.24514 9.08868 6.15733 7.98742 5.55293C7.42818 5.24599 6.83507 5.03818 6.28322 4.94238C5.76343 4.85214 5.1485 4.83873 4.62738 5.07048C4.33792 5.1992 4.15083 5.43056 4.05746 5.66399L3.12644 7.99155C2.83287 8.72548 3.38094 9.49291 4.1379 9.50079C5.05927 9.51038 5.51461 9.6198 5.71608 9.72631C5.75909 9.74905 5.77823 9.76535 5.78516 9.77249C5.78918 9.7829 5.80006 9.81936 5.80006 9.90008C5.80006 10.4524 6.24777 10.9001 6.80006 10.9001C7.35234 10.9001 7.80006 10.4524 7.80006 9.90008C7.80006 9.52602 7.72647 9.1359 7.51857 8.77439C7.30817 8.40854 7.00126 8.14346 6.65082 7.95819C6.30362 7.77464 5.89424 7.65972 5.44077 7.59088L5.72287 6.88562ZM5.78455 9.77096C5.78393 9.76985 5.78367 9.76924 5.78369 9.76921L5.78455 9.77096Z" fill="currentColor"/>
-      <path fillRule="evenodd" clipRule="evenodd" d="M13.9884 8.02486C13.0512 8.63689 12.5742 9.32939 12.4698 9.74417C12.335 10.2797 11.7915 10.6046 11.256 10.4698C10.7204 10.335 10.3955 9.79156 10.5303 9.25599C10.8035 8.17077 11.7265 7.11327 12.8949 6.35029C14.0981 5.56458 15.6918 5.00008 17.5001 5.00008H19.8901C20.5031 5.00008 21.0001 5.49704 21.0001 6.11008V8.90689C21.0001 9.43487 20.6125 9.94088 20.0179 10.0066C19.6752 10.0445 19.259 10.0264 18.8954 10.0106C18.8794 10.0099 18.8636 10.0092 18.8479 10.0085C18.439 9.99085 18.0169 9.9729 17.5747 9.98983C16.6918 10.0236 15.8223 10.1951 15.0735 10.7193C14.6211 11.036 13.9975 10.926 13.6808 10.4735C13.3641 10.0211 13.4741 9.39756 13.9266 9.08085C15.1189 8.24621 16.4262 8.03233 17.4982 7.99129C18.0258 7.9711 18.5191 7.99244 18.9167 8.00964L18.9342 8.0104C18.9566 8.01136 18.9786 8.0123 19.0001 8.01321V7.00008H17.5001C16.1083 7.00008 14.8908 7.43557 13.9884 8.02486Z" fill="currentColor"/>
-      <path fillRule="evenodd" clipRule="evenodd" d="M10.8178 4.58555L11.124 5.61993C11.246 6.03197 11.1169 6.47731 10.7934 6.76019L9.65837 7.75283C9.24264 8.1164 8.61089 8.07412 8.24731 7.65839C7.88374 7.24267 7.92602 6.61091 8.34175 6.24734L9.04252 5.63448L8.64459 4.29027C8.47215 3.70775 8.80459 3.09572 9.38711 2.92328L12.2854 2.06531C12.8679 1.89286 13.4799 2.2253 13.6524 2.80782L14.0986 4.3153L15.8923 5.08023C16.4004 5.29687 16.6366 5.88433 16.4199 6.39235C16.2033 6.90037 15.6158 7.13657 15.1078 6.91993L12.9244 5.98882C12.6228 5.86019 12.3942 5.60367 12.3011 5.28923L11.9901 4.23851L10.8178 4.58555Z" fill="currentColor"/>
-      <path fillRule="evenodd" clipRule="evenodd" d="M20.0179 11.6907C20.0534 13.4076 19.503 15.4243 18.9295 16.869C18.2754 18.5168 16.9791 19.7861 15.6977 20.6327C14.4435 21.4614 13.0264 22.0001 12.0001 22.0001C10.9717 22.0001 9.8343 21.5093 8.87018 20.9131C7.87794 20.2995 6.9151 19.4785 6.22497 18.6319C5.51112 17.7563 4.51283 15.8577 4.13823 14.0115C3.95039 13.0857 3.89409 12.0549 4.21127 11.1351C4.55065 10.1509 5.29126 9.38061 6.47255 9.03936C7.99257 8.60026 9.51617 8.65232 10.7911 8.92001C11.6625 9.10299 12.4616 9.39628 13.095 9.7393C14.5236 8.47677 15.588 8.00025 16.8467 8.00007C16.992 8.00005 17.1332 8.00777 17.2702 8.02305C17.4863 8.00785 17.7095 8.00008 17.94 8.00008C18.3963 8.00008 18.7812 8.30565 18.9012 8.72331C19.06 8.86514 19.2033 9.02687 19.3303 9.20763C19.836 9.92781 20.0003 10.8369 20.0179 11.6907ZM10.3801 10.8773C11.16 11.0411 11.7978 11.3002 12.2229 11.5425C12.0682 11.9798 11.9672 12.4293 11.9083 12.8762C11.4196 12.8692 10.8419 12.9586 10.2681 13.2377C10.2523 13.2315 10.2363 13.2257 10.22 13.2202L8.16307 12.5243L7.52217 14.4189L8.69866 14.8169L8.17666 16.2102L10.0495 16.9119L10.5973 15.4499L10.7229 15.3308C11.1218 14.9525 11.583 14.8682 11.8936 14.874C11.9193 15.113 11.9534 15.3431 11.9936 15.5611C11.9771 15.6196 11.9653 15.6803 11.9586 15.7428L11.649 18.6262L13.6376 18.8397L13.8511 16.8511L15.8397 17.0646L16.0532 15.076L13.9043 14.8453C13.7663 13.8142 13.8383 12.6649 14.2975 11.7686C14.7162 10.9513 15.5268 10.2038 17.2012 10.0354C17.4582 10.094 17.5963 10.2186 17.6935 10.357C17.8714 10.6103 18.0044 11.057 18.0184 11.732C18.0461 13.0729 17.5964 14.8065 17.0706 16.1311C16.615 17.2788 15.6613 18.2596 14.5951 18.9641C13.5017 19.6865 12.4737 20.0001 12.0001 20.0001C11.5284 20.0001 10.7772 19.7409 9.92206 19.2121C9.09499 18.7006 8.30781 18.0216 7.77514 17.3682C7.26617 16.7439 6.40847 15.1425 6.09829 13.6138C5.94373 12.852 5.95044 12.2266 6.10202 11.7871C6.23139 11.4119 6.4779 11.1196 7.02761 10.9608C8.16938 10.631 9.35302 10.6617 10.3801 10.8773Z" fill="currentColor"/>
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path d="M24 41.5S8 30.5 8 18.5C8 13.2533 12.2533 9 17.5 9C20.738 9 23.596 10.625 25.258 13.208C26.576 10.792 29.578 9 33.5 9C38.7467 9 43 13.2533 43 18.5C43 30.5 24 41.5 24 41.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M14 22H19L22 14L27 32L30 22H34" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -31,6 +30,14 @@ function BasicsIcon({ size = 24, className = "" }) {
       <path fillRule="evenodd" clipRule="evenodd" d="M13.5 11C15.433 11 17 12.567 17 14.5V40L13.5 44L10 40V14.5C10 12.567 11.567 11 13.5 11ZM13.5 13C14.3284 13 15 13.6716 15 14.5V17H12V14.5C12 13.6716 12.6716 13 13.5 13ZM13.5 40.9628L12 39.2485V19H15V39.2485L13.5 40.9628Z" fill="currentColor"/>
       <path fillRule="evenodd" clipRule="evenodd" d="M33 28C31.8954 28 31 28.8954 31 30V42C31 43.1046 31.8954 44 33 44H36C37.1046 44 38 43.1046 38 42V30C38 28.8954 37.1046 28 36 28H33ZM36 30H33V35H36V30ZM36 37H33V42H36V37Z" fill="currentColor"/>
       <path fillRule="evenodd" clipRule="evenodd" d="M29 4H19V44H29V4ZM21 6H27V8H23V10H27V13H25V15H27V18H25V20H27V23H23V25H27V28H25V30H27V33H25V35H27V38H23V40H27V42H21V6Z" fill="currentColor"/>
+    </svg>
+  );
+}
+
+function LiverIcon({ size = 24, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M18 30.707C17.0781 31.0885 16.0352 31.3613 14.6885 31.3613C12.8526 31.3613 12.2458 32.8297 11.6009 34.3903C10.8697 36.1599 10.0895 38.0479 7.41312 38.0479C2.37634 38.0479 3.61914 22.5479 6.61916 16.5479C9.61919 10.5479 13.7245 10.0479 22.1192 10.0479C27.2615 10.0479 28.5655 10.8319 29.5758 11.4395C30.2149 11.8238 30.7364 12.1374 32.0374 12.1374C33.3805 12.1374 35.2609 11.7362 37.1413 11.335C39.9619 10.7332 42.7825 10.1315 43.7898 10.8837C45.4687 12.1374 40.432 21.3314 35.3952 21.3314C32.8027 21.3314 31.2481 23.1899 29.7392 24.9937C28.3166 26.6944 26.9347 28.3464 24.762 28.3464C22.6699 28.3464 21.311 29.0047 20 29.7061V39.5479H18V30.707ZM8.69292 35.6058C8.47288 35.8312 8.15654 36.0479 7.41312 36.0479H7.41083C7.35819 36.0479 7.31753 36.0479 7.21331 35.9452C7.06443 35.7986 6.8432 35.4767 6.62867 34.8677C6.19706 33.6425 5.97531 31.7877 6.00219 29.5721C6.05609 25.1293 7.08823 20.0818 8.40801 17.4423C9.7236 14.8111 11.1431 13.6011 13.0187 12.9314C15.091 12.1915 17.867 12.0479 22.1192 12.0479C22.4358 12.0479 22.7355 12.051 23.0192 12.0568C22.1361 13.1859 21.6549 14.4264 21.3967 15.502C21.1898 16.3644 21.1212 17.1377 21.104 17.6968C21.0953 17.9773 21.0996 18.2065 21.1063 18.3695C21.1097 18.451 21.1137 18.5161 21.1171 18.563L21.12 18.602L21.1215 18.6195L21.1231 18.6371L21.1237 18.6431L21.124 18.6465C21.124 18.6469 21.1241 18.6474 22.1191 18.5479C23.1142 18.4484 23.1142 18.4487 23.1142 18.4491L23.1119 18.4191C23.1099 18.3916 23.1071 18.3469 23.1046 18.2868C23.0996 18.1665 23.096 17.9856 23.103 17.7583C23.1171 17.3017 23.1735 16.6688 23.3415 15.9687C23.6443 14.7069 24.2935 13.2816 25.6646 12.2314C27.0451 12.408 27.6744 12.6758 28.0486 12.8693C28.2163 12.956 28.3581 13.0412 28.5502 13.1565L28.6079 13.1912C28.8138 13.3147 29.0948 13.4822 29.4246 13.632C30.1563 13.9642 30.9609 14.1374 32.0374 14.1374C33.0791 14.1374 34.2867 13.948 35.4295 13.7297C36.117 13.5983 36.872 13.4374 37.6006 13.2821C38.0667 13.1828 38.5224 13.0857 38.9423 13.0002C40.0902 12.7664 41.0754 12.5959 41.8452 12.5466C41.8838 12.5441 41.9212 12.542 41.9573 12.5402C41.7061 13.3297 41.1912 14.3795 40.46 15.4488C39.709 16.547 38.7994 17.5638 37.8539 18.2858C36.8904 19.0217 36.0515 19.3314 35.3952 19.3314C31.8714 19.3314 29.7796 21.8299 28.3949 23.4838L28.2639 23.6402C27.5199 24.5286 26.9555 25.2025 26.3463 25.6952C25.7756 26.1567 25.2963 26.3464 24.762 26.3464C22.723 26.3464 21.2212 26.8734 20 27.4589V23.0479C20 22.6526 20.195 22.2841 20.5335 21.9879C20.8909 21.6752 21.2902 21.5479 21.5 21.5479V19.5479C20.7098 19.5479 19.8591 19.9205 19.2165 20.4828C18.5727 21.0461 18.0298 21.8962 18.0012 22.9597H12.9072C10.5179 22.9597 7.65081 24.0112 10.5179 26.1135C12.5977 27.6385 16.186 26.4249 18 25.6433V28.5027C16.9811 29.0186 16.0552 29.3613 14.6885 29.3613C12.9882 29.3613 11.8003 30.1533 11.0098 31.2027C10.4285 31.9744 10.028 32.9519 9.74132 33.6517C9.73622 33.6642 9.73111 33.6767 9.72608 33.689C9.69086 33.7749 9.65739 33.8564 9.62554 33.9325C9.27146 34.7786 9.0088 35.2823 8.69292 35.6058Z" fill="currentColor"/>
     </svg>
   );
 }
@@ -82,12 +89,13 @@ function InterstitialIcon({ size = 24, className = "" }) {
   );
 }
 
-function SpleenIcon({ size = 24, className = "" }) {
+function KidneyIcon({ size = 24, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <path d="M15.2242 7.63526C13.398 8.75847 12.5598 9.83969 12.2161 10.7392C11.8837 11.6094 11.909 12.5834 12.3665 13.7347C13.1465 15.6977 15.0571 17.84 17.6167 19.8763C17.3839 19.9453 17.1526 20.02 16.9228 20.1001C16.8561 20.1178 16.7893 20.137 16.7223 20.1576C16.5517 20.2102 16.3894 20.2773 16.2363 20.3573C15.9703 20.4638 15.7064 20.5776 15.4444 20.6982C9.96535 16.0046 7.1374 10.2723 14.2065 5.92443C30.0226 -3.8031 45.1103 25.8323 34.3954 39.2888C33.1542 40.8476 28.3581 46.1868 22.2548 43.0073C15.2678 39.3674 17.1929 35.1001 18.965 31.172C19.3694 30.2756 19.7659 29.3969 20.0466 28.5473C20.5639 28.8733 21.1877 29.1344 21.9132 29.2209C21.7544 29.6943 21.5733 30.152 21.3908 30.5855C21.199 31.041 20.9934 31.4975 20.7971 31.9326L20.7787 31.9735C20.5856 32.4014 20.4013 32.81 20.2271 33.2186C19.4795 34.9731 19.1334 36.2796 19.3682 37.4022C19.5755 38.3937 20.361 39.7461 23.1895 41.2196C25.5403 42.4442 27.562 42.0489 29.2367 41.1533C30.9937 40.2137 32.2959 38.7418 32.8505 38.0454C35.1457 35.1629 36.1385 31.3094 35.9953 27.1305C35.8523 22.9547 34.574 18.6017 32.5127 14.9205C30.4424 11.2231 27.6756 8.36466 24.6814 6.96673C21.7795 5.61185 18.5772 5.57304 15.2242 7.63526Z" fill="currentColor"/>
-      <path d="M23.1904 21.4289C23.7311 21.5025 24.1177 22.0122 24.0539 22.5673C23.9901 23.1224 23.5 23.5127 22.9593 23.4391C22.1212 23.3251 21.3542 23.2969 20.6339 23.3529C20.7662 23.5176 20.8849 23.6793 20.9911 23.8259C21.0426 23.897 21.0916 23.9651 21.1386 24.0304C21.4244 24.4276 21.6356 24.7211 21.8727 24.942C22.1055 25.1587 22.2638 25.2092 22.4447 25.1925C22.9863 25.1426 23.471 25.5542 23.5273 26.112C23.5836 26.6698 23.1902 27.1624 22.6487 27.2123C21.7531 27.2948 21.067 26.9077 20.5608 26.4363C20.1611 26.0641 19.814 25.5785 19.5401 25.1953C19.5347 25.1877 19.5293 25.1802 19.5239 25.1727C19.4865 25.1204 19.4505 25.0701 19.416 25.0224C19.0823 24.5618 18.841 24.2745 18.6013 24.1155C18.43 24.0018 18.2446 23.9391 17.9039 24.0441C17.8892 24.0486 17.8746 24.0527 17.8598 24.0565C17.715 24.1208 17.5709 24.1893 17.4271 24.262C15.7355 25.1166 14.0445 26.571 11.9292 28.7256C11.5451 29.1168 10.9209 29.1092 10.5349 28.7085C10.149 28.3078 10.1475 27.6659 10.5316 27.2747C12.6729 25.0935 14.5486 23.4442 16.5373 22.4394C18.5665 21.4141 20.6611 21.0846 23.1904 21.4289Z" fill="currentColor"/>
-      <path d="M18.3407 11.7519C22.3614 15.2776 25.2082 19.0756 26.3895 23.1518C27.5603 27.1915 27.1287 31.618 24.3794 36.5101L26.1229 37.4899C29.1038 32.1859 29.6474 27.2084 28.3105 22.5951C26.984 18.0182 23.8401 13.9143 19.6593 10.2481L18.3407 11.7519Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M12.548 30.7535C1.68377 26.1712 5.97137 10.7044 13.513 8.14889C16.6416 7.08877 20.0938 10.6058 20.0717 12.7895C20.0621 13.7337 19.5749 14.6543 19.0673 15.6135C18.4009 16.8727 17.6993 18.1984 17.9972 19.7311C18.5221 22.4312 19.11 26.987 17.5952 29.1496C16.0803 31.3122 14.5569 31.6008 12.548 30.7535ZM13.3252 28.9107C14.1079 29.2408 14.4924 29.2191 14.7033 29.1584C14.9198 29.096 15.3424 28.8797 15.9571 28.0022C16.3298 27.47 16.5836 26.3471 16.5612 24.6685C16.5403 23.0924 16.2862 21.4104 16.034 20.1127C15.6296 18.0324 16.4601 16.2946 17.0527 15.1483C17.1547 14.9508 17.2479 14.7749 17.3337 14.6127C17.5316 14.2389 17.6907 13.9383 17.8313 13.616C18.0187 13.1865 18.0701 12.932 18.0718 12.7693C18.0723 12.7174 18.0372 12.4529 17.7779 12.0175C17.5343 11.6087 17.1645 11.1732 16.7104 10.8032C15.7472 10.0183 14.8151 9.81937 14.1549 10.0431C11.3449 10.9953 8.70316 14.6619 8.10954 18.9645C7.54002 23.0924 8.95066 27.0656 13.3252 28.9107Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M34.3473 8.14889C41.889 10.7044 46.1766 26.1712 35.3124 30.7535C33.3034 31.6008 31.78 31.3122 30.2652 29.1496C28.7504 26.987 29.3383 22.4312 29.8631 19.7311C30.161 18.1984 29.4595 16.8727 28.793 15.6135C28.2854 14.6543 27.7982 13.7337 27.7887 12.7895C27.7666 10.6058 31.2188 7.08877 34.3473 8.14889ZM33.157 29.1584C33.368 29.2191 33.7525 29.2408 34.5351 28.9107C38.9097 27.0656 40.3203 23.0924 39.7508 18.9645C39.1572 14.6619 36.5155 10.9953 33.7055 10.0431C33.0452 9.81937 32.1131 10.0183 31.1499 10.8032C30.6958 11.1732 30.326 11.6087 30.0825 12.0175C29.8232 12.4529 29.788 12.7174 29.7886 12.7693C29.7902 12.932 29.8417 13.1865 30.0291 13.616C30.1697 13.9383 30.3288 14.2389 30.5266 14.6127C30.6125 14.7749 30.7056 14.9508 30.8077 15.1483C31.4002 16.2946 32.2307 18.0324 31.8264 20.1127C31.5741 21.4104 31.3201 23.0924 31.2991 24.6685C31.2768 26.3471 31.5306 27.47 31.9033 28.0022C32.518 28.8797 32.9406 29.096 33.157 29.1584Z" fill="currentColor"/>
+      <path d="M28.6181 22.7799C28.6867 23.7775 28.6879 23.7774 28.6879 23.7774L28.6891 23.7773L28.6913 23.7772L28.6952 23.7769L28.7007 23.7764L28.7036 23.7761C28.7036 23.7761 28.6934 23.7773 28.6791 23.7796C28.6504 23.7842 28.6001 23.7938 28.5357 23.8121C28.4046 23.8492 28.2318 23.9173 28.0626 24.0378C27.7729 24.2441 27.3469 24.7023 27.3469 25.8585V40.3246C27.3469 40.3246 27.3469 40.3248 26.3469 40.3248C25.3469 40.3248 25.3469 40.3242 25.3469 40.3242V25.8585C25.3469 24.0922 26.0565 23.0111 26.9024 22.4087C27.301 22.1249 27.696 21.9712 27.9907 21.8878C28.1393 21.8457 28.2665 21.8203 28.3619 21.8049C28.4097 21.7972 28.4501 21.792 28.4816 21.7885C28.4974 21.7867 28.5111 21.7854 28.5224 21.7844L28.5377 21.7831L28.5441 21.7826L28.5469 21.7824L28.5482 21.7823C28.5482 21.7823 28.5495 21.7822 28.6181 22.7799Z" fill="currentColor"/>
+      <path d="M19.2423 22.7799C19.1737 23.7775 19.1724 23.7774 19.1724 23.7774L19.1713 23.7773L19.169 23.7772L19.1652 23.7769L19.1596 23.7764L19.1565 23.7761C19.1565 23.7761 19.167 23.7773 19.1812 23.7796C19.21 23.7842 19.2603 23.7938 19.3246 23.8121C19.4557 23.8492 19.6285 23.9173 19.7978 24.0378C20.0875 24.2441 20.5135 24.7023 20.5135 25.8585V40.3246C20.5135 40.3246 20.5135 40.3248 21.5135 40.3248C22.5135 40.3248 22.5135 40.3242 22.5135 40.3242V25.8585C22.5135 24.0922 21.8038 23.0111 20.9579 22.4087C20.5594 22.1249 20.1644 21.9712 19.8696 21.8878C19.7211 21.8457 19.5939 21.8203 19.4985 21.8049C19.4506 21.7972 19.4103 21.792 19.3787 21.7885C19.3629 21.7867 19.3493 21.7854 19.3379 21.7844L19.3226 21.7831L19.3163 21.7826L19.3135 21.7824L19.3121 21.7823C19.3121 21.7823 19.3108 21.7822 19.2423 22.7799Z" fill="currentColor"/>
     </svg>
   );
 }
@@ -116,14 +124,14 @@ export const modules = [
         color: 'violet',
         content: [
           { type: 'text', text: "Sound travels from the probe into the body. Some sound is lost as heat or scattered away. Some sound reflects back to our probe. The sound that reflects back to the probe is interpreted by our machine and an image is displayed on our screen." },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/making_an_image.mp4", caption: "Making an image" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%201%20-%20Making%20an%20Image%202.mp4", caption: "How an Ultrasound Image is Made" },
           { type: 'subheader', text: "Curvilinear (Abdominal)" },
           { type: 'list', items: ["Low frequency probe", "Used for: free fluid in abdomen and pelvis, bladder, kidneys, lung ultrasound, AAA"] },
           { type: 'subheader', text: "Phased Array (Cardiac)" },
           { type: 'list', items: ["Low frequency probe that specializes in cardiac movement", "Used for: cardiac scans, lung ultrasound"] },
           { type: 'subheader', text: "Linear (Vascular)" },
-          { type: 'list', items: ["High frequency probe", "Best for seeing things close to the surface (lung sliding, vessels, skin, superficial joints)"] },
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/probes.png", caption: "Probes" },
+          { type: 'list', items: ["High frequency probe", "Used for: seeing things close to the surface (lung sliding, vessels, skin, superficial joints)"] },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%202%20-%20Probes%20Real.png", caption: "Ultrasound Probes" },
           { type: 'info', text: "Low frequency probes have high penetration but poor resolution (you can see far but not very well)" },
           { type: 'info', text: "High frequency probes have low penetration but high resolution (you can see well but not very far)" }
         ]
@@ -133,17 +141,16 @@ export const modules = [
         icon: Layers,
         color: 'indigo',
         content: [
-          { type: 'text', text: "The images acquired during various POCUS applications will generally be acquired in 1 of 2 longitudinal planes and/or the transverse plane of the body. Conversely we are sometimes interested in acquiring an image demonstrating the long or short axis of a particular structure." },
-          { type: 'bold', text: "Coronal (Long Axis / Longitudinal)" },
+          { type: 'text', text: "The images acquired during various POCUS applications will generally be acquired in 1 of 2 longitudinal planes and/or the transverse plane of the body. Conversely, we are sometimes interested in acquiring an image demonstrating the long or short axis of a particular structure." },
+          { type: 'bold', text: "Coronal (Long Axis / Longitudinal):" },
           { type: 'text', text: "Separates body anterior-posterior" },
-          { type: 'bold', text: "Sagittal (Long Axis / Longitudinal)" },
+          { type: 'bold', text: "Sagittal (Long Axis / Longitudinal):" },
           { type: 'text', text: "Separates body left-right" },
-          { type: 'bold', text: "Transverse (Short Axis)" },
+          { type: 'bold', text: "Transverse (Short Axis):" },
           { type: 'text', text: "Separates body superior-inferior" },
-          { type: 'divider' },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%203%20-%20Anatomical%20Planes%202.png", caption: "Anatomical Planes" },
           { type: 'bold', text: "Long Axis: Plane parallel to the maximum length of a structure" },
-          { type: 'bold', text: "Short Axis: Plane perpendicular to the maximum length of a structure" },
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/anatomical_planes.png", caption: "Anatomical Planes" }
+          { type: 'bold', text: "Short Axis: Plane perpendicular to the maximum length of a structure" }
         ]
       },
       {
@@ -154,17 +161,20 @@ export const modules = [
           { type: 'text', text: "There are 5 standard ways an ultrasound probe can be moved." },
           { type: 'bold', text: "Sliding:" },
           { type: 'text', text: "Moving the probe about its long or short axis while keeping the angle between your probe and your structure (angle of insonation) constant (AKA translating)" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%204%20-%20Probe%20Movements%20-%20Sliding.mp4", caption: "Sliding the Probe" },
           { type: 'bold', text: "Fanning:" },
           { type: 'text', text: "Keeping the probe on a fixed point while changing the angle of insonation along the short axis of the probe (AKA sweeping / tilting)" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%205%20-%20Probe%20Movements%20-%20Fanning.mp4", caption: "Fanning the Probe" },
           { type: 'bold', text: "Rocking:" },
           { type: 'text', text: "Keeping the probe on a fixed point while changing the angle of insonation along the long axis of the probe (AKA angling)" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%206%20-%20Probe%20Movements%20-%20Rocking.mp4", caption: "Rocking the Probe" },
           { type: 'bold', text: "Rotating:" },
           { type: 'text', text: "Keeping the probe on a fixed point while moving clockwise or counter clockwise" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%207%20-%20Probe%20Movements%20-%20Rotating.mp4", caption: "Rotating the Probe" },
           { type: 'bold', text: "Compression:" },
           { type: 'text', text: "Applying pressure to the body on a fixed point with the probe" },
-          { type: 'image', url: "", caption: "Probe Movements" },
           { type: 'text', text: "The ultrasound probe is moved with respect to standard anatomic directions:" },
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/anatomical_directions.png", caption: "Anatomical Directions" }
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%208%20-%20Anatomical%20Directions%202.png", caption: "Anatomical Directions" }
         ]
       },
       {
@@ -172,14 +182,14 @@ export const modules = [
         icon: Settings,
         color: 'amber',
         content: [
-          { type: 'text', text: "Convention = the agreed upon way we do something (reading left to right, driving on the right side of the road)." },
+          { type: 'text', text: "Convention = the agreed upon way we do something (reading left to right, driving on the right side of the road)" },
           { type: 'text', text: "Different people have different conventions. There are two POCUS imaging conventions:" },
           { type: 'subheader', text: "Radiology Convention" },
           { type: 'list', items: ["Screen marker appears on screen LEFT", "Used for all POCUS applications except cardiac"] },
           { type: 'subheader', text: "Cardiology Convention" },
           { type: 'list', items: ["Screen marker appears on screen RIGHT", "Used for Cardiac POCUS"] },
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/conventions.png", caption: "Conventions" },
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/screen_anatomy.png", caption: "Screen Anatomy" }
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%209%20-%20Conventions%202.png", caption: "Ultrasound Imaging Conventions" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%2010%20-%20Screen%20Anatomy.mp4", caption: "Screen Anatomy" }
         ]
       },
       {
@@ -187,7 +197,7 @@ export const modules = [
         icon: FileText,
         color: 'slate',
         content: [
-          { type: 'text', text: "If you did not document it in the patient’s chart, it did not happen." },
+          { type: 'text', text: "If you didn’t document it in the patient’s chart, it didn’t happen." },
           { type: 'list', items: [
             "Save your images on the machines.",
             "Document that a scan was performed for educational purposes in the patient’s chart.",
@@ -201,7 +211,7 @@ export const modules = [
     id: 'abd-free-fluid',
     title: 'Free Fluid Abdomen and Pelvis',
     description: 'Scanning for free fluid in the abdomen and pelvis.',
-    icon: SpleenIcon,
+    icon: LiverIcon,
     color: 'amber', 
     sections: [
       {
@@ -225,29 +235,29 @@ export const modules = [
           { type: 'subheader', text: "RUQ | LUQ" },
           { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
           { type: 'text', text: "Internal: Kidney | Diaphragm | Liver / Spleen | Spine | Lung" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/abdo_ruq_external_internal_landmarks.mp4", caption: "RUQ External Internal Landmarks" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/luq_external_internal_landmarks.mp4", caption: "LUQ External Internal Landmarks" },
-          { type: 'subheader', text: "Pelvis (Male)" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4", caption: "RUQ External and Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%202%20-%20LUQ%20External%20Internal%20Landmarks.mp4", caption: "LUQ External and Internal Landmarks" },
+          { type: 'subheader', text: "Pelvis Male" },
           { type: 'text', text: "External: Superior to Pubic Symphysis" },
           { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/male_pelvis_transverse_longitudinal_internal_landmarks.mp4", caption: "Male Pelvis Transverse Longitudinal Internal Landmarks" },
-          { type: 'subheader', text: "Pelvis (Female)" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%203%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Male Pelvis Internal Landmarks" },
+          { type: 'subheader', text: "Pelvis Female" },
           { type: 'text', text: "External: Superior to Pubic Symphysis" },
           { type: 'text', text: "Internal: Bladder | Uterus | Vagina | Rectum" },
-          { type: 'video', url: "", caption: "Female Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%204%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Female Pelvis Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
-          { type: 'bold', text: "Right Upper Quadrant (RUQ):" },
+          { type: 'bold', text: "Right Upper Quadrant: (RUQ)" },
           { type: 'text', text: "Hepatorenal Interface | Caudal Tip of Liver" },
-          { type: 'bold', text: "Left Upper Quadrant (LUQ):" },
+          { type: 'bold', text: "Left Upper Quadrant: (LUQ)" },
           { type: 'text', text: "Splenorenal Interface | Between Diaphragm and Spleen" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_luq_area_of_interest.mp4", caption: "RUQ LUQ Area of Interest" },
-          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%205%20-%20RUQ%20LUQ%20Area%20of%20Interest.mp4", caption: "RUQ and LUQ Areas of Interest" },
+          { type: 'bold', text: "Pelvis Male:" },
           { type: 'text', text: "Rectovesicular Space" },
-          { type: 'video', url: "", caption: "Male Pelvis Transverse Longitudinal Area of Interest" },
-          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%206%20-%20Male%20Pelvis%20Transverse%20Longitduinal%20Area%20of%20Interest.mp4", caption: "Male Pelvis Area of Interest" },
+          { type: 'bold', text: "Pelvis Female:" },
           { type: 'text', text: "Rectouterine Space (Pouch of Douglas) | Vesicouterine Space" },
-          { type: 'video', url: "", caption: "Female Pelvis Transverse Longitudinal Area of Interest" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%207%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Area%20of%20Interest.mp4", caption: "Female Pelvis Area of Interest" }
         ]
       },
       {
@@ -255,60 +265,60 @@ export const modules = [
         icon: Sliders,
         color: 'violet',
         content: [
-          { type: 'header', text: "Right Upper Quadrant (RUQ)" },
+          { type: 'header', text: "RUQ" },
           { type: 'list', items: [
-            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
-            "Start with lots of depth.",
-            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
-            "Adjust depth to just past the spine.",
-            "Fan through the hepatorenal interface anteriorly to posteriorly.",
-            "Slide inferiorly to identify the caudal tip of the liver.",
-            "Fan through the caudal tip of the liver anteriorly to posteriorly."
+            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head)",
+            "Start with lots of depth",
+            "Slide probe anterior-posterior until the kidney capsule or spine is seen best",
+            "Adjust depth to just past the spine",
+            "Fan through the hepatorenal interface anteriorly to posteriorly",
+            "Slide inferiorly to identify the caudal tip of the liver",
+            "Fan through the caudal tip of the liver anteriorly to posteriorly"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_fanning_interface.mp4", caption: "RUQ Fanning Interface" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_fanning_caudal_tip_of_liver.mp4", caption: "RUQ Fanning Caudal Tip of Liver" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%208%20-%20RUQ%20Fanning%20Interface.mp4", caption: "RUQ Fanning Through Hepatorenal Interface" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%209%20-%20RUQ%20Fanning%20Caudal%20Tip%20of%20Liver.mp4", caption: "RUQ Fanning Through Caudal Tip of Liver" },
           
           { type: 'divider' },
           
-          { type: 'header', text: "Left Upper Quadrant (LUQ)" },
+          { type: 'header', text: "LUQ" },
           { type: 'list', items: [
-            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
-            "Start with lots of depth.",
-            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
-            "Adjust depth to just past the spine.",
-            "Fan through the splenorenal interface anteriorly to posteriorly.",
-            "Slide cranially to identify the diaphragm.",
-            "Fan through the medial diaphragm anterior to posterior until the diaphragm disappears."
+            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head)",
+            "Start with lots of depth",
+            "Slide probe anterior-posterior until the kidney capsule or spine is seen best",
+            "Adjust depth to just past the spine",
+            "Fan through the splenorenal interface anteriorly to posteriorly",
+            "Slide cranially to identify the diaphragm",
+            "Fan through the medial diagram anterior to posterior until the diaphragm disappears"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/luq_fanning_interface_and_medial_diaphragm.mp4", caption: "LUQ Fanning Interface and Medial Diaphragm" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2010%20-%20LUQ%20Fanning%20Interface%20and%20Medial%20Diaphragm.mp4", caption: "LUQ Fanning Through Splenorenal Interface and Medial Diaphragm" },
           
           { type: 'divider' },
           
           { type: 'header', text: "Pelvis Transverse" },
           { type: 'list', items: [
-            "Place probe in transverse just superior to the pubic symphysis (probe marker toward patient right).",
-            "Start with lots of depth.",
-            "Fan probe inferiorly until the bladder is seen.",
-            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
-            "Fan the probe inferior and superior until the bladder disappears in both directions."
+            "Place probe in transverse just superior to the pubic symphysis (probe marker toward patient right)",
+            "Start with lots of depth",
+            "Fan probe inferiorly until the bladder is seen",
+            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female)",
+            "Fan the probe inferior and superior until the bladder disappears in both directions"
           ]},
-          { type: 'video', url: "", caption: "Pelvis Transverse Probe Starting Position" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/male_pelvis_transverse_fanning.mp4", caption: "Male Pelvis Transverse Fanning" },
-          { type: 'video', url: "", caption: "Female Pelvis Transverse Fanning" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2011%20-%20Pelvis%20Transverse%20Probe%20Starting%20Position.png", caption: "Pelvis Transverse Initial Probe Placement" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2012%20-%20Male%20Pelvis%20Transverse%20Fanning.mp4", caption: "Male Pelvis Transverse Fanning" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2013%20-%20Female%20Pelvis%20Transverse%20Fanning.mp4", caption: "Female Pelvis Transverse Fanning" },
           
           { type: 'divider' },
 
           { type: 'header', text: "Pelvis Longitudinal" },
           { type: 'list', items: [
-            "Place probe in longitudinal just superior to the pubic symphysis (probe marker toward head).",
-            "Start with lots of depth.",
-            "Rock probe inferiorly until the bladder is seen.",
-            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female).",
-            "Fan the probe left and right until the bladder disappears in both directions."
+            "Place probe in longitudinal just superior to the pubic symphysis (probe marker toward head)",
+            "Start with lots of depth",
+            "Rock probe inferiorly until the bladder is seen",
+            "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female)",
+            "Fan the probe left and right until the bladder disappears in both directions"
           ]},
-          { type: 'video', url: "", caption: "Pelvis Longitudinal Probe Starting Position" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/male_pelvis_longitudinal_fanning.mp4", caption: "Male Pelvis Longitudinal Fanning" },
-          { type: 'video', url: "", caption: "Female Pelvis Longitudinal Fanning" }
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2014%20-%20Pelvis%20Longitudinal%20Probe%20Starting%20Position.png", caption: "Pelvis Longitudinal Initial Probe Placement" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2015%20-%20Male%20Pelvis%20Longitudinal%20Fanning.mp4", caption: "Male Pelvis Longitudinal Fanning" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2016%20%20-%20Female%20Pelvis%20Longitudinal%20Fanning.mp4", caption: "Female Pelvis Longitudinal Fanning" }
         ]
       },
       {
@@ -323,10 +333,10 @@ export const modules = [
           { type: 'bold', text: "LUQ:" },
           { type: 'text', text: "No anechoic free fluid after fanning through entire splenorenal interface anterior to posterior AND no anechoic free fluid between the medial diaphragm and spleen after fanning through the medial diaphragm until it disappears. (See scanning technique clips)" },
           
-          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'bold', text: "Pelvis Male:" },
           { type: 'text', text: "No anechoic free fluid seen in the rectovesicular space after fanning through the bladder in both transverse and longitudinal. (See scanning technique clips)" },
           
-          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'bold', text: "Pelvis Female:" },
           { type: 'text', text: "No anechoic free fluid seen in the rectouterine and vesicouterine space after fanning through the bladder in both transverse and longitudinal. (See scanning technique clips)" },
           
           { type: 'divider' },
@@ -334,23 +344,23 @@ export const modules = [
           { type: 'header', text: "Positive Scan" },
           { type: 'bold', text: "RUQ:" },
           { type: 'text', text: "Anechoic free fluid seen in hepatorenal interface or around the caudal tip of the liver" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_positive_scan_free_fluid_large_amount.mp4", caption: "RUQ Positive Scan Free Fluid Large Amount" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_positive_scan_small_amount_caudal_tip.mp4", caption: "RUQ Positive Scan Small Amount Caudal Tip" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2017%20-%20RUQ%20Positive%20Scan%20Free%20Fluid%20Large%20Amount.mp4", caption: "RUQ Positive Scan Large Amount of Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2018%20-%20RUQ%20Positive%20Scan%20Small%20Amount%20Caudal%20Tip.mp4", caption: "RUQ Positive Scan Small Amount of Free Fluid at Caudal Tip of Liver" },
           
           { type: 'bold', text: "LUQ:" },
           { type: 'text', text: "Anechoic free fluid seen in splenorenal interface or between medial diaphragm and spleen" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/luq_positive_scan_free_fluid_large_amount.mp4", caption: "LUQ Positive Scan Free Fluid Large Amount" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/luq_positive_scan_free_fluid_small_amount.mp4", caption: "LUQ Positive Scan Free Fluid Small Amount" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2019%20-%20LUQ%20Positive%20Scan%20Free%20Fluid%20Large%20Amount.mp4", caption: "LUQ Positive Scan Large Amount of Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2020%20-%20LUQ%20Positive%20Scan%20Free%20Fluid%20Small%20Amount.mp4", caption: "LUQ Positive Scan Small Amount of Free Fluid" },
           
-          { type: 'bold', text: "Pelvis (Male):" },
+          { type: 'bold', text: "Pelvis Male:" },
           { type: 'text', text: "Anechoic free fluid seen in the rectovesicular space" },
-          { type: 'video', url: "", caption: "Male Pelvis Transverse Positive Scan Free Fluid" },
-          { type: 'video', url: "", caption: "Male Pelvis Longitudinal Positive Scan Free Fluid" },
+          { type: 'video', url: "", caption: "Media 21 - Male Pelvis Transverse Positive Scan Free Fluid (Need to Obtain)" },
+          { type: 'video', url: "", caption: "Media 22 - Male Pelvis Longitudinal Positive Scan Free Fluid (Need to Obtain)" },
           
-          { type: 'bold', text: "Pelvis (Female):" },
+          { type: 'bold', text: "Pelvis Female:" },
           { type: 'text', text: "Anechoic free fluid seen in the rectouterine space and/or the vesicouterine space" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/female_pelvis_transverse_positive_scan_free_fluid.mp4", caption: "Female Pelvis Transverse Positive Scan Free Fluid" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/female_pelvis_longitudinal_positive_scan_free_fluid.mp4", caption: "Female Pelvis Longitudinal Positive Scan Free Fluid" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2023%20-%20Female%20Pelvis%20Transverse%20Positive%20Scan%20Free%20Fluid.mp4", caption: "Female Pelvis Transverse Positive Scan Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2024%20-%20Female%20Pelvis%20Longitudinal%20Positive%20Scan%20Free%20Fluid.mp4", caption: "Female Pelvis Longitudinal Positive Scan Free Fluid" }
         ]
       },
       {
@@ -374,13 +384,13 @@ export const modules = [
         color: 'sky',
         content: [
           { type: 'list', items: [
-            "POCUS can not help you distinguish the type of fluid, clinical context is key.",
-            "Free fluid is not always anechoic (clotted blood in hemoperitoneum).",
-            "A negative FAST scan does not rule out an intra-abdominal injury.",
-            "A negative FAST scan is not reliable in patients with a history of prior abdominal surgery.",
-            "Do not mistake physiologically or pathologically fluid filled organs for free fluid (gallbladder, fluid filled bowel or stomach).",
-            "Do not mistake the seminal vesicle or prostate for free fluid.",
-            "The female pelvis can contain a small amount of physiologic free fluid, context is important, do not assume it is normal."
+            "POCUS can not help you distinguish the type of fluid, clinical context is key",
+            "Free fluid is not always anechoic (clotted blood in hemoperitoneum)",
+            "A negative FAST scan does not rule out an intra-abdominal injury",
+            "A negative FAST scan is not reliable in patients with a history of prior abdominal surgery",
+            "Don’t mistake physiologically or pathologically fluid filled organs for free fluid (gallbladder, fluid filled bowel or stomach)",
+            "Don’t mistake the seminal vesicle or prostate for free fluid",
+            "The female pelvis can contain small amount of physiologic free fluid, context is important, do not assume it is normal"
           ]}
         ]
       }
@@ -401,7 +411,8 @@ export const modules = [
           { type: 'subheader', text: "Indication" },
           { type: 'list', items: [
              "Dyspnea | Cough | Chest Pain", 
-             "Trauma (FAST Scan) | Respiratory Failure | Sepsis | Shock",
+             "Trauma (FAST Scan)",
+             "Respiratory Failure | Sepsis | Shock",
              "Procedural (Thoracentesis | Chest Tube)"
           ]},
           { type: 'subheader', text: "Equipment" },
@@ -412,11 +423,11 @@ export const modules = [
           { type: 'header', text: "Landmarks" },
           { type: 'text', text: "External Landmarks: Mid-Posterior Axillary Line | Xiphoid Process" },
           { type: 'text', text: "Internal Landmarks: Kidney | Diaphragm | Liver / Spleen | Spine | Lung" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/ruq_external_internal_landmarks.mp4", caption: "RUQ External Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4", caption: "RUQ External Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
           { type: 'text', text: "Area cranial to diaphragm" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/area_of_interest.mp4", caption: "Area of Interest" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%202%20-%20Area%20of%20Interest.mp4", caption: "Area of Interest" }
         ]
       },
       {
@@ -426,13 +437,13 @@ export const modules = [
         content: [
           { type: 'list', items: [
             "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head).",
-            "Slide probe anterior-posterior until the kidney capsule or spine is seen best.",
-            "Adjust depth to just past the spine.",
-            "Slide probe cranial until diaphragm in view.",
-            "Fan through medial diaphragm anteriorly to posteriorly until the diaphragm disappears."
+            "Slide probe anterior-posterior until the kidney capsule or spine is seen best",
+            "Adjust depth to just past the spine",
+            "Slide probe cranial until diaphragm in view",
+            "Fan through medial diaphragm anteriorly to posteriorly until the diaphragm disappears"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/starting_view_before_fanning.mp4", caption: "Starting view before fanning" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/fanning_through_medial_diaphragm.mp4", caption: "Fanning Through Medial Diaphragm" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%203%20-%20Starting%20view%20before%20fanning.mp4", caption: "Starting view before fanning" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%204%20-%20Fanning%20Through%20Medial%20Diaphragm.mp4", caption: "Fanning Through Medial Diaphragm" }
         ]
       },
       {
@@ -441,14 +452,14 @@ export const modules = [
         color: 'rose',
         content: [
           { type: 'header', text: "Positive Scan" },
-          { type: 'text', text: "Anechoic area seen cranial to the diaphragm and ≥ 1 of the following:" },
+          { type: 'text', text: "Anechoic are seen cranial to the diaphragm and ≥ 1 of the following:" },
           { type: 'list', items: [
             "Spine sign",
             "Solid lung floating in effusion",
             "Lateral diaphragm visualized"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/positive_scan_large_pleural_effusion_and_solid_lung.mp4", caption: "Positive Scan - Large Pleural Effusion and Solid Lung" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/positive_scan_small_pleural_effusion.mp4", caption: "Positive Scan - Small Pleural Effusion" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%205%20-%20Positive%20Scan%20-%20Large%20Pleural%20Effusion%20and%20Solid%20Lung.mp4", caption: "Positive Scan - Large Pleural Effusion and Solid Lung" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%206%20-%20Positive%20Scan%20-%20Small%20Pleural%20Effusion.mp4", caption: "Positive Scan - Small Pleural Effusion" },
           
           { type: 'divider' },
           
@@ -457,7 +468,7 @@ export const modules = [
             "No pleural effusion after fanning entire medial diaphragm anteriorly to posteriorly until it disappears (see scanning technique)",
             "The curtain sign can rule out a large pleural effusion"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/curtain_sign.mp4", caption: "Curtain sign" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%207%20-%20Curtain%20Sign.mp4", caption: "Curtain sign" }
         ]
       },
       {
@@ -481,10 +492,10 @@ export const modules = [
         color: 'sky',
         content: [
           { type: 'list', items: [
-            "Loculated pleural effusions may be missed by standard pleural effusion scanning technique.",
-            "The sensitivity for finding a pleural effusion will increase the more upright your patient is (free flowing fluid will be gravity dependent).",
-            "The presence of a spine sign can also be seen in consolidated lung without pleural effusion.",
-            "Mirror artifact can mimic lung pathology, a spine sign will not be present with mirror artifact but will be present with lung pathology."
+            "Loculated pleural effusions may be missed by standard pleural effusion scanning technique",
+            "The sensitivity for finding a pleural effusion will increase the more upright your patient is (free flowing fluid will be gravity dependent)",
+            "The presence of a spine sign can also be seen in consolidated lung without pleural effusion",
+            "Mirror artifact can mimic lung pathology, a spine sign will not be present with mirror artifact but will be present with lung pathology"
           ]}
         ]
       }
@@ -517,12 +528,12 @@ export const modules = [
           { type: 'header', text: "Landmarks" },
           { type: 'text', text: "External: Most Anterior Aspect of Chest | Mid-Clavicular Line" },
           { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows | A-Lines (if present)" },
-          { type: 'video', url: "", caption: "Probe Starting Position" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/internal_landmarks.mp4", caption: "Internal Landmarks" },
+          { type: 'video', url: "", caption: "Probe Starting Position (Need to obtain)" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%202%20-%20Internal%20Landmarks.mp4", caption: "Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
           { type: 'text', text: "VPPI of 2-3 of the most anterior rib spaces bilaterally" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/area_of_interest_PTX.mp4", caption: "Area of Interest" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%203%20-%20Area%20of%20Interest.mp4", caption: "Area of Interest" }
         ]
       },
       {
@@ -531,16 +542,16 @@ export const modules = [
         color: 'violet',
         content: [
           { type: 'list', items: [
-            "Place the probe in longitudinal in the mid-clavicular line in the most anterior rib space of the right or left chest (probe marker toward head).",
-            "Adjust depth so that the VPPI, ribs, and rib shadows are in view.",
-            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
-            "Fan the probe medially and laterally until the VPPI appears the clearest.",
-            "Slide the probe superiorly or inferiorly to interrogate a total of 2-3 rib spaces.",
-            "Repeat the above steps in the remaining hemithorax.",
-            "If lung sliding is absent, slide the probe within the rib space laterally until a pathologic lung point is visualized."
+            "Place the probe in longitudinal in the mid-clavicular line in the most anterior rib space of the right or left chest (probe marker toward head)",
+            "Adjust depth so that the VPPI, ribs, and rib shadows are in view",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen",
+            "Fan the probe medially and laterally until the VPPI appears the clearest",
+            "Slide the probe superiorly or inferiorly to interrogate a total of 2-3 rib spaces",
+            "Repeat the above steps in the remaining hemithorax",
+            "If lung sliding is absent, slide the probe within the rib space laterally until a pathologic lung point is visualized"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/negative_scan_lung_sliding.mp4", caption: "Negative Scan Lung Sliding" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/negative_scan_lung_pulse.mp4", caption: "Negative Scan Lung Pulse" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%204%20-%20Negative%20Scan%20Lung%20Sliding.mp4", caption: "Negative Scan Lung Sliding" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%205%20-%20Negative%20Scan%20Lung%20Pulse.mp4", caption: "Negative Scan Lung Pulse" }
         ]
       },
       {
@@ -548,14 +559,14 @@ export const modules = [
         icon: Microscope,
         color: 'rose',
         content: [
-          { type: 'header', text: "Positive Scan" },
-          { type: 'text', text: "Absence of lung sliding, lung pulse, and B-lines PLUS visualization of a pathological lung point." },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/no_lung_sliding.mp4", caption: "No Lung Sliding" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/pathologic_lung_point.mp4", caption: "Pathologic Lung Point" },
+          { type: 'header', text: "Positive Scan:" },
+          { type: 'text', text: "Absence of lung sliding, lung pulse, and B-lines PLUS visualization of a pathological lung point" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%206%20-%20No%20Lung%20Sliding.mp4", caption: "No Lung Sliding" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%207%20-%20Pathologic%20Lung%20Point.mp4", caption: "Pathologic Lung Point" },
           
           { type: 'divider' },
           
-          { type: 'header', text: "Negative Scan" },
+          { type: 'header', text: "Negative Scan:" },
           { type: 'list', items: [
             "Lung sliding present in 2-3 of the most anterior rib spaces bilaterally (see scanning technique) OR",
             "Lung pulse present in 2-3 of the most anterior rib spaces bilaterally (see scanning technique) OR",
@@ -570,17 +581,17 @@ export const modules = [
         content: [
           { type: 'subheader', text: "Trouble Visualizing Lung Sliding:" },
           { type: 'list', items: [
-            "Decrease depth to optimize visualization of the VPPI.",
-            "Decrease gain to optimize visualization of the VPPI.",
-            "Rotate probe in the rib space to see more of the VPPI."
+            "Decrease depth to optimize visualization of the VPPI",
+            "Decrease gain to optimize visualization of the VPPI",
+            "Rotate probe in the rib space to see more of the VPPI"
           ]},
           { type: 'subheader', text: "Differentiating Pathologic from Physiologic Lung Points:" },
           { type: 'list', items: [
-            "Increase depth to attempt to visualize the underlying physiologic organ (liver, heart, spleen).",
-            "Be aware of surface anatomy and expected location of organs / physiologic lung points."
+            "Increase depth to attempt to visualize the underlying physiologic organ (liver, heart, spleen)",
+            "Be aware of surface anatomy and expected location of organs / physiologic lung points"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/physiologic_lung_point_cardiac_lung_point.mp4", caption: "Physiologic Lung Point - Cardiac Lung Point" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/physiologic_lung_point_liver_lung_point.mp4", caption: "Physiologic Lung Point - Liver Lung Point" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%208%20-%20Physiologic%20Lung%20Point%20Cardiac%20Lung%20Point.mp4", caption: "Physiologic Lung Point - Cardiac Lung Point" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%209%20-%20Physiologic%20Lung%20Point%20Liver%20Lung%20Point.mp4", caption: "Physiologic Lung Point - Liver Lung Point" }
         ]
       },
       {
@@ -589,10 +600,10 @@ export const modules = [
         color: 'sky',
         content: [
           { type: 'list', items: [
-            "Always fan medial and lateral to optimize visualization of the VPPI.",
-            "Do not mistake physiologic lung points for pathologic lung points.",
-            "If a patient is unstable, the absence of lung sliding, lung pulse, and B-lines may be sufficient to diagnose a pneumothorax in the right clinical context without identifying a pathologic lung point.",
-            "If a patient is stable, the absence of lung sliding, lung pulse, and B-lines without visualization of a pathologic lung point is insufficient to diagnose a pneumothorax and further investigations are warranted.",
+            "Always fan medial and lateral to optimize visualization of the VPPI",
+            "Don’t mistake physiologic lung points for pathologic lung points",
+            "If a patient is unstable, the absence of lung sliding, lung pulse, and B-lines may be sufficient to diagnose a pneumothorax in the right clinical context without identifying a pathologic lung point",
+            "If a patient is stable, the absence of lung sliding, lung pulse, and B-lines without visualization of a pathologic lung point is insufficient to diagnose a pneumothorax and further investigations are warranted",
             "Absent lung sliding can be seen in multiple clinical contexts:"
           ]},
           { type: 'sublist', items: [
@@ -604,7 +615,7 @@ export const modules = [
             "Interstitial Lung Disease"
           ]},
           { type: 'list', items: [
-            "Patients with a large pneumothorax may not have a visible pathologic lung point due to the size."
+            "Patients with a large pneumothorax may not have a visible pathologic lung point due to the size"
           ]}
         ]
       }
@@ -634,8 +645,8 @@ export const modules = [
           { type: 'subheader', text: "Landmarks" },
           { type: 'text', text: "External: Parasternal Line | Midclavicular Line | Anterior Axillary Line | Posterior Axillary Line | Inter-Nipple Line" },
           { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows | A-lines (if present)" },
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/lung_zones.png", caption: "Anatomy: Lung Zones" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/internal_landmarks_ILS.mp4", caption: "Internal Landmarks" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Interstitial%20Syndromes/Media%201%20-%20Lung%20Zones.png", caption: "Anatomy: Lung Zones" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Interstitial%20Syndromes/Media%202%20-%20Internal%20Landmarks.mp4", caption: "Internal Landmarks" },
           { type: 'info', text: "Area of Interest: VPPI of ≥ 1 rib space in each lung zone" }
         ]
       },
@@ -646,39 +657,39 @@ export const modules = [
         content: [
           { type: 'header', text: "Zone 1" },
           { type: 'list', items: [
-            "Place the probe in longitudinal in the mid-clavicular line in a rib space of the right hemithorax above the inter-nipple line (probe marker toward head).",
-            "Adjust depth to ≥ 10cm past the VPPI.",
-            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
-            "Fan the probe medially and laterally until the VPPI appears the clearest.",
-            "Evaluate for presence of B-lines."
+            "Place the probe in longitudinal in the mid-clavicular line in a rib space of the right hemithorax above the inter-nipple line (probe marker toward head)",
+            "Adjust depth to ≥ 10cm past the VPPI",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen",
+            "Fan the probe medially and laterally until the VPPI appears the clearest",
+            "Evaluate for presence of B-lines"
           ]},
           { type: 'header', text: "Zone 2" },
           { type: 'list', items: [
-            "Place the probe in longitudinal in the mid-clavicular line in a rib space of the right hemithorax below the inter-nipple line (probe marker toward head).",
-            "Adjust depth to ≥ 10cm past the VPPI.",
-            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
-            "Fan the probe medially and laterally until the VPPI appears the clearest.",
-            "Evaluate for presence of B-lines."
+            "Place the probe in longitudinal in the mid-clavicular line in a rib space of the right hemithorax below the inter-nipple line (probe marker toward head)",
+            "Adjust depth to ≥ 10cm past the VPPI",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen",
+            "Fan the probe medially and laterally until the VPPI appears the clearest",
+            "Evaluate for presence of B-lines"
           ]},
           { type: 'header', text: "Zone 3" },
           { type: 'list', items: [
-            "Place the probe in longitudinal between the anterior and posterior axillary line in a rib space of the right hemithorax above the inter-nipple line (probe marker toward head).",
-            "Adjust depth to ≥ 10cm past the VPPI.",
-            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
-            "Fan the probe anterior and posterior until the VPPI appears the clearest.",
-            "Evaluate for presence of B-lines."
+            "Place the probe in longitudinal between the anterior and posterior axillary line in a rib space of the right hemithorax above the inter-nipple line (probe marker toward head)",
+            "Adjust depth to ≥ 10cm past the VPPI",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen",
+            "Fan the probe anterior and posterior until the VPPI appears the clearest",
+            "Evaluate for presence of B-lines"
           ]},
           { type: 'header', text: "Zone 4" },
           { type: 'list', items: [
-            "Place the probe in longitudinal between the anterior and posterior axillary line in a rib space of the right hemithorax below the inter-nipple line (probe marker toward head).",
-            "Adjust depth to ≥ 10cm past the VPPI.",
-            "Slide probe superiorly and inferiorly to center the VPPI on the screen.",
-            "Fan the probe anterior and posterior until the VPPI appears the clearest.",
-            "Evaluate for presence of B-lines."
+            "Place the probe in longitudinal between the anterior and posterior axillary line in a rib space of the right hemithorax below the inter-nipple line (probe marker toward head)",
+            "Adjust depth to ≥ 10cm past the VPPI",
+            "Slide probe superiorly and inferiorly to center the VPPI on the screen",
+            "Fan the probe anterior and posterior until the VPPI appears the clearest",
+            "Evaluate for presence of B-lines"
           ]},
           { type: 'bold', text: "Repeat above technique for the opposite hemithorax." },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/sliding_to_center_the_vppi.mp4", caption: "Sliding to center the VPPI" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/fanning_to_optimize_vppi.mp4", caption: "Fanning to optimize VPPI" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Interstitial%20Syndromes/Media%203%20-%20Sliding%20to%20center%20the%20VPPI.mp4", caption: "Sliding to center the VPPI" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Interstitial%20Syndromes/Media%204%20-%20Fanning%20to%20optimize%20VPPI.mp4", caption: "Fanning to optimize VPPI" }
         ]
       },
       {
@@ -688,16 +699,16 @@ export const modules = [
         content: [
           { type: 'header', text: "Positive Scan" },
           { type: 'text', text: "≥ 3 B-lines present in a single rib space at any time throughout the respiratory cycle OR" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/b_lines.mp4", caption: "B-Lines" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Interstitial%20Syndromes/Media%205%20-%20B-Lines.mp4", caption: "B-Lines" },
           { type: 'text', text: "Coalescing B-lines" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/coalescing_b_lines.mp4", caption: "Coalescing B-Lines" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/coalescing_b_lines_making_white_lung.mp4", caption: "Coalescing B-Lines Making White Lung" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Interstitial%20Syndromes/Media%206%20-%20Coalescing%20B-Lines.mp4", caption: "Coalescing B-Lines" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Interstitial%20Syndromes/Media%207%20-%20Coalescing%20B-Lines%20Making%20White%20Lung.mp4", caption: "Coalescing B-Lines Making White Lung" },
           
           { type: 'divider' },
           
           { type: 'header', text: "Negative Scan" },
           { type: 'text', text: "< 3 B-lines present in a single rib space at any time throughout the respiratory cycle" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/normal_a_lines.mp4", caption: "Normal A-Lines" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Interstitial%20Syndromes/Media%208%20-%20Normal%20A-Lines.mp4", caption: "Normal A-Lines" }
         ]
       },
       {
@@ -707,8 +718,8 @@ export const modules = [
         content: [
           { type: 'subheader', text: "Trouble Visualizing the VPPI:" },
           { type: 'list', items: [
-            "Fan the probe until the the pleural line looks as “crisp” and hyperechoic as possible.",
-            "Orient your sound so it is 90 degrees to the pleura by fanning."
+            "Fan the probe until the the pleural line looks as “crisp” and hyperechoic as possible",
+            "Orient your sound so it is 90 degrees to the pleura by fanning"
           ]}
         ]
       },
@@ -718,8 +729,8 @@ export const modules = [
         color: 'sky',
         content: [
           { type: 'list', items: [
-            "The presence of an abnormal amount of B-lines has a differential diagnosis that extends beyond cardiogenic pulmonary edema, the clinical context and distribution of B-lines (unilateral vs bilateral, focal vs diffuse) will help you determine the cause.",
-            "Do not mistake B-lines for a normal vertical artifact called a Z-line, remember the following characteristics of B-lines:"
+            "The presence of an abnormal amount of B-lines has a differential diagnosis that extends beyond cardiogenic pulmonary edema, the clinical context and distribution of B-lines (unilateral vs bilateral, focal vs diffuse) will help you determine the cause",
+            "Don’t mistake B-lines for a normal vertical artifact called a Z-line, remember the following characteristics of B-lines:"
           ]},
           { type: 'sublist', items: [
             "Arise from the VPPI",
@@ -730,7 +741,7 @@ export const modules = [
             "Typically erase A-lines"
           ]},
           { type: 'list', items: [
-            "Lung presets will often start with inadequate depth to evaluate for B-lines, do not forget to optimize your depth."
+            "Lung presets will often start with inadequate depth to evaluate for B-lines, don’t forget to optimize your depth"
           ]}
         ]
       }
@@ -771,17 +782,17 @@ export const modules = [
           { type: 'bold', text: "Parasternal Long Axis (PLAX | PSL)" },
           { type: 'text', text: "External: Left Sternal Border | Rib Spaces 2-5" },
           { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Aortic Valve | Ascending Aorta | Pericardium | Left Atrium | Interventricular Septum" },
-          { type: 'video', url: "", caption: "PLAX External Internal Landmarks" },
+          { type: 'video', url: "", caption: "PLAX External Internal Landmarks (Need to obtain)" },
           
           { type: 'bold', text: "Apical Four Chamber (A4C)" },
           { type: 'text', text: "External: Inferolateral to Left Nipple" },
           { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Tricuspid Valve | Pericardium | Left Atrium | Right Atrium | Interventricular Septum" },
-          { type: 'video', url: "", caption: "A4C External Internal Landmarks" },
+          { type: 'video', url: "", caption: "A4C External Internal Landmarks (Need to obtain)" },
           
-          { type: 'bold', text: "Subcostal / Subxiphoid (SC | SX)" },
+          { type: 'bold', text: "Subcostal / Subxiphoid: (SC | SX)" },
           { type: 'text', text: "External: Midline | Between Umbilicus and Xiphoid Process" },
           { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Tricuspid Valve | Pericardium | Left Atrium | Right Atrium | Interventricular Septum | Liver | Diaphragm" },
-          { type: 'video', url: "", caption: "SC External Internal Landmarks" },
+          { type: 'video', url: "", caption: "SC External Internal Landmarks (Need to obtain)" },
           
           { type: 'divider' },
           
@@ -793,14 +804,14 @@ export const modules = [
             "Right Ventricle | Ascending Aorta | Left Atrium (RV Size)"
           ]},
           
-          { type: 'bold', text: "Apical Four Chamber (A4C):" },
+          { type: 'bold', text: "Apical Four Chamber (A4C)" },
           { type: 'list', items: [
             "Pericardium | Descending Thoracic Aorta (if visible) (Pericardial Effusion)",
             "Inside Walls of Left Ventricle | Anterior Mitral Valve Leaflet (LV Systolic Function)",
             "Left Ventricle | Right Ventricle | Interventricular Septum | Tricuspid Valve (RV Size \\ Systolic Function)"
           ]},
           
-          { type: 'bold', text: "Subcostal / Subxiphoid (SC | SX):" },
+          { type: 'bold', text: "Subcostal / Subxiphoid: (SC | SX)" },
           { type: 'list', items: [
             "Pericardium | Right Ventricle | Interventricular Septum (Pericardial Effusion)",
             "Inside Walls of Left Ventricle | Anterior Mitral Valve Leaflet (LV Systolic Function)",
@@ -823,7 +834,7 @@ export const modules = [
             "Fan probe to see LV at widest diameter",
             "Rotate probe to see LV in its longest axis",
             "Rock probe to make LV as horizontal as possible",
-            "See troubleshooting section for tips"
+            "See trouble shooting section for tips"
           ]},
           
           { type: 'header', text: "Apical Four Chamber (A4C)" },
@@ -837,9 +848,9 @@ export const modules = [
             "See troubleshooting section for tips"
           ]},
           
-          { type: 'header', text: "Subcostal / Subxiphoid (SC | SX)" },
+          { type: 'header', text: "Subcostal / Subxiphoid: (SC | SX)" },
           { type: 'list', items: [
-            "Place the probe perpendicularly on the patient in the midline between the xiphoid process and the umbilicus with the probe marker pointed toward 3 o-clock",
+            "Place the probe perpendicularly on the patient in the midline between the xiphoid process and the umbilicus with the probe marker pointed toward 3 O-clock",
             "Fan the probe superiorly while maintaining good probe contact with the skin",
             "Slide the probe superiorly until the liver and heart are seen on the screen",
             "Fan the probe superior-inferior to visualize all four chambers and the TV and MV",
@@ -865,10 +876,10 @@ export const modules = [
             "No fluid collections seen in areas listed above",
             "Please note to rule out a pericardial effusion with a single subcostal view the RV and the interventricular septum “7-sign” must be fanned through from anterior to posterior. This is paramount in the setting of an EFAST scan for hemopericardium"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/plax_no_pce_vs_pce.mp4", caption: "PLAX No PCE vs PCE" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/a4c_no_pce_vs_pce.mp4", caption: "A4C No PCE vs PCE" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/sc_no_pce_vs_pce.mp4", caption: "SC No PCE vs PCE" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/sc_pce_fanning_posterior.mp4", caption: "SC PCE Seen When Fanning Posterior" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%204%20-%20PLAX%20No%20PCE%20vs%20PCE.mp4", caption: "PLAX No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%205%20-%20A4C%20No%20PCE%20vs%20PCE.mp4", caption: "A4C No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%206%20-%20SC%20No%20PCE%20vs%20PCE.mp4", caption: "SC No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%207%20-%20SC%20PCE%20Seen%20When%20Fanning%20Posterior.mp4", caption: "SC PCE Seen When Fanning Posterior" },
           
           { type: 'divider' },
           
@@ -885,32 +896,55 @@ export const modules = [
             "A4C: fractional shortening <30%, EPSS >1cm",
             "SC: fractional shortening <30%, EPSS >1cm"
           ]},
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/plax_fractional_shortening.png", caption: "PLAX Fractional Shortening" },
-          { type: 'video', url: "", caption: "PLAX EPSS" },
-          { type: 'video', url: "", caption: "PLAX Normal vs Severely Abnormal LV Systolic Function" },
-          { type: 'video', url: "", caption: "A4C Normal vs Severely Abnormal LV Systolic Function" },
-          { type: 'video', url: "", caption: "SC Normal vs Severely Abnormal LV Systolic Function" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%208%20-%20PLAX%20Fractional%20Shortening.png", caption: "PLAX Fractional Shortening" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%209%20-%20PLAX%20EPSS.png", caption: "PLAX EPSS" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2010%20-%20PLAX%20LVSF%20Normal%20vs%20Severely%20Reduced.mp4", caption: "PLAX Normal vs Severely Abnormal LV Systolic Function" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2011%20-%20A4C%20LVSF%20Normal%20vs%20Severely%20Reduced.mp4", caption: "A4C Normal vs Severely Abnormal LV Systolic Function" },
+          { type: 'video', url: "", caption: "SC Normal vs Severely Abnormal LV Systolic Function (Need to obtain)" },
           
           { type: 'divider' },
           
           { type: 'header', text: "RV Size \\ Systolic Function" },
           { type: 'bold', text: "RV Enlarged \\ RV Systolic Function Reduced:" },
-          { type: 'list', items: [
-            "PLAX: RV takes up more than ⅓ of right side of screen compared with ascending aorta and left atrium. Not used for RV systolic function.",
-            "A4C: RV the same size or bigger than the LV. TAPSE subjectively abnormal (approximately <1.7cm).",
-            "SC: Not used for RV size. TAPSE subjectively abnormal (approximately <1.7cm)."
+          { type: 'bold', text: "PLAX:" },
+          { type: 'sublist', items: [
+            "RV takes up more than ⅓ of right side of screen compared with ascending aorta and left atrium.",
+            "Not used for RV systolic function."
           ]},
+          { type: 'bold', text: "A4C:" },
+          { type: 'sublist', items: [
+            "RV the same size or bigger than the LV",
+            "TAPSE subjectively abnormal (approximately <1.7cm)"
+          ]},
+          { type: 'bold', text: "SC:" },
+          { type: 'sublist', items: [
+            "Not used for RV size",
+            "TAPSE subjectively abnormal (approximately <1.7cm)"
+          ]},
+          
+          { type: 'divider' },
+          
           { type: 'bold', text: "RV Normal Size \\ RV Systolic Function Normal:" },
-          { type: 'list', items: [
-            "PLAX: RV, Ascending Aorta, and Left atrium all take up ⅓ of right side of screen. Not used for RV systolic function.",
-            "A4C: RV is smaller than the LV. TAPSE subjectively normal (approximately ≥1.7cm).",
-            "SC: Not used for RV size. TAPSE subjectively normal (approximately ≥1.7cm)."
+          { type: 'bold', text: "PLAX:" },
+          { type: 'sublist', items: [
+            "RV, Ascending Aorta, and Left atrium all take up ⅓ of right side of screen",
+            "Not used for RV systolic function"
           ]},
-          { type: 'video', url: "", caption: "Qualitative RV Size" },
-          { type: 'video', url: "", caption: "TAPSE" },
-          { type: 'video', url: "", caption: "PLAX Normal RV Size vs Enlarged RV" },
-          { type: 'video', url: "", caption: "A4C Normal RV vs Abnormal RV" },
-          { type: 'video', url: "", caption: "SC Normal RV vs Abnormal RV" }
+          { type: 'bold', text: "A4C:" },
+          { type: 'sublist', items: [
+            "RV is smaller than the LV",
+            "TAPSE subjectively normal (approximately ≥1.7cm)"
+          ]},
+          { type: 'bold', text: "SC:" },
+          { type: 'sublist', items: [
+            "not used for RV size",
+            "TAPSE subjectively normal (approximately ≥1.7cm)"
+          ]},
+          { type: 'video', url: "", caption: "Qualitative RV Size (Need to obtain)" },
+          { type: 'video', url: "", caption: "TAPSE (Need to obtain)" },
+          { type: 'video', url: "", caption: "PLAX Normal RV Size vs Enlarged RV (Need to obtain)" },
+          { type: 'video', url: "", caption: "A4C Normal RV vs Abnormal RV (Need to obtain)" },
+          { type: 'video', url: "", caption: "SC Normal RV vs Abnormal RV (Need to obtain)" }
         ]
       },
       {
@@ -919,7 +953,10 @@ export const modules = [
         color: 'amber',
         content: [
           { type: 'subheader', text: "General considerations:" },
-          { type: 'text', text: "Within each view, different probe movements will help you accomplish different goals. A combination of probe movements within the acoustic window will usually be needed to obtain an adequate view. If a probe movement takes you out of your rib space or acoustic window, your next step is to get back into the rib space / acoustic window." },
+          { type: 'list', items: [
+            "Within each view, different probe movements will help you accomplish different goals. A combination of probe movements within the acoustic window will usually be needed to obtain an adequate view.",
+            "If a probe movement takes you out of your rib space or acoustic window, your next step is to get back into the rib space / acoustic window"
+          ]},
           
           { type: 'subheader', text: "PLAX:" },
           { type: 'list', items: [
@@ -947,7 +984,7 @@ export const modules = [
           { type: 'list', items: [
             "Make sure the patient is supine with arms at sides, this will relax the abdomen. Having the patient bend their knees can also relax the abdomen",
             "A deep breath hold can move the heart inferior and posterior which sometimes improves your view.",
-            "The liver is the window to the heart, if you do not see the liver you probably will not see the heart. Try sliding laterally to the patient’s right to get more liver on the screen and then rocking to patient left to center the heart.",
+            "The liver is the window to the heart, if you don’t see the liver you probably won’t see the heart. Try sliding laterally to the patient’s right to get more liver on the screen and then rocking to patient left to center the heart.",
             "Sliding superior-inferior: helps find the acoustic window",
             "Fanning inferior-superior: helps visualize the valves and find the widest diameter of the LV",
             "Rocking: helps center the heart on the screen",
@@ -973,6 +1010,181 @@ export const modules = [
             "Pericardial fluid will get bigger / easier to see as you fan the probe more inferior/posterior",
             "Pericardial fluid is typically anechoic whereas some echogenicity is typically present in an epicardial pad",
             "An epicardial pad will move with the contraction of the RV, a pericardial effusion will not"
+          ]}
+        ]
+      }
+    ]
+  },
+  {
+    id: 'obstructive-uropathy',
+    title: 'Obstructive Uropathy',
+    description: 'Scanning for hydronephrosis and evaluating bladder volume.',
+    icon: KidneyIcon,
+    color: 'sky', 
+    sections: [
+      {
+        title: "Scan Basics",
+        icon: BookOpen, 
+        color: 'blue',
+        content: [
+          { type: 'subheader', text: "Indication" },
+          { type: 'list', items: [
+             "Flank Pain | Abdominal Pain | Renal Colic", 
+             "Urinary Retention | Oliguria | Sepsis | Shock"
+          ]},
+          { type: 'subheader', text: "Equipment" },
+          { type: 'list', items: ["Transducer: Curvilinear | Phased Array", "Preset: Abdominal", "Convention: Radiology"] },
+          { type: 'subheader', text: "Patient Positioning" },
+          { type: 'list', items: ["Supine | Semi-Supine | Lateral Decubitus", "Arm above head or across body"] },
+          { type: 'divider' },
+          { type: 'header', text: "Landmarks" },
+          { type: 'subheader', text: "RUQ | LUQ" },
+          { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
+          { type: 'text', text: "Internal: Kidney | Diaphragm | Liver / Spleen | Spine" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4", caption: "RUQ External Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%202%20-%20LUQ%20External%20Internal%20Landmarks.mp4", caption: "LUQ External Internal Landmarks" },
+          { type: 'subheader', text: "Pelvis Male | Female" },
+          { type: 'text', text: "External: Superior to Pubic Symphysis" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%203%20-%20Pelvis%20Probe%20Starting%20Position.png", caption: "Pelvis Probe Starting Position" },
+          { type: 'subheader', text: "Pelvis Male" },
+          { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%204%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Male Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'subheader', text: "Pelvis Female" },
+          { type: 'text', text: "Internal: Bladder | Uterus | Vagina | Rectum" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%205%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Female Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'divider' },
+          { type: 'header', text: "Area of Interest" },
+          { type: 'bold', text: "RUQ | LUQ:" },
+          { type: 'text', text: "Kidney | Renal Sinus" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%206%20-%20Area%20of%20Interest%20Renal%20Sinus.mp4", caption: "Area of Interest Renal Sinus" },
+          { type: 'bold', text: "Pelvis Male and Female:" },
+          { type: 'text', text: "Bladder | Ureterovesicular Junction (UVJ)" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%207%20-%20Area%20of%20Interest%20Bladder%20UVJ.mp4", caption: "Area of Interest Bladder UVJ" }
+        ]
+      },
+      {
+        title: "Scanning Technique",
+        icon: Sliders,
+        color: 'violet',
+        content: [
+          { type: 'header', text: "RUQ | LUQ" },
+          { type: 'list', items: [
+            "Place probe in longitudinal at the intersection of the xiphoid process and the mid-posterior axillary line (probe marker toward head)",
+            "Start with lots of depth",
+            "Slide probe anterior-posterior until the kidney is seen best",
+            "Slide probe superior-inferior to center kidney on the screen",
+            "Rotate probe toward bed until kidney appears longest superior to inferior",
+            "Adjust depth to just past the kidney",
+            "Fan through renal sinus to evaluate for hydronephrosis"
+          ]},
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%208%20-%20Fanning%20Through%20Renal%20Sinus.mp4", caption: "Fanning Through Renal Sinus" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Pelvis Transverse" },
+          { type: 'list', items: [
+            "Place probe in transverse just superior to the pubic symphysis (probe marker toward patient right)",
+            "Start with lots of depth",
+            "Fan probe inferiorly until the bladder is seen",
+            "Adjust depth to just past the bladder",
+            "Fan probe superiorly-inferiorly until the trigone and UVJs are seen",
+            "Place colour doppler box over the UVJs",
+            "Observe for ureteric jets",
+            "Fan the probe inferior and superior until the bladder is seen at its largest dimensions",
+            "Measure anterior-poster (AP) bladder dimension (near field to far field)",
+            "Measure transverse (TRV) bladder dimension (screen left to screen right)"
+          ]},
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%209%20-%20Fanning%20Until%20Trigone%20and%20UVJs%20are%20Seen.mp4", caption: "Fanning Until Trigone and UVJs Seen" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2010%20-%20Placing%20Colour%20Box%20to%20Observe%20for%20Ureteric%20Jets.mp4", caption: "Placing Colour Box to Observe for Ureteric Jets" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2011%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Transverse.mp4", caption: "Fanning to Find Largest Dimension Transverse" },
+          
+          { type: 'divider' },
+
+          { type: 'header', text: "Pelvis Longitudinal" },
+          { type: 'list', items: [
+            "Place probe in longitudinal just superior to the pubic symphysis (probe marker toward head)",
+            "Start with lots of depth",
+            "Rock probe inferiorly until the bladder is seen",
+            "Adjust depth to just past the bladder",
+            "Fan the probe left and right until the bladder is seen at its largest cranial caudal dimension",
+            "Measure cranial-caudal (CC) dimension (Screen left to screen right)"
+          ]},
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2012%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Longitudinal.mp4", caption: "Fanning to Find Largest Dimension Longitudinal" }
+        ]
+      },
+      {
+        title: "Interpretation",
+        icon: Microscope,
+        color: 'rose',
+        content: [
+          { type: 'header', text: "Hydronephrosis" },
+          { type: 'list', items: [
+            "Present or Absent",
+            "If present roughly consider severity"
+          ]},
+          { type: 'sublist', items: [
+            "Mild: renal pelvis dilated (pelviectasis) AKA grade 1 (can be seen in normal patients)",
+            "Moderate: Major calyces dilated (caliectasis) AKA grade 2 OR Major and minor calyces dilated (caliectasis) AKA grade 3",
+            "Severe: cortical thinning present AKA grade 4"
+          ]},
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2013%20-%20No%20Hydronephrosis%20vs%20Hydronephrosis.mp4", caption: "No Hydronephrosis vs Hydronephrosis" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2014%20-%20Hydronephrosis%20Severity.png", caption: "Hydronephrosis Severity" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Ureteric Jets" },
+          { type: 'list', items: [
+            "Present or Absent"
+          ]},
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2015%20-%20Ureteric%20Jets.mp4", caption: "Ureteric Jets" },
+          
+          { type: 'divider' },
+          
+          { type: 'header', text: "Bladder Volume" },
+          { type: 'list', items: [
+            "Bladder Volume (mL) = Anterior-Posterior (AP) x Left-Right/Transverse (TRV) x Cranial-Caudal (cc) x 0.7 (correction factor)"
+          ]},
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2016%20-%20Bladder%20Volume%20Measurements%20and%20Calculation.png", caption: "Bladder Volume Measurements and Calculation" }
+        ]
+      },
+      {
+        title: "Troubleshooting",
+        icon: Wrench, 
+        color: 'amber',
+        content: [
+          { type: 'list', items: [
+            "If you are having difficulty visualizing the kidney you can try a more posterolateral approach by having the patient roll slightly onto their side or have them sit up.",
+            "Consider having the patient take a deep breath and hold to move the kidney more inferiorly into view. This works well for the more superiorly located left kidney.",
+            "If bowel gas is obscuring the kidney try sliding posteriorly until the gas disappears and then fan anteriorly to visualize the kidney.",
+            "In patients with obesity you may need to apply more pressure to improve visualization of the kidney."
+          ]}
+        ]
+      },
+      {
+        title: "Pearls & Pitfalls",
+        icon: Lightbulb, 
+        color: 'sky',
+        content: [
+          { type: 'list', items: [
+            "Renal cysts can be confused for hydronephrosis but will typically be well defined circular fluid collections rather than the irregular shape of hydronephrosis.",
+            "Do not confuse normal anechoic medullary pyramids for hydronephrosis.",
+            "Do not confuse normal anechoic renal vasculature for hydronephrosis. When in doubt colour doppler can be used (vessels will have colour, hydronephrosis will not)",
+            "Bladder volume is most useful when performed immediately after a void to determine a post-void residual.",
+            "The presence of ureteric jets rules out complete ureteric obstruction, however partial obstruction may still be present. The absence of ureteric jets is generally not useful information as there is wide variability in how long it will take a ureteric jet to show up between patients.",
+            "The absence of hydronephrosis does not rule out an obstructing stone"
+          ]},
+          { type: 'sublist', items: [
+            "Hydronephrosis requires that the patient is making urine. An obstruction may be present but hydronephrosis may not be visualized in a severely dehydrated / oliguric / anuric patient."
+          ]},
+          { type: 'list', items: [
+            "The presence of hydronephrosis does not rule in an obstructing stone"
+          ]},
+          { type: 'sublist', items: [
+            "Urinary retention",
+            "Vesico ureteric reflux",
+            "Non-stone causes of obstruction (strictures, malignancy)",
+            "Pregnancy (third trimester)",
+            "Recently passed stone"
           ]}
         ]
       }
