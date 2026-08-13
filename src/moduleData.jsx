@@ -101,7 +101,7 @@ function KidneyIcon({ size = 24, className = "" }) {
 }
 
 export const modules = [
-   {
+    {
     id: 'basics',
     title: 'POCUS Basics',
     description: 'Definitions, Probes, Movements, and Conventions.',
@@ -124,15 +124,18 @@ export const modules = [
         color: 'violet',
         content: [
           { type: 'text', text: "The ultrasound probe is what we use to see into the body. There are three main probes that we use:" },
-          { type: 'subheader', text: "Curvilinear (Abdominal)" },
+          { type: 'bold', text: "Curvilinear (Abdominal)" },
           { type: 'list', items: ["Low frequency probe", "Used for: free fluid in abdomen and pelvis, bladder, kidneys, lung ultrasound, AAA)"] },
-          { type: 'subheader', text: "Phased Array (Cardiac)" },
+          { type: 'bold', text: "Phased Array (Cardiac)" },
           { type: 'list', items: ["Low frequency probe that specializes in cardiac movement", "Used for: cardiac scans, lung ultrasound"] },
-          { type: 'subheader', text: "Linear (Vascular)" },
+          { type: 'bold', text: "Linear (Vascular)" },
           { type: 'list', items: ["High frequency probe", "Used for: seeing things close to the surface (lung sliding, vessels, skin, superficial joints)"] },
           { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%202%20-%20Probes%20Real.png", caption: "Ultrasound Probes" },
           { type: 'info', text: <>Low frequency probes have high penetration but low resolution <strong>(you can see far but not very well)</strong></> },
-          { type: 'info', text: <>High frequency probes have low penetration but high resolution <strong>(you can see well but not very far)</strong></> }
+          { type: 'info', text: <>High frequency probes have low penetration but high resolution <strong>(you can see well but not very far)</strong></> },
+          { type: 'divider' },
+          { type: 'text', text: "Sound travels from the probe into the body. Some sound is lost as heat or scattered away. Some sound reflects back to our probe. The sound that reflects back to the probe is interpreted by our machine and an image is displayed on our screen." },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%201%20-%20Making%20an%20Image%202.mp4", caption: "How an Ultrasound Image is Made" }
         ]
       },
       {
@@ -189,9 +192,9 @@ export const modules = [
           { type: 'text', text: "Convention = the agreed upon way we do something (reading left to right, driving on the right side of the road)" },
           { type: 'text', text: "Conventions for the same task can differ between groups (some places drive on the left side of the road)." },
           { type: 'text', text: "There are two POCUS imaging conventions:" },
-          { type: 'subheader', text: "Radiology Convention" },
+          { type: 'bold', text: "Radiology Convention" },
           { type: 'list', items: ["Screen marker appears on screen LEFT", "Used for all POCUS applications except cardiac"] },
-          { type: 'subheader', text: "Cardiology Convention" },
+          { type: 'bold', text: "Cardiology Convention" },
           { type: 'list', items: ["Screen marker appears on screen RIGHT", "Used for Cardiac POCUS"] },
           { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%209%20-%20Conventions%202.png", caption: "Ultrasound Imaging Conventions" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%2010%20-%20Screen%20Anatomy.mp4", caption: "Screen Anatomy" }
@@ -237,35 +240,35 @@ export const modules = [
           { type: 'list', items: ["Supine | Semi-Supine", "Arm above head or across body"] },
           { type: 'divider' },
           { type: 'header', text: "Landmarks" },
-          { type: 'subheader', text: "Right Upper Quadrant (RUQ) | Left Upper Quadrant (LUQ)" },
+          { type: 'bold', text: "Right Upper Quadrant (RUQ) | Left Upper Quadrant (LUQ)" },
           { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
           { type: 'video', url: "", caption: "RUQ and LUQ Probe Starting Positions (Coming Soon)" },
-          { type: 'subheader', text: "RUQ" },
+          { type: 'bold', text: "RUQ" },
           { type: 'text', text: "Internal: Kidney | Diaphragm | Liver | Spine | Lung" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4", caption: "RUQ Internal Landmarks" },
-          { type: 'subheader', text: "LUQ" },
+          { type: 'bold', text: "LUQ" },
           { type: 'text', text: "Internal: Kidney | Diaphragm | Spleen | Spine | Lung" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%202%20-%20LUQ%20External%20Internal%20Landmarks.mp4", caption: "LUQ Internal Landmarks" },
-          { type: 'subheader', text: "Pelvis Male | Female" },
+          { type: 'bold', text: "Pelvis Male | Female" },
           { type: 'text', text: "External: Superior to Pubic Symphysis" },
           { type: 'image', url: "", caption: "Pelvis Probe Starting Position" },
-          { type: 'subheader', text: "Pelvis Male" },
+          { type: 'bold', text: "Pelvis Male" },
           { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%203%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Male Pelvis Internal Landmarks" },
-          { type: 'subheader', text: "Pelvis Female" },
+          { type: 'bold', text: "Pelvis Female" },
           { type: 'text', text: "Internal: Bladder | Uterus | Vagina | Rectum" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%204%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Female Pelvis Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
-          { type: 'subheader', text: "RUQ" },
+          { type: 'bold', text: "RUQ" },
           { type: 'text', text: "Hepatorenal Interface | Caudal Tip of Liver" },
-          { type: 'subheader', text: "LUQ" },
+          { type: 'bold', text: "LUQ" },
           { type: 'text', text: "Splenorenal Interface | Between Diaphragm and Spleen" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%205%20-%20RUQ%20LUQ%20Area%20of%20Interest.mp4", caption: "RUQ and LUQ Areas of Interest" },
-          { type: 'subheader', text: "Pelvis Male" },
+          { type: 'bold', text: "Pelvis Male" },
           { type: 'text', text: "Rectovesicular Space" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%206%20-%20Male%20Pelvis%20Transverse%20Longitduinal%20Area%20of%20Interest.mp4", caption: "Male Pelvis Area of Interest" },
-          { type: 'subheader', text: "Pelvis Female" },
+          { type: 'bold', text: "Pelvis Female" },
           { type: 'text', text: "Rectouterine Space (Pouch of Douglas) | Vesicouterine Space" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%207%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Area%20of%20Interest.mp4", caption: "Female Pelvis Area of Interest" }
         ]
@@ -337,22 +340,22 @@ export const modules = [
         color: 'rose',
         content: [
           { type: 'header', text: "Positive Scan" },
-          { type: 'subheader', text: "RUQ" },
+          { type: 'bold', text: "RUQ" },
           { type: 'text', text: "Anechoic free fluid seen in hepatorenal interface or around the caudal tip of the liver" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2017%20-%20RUQ%20Positive%20Scan%20Free%20Fluid%20Large%20Amount.mp4", caption: "RUQ Positive Scan Large Amount of Free Fluid" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2018%20-%20RUQ%20Positive%20Scan%20Small%20Amount%20Caudal%20Tip.mp4", caption: "RUQ Positive Scan Small Amount of Free Fluid at Caudal Tip of Liver" },
           
-          { type: 'subheader', text: "LUQ" },
+          { type: 'bold', text: "LUQ" },
           { type: 'text', text: "Anechoic free fluid seen in splenorenal interface or between medial diaphragm and spleen" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2019%20-%20LUQ%20Positive%20Scan%20Free%20Fluid%20Large%20Amount.mp4", caption: "LUQ Positive Scan Large Amount of Free Fluid" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2020%20-%20LUQ%20Positive%20Scan%20Free%20Fluid%20Small%20Amount.mp4", caption: "LUQ Positive Scan Small Amount of Free Fluid" },
           
-          { type: 'subheader', text: "Pelvis Male" },
+          { type: 'bold', text: "Pelvis Male" },
           { type: 'text', text: "Anechoic free fluid seen in the rectovesicular space" },
           { type: 'video', url: "", caption: "Media 21 - Male Pelvis Transverse Positive Scan Free Fluid (Coming Soon)" },
           { type: 'video', url: "", caption: "Media 22 - Male Pelvis Longitudinal Positive Scan Free Fluid (Coming Soon)" },
           
-          { type: 'subheader', text: "Pelvis Female" },
+          { type: 'bold', text: "Pelvis Female" },
           { type: 'text', text: "Anechoic free fluid seen in the rectouterine space and/or the vesicouterine space" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2023%20-%20Female%20Pelvis%20Transverse%20Positive%20Scan%20Free%20Fluid.mp4", caption: "Female Pelvis Transverse Positive Scan Free Fluid" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2024%20-%20Female%20Pelvis%20Longitudinal%20Positive%20Scan%20Free%20Fluid.mp4", caption: "Female Pelvis Longitudinal Positive Scan Free Fluid" },
@@ -360,16 +363,16 @@ export const modules = [
           { type: 'divider' },
 
           { type: 'header', text: "Negative Scan" },
-          { type: 'subheader', text: "RUQ" },
+          { type: 'bold', text: "RUQ" },
           { type: 'text', text: "No anechoic free fluid after fanning through entire hepatorenal interface anterior to posterior AND no anechoic free fluid around the caudal tip of the liver after fanning through the caudal tip anterior to posterior. (See scanning technique clips)" },
           
-          { type: 'subheader', text: "LUQ" },
+          { type: 'bold', text: "LUQ" },
           { type: 'text', text: "No anechoic free fluid after fanning through entire splenorenal interface anterior to posterior AND no anechoic free fluid between the medial diaphragm and spleen after fanning through the medial diaphragm until it disappears. (See scanning technique clips)" },
           
-          { type: 'subheader', text: "Pelvis Male" },
+          { type: 'bold', text: "Pelvis Male" },
           { type: 'text', text: "No anechoic free fluid seen in the rectovesicular space after fanning through the bladder in both transverse and longitudinal. (See scanning technique clips)" },
           
-          { type: 'subheader', text: "Pelvis Female" },
+          { type: 'bold', text: "Pelvis Female" },
           { type: 'text', text: "No anechoic free fluid seen in the rectouterine and vesicouterine space after fanning through the bladder in both transverse and longitudinal. (See scanning technique clips)" }
         ]
       },
@@ -378,9 +381,9 @@ export const modules = [
         icon: Wrench, 
         color: 'amber',
         content: [
-          { type: 'subheader', text: "Rib shadows in the way" },
+          { type: 'bold', text: "Rib shadows" },
           { type: 'list', items: ["Rotate probe toward bed into rib space", "Have patient take a breath in and hold to move structure out from under rib"] },
-          { type: 'subheader', text: "Diaphragm not visualized well" },
+          { type: 'bold', text: "Diaphragm not visualized" },
           { type: 'list', items: [
             "Slide anteriorly then fan posteriorly",
             "Slide posteriorly then fan anteriorly",
@@ -486,9 +489,9 @@ export const modules = [
         icon: Wrench, 
         color: 'amber',
         content: [
-          { type: 'subheader', text: "Rib Shadows" },
+          { type: 'bold', text: "Rib Shadows" },
           { type: 'list', items: ["Rotate probe toward bed into rib space", "Have patient take a breath in and hold to move structure out from under rib"] },
-          { type: 'subheader', text: "Diaphragm not Visualized" },
+          { type: 'bold', text: "Diaphragm not Visualized" },
           { type: 'list', items: [
             "Slide anteriorly then fan posteriorly",
             "Slide posteriorly then fan anteriorly",
@@ -589,13 +592,13 @@ export const modules = [
         icon: Wrench, 
         color: 'amber',
         content: [
-          { type: 'subheader', text: "Trouble Visualizing Lung Sliding" },
+          { type: 'bold', text: "Trouble Visualizing Lung Sliding" },
           { type: 'list', items: [
             "Decrease depth to optimize visualization of the VPPI",
             "Decrease gain to optimize visualization of the VPPI",
             "Rotate probe in the rib space to see more of the VPPI"
           ]},
-          { type: 'subheader', text: "Differentiating Pathologic From Physiologic Lung Points" },
+          { type: 'bold', text: "Differentiating Pathologic From Physiologic Lung Points" },
           { type: 'list', items: [
             "Increase depth to attempt to visualize the underlying physiologic organ (liver, heart, spleen)",
             "Be aware of surface anatomy and expected location of organs / physiologic lung points"
@@ -728,7 +731,7 @@ export const modules = [
         icon: Wrench,
         color: 'amber',
         content: [
-          { type: 'subheader', text: "Trouble Visualizing the VPPI" },
+          { type: 'bold', text: "Trouble Visualizing the VPPI" },
           { type: 'list', items: [
             "Fan the probe until the the pleural line looks as “crisp” and hyperechoic as possible",
             "Orient your sound so it is 90 degrees to the pleura by fanning"
@@ -921,14 +924,38 @@ export const modules = [
           
           { type: 'header', text: "RV Size \\ Systolic Function" },
           { type: 'bold', text: "RV Enlarged \\ RV Systolic Function Reduced:" },
-          { type: 'label', label: "PLAX:", text: "RV takes up more than ⅓ of right side of screen compared with ascending aorta and left atrium. Not used for RV systolic function." },
-          { type: 'label', label: "A4C:", text: "RV the same size or bigger than the LV. TAPSE subjectively abnormal (approximately <1.7cm)" },
-          { type: 'label', label: "SC:", text: "Not used for RV size. TAPSE subjectively abnormal (approximately <1.7cm)" },
-          
+          { type: 'label', label: "PLAX:"},
+          { type: 'sublist', items: [
+            "RV takes up more than ⅓ of right side of screen compared with ascending aorta and left atrium.",
+            "Not used for RV systolic function.",
+          ]},
+          { type: 'label', label: "A4C:"},
+          { type: 'sublist', items: [
+            "RV the same size or bigger than the LV.",
+            "TAPSE subjectively abnormal (approximately <1.7cm)",
+          ]},
+          { type: 'label', label: "SC:"},
+          { type: 'sublist', items: [
+            "Not used for RV size.",
+            "TAPSE subjectively abnormal (approximately <1.7cm)",
+          ]},
+          { type: 'divider' },
           { type: 'bold', text: "RV Normal Size \\ RV Systolic Function Normal:" },
-          { type: 'label', label: "PLAX:", text: "RV, Ascending Aorta, and Left atrium all take up ⅓ of right side of screen. Not used for RV systolic function" },
-          { type: 'label', label: "A4C:", text: "RV is smaller than the LV. TAPSE subjectively normal (approximately ≥1.7cm)" },
-          { type: 'label', label: "SC:", text: "not used for RV size. TAPSE subjectively normal (approximately ≥1.7cm)" },
+          { type: 'label', label: "PLAX:"}, 
+          { type: 'sublist', items: [
+            "RV, Ascending Aorta, and Left atrium all take up ⅓ of right side of screen.",
+            "Not used for RV systolic function",
+          ]},
+          { type: 'label', label: "A4C:"},
+          { type: 'sublist', items: [
+            "RV is smaller than the LV.",
+            "TAPSE subjectively normal (approximately ≥1.7cm)",
+          ]},
+          { type: 'label', label: "SC:"},
+          { type: 'sublist', items: [
+            "Not used for RV size.",
+            "TAPSE subjectively normal (approximately ≥1.7cm)",
+          ]},
           
           { type: 'video', url: "", caption: "Qualitative RV Size (Coming Soon)" },
           { type: 'video', url: "", caption: "TAPSE (Coming Soon)" },
@@ -942,13 +969,13 @@ export const modules = [
         icon: Wrench,
         color: 'amber',
         content: [
-          { type: 'header', text: "General Considerations" },
+          { type: 'bold', text: "General Considerations" },
           { type: 'list', items: [
             "Within each view, different probe movements will help you accomplish different goals. A combination of probe movements within the acoustic window will usually be needed to obtain an adequate view.",
             "If a probe movement takes you out of your rib space or acoustic window, your next step is to get back into the rib space / acoustic window"
           ]},
           
-          { type: 'header', text: "Parasternal Long Axis (PLAX | PSL)" },
+          { type: 'bold', text: "Parasternal Long Axis (PLAX | PSL)" },
           { type: 'list', items: [
             "Make sure patient’s left arm is behind their head, this opens up the rib spaces",
             "Consider having the patient completely supine or in left lateral decubitus position",
@@ -958,7 +985,7 @@ export const modules = [
             "Rocking: helps ensure the LV is horizontal on the screen"
           ]},
           
-          { type: 'header', text: "Apical Four Chamber (A4C)" },
+          { type: 'bold', text: "Apical Four Chamber (A4C)" },
           { type: 'list', items: [
             "Make sure patient’s left arm is behind their head, this opens up the rib spaces",
             "Consider having the patient completely supine or in left lateral decubitus position",
@@ -970,7 +997,7 @@ export const modules = [
             "Rotating: helps see the RV and tricuspid valve"
           ]},
           
-          { type: 'header', text: "Subcostal / Subxiphoid (SC | SX)" },
+          { type: 'bold', text: "Subcostal / Subxiphoid (SC | SX)" },
           { type: 'list', items: [
             "Make sure the patient is supine with arms at sides, this will relax the abdomen. Having the patient bend their knees can also relax the abdomen",
             "A deep breath hold can move the heart inferior and posterior which sometimes improves your view.",
