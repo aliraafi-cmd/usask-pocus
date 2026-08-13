@@ -142,6 +142,9 @@ const ContentBlock = ({ item, color, isSafari }) => {
     case 'bold':
       return <p className="font-bold text-slate-800 mt-3">{item.text}</p>;
     
+    case 'label':
+      return <p className="text-slate-700 leading-relaxed my-2 text-sm"><strong className="text-slate-800">{item.label}</strong> {item.text}</p>;
+      
     case 'info':
       const infoBgClass = isSafari ? `bg-${color}-50` : `bg-${color}-50/60 backdrop-blur-md`;
       return (
