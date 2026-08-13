@@ -144,11 +144,11 @@ export const modules = [
         color: 'indigo',
         content: [
           { type: 'text', text: "The images acquired during various POCUS applications will generally be acquired in 1 of 2 longitudinal planes and/or the transverse plane of the body. Conversely, we are sometimes interested in acquiring an image demonstrating the long or short axis of a particular structure." },
-          { type: 'bold', text: "Coronal (Long Axis / Longitudinal):" },
+          { type: 'bold', text: "Coronal (Long Axis / Longitudinal)" },
           { type: 'text', text: "Separates body anterior-posterior" },
-          { type: 'bold', text: "Sagittal (Long Axis / Longitudinal):" },
+          { type: 'bold', text: "Sagittal (Long Axis / Longitudinal)" },
           { type: 'text', text: "Separates body left-right" },
-          { type: 'bold', text: "Transverse (Short Axis):" },
+          { type: 'bold', text: "Transverse (Short Axis)" },
           { type: 'text', text: "Separates body superior-inferior" },
           { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/POCUS%20Basics/Media%203%20-%20Anatomical%20Planes%202.png", caption: "Anatomical Planes" },
           { type: 'label', label: "Long Axis:", text: "Plane parallel to the maximum length of a structure" },
@@ -242,16 +242,16 @@ export const modules = [
           { type: 'header', text: "Landmarks" },
           { type: 'bold', text: "Right Upper Quadrant (RUQ) | Left Upper Quadrant (LUQ)" },
           { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
-          { type: 'video', url: "", caption: "RUQ and LUQ Probe Starting Positions (Coming Soon)" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%201%20-%20RUQ%20LUQ%20External%20Landmarks.png", caption: "RUQ LUQ External Landmarks" },
           { type: 'bold', text: "RUQ" },
           { type: 'text', text: "Internal: Kidney | Diaphragm | Liver | Spine | Lung" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4", caption: "RUQ Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%202%20-%20RUQ%20Internal%20Landmarks.mp4", caption: "RUQ Internal Landmarks" },
           { type: 'bold', text: "LUQ" },
           { type: 'text', text: "Internal: Kidney | Diaphragm | Spleen | Spine | Lung" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%202%20-%20LUQ%20External%20Internal%20Landmarks.mp4", caption: "LUQ Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%203%20-%20LUQ%20Internal%20Landmarks.mp4", caption: "LUQ Internal Landmarks" },
           { type: 'bold', text: "Pelvis Male | Female" },
           { type: 'text', text: "External: Superior to Pubic Symphysis" },
-          { type: 'image', url: "", caption: "Pelvis Probe Starting Position" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%204%20-%20Pelvis%20Probe%20Starting%20Position.png", caption: "Pelvis Probe Starting Position" },
           { type: 'bold', text: "Pelvis Male" },
           { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%203%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Male Pelvis Internal Landmarks" },
@@ -264,13 +264,13 @@ export const modules = [
           { type: 'text', text: "Hepatorenal Interface | Caudal Tip of Liver" },
           { type: 'bold', text: "LUQ" },
           { type: 'text', text: "Splenorenal Interface | Between Diaphragm and Spleen" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%205%20-%20RUQ%20LUQ%20Area%20of%20Interest.mp4", caption: "RUQ and LUQ Areas of Interest" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%207%20-%20RUQ%20LUQ%20Area%20of%20Interest.mp4", caption: "RUQ and LUQ Areas of Interest" },
           { type: 'bold', text: "Pelvis Male" },
           { type: 'text', text: "Rectovesicular Space" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%206%20-%20Male%20Pelvis%20Transverse%20Longitduinal%20Area%20of%20Interest.mp4", caption: "Male Pelvis Area of Interest" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%208%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Area%20of%20Interest.mp4", caption: "Male Pelvis Area of Interest" },
           { type: 'bold', text: "Pelvis Female" },
           { type: 'text', text: "Rectouterine Space (Pouch of Douglas) | Vesicouterine Space" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%207%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Area%20of%20Interest.mp4", caption: "Female Pelvis Area of Interest" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%209%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Area%20of%20Interest.mp4", caption: "Female Pelvis Area of Interest" }
         ]
       },
       {
@@ -288,8 +288,9 @@ export const modules = [
             "Slide inferiorly to identify the caudal tip of the liver",
             "Fan through the caudal tip of the liver anteriorly to posteriorly"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%208%20-%20RUQ%20Fanning%20Interface.mp4", caption: "RUQ Fanning Through Hepatorenal Interface" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%209%20-%20RUQ%20Fanning%20Caudal%20Tip%20of%20Liver.mp4", caption: "RUQ Fanning Through Caudal Tip of Liver" },
+          { type: 'image', url: "", caption: "Media 10 - RUQ Probe Starting Position (Coming Soon)" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2011%20-%20RUQ%20Fanning%20Interface.mp4", caption: "RUQ Fanning Through Hepatorenal Interface" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2012%20-%20RUQ%20Fanning%20Caudal%20Tip%20of%20Liver.mp4", caption: "RUQ Fanning Through Caudal Tip of Liver" },
           
           { type: 'divider' },
           
@@ -303,7 +304,8 @@ export const modules = [
             "Slide cranially to identify the diaphragm",
             "Fan through the medial diagram anterior to posterior until the diaphragm disappears"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2010%20-%20LUQ%20Fanning%20Interface%20and%20Medial%20Diaphragm.mp4", caption: "LUQ Fanning Through Splenorenal Interface and Medial Diaphragm" },
+          { type: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2013%20-%20LUQ%20Probe%20Placement.png', url: "", caption: "LUQ Starting Position" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2014%20-%20LUQ%20Fanning%20Interface%20and%20Medial%20Diaphragm.mp4", caption: "LUQ Fanning Through Splenorenal Interface and Medial Diaphragm" },
           
           { type: 'divider' },
           
@@ -315,9 +317,9 @@ export const modules = [
             "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female)",
             "Fan the probe inferior and superior until the bladder disappears in both directions"
           ]},
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2011%20-%20Pelvis%20Transverse%20Probe%20Starting%20Position.png", caption: "Pelvis Transverse Initial Probe Placement" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2012%20-%20Male%20Pelvis%20Transverse%20Fanning.mp4", caption: "Male Pelvis Transverse Fanning" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2013%20-%20Female%20Pelvis%20Transverse%20Fanning.mp4", caption: "Female Pelvis Transverse Fanning" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2015%20-%20Pelvis%20Transverse%20Probe%20Starting%20Position.png", caption: "Pelvis Transverse Initial Probe Placement" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2016%20-%20Male%20Pelvis%20Transverse%20Fanning.mp4", caption: "Male Pelvis Transverse Fanning" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2017%20-%20Female%20Pelvis%20Transverse%20Fanning.mp4", caption: "Female Pelvis Transverse Fanning" },
           
           { type: 'divider' },
 
@@ -329,9 +331,9 @@ export const modules = [
             "Adjust depth to just past the area between the bladder and rectum (male) or uterus and rectum (female)",
             "Fan the probe left and right until the bladder disappears in both directions"
           ]},
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2014%20-%20Pelvis%20Longitudinal%20Probe%20Starting%20Position.png", caption: "Pelvis Longitudinal Initial Probe Placement" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2015%20-%20Male%20Pelvis%20Longitudinal%20Fanning.mp4", caption: "Male Pelvis Longitudinal Fanning" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2016%20%20-%20Female%20Pelvis%20Longitudinal%20Fanning.mp4", caption: "Female Pelvis Longitudinal Fanning" }
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2018%20-%20Pelvis%20Longitudinal%20Probe%20Starting%20Position.png", caption: "Pelvis Longitudinal Initial Probe Placement" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2019%20-%20Male%20Pelvis%20Longitudinal%20Fanning.mp4", caption: "Male Pelvis Longitudinal Fanning" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2020%20-%20Female%20Pelvis%20Longitudinal%20Fanning.mp4", caption: "Female Pelvis Longitudinal Fanning" }
         ]
       },
       {
@@ -342,23 +344,23 @@ export const modules = [
           { type: 'header', text: "Positive Scan" },
           { type: 'bold', text: "RUQ" },
           { type: 'text', text: "Anechoic free fluid seen in hepatorenal interface or around the caudal tip of the liver" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2017%20-%20RUQ%20Positive%20Scan%20Free%20Fluid%20Large%20Amount.mp4", caption: "RUQ Positive Scan Large Amount of Free Fluid" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2018%20-%20RUQ%20Positive%20Scan%20Small%20Amount%20Caudal%20Tip.mp4", caption: "RUQ Positive Scan Small Amount of Free Fluid at Caudal Tip of Liver" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2021%20-%20RUQ%20Positive%20Scan%20Free%20Fluid%20Large%20Amount.mp4", caption: "RUQ Positive Scan Large Amount of Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2022%20-%20RUQ%20Positive%20Scan%20Small%20Amount%20Caudal%20Tip.mp4", caption: "RUQ Positive Scan Small Amount of Free Fluid at Caudal Tip of Liver" },
           
           { type: 'bold', text: "LUQ" },
           { type: 'text', text: "Anechoic free fluid seen in splenorenal interface or between medial diaphragm and spleen" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2019%20-%20LUQ%20Positive%20Scan%20Free%20Fluid%20Large%20Amount.mp4", caption: "LUQ Positive Scan Large Amount of Free Fluid" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2020%20-%20LUQ%20Positive%20Scan%20Free%20Fluid%20Small%20Amount.mp4", caption: "LUQ Positive Scan Small Amount of Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2023%20-%20LUQ%20Positive%20Scan%20Free%20Fluid%20Large%20Amount.mp4", caption: "LUQ Positive Scan Large Amount of Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2024%20-%20LUQ%20Positive%20Scan%20Free%20Fluid%20Small%20Amount.mp4", caption: "LUQ Positive Scan Small Amount of Free Fluid" },
           
           { type: 'bold', text: "Pelvis Male" },
           { type: 'text', text: "Anechoic free fluid seen in the rectovesicular space" },
-          { type: 'video', url: "", caption: "Media 21 - Male Pelvis Transverse Positive Scan Free Fluid (Coming Soon)" },
-          { type: 'video', url: "", caption: "Media 22 - Male Pelvis Longitudinal Positive Scan Free Fluid (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 25 - Male Pelvis Transverse Positive Scan Free Fluid (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 26 - Male Pelvis Longitudinal Positive Scan Free Fluid (Coming Soon)" },
           
           { type: 'bold', text: "Pelvis Female" },
           { type: 'text', text: "Anechoic free fluid seen in the rectouterine space and/or the vesicouterine space" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2023%20-%20Female%20Pelvis%20Transverse%20Positive%20Scan%20Free%20Fluid.mp4", caption: "Female Pelvis Transverse Positive Scan Free Fluid" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2024%20-%20Female%20Pelvis%20Longitudinal%20Positive%20Scan%20Free%20Fluid.mp4", caption: "Female Pelvis Longitudinal Positive Scan Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2027%20-%20Female%20Pelvis%20Transverse%20Positive%20Scan%20Free%20Fluid.mp4", caption: "Female Pelvis Transverse Positive Scan Free Fluid" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%2028%20-%20Female%20Pelvis%20Longitudinal%20Positive%20Scan%20Free%20Fluid.mp4", caption: "Female Pelvis Longitudinal Positive Scan Free Fluid" },
           
           { type: 'divider' },
 
@@ -465,7 +467,7 @@ export const modules = [
         color: 'rose',
         content: [
           { type: 'header', text: "Positive Scan" },
-          { type: 'text', text: "Anechoic are seen cranial to the diaphragm and ≥ 1 of the following:" },
+          { type: 'text', text: "Anechoic area seen cranial to the diaphragm and ≥ 1 of the following:" },
           { type: 'list', items: [
             "Spine sign",
             "Solid lung floating in effusion",
@@ -541,7 +543,7 @@ export const modules = [
           { type: 'header', text: "Landmarks" },
           { type: 'text', text: "External: Most Anterior Aspect of Chest | Mid-Clavicular Line" },
           { type: 'text', text: "Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows | A-Lines (if present)" },
-          { type: 'video', url: "", caption: "Probe Starting Position (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 1 - Probe Starting Position (Coming Soon)" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%202%20-%20Internal%20Landmarks.mp4", caption: "Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
@@ -797,20 +799,20 @@ export const modules = [
           { type: 'bold', text: "Parasternal Long Axis (PLAX | PSL)" },
           { type: 'text', text: "External: Left Sternal Border | Rib Spaces 2-5" },
           { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Aortic Valve | Ascending Aorta | Pericardium | Left Atrium | Interventricular Septum" },
-          { type: 'video', url: "", caption: "PLAX Probe Starting Position (Coming Soon)" },
-          { type: 'video', url: "", caption: "PLAX Internal Landmarks (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 1 - PLAX Probe (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 2 - PLAX Internal Landmarks (Coming Soon)" },
           
           { type: 'bold', text: "Apical Four Chamber (A4C)" },
           { type: 'text', text: "External: Inferolateral to Left Nipple" },
           { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Tricuspid Valve | Pericardium | Left Atrium | Right Atrium | Interventricular Septum" },
-          { type: 'video', url: "", caption: "A4C Probe Starting Position (Coming Soon)" },
-          { type: 'video', url: "", caption: "A4C Internal Landmarks (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 3 - A4C Probe Starting Position (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 4 - A4C Internal Landmarks (Coming Soon)" },
           
           { type: 'bold', text: "Subcostal / Subxiphoid (SC | SX)" },
           { type: 'text', text: "External: Midline | Between Umbilicus and Xiphoid Process" },
           { type: 'text', text: "Internal: Right Ventricle | Left Ventricle | Mitral Valve | Tricuspid Valve | Pericardium | Left Atrium | Right Atrium | Interventricular Septum | Liver | Diaphragm" },
-          { type: 'video', url: "", caption: "SC Probe Starting Position (Coming Soon)" },
-          { type: 'video', url: "", caption: "SC Internal Landmarks (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 5 - SC Probe Starting Position (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 6 - SC Internal Landmarks (Coming Soon)" },
           
           { type: 'divider' },
           
@@ -858,7 +860,7 @@ export const modules = [
           { type: 'header', text: "Apical Four Chamber (A4C)" },
           { type: 'list', items: [
             "Place probe under the left nipple with probe marker pointing toward 3 o-clock | patient left | the bed with your sound directed toward the right shoulder",
-            "Slide the probe medial-lateral and superior-inferio to find the apex of the heart",
+            "Slide the probe medial-lateral and superior-inferior to find the apex of the heart",
             "Slide the probe medial-lateral to center the LV on the screen",
             "Fan the probe superior to see the atria",
             "Rotate the probe to visualize the RV",
@@ -894,10 +896,10 @@ export const modules = [
             "No fluid collections seen in areas listed above",
             "Please note to rule out a pericardial effusion with a single subcostal view the RV and the interventricular septum “7-sign” must be fanned through from anterior to posterior. This is paramount in the setting of an EFAST scan for hemopericardium"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%204%20-%20PLAX%20No%20PCE%20vs%20PCE.mp4", caption: "PLAX No PCE vs PCE" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%205%20-%20A4C%20No%20PCE%20vs%20PCE.mp4", caption: "A4C No PCE vs PCE" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%206%20-%20SC%20No%20PCE%20vs%20PCE.mp4", caption: "SC No PCE vs PCE" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%207%20-%20SC%20PCE%20Seen%20When%20Fanning%20Posterior.mp4", caption: "SC PCE Seen When Fanning Posterior" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%207%20-%20PLAX%20No%20PCE%20vs%20PCE.mp4", caption: "PLAX No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%208%20-%20A4C%20No%20PCE%20vs%20PCE.mp4", caption: "A4C No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%209%20-%20SC%20No%20PCE%20vs%20PCE.mp4", caption: "SC No PCE vs PCE" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2010%20-%20SC%20PCE%20Seen%20When%20Fanning%20Posterior.mp4", caption: "SC PCE Seen When Fanning Posterior" },
           
           { type: 'divider' },
           
@@ -914,11 +916,11 @@ export const modules = [
             "A4C: fractional shortening <30%, EPSS >1cm",
             "SC: fractional shortening <30%, EPSS >1cm"
           ]},
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%208%20-%20PLAX%20Fractional%20Shortening.png", caption: "PLAX Fractional Shortening" },
-          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%209%20-%20PLAX%20EPSS.png", caption: "PLAX EPSS" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2010%20-%20PLAX%20LVSF%20Normal%20vs%20Severely%20Reduced.mp4", caption: "PLAX Normal vs Severely Abnormal LV Systolic Function" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2011%20-%20A4C%20LVSF%20Normal%20vs%20Severely%20Reduced.mp4", caption: "A4C Normal vs Severely Abnormal LV Systolic Function" },
-          { type: 'video', url: "", caption: "SC Normal vs Severely Abnormal LV Systolic Function (Coming Soon)" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2011%20-%20PLAX%20Fractional%20Shortening.png", caption: "PLAX Fractional Shortening" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2012%20-%20PLAX%20EPSS.png", caption: "PLAX EPSS" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2013%20-%20PLAX%20LVSF%20Normal%20vs%20Severely%20Reduced.mp4", caption: "PLAX Normal vs Severely Abnormal LV Systolic Function" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2014%20-%20A4C%20LVSF%20Normal%20vs%20Severely%20Reduced.mp4", caption: "A4C Normal vs Severely Abnormal LV Systolic Function" },
+          { type: 'video', url: "", caption: "Media 15 - SC Normal vs Severely Abnormal LV Systolic Function (Coming Soon)" },
           
           { type: 'divider' },
           
@@ -957,11 +959,11 @@ export const modules = [
             "TAPSE subjectively normal (approximately ≥1.7cm)",
           ]},
           
-          { type: 'video', url: "", caption: "Qualitative RV Size (Coming Soon)" },
-          { type: 'video', url: "", caption: "TAPSE (Coming Soon)" },
-          { type: 'video', url: "", caption: "PLAX Normal RV Size vs Enlarged RV (Coming Soon)" },
-          { type: 'video', url: "", caption: "A4C Normal RV vs Abnormal RV (Coming Soon)" },
-          { type: 'video', url: "", caption: "SC Normal RV vs Abnormal RV (Coming Soon)" }
+          { type: 'video', url: "", caption: "Media 13 - Qualitative RV Size (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 14 - TAPSE (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 15 - PLAX Normal RV Size vs Enlarged RV (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 16 - A4C Normal RV vs Abnormal RV (Coming Soon)" },
+          { type: 'video', url: "", caption: "Media 17 - SC Normal RV vs Abnormal RV (Coming Soon)" }
         ]
       },
       {
@@ -1057,18 +1059,22 @@ export const modules = [
           { type: 'header', text: "Landmarks" },
           { type: 'bold', text: "Right Upper Quadrant (RUQ) | Left Upper Quadrant (LUQ)" },
           { type: 'text', text: "External: Mid-Posterior Axillary Line | Xiphoid Process" },
-          { type: 'text', text: "Internal: Kidney | Diaphragm | Liver / Spleen | Spine" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4", caption: "RUQ External Internal Landmarks" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%202%20-%20LUQ%20External%20Internal%20Landmarks.mp4", caption: "LUQ External Internal Landmarks" },
+          { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%200%20-%20RUQ%20LUQ%20External%20Landmarks.png", caption: "RUQ LUQ External Landmarks" },
+          { type: 'bold', text: "RUQ" },
+          { type: 'text', text: "Internal: Kidney | Diaphragm | Liver | Spine" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4", caption: "RUQ Internal Landmarks" },
+          { type: 'bold', text: "LUQ" },
+          { type: 'text', text: "Internal: Kidney | Diaphragm | Spleen | Spine" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%202%20-%20LUQ%20External%20Internal%20Landmarks.mp4", caption: "LUQ Internal Landmarks" },
           { type: 'bold', text: "Pelvis Male | Female" },
           { type: 'text', text: "External: Superior to Pubic Symphysis" },
           { type: 'image', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%203%20-%20Pelvis%20Probe%20Starting%20Position.png", caption: "Pelvis Probe Starting Position" },
           { type: 'bold', text: "Pelvis Male" },
           { type: 'text', text: "Internal: Bladder | Prostate | Seminal Vesicles | Rectum" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%204%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Male Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%205%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Male Pelvis Transverse Longitudinal Internal Landmarks" },
           { type: 'bold', text: "Pelvis Female" },
           { type: 'text', text: "Internal: Bladder | Uterus | Vagina | Rectum" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%205%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Female Pelvis Transverse Longitudinal Internal Landmarks" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%206%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4", caption: "Female Pelvis Transverse Longitudinal Internal Landmarks" },
           { type: 'divider' },
           { type: 'header', text: "Area of Interest" },
           { type: 'bold', text: "RUQ | LUQ" },
@@ -1113,7 +1119,7 @@ export const modules = [
           ]},
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%209%20-%20Fanning%20Until%20Trigone%20and%20UVJs%20are%20Seen.mp4", caption: "Fanning Until Trigone and UVJs Seen" },
           { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2010%20-%20Placing%20Colour%20Box%20to%20Observe%20for%20Ureteric%20Jets.mp4", caption: "Placing Colour Box to Observe for Ureteric Jets" },
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2011%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Transverse.mp4", caption: "Fanning to Find Largest Dimension Transverse" },
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2011%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Transverse.mp4", caption: "Fanning Inferior and Superior to Find the Largest Anterior-Posterior and Transverse Dimension" },
           
           { type: 'divider' },
 
@@ -1126,7 +1132,7 @@ export const modules = [
             "Fan the probe left and right until the bladder is seen at its largest cranial caudal dimension",
             "Measure cranial-caudal (CC) dimension (Screen left to screen right)"
           ]},
-          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2012%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Longitudinal.mp4", caption: "Fanning to Find Largest Dimension Longitudinal" }
+          { type: 'video', url: "https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2012%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Longitudinal.mp4", caption: "Fanning Left and Right to Find the Largest Cranial-Caudal Dimension" }
         ]
       },
       {
