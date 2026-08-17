@@ -1,17 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  BookOpen,
-  Menu,
-  X,
-  Stethoscope,
-  GraduationCap,
-  Info,
-  ArrowRight,
-  ArrowLeft,
-  CirclePlay as PlayCircle,
-  Code as Code2,
-  MessageSquare,
-} from 'lucide-react';
+import { BookOpen, Menu, X, Stethoscope, GraduationCap, Info, ArrowRight, ArrowLeft, CirclePlay as PlayCircle, Code as Code2, MessageSquare } from 'lucide-react';
 // BRINGING IN OUR DATA THE ROCK-SOLID WAY!
 import { modules } from './moduleData';
 
@@ -118,7 +106,6 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
             ref={videoRef}
             src={src}
             className="w-full h-full object-contain"
-            controls
             muted
             playsInline
             preload="none"
@@ -298,6 +285,62 @@ const SectionCard = ({ section, isSafari }) => {
   );
 };
 
+// --- SIDEBAR NAV COMPONENT (used by feedback view) ---
+
+const SidebarNav = ({
+  goHome,
+  goToAbout,
+  goToFeedback,
+  openModule,
+  modules,
+}) => (
+  <nav className="p-4 flex-1 overflow-y-auto no-scrollbar">
+    <button
+      onClick={goHome}
+      className="flex items-center text-emerald-200 hover:text-white mb-8 w-full touch-manipulation transition-colors font-medium"
+    >
+      <ArrowLeft size={18} className="mr-2" /> Back to Home
+    </button>
+
+    <div className="mb-4 px-2">
+      <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">
+        Quick Guides
+      </h4>
+      <div className="space-y-1.5">
+        {modules.map((mod) => (
+          <button
+            key={mod.id}
+            onClick={() => openModule(mod.id)}
+            className="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white"
+          >
+            {mod.title}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div className="mt-8 px-2">
+      <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">
+        App Info
+      </h4>
+      <button
+        onClick={goToAbout}
+        className="w-full flex items-center px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white"
+      >
+        <Info size={18} className="mr-3" />
+        About Us
+      </button>
+      <button
+        onClick={goToFeedback}
+        className="w-full flex items-center px-4 py-2.5 mt-1.5 rounded-xl text-sm font-bold transition-all touch-manipulation bg-white text-emerald-900 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+      >
+        <MessageSquare size={18} className="mr-3" />
+        Feedback
+      </button>
+    </div>
+  </nav>
+);
+
 // --- MAIN APP COMPONENT ---
 
 export default function USaskPocusApp() {
@@ -309,6 +352,7 @@ export default function USaskPocusApp() {
       const view = params.get('view');
       const module = params.get('module');
       if (view === 'about') return 'about';
+      if (view === 'feedback') return 'feedback';
       if (module) return 'module';
       return 'dashboard';
     } catch (e) {
@@ -379,6 +423,20 @@ export default function USaskPocusApp() {
     }
   };
 
+  const goToFeedback = () => {
+    setCurrentView('feedback');
+    setActiveModuleId(null);
+    setSidebarOpen(false);
+    window.scrollTo(0, 0);
+
+    try {
+      const newUrl = `?view=feedback`;
+      window.history.pushState({ view: 'feedback' }, '', newUrl);
+    } catch (e) {
+      console.log('History API unavailable');
+    }
+  };
+
   useEffect(() => {
     const handlePopState = (event) => {
       const state = event.state;
@@ -387,6 +445,9 @@ export default function USaskPocusApp() {
         setCurrentView('module');
       } else if (state && state.view === 'about') {
         setCurrentView('about');
+        setActiveModuleId(null);
+      } else if (state && state.view === 'feedback') {
+        setCurrentView('feedback');
         setActiveModuleId(null);
       } else {
         setCurrentView('dashboard');
@@ -505,15 +566,13 @@ export default function USaskPocusApp() {
                 <Info size={18} className="mr-3" />
                 About Us
               </button>
-              <a
-                href="https://usaskpocus.ca"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={goToFeedback}
                 className={`w-full flex items-center px-4 py-2.5 mt-1.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white`}
               >
                 <MessageSquare size={18} className="mr-3" />
                 Feedback
-              </a>
+              </button>
             </div>
           </nav>
         </aside>
@@ -633,6 +692,165 @@ export default function USaskPocusApp() {
     );
   }
 
+  // --- FEEDBACK VIEW ---
+  // --- FEEDBACK VIEW ---
+  if (currentView === 'feedback') {
+    return (
+      <div className="flex h-screen font-sans overflow-hidden w-full relative">
+        <AmbientGlow />
+
+        {/* Sidebar */}
+        <aside
+          className={`
+          fixed inset-y-0 left-0 z-30 w-80 ${sidebarClass} text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
+          ${
+            isSidebarOpen
+              ? 'translate-x-0 shadow-2xl'
+              : '-translate-x-full lg:static lg:translate-x-0'
+          }
+        `}
+        >
+          <div className="p-6 border-b border-emerald-800/50 flex justify-between items-center shrink-0">
+            <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-100 to-white">
+              USask POCUS
+            </span>
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden text-emerald-300 hover:text-white transition-colors"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          <SidebarNav
+            goHome={goHome}
+            goToAbout={goToAbout}
+            goToFeedback={goToFeedback}
+            openModule={openModule}
+            modules={modules}
+          />
+        </aside>
+
+        {/* Background Overlay for mobile sidebar */}
+        {isSidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-20 lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
+        <main className="flex-1 flex flex-col h-full overflow-hidden relative z-10">
+          <header
+            className={`h-16 ${headerClass} border-b flex items-center justify-between px-6 shrink-0 shadow-sm z-20`}
+          >
+            <div className="flex items-center">
+              <button
+                onClick={() => setSidebarOpen(true)}
+                className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors"
+              >
+                <Menu size={24} />
+              </button>
+              <h2 className="text-lg font-bold text-slate-800 truncate tracking-tight">
+                Feedback
+              </h2>
+            </div>
+          </header>
+
+          <div
+            ref={scrollRef}
+            className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth z-10 relative"
+          >
+            <div className="max-w-2xl mx-auto space-y-6 pb-20 pt-4">
+              <div
+                className={`${dashboardCardClass} p-8 md:p-12 rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 relative overflow-hidden`}
+              >
+                {!isSafari && (
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-400/10 rounded-full blur-[80px] pointer-events-none" />
+                )}
+
+                <div className="text-center mb-8 relative z-10">
+                  <div className="w-16 h-16 bg-emerald-100/80 border border-emerald-200/50 shadow-sm text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                    <MessageSquare size={32} />
+                  </div>
+                  <h2 className="text-3xl font-extrabold text-slate-800 tracking-tight">
+                    We Value Your Feedback
+                  </h2>
+                  <p className="text-slate-500 mt-3 font-medium max-w-md mx-auto">
+                    Help us improve. Please provide your thoughts, suggestions, or report any issues below.
+                  </p>
+                </div>
+
+                <form
+                  target="_blank"
+                  action="https://formsubmit.co/aliraafi@gmail.com"
+                  method="POST"
+                  className="space-y-5 relative z-10"
+                >
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="flex-1">
+                      <label className="block text-sm font-bold text-slate-700 mb-1.5 ml-1">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        className={`w-full px-4 py-3.5 rounded-xl border border-white/60 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20 outline-none transition-all shadow-sm ${
+                          isSafari ? 'bg-white' : 'bg-white/50 backdrop-blur-sm'
+                        } text-slate-800 placeholder-slate-400 font-medium`}
+                        placeholder="Name (Required)"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <label className="block text-sm font-bold text-slate-700 mb-1.5 ml-1">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        className={`w-full px-4 py-3.5 rounded-xl border border-white/60 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20 outline-none transition-all shadow-sm ${
+                          isSafari ? 'bg-white' : 'bg-white/50 backdrop-blur-sm'
+                        } text-slate-800 placeholder-slate-400 font-medium`}
+                        placeholder="Email (Required)"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-1.5 ml-1">
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      required
+                      rows="6"
+                      className={`w-full px-4 py-4 rounded-xl border border-white/60 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20 outline-none transition-all shadow-sm ${
+                        isSafari ? 'bg-white' : 'bg-white/50 backdrop-blur-sm'
+                      } text-slate-800 placeholder-slate-400 resize-none font-medium`}
+                      placeholder="Please provide your feedback, suggestions, or report any issues here..."
+                    ></textarea>
+                  </div>
+
+                  {/* FormSubmit Configuration Inputs */}
+                  <input type="hidden" name="_subject" value="New Feedback Submission - USask POCUS" />
+                  <input type="hidden" name="_template" value="table" />
+
+                  <button
+                    type="submit"
+                    className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-4 rounded-xl transition-all shadow-[0_4px_14px_rgba(5,150,105,0.3)] hover:shadow-[0_6px_20px_rgba(5,150,105,0.4)] hover:-translate-y-0.5 active:translate-y-0 mt-4 flex items-center justify-center"
+                  >
+                    <MessageSquare size={18} className="mr-2.5" />
+                    Submit Feedback
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   // 1. DASHBOARD VIEW
   if (currentView === 'dashboard') {
     return (
@@ -683,10 +901,8 @@ export default function USaskPocusApp() {
                   <Info size={14} className="mr-2" />
                   About
                 </button>
-                <a
-                  href="https://usaskpocus.ca"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={goToFeedback}
                   className={`w-fit px-4 py-2 ${
                     isSafari
                       ? 'bg-white/20 hover:bg-white/30'
@@ -695,7 +911,7 @@ export default function USaskPocusApp() {
                 >
                   <MessageSquare size={14} className="mr-2" />
                   Feedback
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -763,14 +979,12 @@ export default function USaskPocusApp() {
             >
               <Info size={14} className="mr-1" /> About the Team
             </button>
-            <a
-              href="https://usaskpocus.ca"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={goToFeedback}
               className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-bold transition-colors"
             >
               <MessageSquare size={14} className="mr-1" /> Feedback
-            </a>
+            </button>
           </div>
         </footer>
       </div>
@@ -843,15 +1057,13 @@ export default function USaskPocusApp() {
               <Info size={18} className="mr-3" />
               About Us
             </button>
-            <a
-              href="https://usaskpocus.ca"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={goToFeedback}
               className={`w-full flex items-center px-4 py-2.5 mt-1.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white`}
             >
               <MessageSquare size={18} className="mr-3" />
               Feedback
-            </a>
+            </button>
           </div>
         </nav>
       </aside>
