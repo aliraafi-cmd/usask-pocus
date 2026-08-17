@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  BookOpen, 
-  Menu, 
-  X, 
-  Stethoscope, 
-  GraduationCap, 
+import {
+  BookOpen,
+  Menu,
+  X,
+  Stethoscope,
+  GraduationCap,
   Info,
   ArrowRight,
   ArrowLeft,
-  PlayCircle,
-  Code2
+  CirclePlay as PlayCircle,
+  Code as Code2,
+  MessageSquare,
 } from 'lucide-react';
 // BRINGING IN OUR DATA THE ROCK-SOLID WAY!
 import { modules } from './moduleData';
@@ -25,7 +26,7 @@ const useIsSafari = () => {
     const isChrome = /Chrome|CriOS/.test(ua);
     const isFirefox = /FxiOS|Firefox/.test(ua);
     const isEdge = /EdgiOS|Edg/.test(ua);
-    
+
     // If it is WebKit but NOT Chrome, Firefox, or Edge, it is true Safari
     if (isAppleWebKit && !isChrome && !isFirefox && !isEdge) {
       setIsSafari(true);
@@ -40,7 +41,7 @@ const useIsSafari = () => {
 const VideoPlayer = ({ src, caption, isSafari }) => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
-  
+
   // If it's NOT Safari, we set it to be in view immediately to load everything at once
   const [isInView, setIsInView] = useState(!isSafari);
 
@@ -58,28 +59,31 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
       },
       { threshold: 0.25 } // Catch it when 25% enters the view!
     );
-    
+
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
-    
+
     return () => observer.disconnect();
   }, [isSafari]);
 
   useEffect(() => {
     // 2. Wake Up Listener (Only matters when the video is actually mounted and in view)
     if (!isInView || !videoRef.current) return;
-    
+
     const videoElement = videoRef.current;
-    
+
     const attemptPlay = async () => {
       try {
         await videoElement.play();
       } catch (err) {
-        console.log("Autoplay prevented (low power mode or interaction needed)", err);
+        console.log(
+          'Autoplay prevented (low power mode or interaction needed)',
+          err
+        );
       }
     };
-    
+
     attemptPlay();
 
     const handleVisibilityChange = () => {
@@ -88,40 +92,51 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
       }
     };
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [isInView, src]);
 
   // Use progressive enhancement class based on Safari quarantine
-  const containerGlassClass = isSafari ? 'bg-white/95' : 'bg-white/40 backdrop-blur-md';
-  const captionGlassClass = isSafari ? 'bg-white/95' : 'bg-white/80 backdrop-blur-lg';
+  const containerGlassClass = isSafari
+    ? 'bg-white/95'
+    : 'bg-white/40 backdrop-blur-md';
+  const captionGlassClass = isSafari
+    ? 'bg-white/95'
+    : 'bg-white/80 backdrop-blur-lg';
 
   return (
-    <div ref={containerRef} className={`my-5 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-white/50 ${containerGlassClass}`}>
+    <div
+      ref={containerRef}
+      className={`my-5 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-white/50 ${containerGlassClass}`}
+    >
       <div className="relative bg-black aspect-video flex items-center justify-center group">
-         {isInView ? (
-           <video 
-             ref={videoRef}
-             src={src} 
-             className="w-full h-full object-contain"
-             controls        
-             muted          
-             playsInline 
-             preload="none"   
-             loop           
-           />
-         ) : (
-           <div className="w-full h-full flex flex-col items-center justify-center bg-slate-900 text-slate-500">
-              <PlayCircle size={32} className="mb-2 opacity-30" />
-              <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">Loading Media</span>
-           </div>
-         )}
+        {isInView ? (
+          <video
+            ref={videoRef}
+            src={src}
+            className="w-full h-full object-contain"
+            controls
+            muted
+            playsInline
+            preload="none"
+            loop
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center bg-slate-900 text-slate-500">
+            <PlayCircle size={32} className="mb-2 opacity-30" />
+            <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">
+              Loading Media
+            </span>
+          </div>
+        )}
       </div>
       {caption && (
-        <div className={`p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50 ${captionGlassClass}`}>
+        <div
+          className={`p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50 ${captionGlassClass}`}
+        >
           {caption}
         </div>
       )}
@@ -134,60 +149,98 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
 const ContentBlock = ({ item, color, isSafari }) => {
   switch (item.type) {
     case 'header':
-      return <h4 className={`font-bold text-${color}-800 mt-5 mb-2 text-lg`}>{item.text}</h4>;
-    
+      return (
+        <h4 className={`font-bold text-${color}-800 mt-5 mb-2 text-lg`}>
+          {item.text}
+        </h4>
+      );
+
     case 'subheader':
-      return <h4 className="font-bold text-slate-900 mt-4 mb-1 text-sm uppercase tracking-wide">{item.text}</h4>;
+      return (
+        <h4 className="font-bold text-slate-900 mt-4 mb-1 text-sm uppercase tracking-wide">
+          {item.text}
+        </h4>
+      );
 
     case 'bold':
       return <p className="font-bold text-slate-800 mt-3">{item.text}</p>;
-    
+
     case 'label':
-      return <p className="text-slate-700 leading-relaxed my-2 text-sm"><strong className="text-slate-800">{item.label}</strong> {item.text}</p>;
-      
-    case 'info':
-      const infoBgClass = isSafari ? `bg-${color}-50` : `bg-${color}-50/60 backdrop-blur-md`;
       return (
-        <div className={`${infoBgClass} border-l-4 border-${color}-400 p-4 my-3 rounded-r-xl shadow-sm text-sm text-slate-700`}>
+        <p className="text-slate-700 leading-relaxed my-2 text-sm">
+          <strong className="text-slate-800">{item.label}</strong> {item.text}
+        </p>
+      );
+
+    case 'info':
+      const infoBgClass = isSafari
+        ? `bg-${color}-50`
+        : `bg-${color}-50/60 backdrop-blur-md`;
+      return (
+        <div
+          className={`${infoBgClass} border-l-4 border-${color}-400 p-4 my-3 rounded-r-xl shadow-sm text-sm text-slate-700`}
+        >
           {item.text}
         </div>
       );
-    
+
     case 'list':
       return (
         <ul className="list-disc list-inside space-y-1 my-3 text-slate-700 text-sm">
-          {item.items.map((li, idx) => <li key={idx} className="leading-relaxed pl-1">{li}</li>)}
+          {item.items.map((li, idx) => (
+            <li key={idx} className="leading-relaxed pl-1">
+              {li}
+            </li>
+          ))}
         </ul>
       );
 
     case 'sublist':
       return (
         <ul className="list-[circle] list-inside space-y-1 my-2 ml-6 text-slate-600 text-sm">
-          {item.items.map((li, idx) => <li key={idx} className="leading-relaxed pl-1">{li}</li>)}
+          {item.items.map((li, idx) => (
+            <li key={idx} className="leading-relaxed pl-1">
+              {li}
+            </li>
+          ))}
         </ul>
       );
 
     case 'divider':
       return <hr className="my-8 border-slate-200/60" />;
-    
+
     case 'video':
-      return <VideoPlayer src={item.url} caption={item.caption} isSafari={isSafari} />;
+      return (
+        <VideoPlayer
+          src={item.url}
+          caption={item.caption}
+          isSafari={isSafari}
+        />
+      );
 
     case 'image':
-      const imageContainerBg = isSafari ? 'bg-white/95' : 'bg-white/40 backdrop-blur-md';
-      const imageCaptionBg = isSafari ? 'bg-white/95' : 'bg-white/80 backdrop-blur-lg';
-      
+      const imageContainerBg = isSafari
+        ? 'bg-white/95'
+        : 'bg-white/40 backdrop-blur-md';
+      const imageCaptionBg = isSafari
+        ? 'bg-white/95'
+        : 'bg-white/80 backdrop-blur-lg';
+
       return (
-        <div className={`my-5 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-white/50 ${imageContainerBg}`}>
+        <div
+          className={`my-5 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-white/50 ${imageContainerBg}`}
+        >
           <div className="relative bg-white/50 flex items-center justify-center p-4">
-             <img 
-               src={item.url} 
-               alt={item.caption || "Medical Reference"}
-               className="w-full h-auto object-contain max-h-[60vh] rounded-lg shadow-sm"
-             />
+            <img
+              src={item.url}
+              alt={item.caption || 'Medical Reference'}
+              className="w-full h-auto object-contain max-h-[60vh] rounded-lg shadow-sm"
+            />
           </div>
           {item.caption && (
-            <div className={`p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50 ${imageCaptionBg}`}>
+            <div
+              className={`p-3 text-xs text-center text-slate-600 font-medium border-t border-white/50 ${imageCaptionBg}`}
+            >
               {item.caption}
             </div>
           )}
@@ -195,29 +248,50 @@ const ContentBlock = ({ item, color, isSafari }) => {
       );
 
     default:
-      return <p className="text-slate-700 leading-relaxed my-2 text-sm">{item.text}</p>;
+      return (
+        <p className="text-slate-700 leading-relaxed my-2 text-sm">
+          {item.text}
+        </p>
+      );
   }
 };
 
 const SectionCard = ({ section, isSafari }) => {
   const Icon = section.icon || Info;
-  const color = section.color || 'emerald'; 
+  const color = section.color || 'emerald';
 
   const cardBgClass = isSafari ? 'bg-white/95' : 'bg-white/60 backdrop-blur-xl';
-  const headerBgClass = isSafari ? `bg-${color}-100/90` : `bg-${color}-100/40 backdrop-blur-md`;
-  const iconContainerClass = isSafari ? 'bg-white' : 'bg-white/90 backdrop-blur-sm';
+  const headerBgClass = isSafari
+    ? `bg-${color}-100/90`
+    : `bg-${color}-100/40 backdrop-blur-md`;
+  const iconContainerClass = isSafari
+    ? 'bg-white'
+    : 'bg-white/90 backdrop-blur-sm';
 
   return (
-    <div className={`${cardBgClass} rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 overflow-hidden mb-8 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]`}>
-      <div className={`${headerBgClass} px-4 md:px-6 py-4 md:py-5 border-b border-white/60 flex items-center`}>
-        <div className={`p-2 md:p-2.5 ${iconContainerClass} rounded-lg md:rounded-xl shadow-sm border border-white/50 mr-4 text-${color}-600`}>
+    <div
+      className={`${cardBgClass} rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 overflow-hidden mb-8 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]`}
+    >
+      <div
+        className={`${headerBgClass} px-4 md:px-6 py-4 md:py-5 border-b border-white/60 flex items-center`}
+      >
+        <div
+          className={`p-2 md:p-2.5 ${iconContainerClass} rounded-lg md:rounded-xl shadow-sm border border-white/50 mr-4 text-${color}-600`}
+        >
           <Icon size={22} />
         </div>
-        <h3 className="font-bold text-slate-800 text-lg md:text-xl tracking-tight">{section.title}</h3>
+        <h3 className="font-bold text-slate-800 text-lg md:text-xl tracking-tight">
+          {section.title}
+        </h3>
       </div>
       <div className="px-4 md:px-6 pb-6 pt-4">
         {section.content.map((block, idx) => (
-          <ContentBlock key={idx} item={block} color={color} isSafari={isSafari} />
+          <ContentBlock
+            key={idx}
+            item={block}
+            color={color}
+            isSafari={isSafari}
+          />
         ))}
       </div>
     </div>
@@ -237,11 +311,11 @@ export default function USaskPocusApp() {
       if (view === 'about') return 'about';
       if (module) return 'module';
       return 'dashboard';
-    } catch(e) {
+    } catch (e) {
       return 'dashboard';
     }
   });
-  
+
   const [activeModuleId, setActiveModuleId] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -255,7 +329,7 @@ export default function USaskPocusApp() {
   const scrollRef = useRef(null);
 
   // Directly pulling from our robust static import now!
-  const activeModule = modules.find(m => m.id === activeModuleId);
+  const activeModule = modules.find((m) => m.id === activeModuleId);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -268,7 +342,7 @@ export default function USaskPocusApp() {
     setCurrentView('module');
     setSidebarOpen(false);
     window.scrollTo(0, 0);
-    
+
     try {
       const newUrl = `?module=${id}`;
       window.history.pushState({ view: 'module', id }, '', newUrl);
@@ -282,7 +356,7 @@ export default function USaskPocusApp() {
     setActiveModuleId(null);
     setSidebarOpen(false);
     window.scrollTo(0, 0);
-    
+
     try {
       const cleanUrl = window.location.pathname;
       window.history.pushState({ view: 'dashboard' }, '', cleanUrl);
@@ -296,7 +370,7 @@ export default function USaskPocusApp() {
     setActiveModuleId(null);
     setSidebarOpen(false);
     window.scrollTo(0, 0);
-    
+
     try {
       const newUrl = `?view=about`;
       window.history.pushState({ view: 'about' }, '', newUrl);
@@ -336,48 +410,80 @@ export default function USaskPocusApp() {
         </div>
       );
     }
-    
+
     // Supreme UI: deep glass, blurs, and pulsing dynamic orbs
     return (
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-300/40 rounded-full blur-[100px] opacity-70 mix-blend-multiply animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-blue-300/40 rounded-full blur-[120px] opacity-60 mix-blend-multiply animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-[30%] left-[60%] w-[30vw] h-[30vw] bg-violet-300/30 rounded-full blur-[90px] opacity-50 mix-blend-multiply animate-pulse" style={{ animationDelay: '2s' }} />
+        <div
+          className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-blue-300/40 rounded-full blur-[120px] opacity-60 mix-blend-multiply animate-pulse"
+          style={{ animationDelay: '1s' }}
+        />
+        <div
+          className="absolute top-[30%] left-[60%] w-[30vw] h-[30vw] bg-violet-300/30 rounded-full blur-[90px] opacity-50 mix-blend-multiply animate-pulse"
+          style={{ animationDelay: '2s' }}
+        />
       </div>
     );
   };
 
-  const sidebarClass = isSafari ? 'bg-emerald-950' : 'bg-emerald-950/90 backdrop-blur-2xl';
+  const sidebarClass = isSafari
+    ? 'bg-emerald-950'
+    : 'bg-emerald-950/90 backdrop-blur-2xl';
   const headerClass = isSafari ? 'bg-white/95' : 'bg-white/70 backdrop-blur-xl';
-  const dashboardHeaderClass = isSafari ? 'bg-emerald-950' : 'bg-emerald-950/90 backdrop-blur-2xl';
-  const dashboardCardClass = isSafari ? 'bg-white/95' : 'bg-white/60 backdrop-blur-xl hover:bg-white/80';
-  const footerClass = isSafari ? 'bg-slate-100 border-slate-200' : 'bg-white/40 backdrop-blur-md border-white/60';
+  const dashboardHeaderClass = isSafari
+    ? 'bg-emerald-950'
+    : 'bg-emerald-950/90 backdrop-blur-2xl';
+  const dashboardCardClass = isSafari
+    ? 'bg-white/95'
+    : 'bg-white/60 backdrop-blur-xl hover:bg-white/80';
+  const footerClass = isSafari
+    ? 'bg-slate-100 border-slate-200'
+    : 'bg-white/40 backdrop-blur-md border-white/60';
 
   // --- ABOUT US VIEW ---
   if (currentView === 'about') {
     return (
       <div className="flex h-screen font-sans overflow-hidden w-full relative">
         <AmbientGlow />
-        
+
         {/* Sidebar */}
-        <aside className={`
+        <aside
+          className={`
           fixed inset-y-0 left-0 z-30 w-80 ${sidebarClass} text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
-          ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:static lg:translate-x-0'}
-        `}>
+          ${
+            isSidebarOpen
+              ? 'translate-x-0 shadow-2xl'
+              : '-translate-x-full lg:static lg:translate-x-0'
+          }
+        `}
+        >
           <div className="p-6 border-b border-emerald-800/50 flex justify-between items-center shrink-0">
-            <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-100 to-white">USask POCUS</span>
-            <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-emerald-300 hover:text-white transition-colors"><X size={24} /></button>
+            <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-100 to-white">
+              USask POCUS
+            </span>
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden text-emerald-300 hover:text-white transition-colors"
+            >
+              <X size={24} />
+            </button>
           </div>
           <nav className="p-4 flex-1 overflow-y-auto no-scrollbar">
-            <button onClick={goHome} className="flex items-center text-emerald-200 hover:text-white mb-8 w-full touch-manipulation transition-colors font-medium">
+            <button
+              onClick={goHome}
+              className="flex items-center text-emerald-200 hover:text-white mb-8 w-full touch-manipulation transition-colors font-medium"
+            >
               <ArrowLeft size={18} className="mr-2" /> Back to Home
             </button>
-            
+
             <div className="mb-4 px-2">
-              <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
+              <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">
+                Quick Guides
+              </h4>
               <div className="space-y-1.5">
-                {modules.map(mod => (
-                  <button 
+                {modules.map((mod) => (
+                  <button
                     key={mod.id}
                     onClick={() => openModule(mod.id)}
                     className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white`}
@@ -389,72 +495,136 @@ export default function USaskPocusApp() {
             </div>
 
             <div className="mt-8 px-2">
-              <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">App Info</h4>
-              <button 
+              <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">
+                App Info
+              </h4>
+              <button
                 onClick={goToAbout}
                 className={`w-full flex items-center px-4 py-2.5 rounded-xl text-sm font-bold transition-all touch-manipulation bg-white text-emerald-900 shadow-[0_0_15px_rgba(255,255,255,0.2)]`}
               >
                 <Info size={18} className="mr-3" />
                 About Us
               </button>
+              <a
+                href="https://usaskpocus.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full flex items-center px-4 py-2.5 mt-1.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white`}
+              >
+                <MessageSquare size={18} className="mr-3" />
+                Feedback
+              </a>
             </div>
           </nav>
         </aside>
 
         <main className="flex-1 flex flex-col h-full overflow-hidden relative z-10">
-          <header className={`h-16 ${headerClass} border-b flex items-center justify-between px-6 shrink-0 shadow-sm z-20`}>
+          <header
+            className={`h-16 ${headerClass} border-b flex items-center justify-between px-6 shrink-0 shadow-sm z-20`}
+          >
             <div className="flex items-center">
-              <button onClick={() => setSidebarOpen(true)} className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors">
+              <button
+                onClick={() => setSidebarOpen(true)}
+                className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors"
+              >
                 <Menu size={24} />
               </button>
-              <h2 className="text-lg font-bold text-slate-800 truncate tracking-tight">About Us</h2>
+              <h2 className="text-lg font-bold text-slate-800 truncate tracking-tight">
+                About Us
+              </h2>
             </div>
           </header>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth z-10 relative">
+          <div
+            ref={scrollRef}
+            className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth z-10 relative"
+          >
             <div className="max-w-2xl mx-auto space-y-6 pb-20">
-              <div className={`${dashboardCardClass} rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 overflow-hidden`}>
-                 <div className={`${isSafari ? 'bg-emerald-900' : 'bg-emerald-900/90 backdrop-blur-md'} px-8 py-12 text-center relative overflow-hidden`}>
-                    {!isSafari && <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px]" />}
-                    <GraduationCap size={56} className="mx-auto text-emerald-100 mb-5 relative z-10" />
-                    <h2 className="text-3xl font-bold text-white mb-3 tracking-tight relative z-10">USask POCUS Quick Reference</h2>
-                    <p className="text-emerald-100/90 text-sm font-medium relative z-10">Created for the University of Saskatchewan College of Medicine</p>
-                 </div>
-                 
-                 <div className="p-6 md:p-10 space-y-8">
-                    <div className="flex items-start group">
-                       <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
-                          <Stethoscope size={24} />
-                       </div>
-                       <div>
-                          <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">Dr. Linden Kolbenson</h3>
-                          <p className="text-slate-500 text-sm font-medium">Content Creation and Review</p>
-                       </div>
+              <div
+                className={`${dashboardCardClass} rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 overflow-hidden`}
+              >
+                <div
+                  className={`${
+                    isSafari
+                      ? 'bg-emerald-900'
+                      : 'bg-emerald-900/90 backdrop-blur-md'
+                  } px-8 py-12 text-center relative overflow-hidden`}
+                >
+                  {!isSafari && (
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px]" />
+                  )}
+                  <GraduationCap
+                    size={56}
+                    className="mx-auto text-emerald-100 mb-5 relative z-10"
+                  />
+                  <h2 className="text-3xl font-bold text-white mb-3 tracking-tight relative z-10">
+                    USask POCUS Quick Reference
+                  </h2>
+                  <p className="text-emerald-100/90 text-sm font-medium relative z-10">
+                    Created for the University of Saskatchewan College of
+                    Medicine
+                  </p>
+                </div>
+
+                <div className="p-6 md:p-10 space-y-8">
+                  <div className="flex items-start group">
+                    <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
+                      <Stethoscope size={24} />
                     </div>
-                    
-                    <div className="flex items-start group">
-                       <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
-                          <Stethoscope size={24} />
-                       </div>
-                       <div>
-                          <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">Dr. Paul Olszynski</h3>
-                          <p className="text-slate-500 text-sm font-medium">Content Creation and Review</p>
-                       </div>
+                    <div>
+                      <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">
+                        Dr. Linden Kolbenson
+                      </h3>
+                      <p className="text-slate-500 text-sm font-medium">
+                        Content Creation and Review
+                      </p>
                     </div>
-                    
-                    <hr className="border-slate-200/60" />
-                    
-                    <div className="flex items-start group">
-                       <div className="p-3.5 bg-emerald-50/80 border border-emerald-100 shadow-sm text-emerald-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
-                          <Code2 size={24} />
-                       </div>
-                       <div>
-                          <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">Raafi Ali</h3>
-                          <p className="text-slate-600 font-bold text-sm mb-1">Internal Medicine Resident</p>
-                          <p className="text-slate-500 text-sm font-medium">App Development and Design</p>
-                       </div>
+                  </div>
+
+                  <div className="flex items-start group">
+                    <div className="p-3.5 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
+                      <Stethoscope size={24} />
                     </div>
-                 </div>
+                    <div>
+                      <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">
+                        Dr. Paul Olszynski
+                      </h3>
+                      <p className="text-slate-500 text-sm font-medium">
+                        Content Creation and Review
+                      </p>
+                    </div>
+                  </div>
+
+                  <hr className="border-slate-200/60" />
+
+                  <div className="flex items-start group">
+                    <div className="p-3.5 bg-emerald-50/80 border border-emerald-100 shadow-sm text-emerald-600 rounded-xl md:rounded-2xl mr-5 shrink-0 transition-transform group-hover:scale-110">
+                      <Code2 size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-800 text-xl tracking-tight mb-1">
+                        Raafi Ali
+                      </h3>
+                      <p className="text-slate-600 font-bold text-sm mb-1">
+                        Internal Medicine Resident
+                      </p>
+                      <p className="text-slate-500 text-sm font-medium">
+                        App Development and Design
+                      </p>
+                    </div>
+                  </div>
+
+                  <hr className="border-slate-200/60" />
+
+                  <p className="text-slate-500 text-sm font-medium mt-0">
+                    <strong>Disclaimer:</strong><br/>This content is intended for educational purposes only. This content is not intended, nor should it be used as medical advice.<br/> <br/>The information presented here may represent the opinions of the authors but does not represent those of
+                    their employing institutions or medical societies in which
+                    they are involved. <br/><br/>The clinical information presented here
+                    does not represent any one individual. All uniquely
+                    identifiable data has been removed to protect the privacy
+                    and confidentiality of patients.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -468,38 +638,66 @@ export default function USaskPocusApp() {
     return (
       <div className="min-h-screen font-sans text-slate-800 flex flex-col w-full relative overflow-hidden">
         <AmbientGlow />
-        
-        <header className={`${dashboardHeaderClass} text-white py-12 px-6 relative overflow-hidden border-b border-white/10 shadow-lg`}>
+
+        <header
+          className={`${dashboardHeaderClass} text-white py-12 px-6 relative overflow-hidden border-b border-white/10 shadow-lg`}
+        >
           {!isSafari && (
             <>
               <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-emerald-400/20 rounded-full blur-[100px] pointer-events-none" />
               <div className="absolute bottom-[-20%] left-[-10%] w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
             </>
           )}
-          
+
           <div className="absolute top-4 right-4 p-8 opacity-5">
             <GraduationCap size={200} />
           </div>
-          
+
           <div className="max-w-5xl mx-auto relative z-10">
-             <div className="flex flex-wrap items-center gap-3 mb-6">
-               <span className={`px-4 py-1.5 ${isSafari ? 'bg-white/20' : 'bg-white/10 backdrop-blur-md'} border border-white/20 text-emerald-50 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-sm`}>
-                 College of Medicine
-               </span>
-             </div>
-             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-200">USask POCUS</h1>
-             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                 <p className="text-emerald-100/90 text-lg md:text-xl max-w-xl font-medium leading-relaxed">
-                   Undergraduate Medical Education Point of Care Ultrasound Curriculum.
-                 </p>
-                 <button 
-                   onClick={goToAbout}
-                   className={`w-fit px-4 py-2 ${isSafari ? 'bg-white/20 hover:bg-white/30' : 'bg-white/10 hover:bg-white/20 backdrop-blur-md'} rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 text-white transition-all cursor-pointer flex items-center shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]`}
-                 >
-                   <Info size={14} className="mr-2" />
-                   About
-                 </button>
-             </div>
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span
+                className={`px-4 py-1.5 ${
+                  isSafari ? 'bg-white/20' : 'bg-white/10 backdrop-blur-md'
+                } border border-white/20 text-emerald-50 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-sm`}
+              >
+                College of Medicine
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-200">
+              USask POCUS
+            </h1>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <p className="text-emerald-100/90 text-lg md:text-xl max-w-xl font-medium leading-relaxed">
+                Undergraduate Medical Education Point-of-Care Ultrasound
+                Curriculum.
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  onClick={goToAbout}
+                  className={`w-fit px-4 py-2 ${
+                    isSafari
+                      ? 'bg-white/20 hover:bg-white/30'
+                      : 'bg-white/10 hover:bg-white/20 backdrop-blur-md'
+                  } rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 text-white transition-all cursor-pointer flex items-center shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]`}
+                >
+                  <Info size={14} className="mr-2" />
+                  About
+                </button>
+                <a
+                  href="https://usaskpocus.ca"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-fit px-4 py-2 ${
+                    isSafari
+                      ? 'bg-white/20 hover:bg-white/30'
+                      : 'bg-white/10 hover:bg-white/20 backdrop-blur-md'
+                  } rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 text-white transition-all cursor-pointer flex items-center shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]`}
+                >
+                  <MessageSquare size={14} className="mr-2" />
+                  Feedback
+                </a>
+              </div>
+            </div>
           </div>
         </header>
 
@@ -509,22 +707,42 @@ export default function USaskPocusApp() {
               <BookOpen size={24} className="mr-3 text-emerald-600" />
               Learning Modules
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {modules.map((mod) => (
-                <button 
+                <button
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
                   className={`${dashboardCardClass} p-6 md:p-8 rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-${mod.color}-300/50 active:scale-[0.98] transition-all duration-300 text-left group flex flex-col h-full relative overflow-hidden touch-manipulation z-10`}
                 >
-                  <div className={`w-14 h-14 rounded-xl md:rounded-2xl ${isSafari ? `bg-${mod.color}-100` : `bg-${mod.color}-50/80 backdrop-blur-md`} border border-${mod.color}-100 flex items-center justify-center text-${mod.color}-600 mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                  <div
+                    className={`w-14 h-14 rounded-xl md:rounded-2xl ${
+                      isSafari
+                        ? `bg-${mod.color}-100`
+                        : `bg-${mod.color}-50/80 backdrop-blur-md`
+                    } border border-${
+                      mod.color
+                    }-100 flex items-center justify-center text-${
+                      mod.color
+                    }-600 mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm`}
+                  >
                     <mod.icon size={28} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3 tracking-tight group-hover:text-slate-900">{mod.title}</h3>
-                  <p className="text-sm text-slate-600 mb-8 flex-grow leading-relaxed font-medium">{mod.description}</p>
-                  
-                  <div className={`flex items-center text-${mod.color}-600 text-sm font-bold mt-auto tracking-wide uppercase`}>
-                    Start Module <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-2" />
+                  <h3 className="text-xl font-bold text-slate-800 mb-3 tracking-tight group-hover:text-slate-900">
+                    {mod.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 mb-8 flex-grow leading-relaxed font-medium">
+                    {mod.description}
+                  </p>
+
+                  <div
+                    className={`flex items-center text-${mod.color}-600 text-sm font-bold mt-auto tracking-wide uppercase`}
+                  >
+                    Explore Module{' '}
+                    <ArrowRight
+                      size={16}
+                      className="ml-2 transition-transform duration-300 group-hover:translate-x-2"
+                    />
                   </div>
                 </button>
               ))}
@@ -532,14 +750,28 @@ export default function USaskPocusApp() {
           </div>
         </main>
 
-        <footer className={`relative z-10 border-t py-8 text-center text-slate-500 text-xs font-medium ${footerClass}`}>
-          <p className="mb-3">© University of Saskatchewan • College of Medicine • v0.40</p>
-          <button 
-            onClick={goToAbout} 
-            className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-bold transition-colors"
-          >
-             <Info size={14} className="mr-1" /> About the Team
-          </button>
+        <footer
+          className={`relative z-10 border-t py-8 text-center text-slate-500 text-xs font-medium ${footerClass}`}
+        >
+          <p className="mb-3">
+            © University of Saskatchewan • College of Medicine • v0.40
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button
+              onClick={goToAbout}
+              className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-bold transition-colors"
+            >
+              <Info size={14} className="mr-1" /> About the Team
+            </button>
+            <a
+              href="https://usaskpocus.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 font-bold transition-colors"
+            >
+              <MessageSquare size={14} className="mr-1" /> Feedback
+            </a>
+          </div>
         </footer>
       </div>
     );
@@ -549,28 +781,50 @@ export default function USaskPocusApp() {
   return (
     <div className="flex h-screen font-sans overflow-hidden w-full relative">
       <AmbientGlow />
-      
-      <aside className={`
+
+      <aside
+        className={`
         fixed inset-y-0 left-0 z-40 w-80 ${sidebarClass} text-white transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10
-        ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:static lg:translate-x-0'}
-      `}>
+        ${
+          isSidebarOpen
+            ? 'translate-x-0 shadow-2xl'
+            : '-translate-x-full lg:static lg:translate-x-0'
+        }
+      `}
+      >
         <div className="p-6 border-b border-emerald-800/50 flex justify-between items-center shrink-0">
-          <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-100 to-white">USask POCUS</span>
-          <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-emerald-300 hover:text-white transition-colors"><X size={24} /></button>
+          <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-100 to-white">
+            USask POCUS
+          </span>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="lg:hidden text-emerald-300 hover:text-white transition-colors"
+          >
+            <X size={24} />
+          </button>
         </div>
         <nav className="p-4 flex-1 overflow-y-auto no-scrollbar">
-          <button onClick={goHome} className="flex items-center text-emerald-200 hover:text-white mb-8 w-full touch-manipulation transition-colors font-medium">
+          <button
+            onClick={goHome}
+            className="flex items-center text-emerald-200 hover:text-white mb-8 w-full touch-manipulation transition-colors font-medium"
+          >
             <ArrowLeft size={18} className="mr-2" /> Back to Home
           </button>
-          
+
           <div className="mb-4 px-2">
-            <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">Quick Guides</h4>
+            <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">
+              Quick Guides
+            </h4>
             <div className="space-y-1.5">
-              {modules.map(mod => (
-                <button 
+              {modules.map((mod) => (
+                <button
                   key={mod.id}
                   onClick={() => openModule(mod.id)}
-                  className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation ${activeModuleId === mod.id ? `bg-white text-emerald-900 shadow-[0_0_15px_rgba(255,255,255,0.2)] font-bold` : 'text-emerald-100/80 hover:bg-white/10 hover:text-white'}`}
+                  className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation ${
+                    activeModuleId === mod.id
+                      ? `bg-white text-emerald-900 shadow-[0_0_15px_rgba(255,255,255,0.2)] font-bold`
+                      : 'text-emerald-100/80 hover:bg-white/10 hover:text-white'
+                  }`}
                 >
                   {mod.title}
                 </button>
@@ -579,50 +833,76 @@ export default function USaskPocusApp() {
           </div>
 
           <div className="mt-8 px-2">
-            <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">App Info</h4>
-            <button 
+            <h4 className="text-xs font-extrabold text-emerald-400/80 uppercase tracking-widest mb-3">
+              App Info
+            </h4>
+            <button
               onClick={goToAbout}
               className={`w-full flex items-center px-4 py-2.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white`}
             >
               <Info size={18} className="mr-3" />
               About Us
             </button>
+            <a
+              href="https://usaskpocus.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full flex items-center px-4 py-2.5 mt-1.5 rounded-xl text-sm font-medium transition-all touch-manipulation text-emerald-100/80 hover:bg-white/10 hover:text-white`}
+            >
+              <MessageSquare size={18} className="mr-3" />
+              Feedback
+            </a>
           </div>
         </nav>
       </aside>
 
       {/* Background Overlay for mobile sidebar */}
       {isSidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       <main className="flex-1 flex flex-col h-full overflow-hidden relative z-10">
-        <header className={`h-16 ${headerClass} border-b flex items-center justify-between px-6 shrink-0 shadow-sm z-20`}>
+        <header
+          className={`h-16 ${headerClass} border-b flex items-center justify-between px-6 shrink-0 shadow-sm z-20`}
+        >
           <div className="flex items-center">
-            <button onClick={() => setSidebarOpen(true)} className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden mr-4 text-slate-500 hover:text-emerald-700 transition-colors"
+            >
               <Menu size={24} />
             </button>
-            <h2 className="text-lg font-bold text-slate-800 truncate tracking-tight">{activeModule?.title}</h2>
+            <h2 className="text-lg font-bold text-slate-800 truncate tracking-tight">
+              {activeModule?.title}
+            </h2>
           </div>
         </header>
 
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth relative z-10">
+        <div
+          ref={scrollRef}
+          className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth relative z-10"
+        >
           <div className="max-w-3xl mx-auto space-y-6 md:space-y-8 pb-24 pt-2">
             {activeModule && activeModule.sections ? (
               activeModule.sections.map((section, idx) => (
                 <SectionCard key={idx} section={section} isSafari={isSafari} />
               ))
             ) : (
-              <div className={`${dashboardCardClass} max-w-3xl mx-auto p-12 rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 text-center`}>
+              <div
+                className={`${dashboardCardClass} max-w-3xl mx-auto p-12 rounded-xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/80 text-center`}
+              >
                 <div className="w-20 h-20 bg-emerald-50/80 border border-emerald-100/50 shadow-sm text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Stethoscope size={40} />
                 </div>
-                <h3 className="text-3xl font-extrabold text-slate-800 mb-3 tracking-tight">Content Coming Soon</h3>
+                <h3 className="text-3xl font-extrabold text-slate-800 mb-3 tracking-tight">
+                  Content Coming Soon
+                </h3>
                 <p className="text-slate-600 mb-8 font-medium">
-                  Dr. Kolbenson is currently curating the curriculum for this module. 
+                  Dr. Kolbenson is currently curating the curriculum for this
+                  module.
                 </p>
                 <div className="inline-flex items-center text-xs font-bold text-slate-400 bg-slate-100/80 border border-slate-200/50 backdrop-blur-sm px-4 py-1.5 rounded-full uppercase tracking-wider">
                   <Info size={14} className="mr-2" />
