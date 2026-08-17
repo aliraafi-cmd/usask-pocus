@@ -781,7 +781,7 @@ export default function USaskPocusApp() {
 
                 <form
                   target="_blank"
-                  action="https://formsubmit.co/aliraafi@gmail.com"
+                  action="https://formsubmit.co/linden.kolbenson@usask.ca"
                   method="POST"
                   className="space-y-5 relative z-10"
                 >
