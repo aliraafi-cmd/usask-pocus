@@ -637,7 +637,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%203%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%205%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
             caption: 'Male Pelvis Internal Landmarks',
           },
           { type: 'bold', text: 'Pelvis Female' },
@@ -647,7 +647,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%204%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%206%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
             caption: 'Female Pelvis Internal Landmarks',
           },
           { type: 'divider' },
