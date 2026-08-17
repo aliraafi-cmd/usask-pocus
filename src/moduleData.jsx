@@ -1173,9 +1173,9 @@ export const modules = [
             text: 'Internal: Visceral Parietal Pleural Interface (VPPI) | Ribs | Rib Shadows | A-Lines (if present)',
           },
           {
-            type: 'video',
-            url: '',
-            caption: 'Media 1 - Probe Starting Position (Coming Soon)',
+            type: 'image',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pneumothorax/Media%201%20-%20Probe%20Starting%20Position.png',
+            caption: 'Probe Starting Position',
           },
           {
             type: 'video',
@@ -1601,14 +1601,14 @@ export const modules = [
             text: 'Internal: Right Ventricle | Left Ventricle | Mitral Valve | Aortic Valve | Ascending Aorta | Pericardium | Left Atrium | Interventricular Septum',
           },
           {
-            type: 'video',
-            url: '',
-            caption: 'Media 1 PLAX External Landmarks (Coming Soon)',
+            type: 'image',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%201%20-%20PLAX%20External%20Landmarks.png',
+            caption: 'PLAX External Landmarks',
           },
           {
             type: 'video',
-            url: '',
-            caption: 'Media 2 PLAX Internal Landmarks (Coming Soon)',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%202%20-%20PLAX%20Internal%20Landmarks.mp4',
+            caption: 'PLAX Internal Landmarks',
           },
 
           { type: 'bold', text: 'Apical Four Chamber (A4C)' },
@@ -1618,14 +1618,14 @@ export const modules = [
             text: 'Internal: Right Ventricle | Left Ventricle | Mitral Valve | Tricuspid Valve | Pericardium | Left Atrium | Right Atrium | Interventricular Septum',
           },
           {
-            type: 'video',
-            url: '',
-            caption: 'Media 3 A4C External Landmarks (Coming Soon)',
+            type: 'image',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%203%20-%20A4C%20External%20Landmarks.png',
+            caption: 'A4C External Landmarks',
           },
           {
             type: 'video',
-            url: '',
-            caption: 'Media 4 A4C Internal Landmarks (Coming Soon)',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%204%20-%20A4C%20Internal%20Landmarks.mp4',
+            caption: 'A4C Internal Landmarks',
           },
 
           { type: 'bold', text: 'Subcostal / Subxiphoid (SC | SX)' },
@@ -1638,14 +1638,14 @@ export const modules = [
             text: 'Internal: Right Ventricle | Left Ventricle | Mitral Valve | Tricuspid Valve | Pericardium | Left Atrium | Right Atrium | Interventricular Septum | Liver | Diaphragm',
           },
           {
-            type: 'video',
-            url: '',
-            caption: 'Media 5 SC External Landmarks (Coming Soon)',
+            type: 'image',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%205%20-%20SC%20External%20Landmarks.png',
+            caption: 'SC External Landmarks',
           },
           {
             type: 'video',
-            url: '',
-            caption: 'Media 6 SC Internal Landmarks (Coming Soon)',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%206%20-%20SC%20Internal%20Landmarks.mp4',
+            caption: 'SC Internal Landmarks',
           },
 
           { type: 'divider' },
@@ -1703,14 +1703,14 @@ export const modules = [
             ],
           },
           {
-            type: 'video',
-            url: '',
-            caption: 'Media 7 PLAX Probe Starting Position',
+            type: 'image',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%207%20-%20PLAX%20Probe%20Starting%20Position.png',
+            caption: 'PLAX Probe Starting Position',
           },
           {
             type: 'video',
-            url: '',
-            caption: 'Media 8 Standard PLAX View',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%208%20-%20Standard%20PLAX%20View.mp4',
+            caption: 'Standard PLAX View',
           },
 
           { type: 'header', text: 'Apical Four Chamber (A4C)' },
@@ -1727,14 +1727,14 @@ export const modules = [
             ],
           },
           {
-            type: 'video',
-            url: '',
-            caption: 'Media 9 A4C Probe Starting Position',
+            type: 'image',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%209%20-%20A4C%20Probe%20Starting%20Position.png',
+            caption: 'A4C Probe Starting Position',
           },
           {
             type: 'video',
-            url: '',
-            caption: 'Media 10 Standard A4C View',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2010%20-%20Standard%20A4C%20View.mp4',
+            caption: 'Standard A4C View',
           },
 
           { type: 'header', text: 'Subcostal / Subxiphoid (SC | SX)' },
@@ -1750,14 +1750,14 @@ export const modules = [
             ],
           },
           {
-            type: 'video',
-            url: '',
-            caption: 'Media 11 SC Probe Starting Position',
+            type: 'image',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2011%20-%20SC%20Probe%20Starting%20Position.png',
+            caption: 'SC Probe Starting Position',
           },
           {
             type: 'video',
-            url: '',
-            caption: 'Media 12 Standard SC View',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2012%20-%20Standard%20SC%20View.mp4',
+            caption: 'Standard SC View',
           },
         ],
       },
@@ -1779,29 +1779,29 @@ export const modules = [
           { type: 'bold', text: 'Negative for Pericardial Effusion:' },
           {
             type: 'list',
-            items: [
+                        items: [
               'No fluid collections seen in areas listed above',
               'Please note to rule out a pericardial effusion with a single subcostal view the RV and the interventricular septum “7-sign” must be fanned through from anterior to posterior. This is paramount in the setting of an EFAST scan for hemopericardium',
             ],
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%207%20-%20PLAX%20No%20PCE%20vs%20PCE.mp4',
-            caption: 'PLAX No PCE vs PCE',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2013%20-%20PLAX%20No%20PCE%20vs%20PCE.mp4',
+             caption: 'PLAX No PCE vs PCE',
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%208%20-%20A4C%20No%20PCE%20vs%20PCE.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2014%20-%20A4C%20No%20PCE%20vs%20PCE.mp4',
             caption: 'A4C No PCE vs PCE',
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%209%20-%20SC%20No%20PCE%20vs%20PCE.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2015%20-%20SC%20No%20PCE%20vs%20PCE.mp4',
             caption: 'SC No PCE vs PCE',
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2010%20-%20SC%20PCE%20Seen%20When%20Fanning%20Posterior.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2016%20-%20SC%20PCE%20Seen%20When%20Fanning%20Posterior.mp4',
             caption: 'SC PCE Seen When Fanning Posterior',
           },
 
@@ -1827,30 +1827,30 @@ export const modules = [
             ],
           },
           {
-            type: 'image',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2011%20-%20PLAX%20Fractional%20Shortening.png',
+            type: 'video',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2017%20-%20PLAX%20Fractional%20Shortening.mp4',
             caption: 'PLAX Fractional Shortening',
           },
           {
-            type: 'image',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2012%20-%20PLAX%20EPSS.png',
+            type: 'video',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2018%20-%20PLAX%20EPSS.mp4',
             caption: 'PLAX EPSS',
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2013%20-%20PLAX%20LVSF%20Normal%20vs%20Severely%20Reduced.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2019%20-%20PLAX%20Normal%20vs%20Severely%20Abnormal%20LV%20Systolic%20Function.mp4',
             caption: 'PLAX Normal vs Severely Abnormal LV Systolic Function',
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2014%20-%20A4C%20LVSF%20Normal%20vs%20Severely%20Reduced.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2020%20-%20A4C%20Normal%20vs%20Severely%20Abnormal%20LV%20Systolic%20Function.mp4',
             caption: 'A4C Normal vs Severely Abnormal LV Systolic Function',
           },
           {
             type: 'video',
-            url: '',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2021%20-%20SC%20Normal%20vs%20Severely%20Abnormal%20LV%20Systolic%20Function.mp4',
             caption:
-              'Media 21 - SC Normal vs Severely Abnormal LV Systolic Function (Coming Soon)',
+              'SC Normal vs Severely Abnormal LV Systolic Function',
           },
 
           { type: 'divider' },
