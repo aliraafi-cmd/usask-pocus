@@ -1916,10 +1916,10 @@ export const modules = [
 
           {
             type: 'video',
-            url: '',
-            caption: 'Media 22 - Qualitative RV Size (Coming Soon)',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2022%20-%20PLAX%20Normal%20RV%20Size%20vs%20Enlarged%20RV.mp4',
+            caption: 'Qualitative RV Size',
           },
-          { type: 'video', url: '', caption: 'Media 23 - TAPSE (Coming Soon)' },
+          { type: 'video', url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2023%20-%20A4C%20Normal%20RV%20vs%20Abnormal%20RV.mp4', caption: 'TAPSE' },
           {
             type: 'video',
             url: '',
@@ -2080,7 +2080,7 @@ export const modules = [
           },
           {
             type: 'image',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%200%20-%20RUQ%20LUQ%20External%20Landmarks.png',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%201%20-%20RUQ%20LUQ%20External%20Landmarks.png',
             caption: 'RUQ LUQ External Landmarks',
           },
           { type: 'bold', text: 'RUQ' },
@@ -2090,7 +2090,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%202%20-%20RUQ%20Internal%20Landmarks.mp4',
             caption: 'RUQ Internal Landmarks',
           },
           { type: 'bold', text: 'LUQ' },
@@ -2100,14 +2100,14 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%202%20-%20LUQ%20External%20Internal%20Landmarks.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%203%20-%20LUQ%20Internal%20Landmarks.mp4',
             caption: 'LUQ Internal Landmarks',
           },
           { type: 'bold', text: 'Pelvis Male | Female' },
           { type: 'text', text: 'External: Superior to Pubic Symphysis' },
           {
             type: 'image',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%203%20-%20Pelvis%20Probe%20Starting%20Position.png',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%204%20-%20Pelvis%20Probe%20Starting%20Position.png',
             caption: 'Pelvis Probe Starting Position',
           },
           { type: 'bold', text: 'Pelvis Male' },
@@ -2117,7 +2117,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%205%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%205%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
             caption: 'Male Pelvis Transverse Longitudinal Internal Landmarks',
           },
           { type: 'bold', text: 'Pelvis Female' },
@@ -2127,7 +2127,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%206%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%206%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
             caption: 'Female Pelvis Transverse Longitudinal Internal Landmarks',
           },
           { type: 'divider' },
@@ -2136,14 +2136,14 @@ export const modules = [
           { type: 'text', text: 'Kidney | Renal Sinus' },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%206%20-%20Area%20of%20Interest%20Renal%20Sinus.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%207%20-%20Area%20of%20Interest%20Renal%20Sinus.mp4',
             caption: 'Area of Interest Renal Sinus',
           },
           { type: 'bold', text: 'Pelvis Male and Female' },
           { type: 'text', text: 'Bladder | Ureterovesicular Junction (UVJ)' },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%207%20-%20Area%20of%20Interest%20Bladder%20UVJ.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%208%20-%20Area%20of%20Interest%20Bladder%20UVJ.mp4',
             caption: 'Area of Interest Bladder UVJ',
           },
         ],
@@ -2168,7 +2168,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%208%20-%20Fanning%20Through%20Renal%20Sinus.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%209%20-%20Fanning%20Through%20Renal%20Sinus.mp4',
             caption: 'Fanning Through Renal Sinus',
           },
 
@@ -2192,17 +2192,17 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%209%20-%20Fanning%20Until%20Trigone%20and%20UVJs%20are%20Seen.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2010%20-%20Fanning%20Until%20Trigone%20and%20UVJs%20are%20Seen.mp4',
             caption: 'Fanning Until Trigone and UVJs Seen',
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2010%20-%20Placing%20Colour%20Box%20to%20Observe%20for%20Ureteric%20Jets.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2011%20-%20Placing%20Colour%20Box%20to%20Observe%20for%20Ureteric%20Jets.mp4',
             caption: 'Placing Colour Box to Observe for Ureteric Jets',
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2011%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Transverse.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2012%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Transverse.mp4',
             caption:
               'Fanning Inferior and Superior to Find the Largest Anterior-Posterior and Transverse Dimension',
           },
@@ -2223,7 +2223,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2012%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Longitudinal.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2013%20-%20Fanning%20to%20Find%20Largest%20Dimension%20Longitudinal.mp4',
             caption:
               'Fanning Left and Right to Find the Largest Cranial-Caudal Dimension',
           },
@@ -2252,12 +2252,12 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2013%20-%20No%20Hydronephrosis%20vs%20Hydronephrosis.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2014%20-%20No%20Hydronephrosis%20vs%20Hydronephrosis.mp4',
             caption: 'No Hydronephrosis vs Hydronephrosis',
           },
           {
             type: 'image',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2014%20-%20Hydronephrosis%20Severity.png',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2015%20-%20Hydronephrosis%20Severity.png',
             caption: 'Hydronephrosis Severity',
           },
 
@@ -2267,7 +2267,7 @@ export const modules = [
           { type: 'text', text: 'Present or Absent' },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2015%20-%20Ureteric%20Jets.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2016%20-%20Ureteric%20Jets.mp4',
             caption: 'Ureteric Jets',
           },
 
@@ -2280,7 +2280,7 @@ export const modules = [
           },
           {
             type: 'image',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2016%20-%20Bladder%20Volume%20Measurements%20and%20Calculation.png',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Obstructive%20Uropathy/Media%2017%20-%20Bladder%20Volume%20Measurements%20and%20Calculation.png',
             caption: 'Bladder Volume Measurements and Calculation',
           },
         ],
