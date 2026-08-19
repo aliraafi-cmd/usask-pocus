@@ -1,14 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="theme-color" content="#00693E" />
+    <meta name="description" content="USask POCUS - Point of Care Ultrasound Curriculum" />
+    <!-- Replace with your actual favicon links if you have them -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    
     <title>USask POCUS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 
+      INLINE STYLES FOR IMMEDIATE RENDER:
+      We put this CSS directly in the HTML file so the browser doesn't 
+      have to wait to download an external CSS file. It loads instantly.
+    -->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc; /* Matches your Tailwind slate-50 background */
+      }
+
+      .preloader-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      .spinner-box {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* The USask Green spinning ring */
+      .circle-border {
+        width: 100%;
+        height: 100%;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: linear-gradient(0deg, rgba(0,105,62,0.1) 33%, rgba(0,105,62,1) 100%);
+        animation: spin 1s linear infinite;
+      }
+
+      .circle-core {
+        width: 100%;
+        height: 100%;
+        background-color: #f8fafc;
+        border-radius: 50%;
+      }
+
+      /* Inner pulse effect */
+      .pulse-center {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: #00693E; /* USask Green */
+        border-radius: 50%;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+
+      .loading-text {
+        margin-top: 24px;
+        color: #00693E;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        animation: fade 1.5s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(0.8); opacity: 0.5; }
+        50% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(0.8); opacity: 0.5; }
+      }
+
+      @keyframes fade {
+        0% { opacity: 0.5; }
+        50% { opacity: 1; }
+        100% { opacity: 0.5; }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- 
+      THE MAGIC TRICK: 
+      Everything inside this <div id="root"> will be visible immediately upon opening the site.
+      As soon as React finishes its loading process, it will automatically DELETE
+      everything inside this div and replace it with your actual App interface.
+    -->
+    <div id="root">
+      <div class="preloader-container">
+        <div class="spinner-box">
+          <div class="circle-border">
+            <div class="circle-core"></div>
+          </div>
+          <div class="pulse-center"></div>
+        </div>
+        <div class="loading-text">Loading POCUS...</div>
+      </div>
+    </div>
+    
+    <!-- THE MISSING LINK: This tells Vite where to find your React code! -->
     <script type="module" src="/src/main.jsx"></script>
+    
   </body>
 </html>
