@@ -25,30 +25,26 @@ const useIsSafari = () => {
 };
 
 // --- ROBUST VIDEO COMPONENT ---
-// This component forces iOS to play nice with backgrounding and implements strict lazy rendering ONLY for Safari
+// Upgraded to provide invisible, pre-emptive lazy loading for ALL devices
 const VideoPlayer = ({ src, caption, isSafari }) => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
 
-  // If it is NOT Safari, we set it to be in view immediately to load everything at once
-  const [isInView, setIsInView] = useState(!isSafari);
-  
-  // Track playing state for our custom UI
-  const [isPlaying, setIsPlaying] = useState(false);
+  // We now start EVERY browser with the video unmounted to save massive bandwidth
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    // If we are not on Safari, bypass the IntersectionObserver completely
-    if (!isSafari) {
-      setIsInView(true);
-      return;
-    }
-
-    // 1. Strict Lazy Loading Observer for Safari
+    // 1. Pre-emptive Lazy Loading Observer
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.25 } // Catch it when 25% enters the view!
+      { 
+        // THE SECRET SAUCE: Start loading the video when it is 400 pixels AWAY from entering the screen.
+        // This gives the network a head start so it feels perfectly spontaneous when the user scrolls to it!
+        rootMargin: '400px 0px', 
+        threshold: 0 
+      } 
     );
 
     if (containerRef.current) {
@@ -56,10 +52,10 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
     }
 
     return () => observer.disconnect();
-  }, [isSafari]);
+  }, []); // Notice we removed isSafari from the dependency array, it applies to everyone now!
 
   useEffect(() => {
-    // 2. Wake Up Listener (Only matters when the video is actually mounted and in view)
+    // 2. Wake Up Listener
     if (!isInView || !videoRef.current) return;
 
     const videoElement = videoRef.current;
@@ -91,25 +87,21 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
   }, [isInView, src]);
 
   // Our custom, elegant fullscreen handler
-  const toggleFullscreen = (e) => {
-    e.stopPropagation(); // Prevents tapping the button from pausing the video
+  const toggleFullscreen = () => {
     const video = videoRef.current;
     if (!video) return;
 
     if (video.requestFullscreen) {
       video.requestFullscreen();
     } else if (video.webkitEnterFullscreen) {
-      // This is the magic ticket for iPhones!
       video.webkitEnterFullscreen();
     } else if (video.webkitRequestFullscreen) {
-      // This handles iPads and Mac Safari
       video.webkitRequestFullscreen();
     }
   };
 
-  // Our custom play/pause toggle
-  const togglePlay = (e) => {
-    e.stopPropagation();
+  // Custom play/pause handler for the sleek UI
+  const togglePlay = () => {
     const video = videoRef.current;
     if (!video) return;
 
@@ -133,10 +125,6 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
       ref={containerRef}
       className={`my-5 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-white/50 ${containerGlassClass}`}
     >
-      {/* 
-        The 'group' class here tells Tailwind to listen for hovers/taps. 
-        'cursor-pointer' makes it clear on desktop that the video is interactive.
-      */}
       <div 
         className="relative bg-black aspect-video flex items-center justify-center group cursor-pointer"
         onClick={togglePlay}
@@ -151,42 +139,41 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
               playsInline
               preload="none"
               loop
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
             />
-            
-            {/* A subtle gradient overlay that only shows on hover/tap to make buttons pop */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-            {/* Our sleek, custom Control Pill */}
-            <div className="absolute bottom-3 right-3 flex items-center bg-slate-900/50 backdrop-blur-md rounded-lg shadow-sm border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 overflow-hidden">
+            {/* The elegant, invisible-until-needed control pill */}
+            <div className="absolute bottom-3 right-3 flex items-center bg-slate-900/40 hover:bg-slate-900/60 backdrop-blur-md rounded-xl text-white/80 transition-all z-10 shadow-sm opacity-0 group-hover:opacity-100 p-1">
               <button
-                onClick={togglePlay}
-                className="p-2.5 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
-                aria-label={isPlaying ? "Pause" : "Play"}
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevents the video from registering a double-click
+                  togglePlay();
+                }}
+                className="p-2 hover:text-white transition-colors"
+                aria-label="Play/Pause"
               >
-                {isPlaying ? <Pause size={16} fill="currentColor" /> : <Play size={16} fill="currentColor" />}
+                {videoRef.current?.paused ? <Play size={16} fill="currentColor" /> : <Pause size={16} fill="currentColor" />}
               </button>
               
-              {/* Subtle divider line between buttons */}
-              <div className="w-[1px] h-4 bg-white/20" />
+              <div className="w-[1px] h-4 bg-white/20 mx-1"></div>
               
               <button
-                onClick={toggleFullscreen}
-                className="p-2.5 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFullscreen();
+                }}
+                className="p-2 hover:text-white transition-colors"
                 aria-label="View Fullscreen"
               >
                 <Maximize size={16} />
               </button>
             </div>
             
-            {/* Optional: A large play button in the center if it gets paused manually */}
-            {!isPlaying && (
-               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                 <div className="bg-black/40 backdrop-blur-sm p-4 rounded-full text-white/90">
-                    <Play size={32} fill="currentColor" className="ml-1" />
-                 </div>
-               </div>
+            {/* A subtle center play button that only appears when paused */}
+            {videoRef.current?.paused && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="bg-slate-900/40 backdrop-blur-sm p-4 rounded-full text-white/90">
+                  <Play size={32} fill="currentColor" className="ml-1" />
+                </div>
+              </div>
             )}
           </>
         ) : (
@@ -251,7 +238,7 @@ const ContentBlock = ({ item, color, isSafari }) => {
 
     case 'list':
       return (
-        <ul className="list-disc list-inside space-y-1 my-3 text-slate-700 text-sm">
+        <ul className="list-disc list-outside space-y-1.5 my-3 ml-5 text-slate-700 text-sm">
           {item.items.map((li, idx) => (
             <li key={idx} className="leading-relaxed pl-1">
               {li}
@@ -262,7 +249,7 @@ const ContentBlock = ({ item, color, isSafari }) => {
 
     case 'sublist':
       return (
-        <ul className="list-[circle] list-inside space-y-1 my-2 ml-6 text-slate-600 text-sm">
+        <ul className="list-[circle] list-outside space-y-1.5 my-2 ml-9 text-slate-600 text-sm">
           {item.items.map((li, idx) => (
             <li key={idx} className="leading-relaxed pl-1">
               {li}
@@ -299,6 +286,7 @@ const ContentBlock = ({ item, color, isSafari }) => {
             <img
               src={item.url}
               alt={item.caption || 'Medical Reference'}
+              loading="lazy" // <-- MAGIC WORD! This natively lazy loads images now.
               className="w-full h-auto object-contain max-h-[60vh] rounded-lg shadow-sm"
             />
           </div>
