@@ -637,7 +637,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%205%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks%20(1).mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%205%20-%20Male%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
             caption: 'Male Pelvis Internal Landmarks',
           },
           { type: 'bold', text: 'Pelvis Female' },
@@ -647,7 +647,7 @@ export const modules = [
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%206%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks%20(1).mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Free%20Fluid%20Abdomen/Media%206%20-%20Female%20Pelvis%20Transverse%20Longitudinal%20Internal%20Landmarks.mp4',
             caption: 'Female Pelvis Internal Landmarks',
           },
           { type: 'divider' },
@@ -992,23 +992,45 @@ export const modules = [
           { type: 'header', text: 'Landmarks' },
           {
             type: 'text',
-            text: 'External Landmarks: Mid-Posterior Axillary Line | Xiphoid Process',
+            text: 'External: Mid-Posterior Axillary Line | Xiphoid Process',
+          },
+          {
+            type: 'image',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%201%20-%20RUQ%20LUQ%20External%20Landmarks.png',
+            caption: 'RUQ and LUQ External Landmarks',
           },
           {
             type: 'text',
-            text: 'Internal Landmarks: Kidney | Diaphragm | Liver / Spleen | Spine | Lung',
+            text: 'RUQ',
+          },
+          {
+            type: 'text',
+            text: 'Internal: Kidney | Diaphragm | Liver | Spine | Lung',
           },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%201%20-%20RUQ%20External%20Internal%20Landmarks.mp4',
-            caption: 'RUQ External Internal Landmarks',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%202%20-%20RUQ%20Internal%20Landmarks.mp4',
+            caption: 'RUQ Internal Landmarks',
+          },
+          {
+            type: 'text',
+            text: 'LUQ',
+          },
+          {
+            type: 'text',
+            text: 'Internal: Kidney | Diaphragm | Spleen | Spine | Lung',
+          },
+          {
+            type: 'video',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%203%20-%20LUQ%20Internal%20Landmarks.mp4',
+            caption: 'LUQ Internal Landmarks',
           },
           { type: 'divider' },
           { type: 'header', text: 'Area of Interest' },
           { type: 'text', text: 'Area cranial to diaphragm' },
           {
             type: 'video',
-            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%202%20-%20Area%20of%20Interest.mp4',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Pleural%20Effusion/Media%204%20-%20Area%20of%20Interest.mp4',
             caption: 'Area of Interest',
           },
         ],
@@ -1917,24 +1939,29 @@ export const modules = [
           {
             type: 'video',
             url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2022%20-%20PLAX%20Normal%20RV%20Size%20vs%20Enlarged%20RV.mp4',
-            caption: 'Qualitative RV Size',
+            caption: 'PLAX Normal RV vs Enlarged RV',
           },
-          { type: 'video', url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2023%20-%20A4C%20Normal%20RV%20vs%20Abnormal%20RV.mp4', caption: 'TAPSE' },
+          { type: 'video', url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2023%20-%20A4C%20Normal%20RV%20vs%20Abnormal%20RV.mp4', caption: 'A4C Normal RV vs Enlarged RV' },
           {
             type: 'video',
-            url: '',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2024%20-%20A4C%20TAPSE.mp4',
             caption:
-              'Media 24 - PLAX Normal RV Size vs Enlarged RV (Coming Soon)',
+              'TAPSE in the A4C',
           },
           {
             type: 'video',
-            url: '',
-            caption: 'Media 25 - A4C Normal RV vs Abnormal RV (Coming Soon)',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2025%20-%20SC%20TAPSE.mp4',
+            caption: 'TAPSE in the SC',
           },
           {
             type: 'video',
-            url: '',
-            caption: 'Media 26 - SC Normal RV vs Abnormal RV (Coming Soon)',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2026%20-%20A4C%20Normal%20TAPSE%20vs%20Abnormal%20TAPSE.mp4',
+            caption: 'A4C Normal TAPSE vs Abnormal TAPSE',
+          },
+          {
+            type: 'video',
+            url: 'https://pub-2cf3bcb92e72473dac171762929cd457.r2.dev/Cardiac/Media%2027%20-%20SC%20Normal%20TAPSE%20vs%20Abnormal%20TAPSE.mp4',
+            caption: 'SC Normal TAPSE vs Abnormal TAPSE',
           },
         ],
       },
