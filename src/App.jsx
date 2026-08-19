@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BookOpen, Menu, X, Stethoscope, GraduationCap, Info, ArrowRight, ArrowLeft, CirclePlay as PlayCircle, Code as Code2, MessageSquare } from 'lucide-react';
+import { BookOpen, Menu, X, Stethoscope, GraduationCap, Info, ArrowRight, ArrowLeft, CirclePlay as PlayCircle, Code as Code2, MessageSquare, Maximize, Play, Pause, } from 'lucide-react';
 // BRINGING IN OUR DATA THE ROCK-SOLID WAY!
 import { modules } from './moduleData';
 
@@ -30,8 +30,11 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
 
-  // If it's NOT Safari, we set it to be in view immediately to load everything at once
+  // If it is NOT Safari, we set it to be in view immediately to load everything at once
   const [isInView, setIsInView] = useState(!isSafari);
+  
+  // Track playing state for our custom UI
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     // If we are not on Safari, bypass the IntersectionObserver completely
@@ -87,6 +90,36 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
     };
   }, [isInView, src]);
 
+  // Our custom, elegant fullscreen handler
+  const toggleFullscreen = (e) => {
+    e.stopPropagation(); // Prevents tapping the button from pausing the video
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitEnterFullscreen) {
+      // This is the magic ticket for iPhones!
+      video.webkitEnterFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+      // This handles iPads and Mac Safari
+      video.webkitRequestFullscreen();
+    }
+  };
+
+  // Our custom play/pause toggle
+  const togglePlay = (e) => {
+    e.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
+
   // Use progressive enhancement class based on Safari quarantine
   const containerGlassClass = isSafari
     ? 'bg-white/95'
@@ -100,17 +133,62 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
       ref={containerRef}
       className={`my-5 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-white/50 ${containerGlassClass}`}
     >
-      <div className="relative bg-black aspect-video flex items-center justify-center group">
+      {/* 
+        The 'group' class here tells Tailwind to listen for hovers/taps. 
+        'cursor-pointer' makes it clear on desktop that the video is interactive.
+      */}
+      <div 
+        className="relative bg-black aspect-video flex items-center justify-center group cursor-pointer"
+        onClick={togglePlay}
+      >
         {isInView ? (
-          <video
-            ref={videoRef}
-            src={src}
-            className="w-full h-full object-contain"
-            muted
-            playsInline
-            preload="none"
-            loop
-          />
+          <>
+            <video
+              ref={videoRef}
+              src={src}
+              className="w-full h-full object-contain"
+              muted
+              playsInline
+              preload="none"
+              loop
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+            />
+            
+            {/* A subtle gradient overlay that only shows on hover/tap to make buttons pop */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+            {/* Our sleek, custom Control Pill */}
+            <div className="absolute bottom-3 right-3 flex items-center bg-slate-900/50 backdrop-blur-md rounded-lg shadow-sm border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 overflow-hidden">
+              <button
+                onClick={togglePlay}
+                className="p-2.5 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+                aria-label={isPlaying ? "Pause" : "Play"}
+              >
+                {isPlaying ? <Pause size={16} fill="currentColor" /> : <Play size={16} fill="currentColor" />}
+              </button>
+              
+              {/* Subtle divider line between buttons */}
+              <div className="w-[1px] h-4 bg-white/20" />
+              
+              <button
+                onClick={toggleFullscreen}
+                className="p-2.5 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+                aria-label="View Fullscreen"
+              >
+                <Maximize size={16} />
+              </button>
+            </div>
+            
+            {/* Optional: A large play button in the center if it gets paused manually */}
+            {!isPlaying && (
+               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                 <div className="bg-black/40 backdrop-blur-sm p-4 rounded-full text-white/90">
+                    <Play size={32} fill="currentColor" className="ml-1" />
+                 </div>
+               </div>
+            )}
+          </>
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center bg-slate-900 text-slate-500">
             <PlayCircle size={32} className="mb-2 opacity-30" />
@@ -781,7 +859,7 @@ export default function USaskPocusApp() {
 
                 <form
                   target="_blank"
-                  action="https://formsubmit.co/linden.kolbenson@usask.ca"
+                  action="https://formsubmit.co/aliraafi@gmail.com"
                   method="POST"
                   className="space-y-5 relative z-10"
                 >
