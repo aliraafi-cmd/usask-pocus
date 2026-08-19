@@ -40,9 +40,9 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
         setIsInView(entry.isIntersecting);
       },
       { 
-        // THE SECRET SAUCE: Start loading the video when it is 400 pixels AWAY from entering the screen.
+        // THE SECRET SAUCE: Start loading the video when it is 1000 pixels AWAY from entering the screen.
         // This gives the network a head start so it feels perfectly spontaneous when the user scrolls to it!
-        rootMargin: '400px 0px', 
+        rootMargin: '1000px 0px', 
         threshold: 0 
       } 
     );
