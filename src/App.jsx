@@ -25,26 +25,33 @@ const useIsSafari = () => {
 };
 
 // --- ROBUST VIDEO COMPONENT ---
-// Upgraded to provide invisible, pre-emptive lazy loading for ALL devices
+// Upgraded to prevent iOS from booting users out of fullscreen on orientation change
 const VideoPlayer = ({ src, caption, isSafari }) => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
 
-  // We now start EVERY browser with the video unmounted to save massive bandwidth
-  const [isInView, setIsInView] = useState(false);
+  // Track if it has EVER been in view (prevents unmounting during phone rotation)
+  const [hasLoaded, setHasLoaded] = useState(!isSafari);
+  // Track CURRENT visibility (used to pause the video off-screen and save battery)
+  const [isInView, setIsInView] = useState(!isSafari);
+  // Track play state for the sleek UI
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    // 1. Pre-emptive Lazy Loading Observer
+    if (!isSafari) {
+      setHasLoaded(true);
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setHasLoaded(true); // Once it enters, it stays loaded forever!
+        }
       },
-      { 
-        // THE SECRET SAUCE: Start loading the video when it is 1000 pixels AWAY from entering the screen.
-        // This gives the network a head start so it feels perfectly spontaneous when the user scrolls to it!
-        rootMargin: '1000px 0px', 
-        threshold: 0 
-      } 
+      { rootMargin: '1000px 0px', threshold: 0 }
     );
 
     if (containerRef.current) {
@@ -52,11 +59,28 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
     }
 
     return () => observer.disconnect();
-  }, []); // Notice we removed isSafari from the dependency array, it applies to everyone now!
+  }, [isSafari]);
 
+  // Sync our custom UI state with the actual video player
   useEffect(() => {
-    // 2. Wake Up Listener
-    if (!isInView || !videoRef.current) return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    video.addEventListener('play', handlePlay);
+    video.addEventListener('pause', handlePause);
+
+    return () => {
+      video.removeEventListener('play', handlePlay);
+      video.removeEventListener('pause', handlePause);
+    };
+  }, [hasLoaded]);
+
+  // Visibility and Auto-play Logic
+  useEffect(() => {
+    if (!hasLoaded || !videoRef.current) return;
 
     const videoElement = videoRef.current;
 
@@ -64,17 +88,26 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
       try {
         await videoElement.play();
       } catch (err) {
-        console.log(
-          'Autoplay prevented (low power mode or interaction needed)',
-          err
-        );
+        console.log('Autoplay prevented', err);
       }
     };
 
-    attemptPlay();
+    // MAGIC FIX: If the device rotates, the background layout shifts out of view. 
+    // We check native Apple fullscreen flags so we DO NOT pause it!
+    const isFullscreen = !!(
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      videoElement.webkitDisplayingFullscreen
+    );
+
+    if (isInView) {
+      attemptPlay();
+    } else if (!isFullscreen) {
+      videoElement.pause();
+    }
 
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
+      if (document.visibilityState === 'visible' && isInView) {
         attemptPlay();
       }
     };
@@ -84,10 +117,11 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [isInView, src]);
+  }, [isInView, hasLoaded, src]);
 
   // Our custom, elegant fullscreen handler
-  const toggleFullscreen = () => {
+  const toggleFullscreen = (e) => {
+    if (e) e.stopPropagation();
     const video = videoRef.current;
     if (!video) return;
 
@@ -101,7 +135,8 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
   };
 
   // Custom play/pause handler for the sleek UI
-  const togglePlay = () => {
+  const togglePlay = (e) => {
+    if (e) e.stopPropagation();
     const video = videoRef.current;
     if (!video) return;
 
@@ -129,7 +164,7 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
         className="relative bg-black aspect-video flex items-center justify-center group cursor-pointer"
         onClick={togglePlay}
       >
-        {isInView ? (
+        {hasLoaded ? (
           <>
             <video
               ref={videoRef}
@@ -143,23 +178,17 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
             {/* The elegant, invisible-until-needed control pill */}
             <div className="absolute bottom-3 right-3 flex items-center bg-slate-900/40 hover:bg-slate-900/60 backdrop-blur-md rounded-xl text-white/80 transition-all z-10 shadow-sm opacity-0 group-hover:opacity-100 p-1">
               <button
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevents the video from registering a double-click
-                  togglePlay();
-                }}
+                onClick={togglePlay}
                 className="p-2 hover:text-white transition-colors"
                 aria-label="Play/Pause"
               >
-                {videoRef.current?.paused ? <Play size={16} fill="currentColor" /> : <Pause size={16} fill="currentColor" />}
+                {isPlaying ? <Pause size={16} fill="currentColor" /> : <Play size={16} fill="currentColor" />}
               </button>
               
               <div className="w-[1px] h-4 bg-white/20 mx-1"></div>
               
               <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleFullscreen();
-                }}
+                onClick={toggleFullscreen}
                 className="p-2 hover:text-white transition-colors"
                 aria-label="View Fullscreen"
               >
@@ -168,9 +197,9 @@ const VideoPlayer = ({ src, caption, isSafari }) => {
             </div>
             
             {/* A subtle center play button that only appears when paused */}
-            {videoRef.current?.paused && (
+            {!isPlaying && (
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="bg-slate-900/40 backdrop-blur-sm p-4 rounded-full text-white/90">
+                <div className="bg-slate-900/40 backdrop-blur-sm p-4 rounded-full text-white/90 shadow-lg">
                   <Play size={32} fill="currentColor" className="ml-1" />
                 </div>
               </div>
